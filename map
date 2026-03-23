@@ -658,11 +658,11 @@
     <div id="menustrip">
         <div id="menu">
             <a class="item" href="index.html">Home</a>
-            <a class="item" href="history.html">History</a>
-            <a class="item" href="familytree.html">Family Tree</a>
-            <a class="item selected" href="map.html">Location & Map</a>
-            <a class="item" href="about.html">About</a>
-            <a class="item" href="contactus.html">Contact</a>
+            <a class="item" href="history">History</a>
+            <a class="item" href="familytree">Family Tree</a>
+            <a class="item selected" href="map">Location & Map</a>
+            <a class="item" href="about">About</a>
+            <a class="item" href="contactus">Contact</a>
         </div>
     </div>
     
@@ -763,13 +763,13 @@
         <div id="footer">
             <div class="footer-links">
                 <a href="index.html">Home</a>
-                <a href="history.html">History</a>
-                <a href="familytree.html">Family Tree</a>
-                <a href="map.html">Location & Map</a>
-                <a href="about.html">About</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="sitemap.html">Sitemap</a>
-                <a href="contactus.html">Contact Us</a>
+                <a href="history">History</a>
+                <a href="familytree">Family Tree</a>
+                <a href="map">Location & Map</a>
+                <a href="about">About</a>
+                <a href="privacy">Privacy Policy</a>
+                <a href="sitemap">Sitemap</a>
+                <a href="contactus">Contact Us</a>
             </div>
             
             <div class="copyright">
