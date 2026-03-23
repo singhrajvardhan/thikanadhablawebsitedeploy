@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Learn about the history and legacy of the Badgujar family of Thikana Dhabla Ghosi in Madhya Pradesh.">
+    <meta name="keywords" content="Badgujar, Thikana Dhabla Ghosi, Rajput, Madhya Pradesh, family history">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Thikana Dhabla Ghosi">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thikanadhabla.in">
+    <meta property="og:image" content="https://thikanadhabla.in/images/Bajekan_logo_small_1.png">
+    <meta property="og:description" content="Homepage and family tree of the Badgujar family of Thikana DhablaGhosi in Madhyapradesh. We belong to the royal Rajput clan of the Badgujar">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Thikana Dhabla Ghosi">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thikana Dhabla Ghosi">
+    <meta name="twitter:description" content="Homepage and family tree of the Badgujar family of Thikana DhablaGhosi">
+    <meta name="twitter:image" content="https://thikanadhabla.in/images/Bajekan_logo_small_1.png">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-MP">
+    <meta name="geo.placename" content="Shujapur">
+    <meta name="geo.position" content="23.3207;76.7085">
+    <meta name="ICBM" content="23.3207, 76.7085">
+
+    <title>Badgujar Family - Thikana Dhabla Ghosi</title>
+    <link rel="icon" href="1200.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="stylesheet2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #06c1db;
+            --secondary-color: #0056b3;
+            --accent-color: #ffd700;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #222;
+            --font-main: 'Noto Sans', sans-serif;
+            --font-heading: 'Noto Serif', serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Animation */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--primary-color);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Header Styles */
+        #topstrip {
+            background-color: var(--dark-bg);
+            height: 5px;
+        }
+        
+        #headstrip {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        #header {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        #header img {
+            height: 80px;
+            width: auto;
+            max-width: 100%;
+        }
+        
+        /* Blinking Message */
+        #blinking-message {
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: var(--light-bg);
+            transition: all 0.5s ease;
+        }
+        
+        /* Navigation */
+        #menustrip {
+            background-color: var(--primary-color);
+        }
+        
+        #menu {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        
+        #menu a.item {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        #menu a.item:hover, #menu a.item.selected {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        #menu img {
+            height: 16px;
+            width: auto;
+        }
+        
+        /* Main Content */
+        #mainstrip {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        #main {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--light-bg);
+            font-weight: 700;
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        /* Footer */
+        #footerstrip {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        #footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        #footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        
+        #footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .parent {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .child {
+            margin: 0 0.5rem;
+        }
+        
+        .button {
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .button:hover {
+            transform: scale(1.1);
+        }
+        
+        .button svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Google Translate */
+        #google_translate_element {
+            text-align: right;
+            padding: 0.5rem 1rem;
+            background-color: var(--light-bg);
+        }
+        
+        /* Dropdown Menu */
+        #ddBar {
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        #ddBanner {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        #ddBanner.show {
+            max-height: 500px;
+        }
+        
+        #ddBanner .inner {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            #header img {
+                margin-bottom: 1rem;
+            }
+            
+            #menu {
+                flex-direction: column;
+            }
+            
+            #menu a.item {
+                padding: 0.75rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            #main {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+        
+        /* Accessibility Improvements */
+        a:focus, button:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            #topstrip, #menustrip, #footerstrip, #google_translate_element {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.5;
+                color: #000;
+                background: none;
+            }
+            
+            #main {
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                font-weight: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Loading Animation -->
+    <div class="loader-container">
+        <div class="loader" id="loader"></div>
+    </div>
+    
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Header Section -->
+    <div id="topstrip"></div>
+    <div id="headstrip">
+        <div id="header">
+            <a href="index.php" aria-label="Home">
+                <img id="main-logo" src="1200.jpeg" alt="Badgujar Family Crest">
+            </a>
+            
+            <!-- Blinking Message -->
+            <div id="blinking-message" aria-live="polite"></div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div id="menustrip">
+        <div id="menu">
+            <a class="item selected" href="index.php">Home</a>
+            <a class="item" href="history.php">History</a>
+            <a class="item" href="Familytree.php">Family Tree</a>
+            <a class="item" href="map.php">Location & Map</a>
+            <a class="item" href="about.php">About</a>
+            <a class="item" href="contactus.php">Contact</a>
+            <a class="item" id="dd" href="javascript:;" aria-expanded="false" aria-controls="ddBanner">
+                <img src="down.png" alt="Menu Dropdown">
+            </a>
+        </div>
+    </div>
+    
+    <!-- Dropdown Banner -->
+    <div id="ddBar"></div>
+    <div id="ddBanner">
+        <div class="inner">
+            <form action="search.php" method="get" role="search">
+                <div class="search-container">
+                    <input type="text" name="s" id="search" placeholder="Search..." aria-label="Search">
+                    <button type="submit" aria-label="Submit search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            
+            <h3>Spread the word...</h3>
+            <div class="social-sharing">
+                <!-- Facebook -->
+                <div class="fb-share-button" data-href="https://www.thikanadhabla.in" data-layout="button_count" data-size="small">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.thikanadhabla.in%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                </div>
+                
+                <!-- Twitter -->
+                <a href="https://twitter.com/share?url=https://www.thikanadhabla.in&text=Learn%20about%20the%20Badgujar%20family%20history" class="twitter-share-button" data-show-count="false">Tweet</a>
+                
+                <!-- Email -->
+                <a href="mailto:?subject=Badgujar%20Family%20History&amp;body=Check%20out%20this%20website%20about%20the%20Badgujar%20family%20history:%20https://www.thikanadhabla.in" target="_blank" class="email-share">Email</a>
+            </div>
+            <button onclick="closeDDMenu()" class="close-btn">Close</button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="mainstrip">
+        <div id="main">
+            <article>
+                <h1>🏛 Introduction to the Legacy of the Badgujar Rajputs in Madhya Pradesh</h1>
+                <p>The Badgujar Rajputs, a legendary warrior clan, have left an indelible mark on Indian history, particularly in the regions of Rajasthan and Madhya Pradesh. Tracing their lineage to Lava, the elder son of Bhagwan Ram, the Badgujars ruled over several kingdoms and princely states before India's independence in 1947. Known for their bravery, military prowess, and administrative acumen, the Badgujar Rajputs played a crucial role in shaping the history and culture of central India. Their legacy is not just a tale of kings and kingdoms but a story of resilience, honor, and cultural preservation.</p>
+                
+                <section>
+                    <h2>Badgujar Rajputs in Madhya Pradesh</h2>
+                    <p>Madhya Pradesh was home to several prominent Badgujar Rajput estates, including:</p>
+                    
+                    <ul>
+                        <li>Dabla Khedi</li>
+                        <li>Dabla Dheer</li>
+                        <li>Dabla Ghosi</li>
+                        <li>Kamalpur</li>
+                        <li>Sadhan Khedi</li>
+                    </ul>
+                    
+                    <p>One of the most significant branches of the Badgujar Rajputs in the region was the Raizada branch, which held a twelve-village estate in Vidisha, granted to Raja Raisingh Badgujar by the Marathas. The main branches of the Badgujar Rajputs in Madhya Pradesh were:</p>
+                    
+                    <ul>
+                        <li>Bhojavat</li>
+                        <li>Dharmangaj</li>
+                        <li>Raizada</li>
+                    </ul>
+                    
+                    <p>Each of these branches contributed to the region's governance and cultural heritage.</p>
+                </section>
+                
+                <section>
+                    <h2>The Dabla Ghosi Estate: A Symbol of Badgujar Legacy</h2>
+                    <p>One of the most notable Badgujar estates was Dabla Ghosi, whose history is intertwined with the legacy of Raja Goga Dev of Rajgarh-Machadi. His second son, Bhojraj Ji, moved from Machadi to Banawad, where his descendants lived for five generations. The lineage of Dabla Ghosi is as follows:</p>
+                    
+                    <ul>
+                        <li>Rudra Ji</li>
+                        <li>Desh Ji</li>
+                        <li>Madanmal Ji</li>
+                        <li>Gyan Sahay Ji</li>
+                        <li>Khanderay Ji</li>
+                    </ul>
+                    
+                    <p>Khanderay Ji later moved from Banawad to Kotda in Kheechiwada, where his successors continued to rule. His descendants included:</p>
+                    
+                    <ul>
+                        <li>Karn Singh Ji</li>
+                        <li>Kumbha Ji</li>
+                        <li>Dashraj Ji</li>
+                        <li>Mohkam Singh Ji</li>
+                        <li>Guman Singh Ji</li>
+                        <li>Raghunath Singh Ji</li>
+                        <li>Achal Singh Ji</li>
+                    </ul>
+                    
+                    <p>Achal Singh Ji had two sons, Govardhan Singh and Zorawar Singh. After the defeat of the Marathas by Lord Hastings in 1818, Dabla Ghosi was declared a guaranteed estate (garanti riyasat). The estate received financial support from various rulers:</p>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <caption>Financial Support for Dabla Ghosi Estate</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ruler</th>
+                                    <th scope="col">Annual Support (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sindhia</td>
+                                    <td>4,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Dewas</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Bhopal Darbar</td>
+                                    <td>900</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <p>Additionally, they held a village under Gwalior state, yielding ₹1,050 in revenue. After Rao Govardhan Singh's demise in 1854, his son Rao Gopal Singh took over, followed by Rao Chand Singh as the ruler of Dabla Ghosi.</p>
+                    
+                    <h3>The Successors of Dabla Ghosi</h3>
+                    <p>Rao Chand Singh had five sons:</p>
+                    
+                    <ul>
+                        <li>Rao Hanuvat Singh</li>
+                        <li>Zorawar Singh</li>
+                        <li>Keshari Singh</li>
+                        <li>Hakim Singh</li>
+                        <li>Hukam Singh</li>
+                    </ul>
+                    
+                    <p>When Rao Hanuvat Singh passed away childless, his nephew Bhupendra Singh, the son of Keshari Singh, became the ruler of Dabla Ghosi. The family's influence extended to villages like Panda (Tehsil Shujalpur) and Babroda (near Thikana Umri, Guna district), showcasing their enduring legacy.</p>
+                </section>
+                
+                <section>
+                    <h2>Suryavanshi Badgujar Rajput Lineage Details</h2>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <caption>Badgujar Rajput Lineage Information</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Dynasty</td><td>Suryavansh</td></tr>
+                                <tr><td>2</td><td>Gotra</td><td>Kashyav</td></tr>
+                                <tr><td>3</td><td>Ancestral Land</td><td>Ayodhya</td></tr>
+                                <tr><td>4</td><td>Branch</td><td>Maradadhvani</td></tr>
+                                <tr><td>5</td><td>Sutra</td><td>Katyayani</td></tr>
+                                <tr><td>6</td><td>Guru</td><td>Vashishta</td></tr>
+                                <tr><td>7</td><td>Preacher</td><td>Tripadvan</td></tr>
+                                <tr><td>8</td><td>Veda</td><td>Yajurveda</td></tr>
+                                <tr><td>9</td><td>River</td><td>Saryu</td></tr>
+                                <tr><td>10</td><td>Clan Goddess</td><td>Ashavari Mata</td></tr>
+                                <tr><td>11</td><td>Sword</td><td>Sakal (Vijayalakshmi)</td></tr>
+                                <tr><td>12</td><td>Horse</td><td>Shayakarn</td></tr>
+                                <tr><td>13</td><td>Flag (Symbol)</td><td>Panchayan</td></tr>
+                                <tr><td>14</td><td>Nail</td><td>Copper-made</td></tr>
+                                <tr><td>15</td><td>Exit</td><td>Rajoragrah</td></tr>
+                                <tr><td>16</td><td>Sacred Tree</td><td>Ashoka</td></tr>
+                                <tr><td>17</td><td>Throne</td><td>pili</td></tr>
+                                <tr><td>18</td><td>Worshipped Deity</td><td>Shri Sitaram Ji</td></tr>
+                                <tr><td>19</td><td>Clan God</td><td>Neelkanth Mahadev Ji</td></tr>
+                                <tr><td>20</td><td>Bird</td><td>Ghughu</td></tr>
+                                <tr><td>21</td><td>War Drum</td><td>Ranjit</td></tr>
+                                <tr><td>22</td><td>Bhairav</td><td>Kaal Bhairav</td></tr>
+                                <tr><td>23</td><td>Family Priest</td><td>Hardeniya</td></tr>
+                                <tr><td>24</td><td>Weapon Worship</td><td>Vijayalakshmi</td></tr>
+                                <tr><td>25</td><td>Bhimiya</td><td>Bagharaja Ji</td></tr>
+                                <tr><td>*</td><td>Salutation</td><td>Jai Raghunath Ji</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Four Sacred Places (Dhams) of Rajput Badgujar Clan</h3>
+                        <ul>
+                            <li>Machadi</li>
+                            <li>Devti</li>
+                            <li>Koleshwar</li>
+                            <li>Kakavadi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Eight Branches of Badgujar Rajput Suryavansh Clan</h3>
+                        <ul>
+                            <li>Rajora Badgujar (Rajoragrah)</li>
+                            <li>Sikarwar (Sikri)</li>
+                            <li>Khandara (Anupshahar, Bhodsi)</li>
+                            <li>Marad (Panipat, Karnel)</li>
+                            <li>Rayjada (Vidhisha, Bhenlsa)</li>
+                            <li>Munjwal (Samahda)</li>
+                            <li>Pokarna (Pokaran)</li>
+                            <li>Kannaujiya Badgujar (Surgaj, U.P.)</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>The Role of the Badgujars in Indian History</h2>
+                    <p>The Badgujar Rajputs were not just rulers but also defenders of their land and culture. They played a pivotal role in resisting foreign invasions and maintaining regional stability during the reigns of the Marathas, Rajputs, and Mughals. Their military strategies and administrative skills ensured the prosperity of their territories, making them key players in the power dynamics of central and western India.</p>
+                </section>
+                
+                <section>
+                    <h2>Cultural and Social Contributions</h2>
+                    <p>Beyond their military achievements, the Badgujar Rajputs made significant contributions to the cultural and social fabric of Madhya Pradesh. They built forts, palaces, and temples that stand as testaments to their architectural prowess. Their patronage of art, literature, and religious institutions helped preserve Rajputana traditions, which continue to influence the region's culture today.</p>
+                </section>
+                
+                <section>
+                    <h2>The Modern Legacy of the Badgujar Rajputs</h2>
+                    <p>Today, the Badgujar Rajputs continue to honor their heritage while adapting to modern times. Many descendants are active in politics, administration, and social service, ensuring that the clan's legacy remains relevant. Historical estates like Dabla Ghosi serve as reminders of their glorious past, while cultural events and family records keep their traditions alive.</p>
+                    
+                    <p>The Badgujar Rajputs of Madhya Pradesh have left an enduring legacy that transcends time. From their valiant battles and administrative excellence to their cultural contributions, their impact on the region's history is undeniable. The story of the Badgujar Rajputs is not just a chapter in Indian history but a testament to the enduring spirit of honor, courage, and resilience.</p>
+                </section>
+            </article>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div id="footerstrip">
+        <div id="footer">
+            <nav aria-label="Footer navigation">
+                <a href="index.php">Home</a> | 
+                <a href="history.php">History</a> | 
+                <a href="Familytree.php">Family Tree</a> | 
+                <a href="map.php">Location & Map</a> | 
+                <a href="about.php">About</a> | 
+                <a href="contactus.php">Contact Us</a> |
+                <a href="prrivacy1.php">Privacy Policy</a>
+            </nav>
+            
+            <p>
+                <span style="color: white;">
+                    Copyrights&copy;<a href="http://www.rajvardhansingh.in" style="color: white; text-decoration: none;">
+                        <span style="text-decoration: underline;">Rajvardhan Singh Badgujar</span></a>& Family
+                </span>
+            </p>
+            
+            <div class="parent" aria-label="Social media links">
+                <div class="child child-1">
+                    <div class="child child-2">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener noreferrer">
+                            <button class="button btn-2" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#ff00ff"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <div class="child child-4">
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener noreferrer">
+                            <button class="button btn-4" aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill="#4267B2"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <div class="child child-3">
+                        <a href="mailto:admin@thikanadhabla.in" target="_blank" rel="noopener noreferrer">
+                            <button class="button btn-3" aria-label="Email">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512" fill="#D44638">
+                                    <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Loader functionality
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').classList.add('hidden');
+            }, 1000);
+        });
+        
+        // Blinking message functionality
+        const messages = [
+            { text: "राघवाय नमः", color: "#ffd700" }, // Gold
+            { text: "जय माँ आसावरी", color: "#ff0000" } // Red
+        ];
+        
+        let currentIndex = 0;
+        const messageElement = document.getElementById('blinking-message');
+        
+        function updateMessage() {
+            // Fade out
+            messageElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Change message and color
+                currentIndex = (currentIndex + 1) % messages.length;
+                messageElement.textContent = messages[currentIndex].text;
+                messageElement.style.color = messages[currentIndex].color;
+                
+                // Fade in
+                messageElement.style.opacity = 1;
+            }, 500); // Half-second fade out duration
+        }
+        
+        // Initial message
+        messageElement.textContent = messages[0].text;
+        messageElement.style.color = messages[0].color;
+        messageElement.style.opacity = 1;
+        
+        // Change message every 2 seconds
+        setInterval(updateMessage, 2000);
+        
+        // Dropdown menu functionality
+        const dropdownToggle = document.getElementById('dd');
+        const dropdownMenu = document.getElementById('ddBanner');
+        
+        dropdownToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        function closeDDMenu() {
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+            dropdownMenu.classList.remove('show');
+        }
+        
+        // Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'en,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+        }
+        
+        // Load Google Translate script
+        function loadGoogleTranslate() {
+            const script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.body.appendChild(script);
+        }
+        
+        // Load after page is fully loaded
+        window.addEventListener('load', loadGoogleTranslate);
+        
+        // Responsive table functionality
+        function makeTablesResponsive() {
+            const tables = document.querySelectorAll('table');
+            
+            tables.forEach(table => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-responsive';
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            });
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            makeTablesResponsive();
+            
+            // Add focus styles for keyboard navigation
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'Tab') {
+                    document.documentElement.classList.add('keyboard-focus');
+                }
+            });
+            
+            document.addEventListener('mousedown', function() {
+                document.documentElement.classList.remove('keyboard-focus');
+            });
+        });
+    </script>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE_VALUE"></script>
+    
+    <!-- Twitter SDK -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

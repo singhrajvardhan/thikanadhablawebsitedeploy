@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emergency Connect</title>
+</head>
+<body>
+
+<h2>🚨 Emergency Alert</h2>
+
+<form method="POST" action="rsb/raj.php">
+
+  <input name="name" placeholder="Your Name" required><br><br>
+
+  <input name="user_phone" placeholder="Your Phone" required><br><br>
+
+  <input name="contact_phone" placeholder="Emergency Contact" required><br><br>
+
+  <select name="emergency_type">
+    <option>MEDICAL</option>
+    <option>STRANDED</option>
+    <option>SECURITY</option>
+    <option>DISASTER</option>
+    <option>OTHER</option>
+  </select><br><br>
+
+  <textarea 
+    name="message" 
+    placeholder="Emergency message (max 30 words)" 
+    required></textarea><br><br>
+
+  <!-- Hidden location fields -->
+  <input type="hidden" name="latitude" id="lat">
+  <input type="hidden" name="longitude" id="lng">
+
+  <button type="submit">🚨 Send Emergency</button>
+
+</form>
+
+<script>
+navigator.geolocation.getCurrentPosition(
+  pos => {
+    document.getElementById("lat").value = pos.coords.latitude;
+    document.getElementById("lng").value = pos.coords.longitude;
+  },
+  err => alert("Location permission is required!")
+);
+</script>
+
+</body>
+</html>

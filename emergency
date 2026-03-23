@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta property="og:title" content="Contact Directory - Thikana Dhabla Ghosi"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="www.thikanadhabla.in/contacts"/>
+    <meta property="og:image" content="http://thikanadhabla.in//images/Bajekan_logo_small_1.png"/>
+    <meta property="og:description" content="Contact directory for Thikana Dhabla Ghosi family members"/>
+    <meta name="description" content="Contact directory for Thikana Dhabla Ghosi family members">
+    <meta name="keywords" content="contact directory, Thikana Dhabla Ghosi, family contacts">
+    <link rel="icon" href="1200.jpeg" />
+    <title>Contact Directory - Thikana Dhabla Ghosi</title>
+    <style>
+        /* Rajasthani Color Palette */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+            --royal-blue: #0D47A1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--cream);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--gold),
+                var(--gold) 10px,
+                var(--saffron) 10px,
+                var(--saffron) 20px
+            );
+        }
+
+        /* Circular Logo Frame */
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 6px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            background-color: white;
+            padding: 3px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .decoration {
+            position: absolute;
+            width: 132px;
+            height: 132px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -6px;
+            left: -6px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 35px rgba(255, 153, 51, 0.6); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blinking-message {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Arial', sans-serif;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 2px solid var(--gold);
+            position: relative;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            border-radius: 15px 15px 0 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--maroon);
+            margin-bottom: 25px;
+            font-family: 'Times New Roman', serif;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .search-container {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        #search {
+            padding: 14px 20px;
+            width: 70%;
+            border-radius: 8px;
+            border: 2px solid var(--sand);
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+            background-color: #f9f9f9;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #search:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            background-color: white;
+        }
+
+        #search::placeholder {
+            color: var(--light-brown);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        th {
+            background: linear-gradient(to right, var(--maroon), var(--dark-brown));
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        tr:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-1px);
+            transition: all 0.3s;
+        }
+
+        td {
+            color: var(--dark-brown);
+            font-size: 16px;
+        }
+
+        td:first-child {
+            text-align: center;
+            font-weight: bold;
+            color: var(--maroon);
+            width: 80px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--light-brown);
+            font-size: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--sand);
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        }
+
+        .footer-links a:hover {
+            background: linear-gradient(to right, var(--deep-red), var(--saffron));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .contact-count {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--maroon);
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            #search {
+                width: 90%;
+            }
+            
+            th, td {
+                padding: 12px 8px;
+                font-size: 14px;
+            }
+            
+            .logo-frame {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-image {
+                width: 88px;
+                height: 88px;
+            }
+            
+            .decoration {
+                width: 112px;
+                height: 112px;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="topstrip"></div>
+    
+    <div id="headstrip">
+        <a href="index.php">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img src="1200.jpeg" alt="Thikana Dhabla Ghosi" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+        <div id="blinking-message"></div>
+    </div>
+
+    <div class="container">
+        <h1>Thikana Dhabla Contact Directory</h1>
+        
+        <div class="contact-count">Total Contacts: 37 Family Members</div>
+        
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search by name or mobile number..." onkeyup="searchContacts()">
+        </div>
+        
+        <table id="contactsTable">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Anurag</td>
+                    <td>90984 51236</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Abhishak Naurka</td>
+                    <td>96304 16711</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Aditya Raj Sjp</td>
+                    <td>62628 92296</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Devraj (Babu Dadabhai)</td>
+                    <td>79794 17034</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Dharmpal Singh (Banti Dadabhai)</td>
+                    <td>90989 33677</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Bhanu Dadabhai</td>
+                    <td>90391 71148</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>BhanuPratap Singh (Ujjain)</td>
+                    <td>97535 46609</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Dadu Dadabhai</td>
+                    <td>97542 43918</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Harsh</td>
+                    <td>79742 37328</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Harsh Umath</td>
+                    <td>63768 76525</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Jitendra Singh</td>
+                    <td>98262 97621</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Lokendra (Lallu Dadabhai)</td>
+                    <td>77479 87600</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Lokendra Singh</td>
+                    <td>99869 30395</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Mohan (Monu Dadabhai)</td>
+                    <td>77489 29823</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Narendra Singh</td>
+                    <td>89658 75251</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Nityaraj</td>
+                    <td>86430 62798</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Pushpendra Singh (Pinku Kakosa SJP)</td>
+                    <td>99269 22232</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Ramendra Singh</td>
+                    <td>88272 44435</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Rohan Singh</td>
+                    <td>97553 99969</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Rahul Singh</td>
+                    <td>89629 80018</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Sandeep Singh</td>
+                    <td>62635 25046</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Barjapal Singh (Sanky Dadabhai)</td>
+                    <td>79877 54045</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>Satendra Singh</td>
+                    <td>94253 48286</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>Sundar Dadabhai</td>
+                    <td>93997 41544</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>Jaypal (Sonu Dadabhai)</td>
+                    <td>95891 53859</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>KP (Vicky Dadabhai)</td>
+                    <td>93435 39886</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>Vaibhav Sharma (Tuk Tuk)</td>
+                    <td>87190 26784</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>Yuvraj Singh</td>
+                    <td>96446 24077</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>Rajvardhan (Raj)</td>
+                    <td>97540 07756</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>Vishal Singh</td>
+                    <td>91790 60724</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td>Lokendra Singh (Dadabhai Shujalpur)</td>
+                    <td>97540 37622</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>Raghvendra Singh (Lala Dadabhai)</td>
+                    <td>95757 84033</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td>Shubham</td>
+                    <td>62679 46785</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td>Vijendra Singh (Lucky Dadabhai)</td>
+                    <td>98266 68934</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>Vijaypal</td>
+                    <td>93295 10868</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td>Website Developer</td>
+                    <td>97702 89936</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>Bhawani</td>
+                    <td>74158 47581</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <div class="footer-links">
+                <a href="login.php">Login</a>
+                <a href="index.php">Website</a>
+            </div>
+            <p>Last updated: June 2025 | Thikana Dhabla Contact Directory</p>
+        </div>
+    </div>
+
+    <script>
+        // Blinking message script
+        const messages = [
+            { text: "राघवाय नमः", color: "#ffd700" }, // Gold
+            { text: "जय माँ आसावरी", color: "#ff0000" } // Red
+        ];
+        
+        let currentIndex = 0;
+        const messageElement = document.getElementById('blinking-message');
+        
+        function updateMessage() {
+            // Fade out
+            messageElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Change message and color
+                currentIndex = (currentIndex + 1) % messages.length;
+                messageElement.textContent = messages[currentIndex].text;
+                messageElement.style.color = messages[currentIndex].color;
+                
+                // Fade in
+                messageElement.style.opacity = 1;
+            }, 500); // Half-second fade out duration
+        }
+        
+        // Initial message
+        messageElement.textContent = messages[0].text;
+        messageElement.style.color = messages[0].color;
+        messageElement.style.opacity = 1;
+        
+        // Change message every 2 seconds
+        setInterval(updateMessage, 2000);
+
+        function searchContacts() {
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("contactsTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                let nameTd = tr[i].getElementsByTagName("td")[1];
+                let mobileTd = tr[i].getElementsByTagName("td")[2];
+                
+                if (nameTd || mobileTd) {
+                    let nameValue = nameTd.textContent || nameTd.innerText;
+                    let mobileValue = mobileTd.textContent || mobileTd.innerText;
+                    
+                    if (nameValue.toUpperCase().indexOf(filter) > -1 || 
+                        mobileValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+<channel>
+  <title>Thikana Dhabla</title>
+  <link>https://www.thikanadhabla.in/</link>
+  <description>Explore the historic Badgujar Rajput dynasty of Thikana Dhabla Ghosi, Shajapur. Discover royal genealogy, warrior history, and Rajput culture in Malwa region. 
+ ,Sisodiya website, Rajora website, Badgujar website, Banna, Jija, Jijosa, Rajvardhan Singh, Bhupendrav Singh Daarbar, Mata Ji, Aashwari Mata, Ujjain, Indore, Bhopal, Rajasthan, India, Ram, Sita, Kusa, Rajput heritage,
+ Badgujar Rajput,Sisodiya,Rajora,Banna,Baisa Thikana Dhabla Ghosi, Rajput history MP, Shajapur heritage, Rajputana culture, Badgujar dynasty, Rajput clans, Malwa Rajputs, Dhabla Ghosi fort,thikana dhabla,Hokam,Jay Mata Di
+ ,Thikana Dhabla Ghosi,Explore the legacy of Rajvardhan Singh through the Sisodiya, Rajora, and Badgujar heritage. Connected to Ujjain, Indore, Bhopal, Rajasthan, and divine blessings of Aashwari Mata Ji.,
+  </description>
+  <language>en-us</language>
+    <lastBuildDate><?php echo date(DATE_RSS); ?></lastBuildDate>
+
+
+
+ <item>
+    <title>Welcome to Our New Website</title>
+    <link>https://www.thikanadhabla.in</link>
+    <description>Explore the new website of Thikana Dhabla Ghosi with updated family history and gallery.</description>
+    <pubDate><?php echo date(DATE_RSS); ?></pubDate>
+    <guid>https://www.thikanadhabla.in</guid>
+  </item>
+  
+
+  <item>
+    <title>History of Badgujar Rajputs</title>
+    <link>https://www.thikanadhabla.in/history-badgujar-rajputs</link>
+    <description>Discover the origins and legacy of the Badgujar Rajput clan in the Malwa region, their brave warriors, and their contributions to Rajputana history.</description>
+    <pubDate>Mon, 03 March 2025 10:00:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/history-badgujar-rajputs</guid>
+  </item>
+
+  <item>
+    <title>Photo Gallery: Fort of Dhabla Ghosi</title>
+    <link>https://www.thikanadhabla.in/gallery-dhabla-fort</link>
+    <description>Explore rare and historic photos of the Dhabla Ghosi fort, royal weapons, and ancestral relics of the Badgujar Rajputs.</description>
+    <pubDate>Wed, 05 March 2025 14:30:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/gallery-dhabla-fort</guid>
+  </item>
+
+  <item>
+    <title>Aashwari Mata Ji – Divine Protector</title>
+    <link>https://www.thikanadhabla.in/aashwari-mata-temple</link>
+    <description>Read about the spiritual significance of Aashwari Mata Ji and her revered temple in the heart of Dhabla Ghosi.</description>
+    <pubDate>Fri, 07 March 2025 09:45:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/aashwari-mata-temple</guid>
+  </item>
+
+  <item>
+    <title>Royal Lineage: Rajvardhan Singh</title>
+    <link>https://www.thikanadhabla.in/rajvardhan-singh-lineage</link>
+    <description>Trace the royal bloodline of Rajvardhan Singh and understand his role in preserving Rajput culture and heritage.</description>
+    <pubDate>Sat, 08 March 2025 17:00:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/rajvardhan-singh-lineage</guid>
+  </item>
+  <item>
+    <title>Rajputana Rituals and Traditions</title>
+    <link>https://www.thikanadhabla.in/rajput-traditions</link>
+    <description>Learn about the timeless customs, rituals, and valorous stories passed down through generations in Rajput families.</description>
+    <pubDate>Sun, 09 March 2025 11:20:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/rajput-traditions</guid>
+  </item>
+    <item>
+    <title>Upcoming Community Gathering 2025</title>
+    <link>https://www.thikanadhabla.in/community-gathering</link>
+    <description>Join the annual gathering of Rajput families at Dhabla Ghosi. Meet descendants, share stories, and celebrate heritage.</description>
+    <pubDate>Mon, September 2025 08:30:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/community-gathering</guid>
+  </item>
+   
+  <item>
+    <title>Video Tour: Inside the Dhabla Fort</title>
+    <link>https://www.thikanadhabla.in/video-tour-dhabla</link>
+    <description>Take a virtual tour through the interiors of the historic Dhabla Ghosi fort with guided narration and drone footage.</description>
+    <pubDate>Wed, 19 March 2025 15:00:00 GMT</pubDate>
+    <guid>https://www.thikanadhabla.in/video-tour-dhabla</guid>
+  </item>
+    <item>
+    <title>Your Latest Post Title</title>
+    <link>https://www.thikanadhabla.in/latest-post-url</link>
+    <description>Summary of your latest post...</description>
+    <pubDate>Sun, 10 August 2025 12:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>

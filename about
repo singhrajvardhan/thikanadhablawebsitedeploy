@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>About - Thikana Dhabla Ghosi | Creator & Acknowledgements</title>
+    <meta name="description" content="Learn about Kr. Rajvardhan Singh Badgujar, the creator of Thikana Dhabla Ghosi website, and acknowledgements for the royal Badgujar Rajput heritage preservation.">
+    <meta name="keywords" content="About Thikana Dhabla Ghosi, Rajvardhan Singh Badgujar, Badgujar Rajput, website creator, acknowledgements, Dhabla Ghosi heritage">
+    <meta name="author" content="Kr. Rajvardhan Singh Badgujar">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="About - Thikana Dhabla Ghosi | Creator & Acknowledgements"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.thikanadhabla.in/about.html"/>
+    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:description" content="Learn about Kr. Rajvardhan Singh Badgujar, the creator of Thikana Dhabla Ghosi website, and acknowledgements for preserving Badgujar Rajput heritage."/>
+    <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
+    <meta property="og:locale" content="en_IN"/>
+    <meta property="fb:admins" content="0"/>
+    
+    <!-- Location Meta Tags -->
+    <meta property="og:latitude" content="23.3207"/>
+    <meta property="og:longitude" content="76.7085"/>
+    <meta property="og:street-address" content="Dhabla Ghosi"/>
+    <meta property="og:locality" content="Shajapur"/>
+    <meta property="og:region" content="Madhya Pradesh"/>
+    <meta property="og:postal-code" content="465335"/>
+    <meta property="og:country-name" content="India"/>
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Thikana Dhabla Ghosi">
+    <meta name="twitter:description" content="Meet the creator and acknowledgements for the Thikana Dhabla Ghosi heritage website.">
+    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="1200.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="1200.jpeg">
+    
+    <style>
+        /* ==================== RAJASTHANI COLOR PALETTE ==================== */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+            --royal-blue: #0D47A1;
+            --shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: var(--cream);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+        }
+
+        /* ==================== LOADER ==================== */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(93, 64, 55, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            border: 5px solid var(--cream);
+            border-top: 5px solid var(--gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ==================== HEADER STRIP ==================== */
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 8px;
+        }
+
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 10px, var(--saffron) 10px, var(--saffron) 20px);
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 8px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 164px;
+            height: 164px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            background-color: white;
+            padding: 4px;
+        }
+
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(255, 153, 51, 0.5); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blinking-message {
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 12px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        #menustrip {
+            background: linear-gradient(to bottom, var(--maroon), var(--dark-brown));
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+        }
+
+        #menu a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        #menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        #menu a:hover::after {
+            width: 70%;
+        }
+
+        #menu a.selected {
+            color: var(--gold);
+            background: rgba(255,255,255,0.1);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        #menu a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        #mainstrip {
+            padding: 40px 20px;
+            min-height: calc(100vh - 450px);
+        }
+
+        #main {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--sand);
+            position: relative;
+        }
+
+        #main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            border-radius: 16px 16px 0 0;
+        }
+
+        #main h1 {
+            color: var(--maroon);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--gold);
+            font-family: 'Times New Roman', serif;
+            font-size: 2rem;
+        }
+
+        #main h2 {
+            color: var(--dark-brown);
+            margin: 30px 0 20px;
+            font-size: 1.6rem;
+            border-left: 5px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        #main p {
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .rajasthani-border {
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            background: linear-gradient(135deg, #fff, var(--cream));
+        }
+
+        .rajasthani-border::before {
+            content: "🕌";
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: white;
+            padding: 0 15px;
+            color: var(--maroon);
+            font-size: 1.5rem;
+        }
+
+        .rajasthani-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2" fill="%23D4AF37" opacity="0.3"/></svg>');
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        /* Author Section Styles */
+        .author-section {
+            margin: 20px 0 30px;
+            text-align: center;
+        }
+
+        .author-name {
+            color: var(--maroon);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .first-para {
+            font-size: 1.05rem;
+            margin-top: 15px;
+        }
+
+        blockquote {
+            background: linear-gradient(135deg, var(--cream), #fff);
+            border-left: 5px solid var(--gold);
+            padding: 25px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--dark-brown);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1rem;
+        }
+
+        blockquote::before {
+            content: "“";
+            font-size: 3.5rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-right: 10px;
+            float: left;
+            font-family: serif;
+        }
+
+        /* Acknowledgement Section */
+        .acknowledgement-section {
+            margin: 40px 0;
+        }
+
+        .acknowledgement-item {
+            background: linear-gradient(135deg, #fffdf8, #fff);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 22px 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .acknowledgement-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .acknowledgement-item h3 {
+            color: var(--maroon);
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 8px;
+            display: inline-block;
+            font-size: 1.3rem;
+        }
+
+        .signature-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5e6, #fff);
+            border-radius: 12px;
+            border-left: 5px solid var(--gold);
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* ==================== FOOTER ==================== */
+        #footertop {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 6px;
+        }
+
+        #footerstrip {
+            background-color: var(--dark-brown);
+            padding: 35px 20px 25px;
+            text-align: center;
+            color: var(--cream);
+        }
+
+        #footer {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Icons */
+        .parent {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .child {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            background-color: var(--cream);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .child:hover {
+            transform: scale(1.15);
+            background-color: var(--gold);
+        }
+
+        .button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+            display: none;
+            font-weight: bold;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, var(--deep-red), var(--saffron));
+        }
+
+        /* Google Translate */
+        #google_translate_element {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            z-index: 999;
+            background: rgba(93, 64, 55, 0.85);
+            border-radius: 8px;
+            padding: 5px 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            #menu {
+                gap: 5px;
+                padding: 10px 12px;
+            }
+            
+            #menu a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            
+            #main {
+                padding: 25px 18px;
+            }
+            
+            #main h1 {
+                font-size: 1.7rem;
+            }
+            
+            .logo-frame {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .logo-image {
+                width: 114px;
+                height: 114px;
+            }
+            
+            .decoration {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .author-name {
+                font-size: 1.4rem;
+            }
+            
+            blockquote {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            blockquote::before {
+                font-size: 2.5rem;
+            }
+            
+            .acknowledgement-item {
+                padding: 18px;
+            }
+            
+            .footer-links {
+                gap: 12px;
+            }
+            
+            .footer-links a {
+                font-size: 0.85rem;
+            }
+            
+            #blinking-message {
+                font-size: 1rem;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            #google_translate_element {
+                bottom: 10px;
+                left: 10px;
+                transform: scale(0.9);
+            }
+        }
+
+        @media (max-width: 480px) {
+            #menu a {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+            }
+            
+            #main {
+                padding: 20px 15px;
+            }
+            
+            .author-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Top Strip -->
+    <div id="topstrip"></div>
+    
+    <!-- Header with Logo -->
+    <div id="headstrip">
+        <a href="index.html">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img id="logo1" src="1200.jpeg" alt="Thikana Dhabla Ghosi - Royal Badgujar Family" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+        <div id="blinking-message"></div>
+    </div>
+    
+    <!-- Navigation Menu - All links corrected for static HTML -->
+    <div id="menustrip">
+        <div id="menu">
+            <a class="item" href="index">Home</a>
+            <a class="item" href="history">History</a>
+            <a class="item" href="familytree">Family Tree</a>
+            <a class="item" href="map">Location & Map</a>
+            <a class="item selected" href="about">About</a>
+            <a class="item" href="contactus">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="mainstrip">
+        <div id="main">
+            <div class="rajasthani-border">
+                <h1>A Note from the Author & Designer</h1>
+                <div class="author-section">
+                    <div class="author-name">Kr. Rajvardhan Singh Badgujar</div>
+                    <p class="first-para">Hello and welcome to the official website of Thikana Dhabla Ghosi. I am Kr. Rajvardhan Singh Badgujar, son of Thakur Suresh Singh Badgujar. Born and raised in Thikana Dhabla Ghosi, I am currently pursuing BCA from Govt. Holkar Science College, Indore. Through my studies in web development, I have gained knowledge about front-end technologies, which inspired me to create this digital platform.</p>
+                </div>
+                
+                <blockquote>
+                    In vain have you acquired knowledge if you do not impart it to others.
+                </blockquote>
+                
+                <p>
+                    Being from the field of web development, I felt it was my moral responsibility to create a website to showcase the royal culture and heritage we belong to. With the proliferation of computer technology around the world, the internet serves as the best medium to connect people and share knowledge. So, please feel free to spread the word and let everyone know about the rich culture and glorious history of the Badgujar Rajput family of Thikana Dhabla Ghosi.
+                </p>
+            </div>
+
+            <div class="acknowledgement-section">
+                <h1>🙏 Acknowledgements</h1>
+                <div class="rajasthani-pattern">
+                    <p>Creating this website has been a fulfilling journey, and it would not have been possible without the support and encouragement of many individuals. I would like to take this opportunity to express my heartfelt gratitude to all those who have contributed directly or indirectly to this project.</p>
+                </div>
+
+                <div class="acknowledgement-item">
+                    <h3>🏰 Family Support</h3>
+                    <p>First and foremost, I extend my deepest thanks to my beloved father, <strong>Thakur Suresh Singh Badgujar</strong>, and my respected mother, for their unwavering support and for instilling in me a deep sense of pride in our heritage. Their stories, teachings, and guidance about our royal culture and traditions have been the foundation of this website. I am also grateful to all my family members who encouraged me throughout this journey.</p>
+                </div>
+
+                <div class="acknowledgement-item">
+                    <h3>🌾 Community Contributions</h3>
+                    <p>A special thanks to the esteemed elders and residents of Dhabla Ghosi, who generously shared their knowledge, stories, and valuable insights about our rich culture, history, and ancestral traditions. Their contributions have added depth, authenticity, and a personal touch to this platform, helping preserve our legacy for future generations.</p>
+                </div>
+
+                <div class="acknowledgement-item">
+                    <h3>💻 Technical & General Appreciation</h3>
+                    <p>I am thankful to my professors at Govt. Holkar Science College, Indore, for their guidance in web development. I also appreciate the support of friends who provided feedback and encouragement. Lastly, thank you to every visitor of this website—your interest in our heritage keeps our traditions alive.</p>
+                </div>
+
+                <div class="signature-box">
+                    <p><strong>With warm regards,</strong><br>
+                    <strong>Kr. Rajvardhan Singh Badgujar</strong><br>
+                    Thikana Dhabla Ghosi,<br>
+                    District Shajapur, Madhya Pradesh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    
+    <!-- Footer -->
+    <div id="footertop"></div>
+    <div id="footerstrip">
+        <div id="footer">
+            <div class="footer-links">
+                <a href="index">Home</a>
+                <a href="history">History</a>
+                <a href="familytree">Family Tree</a>
+                <a href="map">Location & Map</a>
+                <a href="about">About</a>
+                <a href="privacy">Privacy Policy</a>
+                <a href="sitemap">Sitemap</a>
+                <a href="contactus">Contact Us</a>
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2025 
+                <a href="http://www.rajvardhansingh.in" target="_blank" rel="noopener">Rajvardhan Singh Badgujar</a> & Family. All Rights Reserved.
+            </div>
+            
+            <div class="parent">
+                <div class="child">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 448 512" fill="#E4405F"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 320 512" fill="#1877F2"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="mailto:thikanadhabla@gmail.com" aria-label="Email">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 512 512" fill="#D44638"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'en,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Chatbase Embed -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+    <script>
+        // Hide loader after page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loaderContainer');
+                if(loader) loader.classList.add('hidden');
+            }, 600);
+        });
+
+        // Blinking message animation
+        const messages = [
+            { text: "राघवाय नमः", color: "#ffd700" },
+            { text: "जय माँ आसावरी", color: "#ff6b6b" },
+            { text: "🙏 Badgujar Rajput 🙏", color: "#ffb347" }
+        ];
+        let msgIndex = 0;
+        const msgEl = document.getElementById('blinking-message');
+        
+        function updateBlinkingMessage() {
+            if(msgEl) {
+                msgEl.style.opacity = '0';
+                setTimeout(() => {
+                    msgIndex = (msgIndex + 1) % messages.length;
+                    msgEl.textContent = messages[msgIndex].text;
+                    msgEl.style.color = messages[msgIndex].color;
+                    msgEl.style.opacity = '1';
+                }, 400);
+            }
+        }
+        
+        if(msgEl) {
+            msgEl.textContent = messages[0].text;
+            msgEl.style.color = messages[0].color;
+            setInterval(updateBlinkingMessage, 2500);
+        }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

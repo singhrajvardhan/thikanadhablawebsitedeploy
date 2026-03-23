@@ -1,0 +1,863 @@
+<?php
+// At the VERY TOP of about.php - nothing before this line
+include 'tracker-debug.php';
+include 'tracker-safe.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta property="og:title" content="Sitemap - Thikana Dhabla Ghosi"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="www.thikanadhabla.in"/>
+    <meta property="og:image" content="http://thikanadhabla.in//images/Bajekan_logo_small_1.png"/>
+    <meta property="og:description" content="Complete sitemap of Thikana Dhabla Ghosi website"/>
+    <meta property="fb:admins" content="0"/>
+    <meta property="og:latitude" content="23.3207"/>
+    <meta property="og:longitude" content="76.7085"/>
+    <meta property="og:street-address" content="DHABLA Ghosi"/>
+    <meta property="og:locality" content="Shujapur"/>
+    <meta property="og:district" content="Shajapur"/>
+    <meta property="og:region" content="Madhya Pradesh"/>
+    <meta property="og:postal-code" content="465335"/>
+    <meta property="og:country-name" content="India"/>
+    <link rel="icon" href="1200.jpeg" />
+    <meta name="description" content="Complete sitemap of Thikana Dhabla Ghosi website">
+    <meta name="keywords" content="Sitemap, Thikana Dhabla Ghosi, Badgujar, Rajput">
+    <title>Sitemap - Thikana Dhabla Ghosi</title>
+    <style>
+        /* Rajasthani Color Palette */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+            --royal-blue: #0D47A1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: var(--cream);
+            color: #333;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+        }
+        
+        /* Loader Styles */
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--gold);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--gold),
+                var(--gold) 10px,
+                var(--saffron) 10px,
+                var(--saffron) 20px
+            );
+        }
+
+        /* Circular Logo Frame */
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 8px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            background-color: white;
+            padding: 3px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .decoration {
+            position: absolute;
+            width: 166px;
+            height: 166px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -8px;
+            left: -8px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 35px rgba(255, 153, 51, 0.6); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blinking-message {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Arial', sans-serif;
+            transition: opacity 0.5s ease;
+        }
+
+        #menustrip {
+            background: linear-gradient(to bottom, var(--maroon), var(--dark-brown));
+            padding: 12px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        #menu a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+
+        #menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        #menu a:hover::after {
+            width: 100%;
+        }
+
+        #menu a.selected {
+            color: var(--gold);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        #menu a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .breadcrumb {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .breadcrumb a {
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: var(--deep-red);
+        }
+        
+        .sitemap-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--sand);
+            position: relative;
+        }
+        
+        .sitemap-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+        }
+        
+        .sitemap-section h2 {
+            color: var(--maroon);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .sitemap-list {
+            list-style-type: none;
+        }
+        
+        .sitemap-list li {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--sand);
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .sitemap-list li:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .sitemap-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .sitemap-list li:before {
+            content: "ЁЯХМ";
+            color: var(--gold);
+            display: inline-block;
+            width: 25px;
+            font-size: 16px;
+        }
+        
+        .sitemap-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            flex: 1;
+        }
+        
+        .sitemap-list a:hover {
+            color: var(--deep-red);
+            text-decoration: underline;
+        }
+        
+        .lastmod {
+            color: var(--light-brown);
+            font-size: 0.9rem;
+            margin-left: 15px;
+        }
+        
+        .priority {
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--sand);
+        }
+        
+        .download-section h2 {
+            color: var(--maroon);
+            margin-bottom: 15px;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, var(--deep-red), var(--saffron));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        #footertop {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 5px;
+        }
+
+        #footerstrip {
+            background-color: var(--dark-brown);
+            padding: 20px 0;
+            text-align: center;
+            color: var(--cream);
+            border-top: 3px solid var(--gold);
+        }
+
+        #footer a {
+            color: var(--cream);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        #footer a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .parent {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .child {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            background-color: var(--cream);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .child:hover {
+            transform: scale(1.2);
+        }
+
+        .button {
+            border: none;
+            background-color: transparent;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            #menu {
+                gap: 10px;
+            }
+            
+            #menu a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+            
+            .logo-frame {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .logo-image {
+                width: 104px;
+                height: 104px;
+            }
+            
+            .decoration {
+                width: 136px;
+                height: 136px;
+            }
+            
+            .sitemap-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .lastmod, .priority {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body data-session-id="<?php echo $trackingData['session_id']; ?>" data-page-name="<?php echo $trackingData['page_name']; ?>">
+
+    <!-- Your existing body content -->
+        <script src="time-tracker-safe.js"></script>
+
+    <!-- Include tracking scripts -->
+    <script src="time-tracker.js"></script>
+    
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="loader" id="loader"></div>
+    </div>
+
+    <!-- Main Website Structure -->
+    <div id="topstrip"></div>
+    
+    <div id="headstrip">
+        <a href="index.php">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img id="logo1" src="1200.jpeg" alt="Thikana Dhabla Ghosi" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+        <div id="blinking-message"></div>
+    </div>
+    
+    <div id="menustrip">
+        <div id="menu">
+            <a class="item" href="index.php">Home</a>
+            <a class="item" href="history.php">History</a>
+            <a class="item" href="Familytree.php">Family Tree</a>
+            <a class="item" href="map.php">Location & Map</a>
+            <a class="item" href="about.php">About</a>
+            <a class="item" href="contactus.php">Contact</a>
+            <a class="item selected" href="sitemap.php">Sitemap</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.php">Home</a> &raquo; Sitemap
+        </div>
+
+        <div class="sitemap-section">
+            <h2>Main Pages</h2>
+            <ul class="sitemap-list">
+                <li>
+                    <a href="index.php">Homepage</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 1.0</span>
+                </li>
+                <li>
+                    <a href="history.php">History</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.9</span>
+                </li>
+                <li>
+                    <a href="Familytree.php">Family Tree</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.9</span>
+                </li>
+                <li>
+                    <a href="map.php">Location & Map</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.8</span>
+                </li>
+                <li>
+                    <a href="about.php">About Us</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.8</span>
+                </li>
+                <li>
+                    <a href="contactus.php">Contact Us</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.7</span>
+                </li>
+                <li>
+                    <a href="prrivacy1.php">Privacy Policy</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.3</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sitemap-section">
+            <h2>Additional Resources</h2>
+            <ul class="sitemap-list">
+                <li>
+                    <a href="rss.php">RSS Feed</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.6</span>
+                </li>
+                <li>
+                <!--    <a href="images/">Image Gallery</a>
+                    <span class="lastmod">Last updated: 2025-03-19</span>
+                    <span class="priority">Priority: 0.5</span>
+                </li>  -->
+            </ul>
+        </div>
+
+       <!-- <div class="download-section">
+            <h2>Download Sitemap</h2>
+            <p>Search engines use XML sitemaps to better index your website. Download our sitemap file and submit it to search consoles.</p>
+            <a href="#" class="btn" id="downloadXml">Download XML Sitemap</a>
+            <a href="#" class="btn" id="downloadTxt">Download Text Sitemap</a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">тЖС</button>
+    
+    <div id="footertop"></div>
+    <div id="footerstrip">
+        <div id="footer">
+            <a href="index.php">Home</a> | 
+            <a href="history.php">History</a> | 
+            <a href="Familytree.php">Family Tree</a> | 
+            <a href="map.php">Location & Map</a> | 
+            <a href="about.php">About</a> | 
+            <a href="prrivacy1.php">Privacy Policy</a> |
+            <a href="contactus.php">Contact Us</a>
+            
+          <p style="color: white; margin-top: 15px;">
+    Copyright © 2025 
+    <a href="http://www.rajvardhansingh.in" style="color: white; text-decoration: none;">
+        <span style="text-decoration: underline;">Rajvardhan Singh Badgujar</span>
+    </a> & Family. All Rights Reserved.
+</p>
+
+             
+            <div class="parent">
+                <div class="child child-1">
+                    <div class="child child-2">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank">
+                            <button class="button btn-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="#ff00ff"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="child child-4">
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank">
+                            <button class="button btn-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill="#4267B2"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="child child-3">
+                            <a href="/cdn-cgi/l/email-protection#f9989d949097b98d9190929897989d91989b9598d79097" target="_blank">
+                                <button class="button btn-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512" fill="#D44638">
+                                        <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Blinking message script
+        const messages = [
+            { text: "рд░рд╛рдШрд╡рд╛рдп рдирдордГ", color: "#ffd700" }, // Gold
+            { text: "рдЬрдп рдорд╛рдБ рдЖрд╕рд╛рд╡рд░реА", color: "#ff0000" } // Red
+        ];
+        
+        let currentIndex = 0;
+        const messageElement = document.getElementById('blinking-message');
+        
+        function updateMessage() {
+            // Fade out
+            messageElement.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Change message and color
+                currentIndex = (currentIndex + 1) % messages.length;
+                messageElement.textContent = messages[currentIndex].text;
+                messageElement.style.color = messages[currentIndex].color;
+                
+                // Fade in
+                messageElement.style.opacity = 1;
+            }, 500); // Half-second fade out duration
+        }
+        
+        // Initial message
+        messageElement.textContent = messages[0].text;
+        messageElement.style.color = messages[0].color;
+        messageElement.style.opacity = 1;
+        
+        // Change message every 2 seconds
+        setInterval(updateMessage, 2000);
+
+        // Hide the loader after 3 seconds
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("loader").classList.add("hidden");
+            }, 3000);
+        };
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Download XML sitemap
+        document.getElementById('downloadXml').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create XML sitemap content
+          
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://www.thikanadhabla.in/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/history.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/Familytree.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/map.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/about.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/contactus.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/prrivacy1.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/rss.php</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>`;
+            
+            // Create download link
+            const blob = new Blob([xmlContent], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.xml';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Download text sitemap
+        document.getElementById('downloadTxt').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create text sitemap content
+            const txtContent = `Sitemap for https://www.thikanadhabla.in/
+Generated on: ${new Date().toLocaleDateString()}
+
+Main Pages:
+- https://www.thikanadhabla.in/ (Priority: 1.0)
+- https://www.thikanadhabla.in/history.php (Priority: 0.9)
+- https://www.thikanadhabla.in/Familytree.php (Priority: 0.9)
+- https://www.thikanadhabla.in/map.php (Priority: 0.8)
+- https://www.thikanadhabla.in/about.php (Priority: 0.8)
+- https://www.thikanadhabla.in/contactus.php (Priority: 0.7)
+- https://www.thikanadhabla.in/prrivacy1.php (Priority: 0.3)
+
+Additional Resources:
+- https://www.thikanadhabla.in/rss.php (Priority: 0.6)
+- https://www.thikanadhabla.in/images/ (Priority: 0.5)`;
+            
+            // Create download link
+            const blob = new Blob([txtContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>Sitemap - Thikana Dhabla Ghosi | Badgujar Rajput Heritage</title>
+    <meta name="description" content="Complete sitemap of Thikana Dhabla Ghosi website. Find all pages including history, family tree, location map, about us, contact, and privacy policy.">
+    <meta name="keywords" content="Sitemap, Thikana Dhabla Ghosi, Badgujar Rajput, website navigation, site map">
+    <meta name="author" content="Thikana Dhabla Ghosi, Rajvardhan Singh Badgujar">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Sitemap - Thikana Dhabla Ghosi"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.thikanadhabla.in/sitemap.html"/>
+    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:description" content="Complete sitemap of Thikana Dhabla Ghosi website - Easy navigation to all pages about Badgujar Rajput heritage."/>
+    <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
+    <meta property="og:locale" content="en_IN"/>
+    <meta property="fb:admins" content="0"/>
+    
+    <!-- Location Meta Tags -->
+    <meta property="og:latitude" content="23.3207"/>
+    <meta property="og:longitude" content="76.7085"/>
+    <meta property="og:street-address" content="Dhabla Ghosi"/>
+    <meta property="og:locality" content="Shajapur"/>
+    <meta property="og:region" content="Madhya Pradesh"/>
+    <meta property="og:postal-code" content="465335"/>
+    <meta property="og:country-name" content="India"/>
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sitemap - Thikana Dhabla Ghosi">
+    <meta name="twitter:description" content="Complete sitemap for easy navigation of Thikana Dhabla Ghosi website.">
+    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="1200.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="1200.jpeg">
+    
+    <style>
+        /* ==================== RAJASTHANI COLOR PALETTE ==================== */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+            --royal-blue: #0D47A1;
+            --shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: var(--cream);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+        }
+
+        /* ==================== LOADER ==================== */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(93, 64, 55, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            border: 5px solid var(--cream);
+            border-top: 5px solid var(--gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ==================== HEADER STRIP ==================== */
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 8px;
+        }
+
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 10px, var(--saffron) 10px, var(--saffron) 20px);
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 8px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            background-color: white;
+            padding: 3px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .decoration {
+            position: absolute;
+            width: 166px;
+            height: 166px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -8px;
+            left: -8px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 35px rgba(255, 153, 51, 0.6); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blinking-message {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Arial', sans-serif;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        #menustrip {
+            background: linear-gradient(to bottom, var(--maroon), var(--dark-brown));
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+        }
+
+        #menu a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        #menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        #menu a:hover::after {
+            width: 70%;
+        }
+
+        #menu a.selected {
+            color: var(--gold);
+            background: rgba(255,255,255,0.1);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        #menu a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .breadcrumb {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 153, 51, 0.05));
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .breadcrumb a {
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: var(--deep-red);
+        }
+        
+        .sitemap-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--sand);
+            position: relative;
+        }
+        
+        .sitemap-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .sitemap-section h2 {
+            color: var(--maroon);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .sitemap-list {
+            list-style-type: none;
+        }
+        
+        .sitemap-list li {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--sand);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: background-color 0.3s;
+        }
+        
+        .sitemap-list li:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .sitemap-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .sitemap-list li:before {
+            content: "📍";
+            color: var(--gold);
+            display: inline-block;
+            width: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .sitemap-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .sitemap-list a:hover {
+            color: var(--deep-red);
+            text-decoration: underline;
+        }
+        
+        .lastmod {
+            color: var(--light-brown);
+            font-size: 0.8rem;
+            margin-left: 15px;
+        }
+        
+        .priority {
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--sand);
+        }
+        
+        .download-section h2 {
+            color: var(--maroon);
+            margin-bottom: 15px;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .download-section p {
+            margin-bottom: 20px;
+            color: var(--light-brown);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, var(--deep-red), var(--saffron));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            z-index: 99;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        /* ==================== FOOTER ==================== */
+        #footertop {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 6px;
+        }
+
+        #footerstrip {
+            background-color: var(--dark-brown);
+            padding: 35px 20px 25px;
+            text-align: center;
+            color: var(--cream);
+        }
+
+        #footer {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .parent {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .child {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            background-color: var(--cream);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .child:hover {
+            transform: scale(1.15);
+            background-color: var(--gold);
+        }
+
+        .button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Google Translate */
+        #google_translate_element {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            z-index: 999;
+            background: rgba(93, 64, 55, 0.85);
+            border-radius: 8px;
+            padding: 5px 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            #menu {
+                gap: 5px;
+                padding: 10px 12px;
+            }
+            #menu a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            .logo-frame {
+                width: 120px;
+                height: 120px;
+            }
+            .logo-image {
+                width: 104px;
+                height: 104px;
+            }
+            .decoration {
+                width: 136px;
+                height: 136px;
+            }
+            .sitemap-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .lastmod, .priority {
+                margin-left: 30px;
+                margin-top: 5px;
+            }
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            .container {
+                padding: 20px;
+            }
+            .sitemap-section {
+                padding: 20px;
+            }
+            .footer-links {
+                gap: 12px;
+            }
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Top Strip -->
+    <div id="topstrip"></div>
+    
+    <!-- Header with Logo -->
+    <div id="headstrip">
+        <a href="index.html">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img id="logo1" src="1200.jpeg" alt="Thikana Dhabla Ghosi - Royal Badgujar Family" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+        <div id="blinking-message"></div>
+    </div>
+    
+    <!-- Navigation Menu - All links corrected for static HTML -->
+    <div id="menustrip">
+        <div id="menu">
+            <a class="item" href="index.html">Home</a>
+            <a class="item" href="history">History</a>
+            <a class="item" href="familytree">Family Tree</a>
+            <a class="item" href="map">Location & Map</a>
+            <a class="item" href="about">About</a>
+            <a class="item" href="contactus">Contact</a>
+            <a class="item selected" href="sitemap">Sitemap</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> » Sitemap
+        </div>
+
+        <div class="sitemap-section">
+            <h2>📑 Main Pages</h2>
+            <ul class="sitemap-list">
+                <li>
+                    <a href="index">Homepage - Thikana Dhabla Ghosi</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 1.0</span>
+                </li>
+                <li>
+                    <a href="history">History of Badgujar Rajputs</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.9</span>
+                </li>
+                <li>
+                    <a href="familytree">Family Tree & Genealogy</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.9</span>
+                </li>
+                <li>
+                    <a href="map">Location & Interactive Map</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.8</span>
+                </li>
+                <li>
+                    <a href="about">About - Creator & Acknowledgements</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.8</span>
+                </li>
+                <li>
+                    <a href="contactus">Contact Us</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.7</span>
+                </li>
+                <li>
+                    <a href="privacy">Privacy Policy</a>
+                    <span class="lastmod">Updated: 2025-03-24</span>
+                    <span class="priority">Priority: 0.3</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sitemap-section">
+            <h2>🗺️ Site Navigation Guide</h2>
+            <ul class="sitemap-list">
+                <li>
+                    <a href="index.html">🏠 Home - Welcome to Thikana Dhabla Ghosi</a>
+                </li>
+                <li>
+                    <a href="history">📜 History - Badgujar Rajput Heritage</a>
+                </li>
+                <li>
+                    <a href="familytree">🌳 Family Tree - Royal Genealogy</a>
+                </li>
+                <li>
+                    <a href="map">📍 Location & Map - How to Reach Us</a>
+                </li>
+                <li>
+                    <a href="about">👨‍💻 About - Website Creator</a>
+                </li>
+                <li>
+                    <a href="contactus">📧 Contact - Get in Touch</a>
+                </li>
+                <li>
+                    <a href="privacy">🔒 Privacy Policy - Data Protection</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="download-section">
+            <h2>📥 Download Sitemap Files</h2>
+            <p>Search engines use XML sitemaps to better index your website. Download our sitemap files for submission to search consoles.</p>
+            <button class="btn" id="downloadXml">📄 Download XML Sitemap</button>
+            <button class="btn" id="downloadTxt">📝 Download Text Sitemap</button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    
+    <!-- Footer -->
+    <div id="footertop"></div>
+    <div id="footerstrip">
+        <div id="footer">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="history">History</a>
+                <a href="familytree">Family Tree</a>
+                <a href="map">Location & Map</a>
+                <a href="about">About</a>
+                <a href="privacy">Privacy Policy</a>
+                <a href="sitemap">Sitemap</a>
+                <a href="contactus">Contact Us</a>
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2025 
+                <a href="http://www.rajvardhansingh.in" target="_blank" rel="noopener">Rajvardhan Singh Badgujar</a> & Family. All Rights Reserved.
+            </div>
+            
+            <div class="parent">
+                <div class="child">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 448 512" fill="#E4405F"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 320 512" fill="#1877F2"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="mailto:thikanadhabla@gmail.com" aria-label="Email">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 512 512" fill="#D44638"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'en,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Chatbase Embed -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+    <script>
+        // Hide loader after page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loaderContainer');
+                if(loader) loader.classList.add('hidden');
+            }, 600);
+        });
+
+        // Blinking message animation
+        const messages = [
+            { text: "राघवाय नमः", color: "#ffd700" },
+            { text: "जय माँ आसावरी", color: "#ff6b6b" },
+            { text: "🗺️ Site Map - Easy Navigation 🗺️", color: "#ffb347" }
+        ];
+        let msgIndex = 0;
+        const msgEl = document.getElementById('blinking-message');
+        
+        function updateBlinkingMessage() {
+            if(msgEl) {
+                msgEl.style.opacity = '0';
+                setTimeout(() => {
+                    msgIndex = (msgIndex + 1) % messages.length;
+                    msgEl.textContent = messages[msgIndex].text;
+                    msgEl.style.color = messages[msgIndex].color;
+                    msgEl.style.opacity = '1';
+                }, 400);
+            }
+        }
+        
+        if(msgEl) {
+            msgEl.textContent = messages[0].text;
+            msgEl.style.color = messages[0].color;
+            setInterval(updateBlinkingMessage, 2500);
+        }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Download XML sitemap
+        const currentDate = new Date().toISOString().split('T')[0];
+        
+        document.getElementById('downloadXml').addEventListener('click', function() {
+            const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.thikanadhabla.in/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/history.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/familytree.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/map.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/about.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/contactus.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/privacy.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.thikanadhabla.in/sitemap.html</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>`;
+            
+            const blob = new Blob([xmlContent], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.xml';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Download text sitemap
+        document.getElementById('downloadTxt').addEventListener('click', function() {
+            const txtContent = `Sitemap for Thikana Dhabla Ghosi
+Generated on: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+Website: https://www.thikanadhabla.in/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MAIN PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Homepage - https://www.thikanadhabla.in/index.html (Priority: 1.0)
+2. History - https://www.thikanadhabla.in/history.html (Priority: 0.9)
+3. Family Tree - https://www.thikanadhabla.in/familytree.html (Priority: 0.9)
+4. Location & Map - https://www.thikanadhabla.in/map.html (Priority: 0.8)
+5. About - https://www.thikanadhabla.in/about.html (Priority: 0.8)
+6. Contact Us - https://www.thikanadhabla.in/contactus.html (Priority: 0.7)
+7. Privacy Policy - https://www.thikanadhabla.in/privacy.html (Priority: 0.3)
+8. Sitemap - https://www.thikanadhabla.in/sitemap.html (Priority: 0.5)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SITE NAVIGATION GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Home - Welcome to Thikana Dhabla Ghosi
+• History - Badgujar Rajput Heritage & Legacy
+• Family Tree - Royal Genealogy & Lineage
+• Location & Map - How to Reach Our Ancestral Estate
+• About - Website Creator & Acknowledgements
+• Contact - Get in Touch with the Family
+• Privacy Policy - Data Protection Information
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+© 2025 Rajvardhan Singh Badgujar & Family
+All Rights Reserved
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+            
+            const blob = new Blob([txtContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

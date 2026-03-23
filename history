@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#06c1db">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>History - Thikana Dhabla Ghosi | Badgujar Rajput Heritage</title>
+    <meta name="description" content="Explore the glorious history of the Badgujar Rajputs of Thikana Dhabla Ghosi. Discover the royal lineage, warrior legacy, and cultural heritage of this historic Rajput estate in Madhya Pradesh.">
+    <meta name="keywords" content="Badgujar Rajput history, Thikana Dhabla Ghosi, Rajput heritage Madhya Pradesh, Badgujar dynasty, Dhabla Ghosi estate, Rajput warriors, Malwa region history">
+    <meta name="author" content="Thikana Dhabla Ghosi, Rajvardhan Singh Badgujar">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="History - Thikana Dhabla Ghosi | Badgujar Rajput Heritage"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.thikanadhabla.in/history.html"/>
+    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:description" content="Discover the rich history of the Badgujar Rajputs of Thikana Dhabla Ghosi, a legendary warrior clan tracing their lineage to Lava, son of Bhagwan Ram."/>
+    <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
+    <meta property="og:locale" content="en_IN"/>
+    <meta property="fb:admins" content="0"/>
+    
+    <!-- Location Meta Tags -->
+    <meta property="og:latitude" content="23.3207"/>
+    <meta property="og:longitude" content="76.7085"/>
+    <meta property="og:street-address" content="Dhabla Ghosi"/>
+    <meta property="og:locality" content="Shajapur"/>
+    <meta property="og:region" content="Madhya Pradesh"/>
+    <meta property="og:postal-code" content="465335"/>
+    <meta property="og:country-name" content="India"/>
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="History - Thikana Dhabla Ghosi">
+    <meta name="twitter:description" content="Explore the royal history and warrior legacy of the Badgujar Rajputs.">
+    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="1200.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="1200.jpeg">
+    
+    <style>
+        /* ==================== RAJASTHANI COLOR PALETTE ==================== */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+            --royal-blue: #0D47A1;
+            --shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: var(--cream);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+        }
+
+        /* ==================== LOADER ==================== */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(93, 64, 55, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            border: 5px solid var(--cream);
+            border-top: 5px solid var(--gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ==================== HEADER STRIP ==================== */
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 8px;
+        }
+
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 10px, var(--saffron) 10px, var(--saffron) 20px);
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 8px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 164px;
+            height: 164px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            background-color: white;
+            padding: 4px;
+        }
+
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -10px;
+            left: -10px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(255, 153, 51, 0.5); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #blinking-message {
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 12px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        #menustrip {
+            background: linear-gradient(to bottom, var(--maroon), var(--dark-brown));
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+        }
+
+        #menu a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: var(--transition);
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        #menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        #menu a:hover::after {
+            width: 70%;
+        }
+
+        #menu a.selected {
+            color: var(--gold);
+            background: rgba(255,255,255,0.1);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        #menu a:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        #mainstrip {
+            padding: 40px 20px;
+            min-height: calc(100vh - 450px);
+        }
+
+        #main {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--sand);
+            position: relative;
+        }
+
+        #main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            border-radius: 16px 16px 0 0;
+        }
+
+        #main h1 {
+            color: var(--maroon);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--gold);
+            font-family: 'Times New Roman', serif;
+            font-size: 2rem;
+        }
+
+        #main h2 {
+            color: var(--dark-brown);
+            margin: 30px 0 18px;
+            font-size: 1.5rem;
+            border-left: 5px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        #main h3 {
+            color: var(--maroon);
+            margin: 20px 0 12px;
+            font-size: 1.2rem;
+        }
+
+        #main p {
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        #main ul, #main ol {
+            margin: 15px 0 20px 30px;
+        }
+
+        #main li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .rajasthani-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2" fill="%23D4AF37" opacity="0.3"/></svg>');
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .rajasthani-border {
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            background: linear-gradient(135deg, #fff, var(--cream));
+        }
+
+        .rajasthani-border::before {
+            content: "📜";
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: white;
+            padding: 0 15px;
+            color: var(--maroon);
+            font-size: 1.5rem;
+        }
+
+        /* Table Styles */
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .history-table th {
+            background: linear-gradient(135deg, var(--maroon), var(--dark-brown));
+            color: var(--gold);
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .history-table td {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--sand);
+            background: white;
+        }
+
+        .history-table tr:nth-child(even) td {
+            background-color: rgba(224, 201, 166, 0.15);
+        }
+
+        .history-table tr:hover td {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ==================== FOOTER ==================== */
+        #footertop {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 6px;
+        }
+
+        #footerstrip {
+            background-color: var(--dark-brown);
+            padding: 35px 20px 25px;
+            text-align: center;
+            color: var(--cream);
+        }
+
+        #footer {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Icons */
+        .parent {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .child {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            background-color: var(--cream);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .child:hover {
+            transform: scale(1.15);
+            background-color: var(--gold);
+        }
+
+        .button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Google Translate */
+        #google_translate_element {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            z-index: 999;
+            background: rgba(93, 64, 55, 0.85);
+            border-radius: 8px;
+            padding: 5px 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+            display: none;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            #menu {
+                gap: 5px;
+                padding: 10px 12px;
+            }
+            #menu a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            #main {
+                padding: 25px 18px;
+            }
+            #main h1 {
+                font-size: 1.7rem;
+            }
+            .logo-frame {
+                width: 130px;
+                height: 130px;
+            }
+            .logo-image {
+                width: 114px;
+                height: 114px;
+            }
+            .decoration {
+                width: 150px;
+                height: 150px;
+            }
+            .history-table th, .history-table td {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .footer-links {
+                gap: 12px;
+            }
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .history-table {
+                font-size: 0.75rem;
+            }
+            .history-table th, .history-table td {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Top Strip -->
+    <div id="topstrip"></div>
+    
+    <!-- Header with Logo -->
+    <div id="headstrip">
+        <a href="index.html">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img id="main-logo" src="1200.jpeg" alt="Thikana Dhabla Ghosi - Royal Badgujar Family" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+        <div id="blinking-message"></div>
+    </div>
+    
+    <!-- Navigation Menu - All links corrected for static HTML -->
+    <div id="menustrip">
+        <div id="menu">
+            <a class="item" href="index.html">Home</a>
+            <a class="item selected" href="history">History</a>
+            <a class="item" href="familytree">Family Tree</a>
+            <a class="item" href="map">Location & Map</a>
+            <a class="item" href="about">About</a>
+            <a class="item" href="contactus">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="mainstrip">
+        <div id="main">
+            <div class="rajasthani-border">
+                <h1>🏰 The Glorious History of the Badgujar Rajputs</h1>
+                <p>The Badgujar Rajputs, a legendary warrior clan, have left an indelible mark on Indian history, particularly in the regions of Rajasthan and Madhya Pradesh. Tracing their lineage to <strong>Lava (Luv)</strong>, the elder son of Bhagwan Shri Ram, the Badgujars ruled over several kingdoms and princely states before India's independence in 1947. Known for their bravery, military prowess, and administrative acumen, the Badgujar Rajputs played a crucial role in shaping the history and culture of central India. Their legacy is not just a tale of kings and kingdoms but a story of resilience, honor, and cultural preservation.</p>
+            </div>
+            
+            <h1>⚔️ Badgujar Rajputs in Madhya Pradesh</h1>
+            <div class="rajasthani-pattern">
+                <p>Madhya Pradesh was home to several prominent Badgujar Rajput estates, including:</p>
+                <ul>
+                    <li><strong>Dabla Ghosi</strong> - The ancestral seat of our family</li>
+                    <li>Dabla Dheer</li>
+                    <li>Dadiya Khedi</li>
+                    <li>Kamalpur</li>
+                    <li>Sadhan Khedi</li>
+                </ul>
+                <p>One of the most significant branches of the Badgujar Rajputs in the region was the <strong>Raizada branch</strong>, which held a twelve-village estate in Vidisha, granted to Raja Raisingh Badgujar by the Marathas. The main branches of the Badgujar Rajputs in Madhya Pradesh were:</p>
+                <ul>
+                    <li><strong>Bhojavat</strong></li>
+                    <li><strong>Dharmangaj</strong></li>
+                    <li><strong>Raizada</strong></li>
+                </ul>
+                <p>Each of these branches contributed to the region's governance and cultural heritage.</p>
+            </div>
+
+            <h1>🏯 The Dabla Ghosi Estate: A Symbol of Badgujar Legacy</h1>
+            <div class="rajasthani-pattern">
+                <p>One of the most notable Badgujar estates was <strong>Dabla Ghosi</strong>, whose history is intertwined with the legacy of <strong>Raja Goga Dev of Rajgarh-Machadi</strong>. His second son, Bhojraj Ji, moved from Machadi to Banawad, where his descendants lived for five generations. The lineage of Dabla Ghosi is as follows:</p>
+                <ul>
+                    <li>Rudra Ji → Desh Ji → Madanmal Ji → Gyan Sahay Ji → Khanderay Ji</li>
+                </ul>
+                <p>Khanderay Ji later moved from Banawad to Kotda in Kheechiwada, where his successors continued to rule. His descendants included Karn Singh Ji, Kumbha Ji, Dashraj Ji, Mohkam Singh Ji, Guman Singh Ji, Raghunath Singh Ji, and Achal Singh Ji.</p>
+                <p>Achal Singh Ji had two sons, <strong>Govardhan Singh and Zorawar Singh</strong>. After the defeat of the Marathas by Lord Hastings in 1818, <strong>Dabla Ghosi was declared a guaranteed estate (garanti riyasat)</strong>. The estate received financial support from various rulers:</p>
+                
+                <table class="history-table">
+                    <thead>
+                        <tr><th>Ruler</th><th>Annual Support (₹)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Sindhia</td><td>4,000</td></tr>
+                        <tr><td>Dewas</td><td>100</td></tr>
+                        <tr><td>Bhopal Darbar</td><td>900</td></tr>
+                    </tbody>
+                </table>
+                
+                <p>Additionally, they held a village under Gwalior state, yielding ₹1,050 in revenue. After Rao Govardhan Singh's demise in 1854, his son <strong>Rao Gopal Singh</strong> took over, followed by <strong>Rao Chand Singh</strong> as the ruler of Dabla Ghosi.</p>
+                
+                <h3>👑 The Successors of Dabla Ghosi</h3>
+                <p>Rao Chand Singh had five sons:</p>
+                <ul>
+                    <li>Rao Hanuvat Singh</li>
+                    <li>Zorawar Singh</li>
+                    <li><strong>Keshari Singh</strong></li>
+                    <li>Hakim Singh</li>
+                    <li>Hukam Singh</li>
+                </ul>
+                <p>When Rao Hanuvat Singh passed away childless, his nephew <strong>Bhupendra Singh</strong>, the son of Keshari Singh, became the ruler of Dabla Ghosi. The family's influence extended to villages like Panda (Tehsil Shujalpur) and Babroda (near Thikana Umri, Guna district), showcasing their enduring legacy.</p>
+            </div>
+            
+            <h1>📜 Suryavanshi Badgujar Rajput Lineage Details</h1>
+            <div class="rajasthani-border">
+                <table class="history-table">
+                    <thead><tr><th>#</th><th>Category</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Dynasty</td><td>Suryavansh</td></tr>
+                        <tr><td>2</td><td>Gotra</td><td>Kashyap</td></tr>
+                        <tr><td>3</td><td>Ancestral Land</td><td>Ayodhya</td></tr>
+                        <tr><td>4</td><td>Branch</td><td>Maradadhvani</td></tr>
+                        <tr><td>5</td><td>Sutra</td><td>Katyayani</td></tr>
+                        <tr><td>6</td><td>Guru</td><td>Vashishta</td></tr>
+                        <tr><td>7</td><td>Veda</td><td>Yajurveda</td></tr>
+                        <tr><td>8</td><td>River</td><td>Saryu</td></tr>
+                        <tr><td>9</td><td>Clan Goddess</td><td>Ashavari Mata</td></tr>
+                        <tr><td>10</td><td>Sword</td><td>Sakal (Vijayalakshmi)</td></tr>
+                        <tr><td>11</td><td>Flag Symbol</td><td>Panchayan</td></tr>
+                        <tr><td>12</td><td>Sacred Tree</td><td>Ashoka</td></tr>
+                        <tr><td>13</td><td>Worshipped Deity</td><td>Shri Sitaram Ji</td></tr>
+                        <tr><td>14</td><td>Clan God</td><td>Neelkanth Mahadev Ji</td></tr>
+                        <tr><td>15</td><td>Salutation</td><td>Jai Raghunath Ji</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h1>🕉️ Four Sacred Places (Dhams) of Badgujar Clan</h1>
+            <div class="rajasthani-pattern">
+                <ul>
+                    <li><strong>Machadi</strong> - The ancestral seat</li>
+                    <li><strong>Devti</strong></li>
+                    <li><strong>Koleshwar</strong></li>
+                    <li><strong>Kakavadi</strong></li>
+                </ul>
+            </div>
+            
+            <h1>🌿 Eight Branches of Badgujar Rajput Suryavansh Clan</h1>
+            <div class="rajasthani-pattern">
+                <ul>
+                    <li><strong>Rajora Badgujar</strong> (Rajoragrah)</li>
+                    <li><strong>Sikarwar</strong> (Sikri)</li>
+                    <li><strong>Khandara</strong> (Anupshahar, Bhodsi)</li>
+                    <li><strong>Marad</strong> (Panipat, Karnel)</li>
+                    <li><strong>Rayjada</strong> (Vidhisha, Bhenlsa)</li>
+                    <li><strong>Munjwal</strong> (Samahda)</li>
+                    <li><strong>Pokarna</strong> (Pokaran)</li>
+                    <li><strong>Kannaujiya Badgujar</strong> (Surgaj, U.P.)</li>
+                </ul>
+            </div>
+
+            <h1>⚔️ The Role of the Badgujars in Indian History</h1>
+            <div class="rajasthani-pattern">
+                <p>The Badgujar Rajputs were not just rulers but also defenders of their land and culture. They played a pivotal role in resisting foreign invasions and maintaining regional stability during the reigns of the Marathas, Rajputs, and Mughals. Their military strategies and administrative skills ensured the prosperity of their territories, making them key players in the power dynamics of central and western India.</p>
+            </div>
+
+            <h1>🎨 Cultural and Social Contributions</h1>
+            <div class="rajasthani-pattern">
+                <p>Beyond their military achievements, the Badgujar Rajputs made significant contributions to the cultural and social fabric of Madhya Pradesh. They built forts, palaces, and temples that stand as testaments to their architectural prowess. Their patronage of art, literature, and religious institutions helped preserve Rajputana traditions, which continue to influence the region's culture today.</p>
+            </div>
+
+            <h1>🌟 The Modern Legacy of the Badgujar Rajputs</h1>
+            <div class="rajasthani-pattern">
+                <p>Today, the Badgujar Rajputs continue to honor their heritage while adapting to modern times. Many descendants are active in politics, administration, and social service, ensuring that the clan's legacy remains relevant. Historical estates like <strong>Dabla Ghosi</strong> serve as reminders of their glorious past, while cultural events and family records keep their traditions alive.</p>
+            </div>
+
+            <div class="rajasthani-border">
+                <p><strong>The Badgujar Rajputs of Madhya Pradesh have left an enduring legacy that transcends time.</strong> From their valiant battles and administrative excellence to their cultural contributions, their impact on the region's history is undeniable. The story of the Badgujar Rajputs is not just a chapter in Indian history but a testament to the enduring spirit of honor, courage, and resilience.</p>
+                <p style="margin-top: 15px; text-align: center;"><em>🙏 "Veer Bhogya Vasundhara" - The brave inherit the earth 🙏</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    
+    <!-- Footer -->
+    <div id="footertop"></div>
+    <div id="footerstrip">
+        <div id="footer">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="history">History</a>
+                <a href="familytree">Family Tree</a>
+                <a href="map">Location & Map</a>
+                <a href="about">About</a>
+                <a href="privacy">Privacy Policy</a>
+                <a href="sitemap">Sitemap</a>
+                <a href="contactus">Contact Us</a>
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2025 
+                <a href="http://www.rajvardhansingh.in" target="_blank" rel="noopener">Rajvardhan Singh Badgujar</a> & Family. All Rights Reserved.
+            </div>
+            
+            <div class="parent">
+                <div class="child">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 448 512" fill="#E4405F"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 320 512" fill="#1877F2"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="child">
+                    <a href="mailto:thikanadhabla@gmail.com" aria-label="Email">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 512 512" fill="#D44638"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en', includedLanguages: 'en,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Chatbase Embed -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+    <script>
+        // Hide loader after page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loaderContainer');
+                if(loader) loader.classList.add('hidden');
+            }, 600);
+        });
+
+        // Blinking message animation
+        const messages = [
+            { text: "राघवाय नमः", color: "#ffd700" },
+            { text: "जय माँ आसावरी", color: "#ff6b6b" },
+            { text: "🚩 Badgujar Gaurav Gatha 🚩", color: "#ffb347" }
+        ];
+        let msgIndex = 0;
+        const msgEl = document.getElementById('blinking-message');
+        
+        function updateBlinkingMessage() {
+            if(msgEl) {
+                msgEl.style.opacity = '0';
+                setTimeout(() => {
+                    msgIndex = (msgIndex + 1) % messages.length;
+                    msgEl.textContent = messages[msgIndex].text;
+                    msgEl.style.color = messages[msgIndex].color;
+                    msgEl.style.opacity = '1';
+                }, 400);
+            }
+        }
+        
+        if(msgEl) {
+            msgEl.textContent = messages[0].text;
+            msgEl.style.color = messages[0].color;
+            setInterval(updateBlinkingMessage, 2500);
+        }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

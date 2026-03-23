@@ -1,0 +1,40 @@
+<?php
+// Set proper headers first
+header("Content-Type: application/rss+xml; charset=UTF-8");
+header("Access-Control-Allow-Origin: *"); // Allow access from anywhere
+
+// Define your static content
+$posts = [
+    [
+        'title' => 'Welcome to Thikana Dhabla Ghosi',
+        'url' => 'https://www.thikanadhabla.in',
+        'description' => 'Explore the historic Badgujar Rajput dynasty of Thikana Dhabla Ghosi, Shajapur.',
+        'date' => date('Y-m-d H:i:s'),
+        'image' => 'https://www.thikanadhabla.in/images/Bajekan_logo_small_1.png'
+    ],
+    // Add more posts as needed...
+];
+
+// Generate the RSS feed
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Thikana Dhabla Ghosi Updates</title>
+    <link>https://www.thikanadhabla.in</link>
+    <atom:link href="https://www.thikanadhabla.in/rss.php" rel="self" type="application/rss+xml" />
+    <description>Latest news from Thikana Dhabla Ghosi</description>
+    <lastBuildDate><?= date(DATE_RSS) ?></lastBuildDate>
+    <language>en-us</language>
+    
+    <?php foreach ($posts as $post): ?>
+    <item>
+        <title><?= htmlspecialchars($post['title']) ?></title>
+        <link><?= htmlspecialchars($post['url']) ?></link>
+        <guid><?= htmlspecialchars($post['url']) ?></guid>
+        <pubDate><?= date(DATE_RSS, strtotime($post['date'])) ?></pubDate>
+        <description><![CDATA[<?= $post['description'] ?>]]></description>
+    </item>
+    <?php endforeach; ?>
+</channel>
+</rss>
