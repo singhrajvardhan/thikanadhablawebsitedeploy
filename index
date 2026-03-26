@@ -1028,7 +1028,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="3.jpg" alt="Family Portrait">
                     </div>
                      <div class="slide fade">
-                        <img src="images/11.jpeg" alt="Heritage Celebration">
+                        <img src="11.jpeg" alt="Heritage Celebration">
                     </div>
                     <div class="slide fade">
                         <img src="7.jpg" alt="Heritage Celebration">
