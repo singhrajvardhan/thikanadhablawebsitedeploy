@@ -1,6 +1,5 @@
 # 🛡️ Thikana Dhabla Ghosi - Badgujar Rajput Heritage Website
 
-![Website Preview](1200.jpeg)
 
 ## 📖 Overview
 
@@ -55,4 +54,3 @@ This website documents the glorious history of the **Badgujar Rajputs** — a no
 
 ---
 
-## 📁 Project Structure
