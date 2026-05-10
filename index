@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
            <p style="color: white; margin-top: 15px;">
     Copyright © 2026 
-    <a href="https://www.rajvardhansingh.in" style="color: white; text-decoration: none;">
+    <a href="https://rajvardhansingh.in" style="color: white; text-decoration: none;">
         <span style="text-decoration: underline;">Rajvardhan Singh Badgujar</span>
     </a> & Family. All Rights Reserved.
 </p>

@@ -728,8 +728,8 @@
     
     <footer>
   <p style="color: ; margin-top: 15px;">
-    Copyright © 2025 
-    <a href="http://www.rajvardhansingh.in" style="color: ; text-decoration: none;">
+    Copyright © 2026 
+    <a href="http://rajvardhansingh.in" style="color: ; text-decoration: none;">
         <span style="text-decoration: underline;">Rajvardhan Singh </span>
     </a> & Family. All Rights Reserved.
 </p>    </footer>
