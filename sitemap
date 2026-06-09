@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Sitemap - Thikana Dhabla Ghosi"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://www.thikanadhabla.in/sitemap.html"/>
-    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:url" content="https://thikanadhabla.in/sitemap.html"/>
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg"/>
     <meta property="og:description" content="Complete sitemap of Thikana Dhabla Ghosi website - Easy navigation to all pages about Badgujar Rajput heritage."/>
     <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
     <meta property="og:locale" content="en_IN"/>
@@ -37,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sitemap - Thikana Dhabla Ghosi">
     <meta name="twitter:description" content="Complete sitemap for easy navigation of Thikana Dhabla Ghosi website.">
-    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" href="1200.jpeg" type="image/jpeg">
@@ -862,49 +862,49 @@
             const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.thikanadhabla.in/</loc>
+    <loc>https://thikanadhabla.in/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/history.html</loc>
+    <loc>https://thikanadhabla.in/history.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/familytree.html</loc>
+    <loc>https://thikanadhabla.in/familytree.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/map.html</loc>
+    <loc>https://thikanadhabla.in/map.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/about.html</loc>
+    <loc>https://thikanadhabla.in/about.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/contactus.html</loc>
+    <loc>https://thikanadhabla.in/contactus.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/privacy.html</loc>
+    <loc>https://thikanadhabla.in/privacy.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.thikanadhabla.in/sitemap.html</loc>
+    <loc>https://thikanadhabla.in/sitemap.html</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -926,20 +926,20 @@
         document.getElementById('downloadTxt').addEventListener('click', function() {
             const txtContent = `Sitemap for Thikana Dhabla Ghosi
 Generated on: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-Website: https://www.thikanadhabla.in/
+Website: https://thikanadhabla.in/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MAIN PAGES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. Homepage - https://www.thikanadhabla.in/index.html (Priority: 1.0)
-2. History - https://www.thikanadhabla.in/history.html (Priority: 0.9)
-3. Family Tree - https://www.thikanadhabla.in/familytree.html (Priority: 0.9)
-4. Location & Map - https://www.thikanadhabla.in/map.html (Priority: 0.8)
-5. About - https://www.thikanadhabla.in/about.html (Priority: 0.8)
-6. Contact Us - https://www.thikanadhabla.in/contactus.html (Priority: 0.7)
-7. Privacy Policy - https://www.thikanadhabla.in/privacy.html (Priority: 0.3)
-8. Sitemap - https://www.thikanadhabla.in/sitemap.html (Priority: 0.5)
+1. Homepage - https://thikanadhabla.in/index.html (Priority: 1.0)
+2. History - https://thikanadhabla.in/history.html (Priority: 0.9)
+3. Family Tree - https://thikanadhabla.in/familytree.html (Priority: 0.9)
+4. Location & Map - https://thikanadhabla.in/map.html (Priority: 0.8)
+5. About - https://thikanadhabla.in/about.html (Priority: 0.8)
+6. Contact Us - https://thikanadhabla.in/contactus.html (Priority: 0.7)
+7. Privacy Policy - https://thikanadhabla.in/privacy.html (Priority: 0.3)
+8. Sitemap - https://thikanadhabla.in/sitemap.html (Priority: 0.5)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SITE NAVIGATION GUIDE
