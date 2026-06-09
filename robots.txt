@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://thikanadhabla.in/sitemap.xml
+Sitemap: https://thikanadhabla.in/rss.xml
+
+Host: thikanadhabla.in
