@@ -609,6 +609,8 @@
             <a class="item selected" href="history">History</a>
             <a class="item" href="familytree">Family Tree</a>
             <a class="item" href="map">Location & Map</a>
+            <a class="item" href="dist">Directory </a>
+
             <a class="item" href="about">About</a>
             <a class="item" href="contactus">Contact</a>
         </div>
@@ -757,6 +759,8 @@
                 <a href="history">History</a>
                 <a href="familytree">Family Tree</a>
                 <a href="map">Location & Map</a>
+            <a class="item" href="dist">Directory </a>
+
                 <a href="about">About</a>
                 <a href="privacy">Privacy Policy</a>
                 <a href="sitemap">Sitemap</a>
