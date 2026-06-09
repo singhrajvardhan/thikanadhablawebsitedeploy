@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="About - Thikana Dhabla Ghosi | Creator & Acknowledgements"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://www.thikanadhabla.in/about.html"/>
-    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:url" content="https://thikanadhabla.in/about.html"/>
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg"/>
     <meta property="og:description" content="Learn about Kr. Rajvardhan Singh Badgujar, the creator of Thikana Dhabla Ghosi website, and acknowledgements for preserving Badgujar Rajput heritage."/>
     <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
     <meta property="og:locale" content="en_IN"/>
@@ -37,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About - Thikana Dhabla Ghosi">
     <meta name="twitter:description" content="Meet the creator and acknowledgements for the Thikana Dhabla Ghosi heritage website.">
-    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" href="1200.jpeg" type="image/jpeg">
