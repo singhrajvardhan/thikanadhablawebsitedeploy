@@ -1,57 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-   <url>
-      <loc>https://thikanadhabla.in/</loc>
-      <lastmod>2023-11-15</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://thikanadhabla.in/about</loc>
-      <lastmod>2023-11-10</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <url>
-      <loc>https://thikanadhabla.in/history</loc>
-      <lastmod>2023-11-12</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.9</priority>
-   </url>
-   <!-- Location & Map Page -->
-   <url>
-      <loc>https://thikanadhabla.in/map</loc>
-      <lastmod>2024-12-19</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://thikanadhabla.in/familytree</loc>
-      <lastmod>2023-11-15</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://thikanadhabla.in/contactus</loc>
-      <lastmod>2023-11-01</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <!-- Privacy Policy Page -->
-   <url>
-      <loc>https://thikanadhabla.in/privacy</loc>
-      <lastmod>2024-12-19</lastmod>
-      <changefreq>yearly</changefreq>
-      <priority>0.3</priority>
-   </url>
-   <!-- RSS Feed -->
-   <url>
-      <loc>https://thikanadhabla.in/rss</loc>
-      <lastmod>2024-12-19</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>0.6</priority>
-   </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>https://thikanadhabla.in/</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/index.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/history.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/familytree.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/map.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/dist.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/about.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/contactus.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://thikanadhabla.in/404.html</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    
 </urlset>
