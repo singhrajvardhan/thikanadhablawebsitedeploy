@@ -1,40 +1,51 @@
-<?php
-// Set proper headers first
-header("Content-Type: application/rss+xml; charset=UTF-8");
-header("Access-Control-Allow-Origin: *"); // Allow access from anywhere
-
-// Define your static content
-$posts = [
-    [
-        'title' => 'Welcome to Thikana Dhabla Ghosi',
-        'url' => 'https://www.thikanadhabla.in',
-        'description' => 'Explore the historic Badgujar Rajput dynasty of Thikana Dhabla Ghosi, Shajapur.',
-        'date' => date('Y-m-d H:i:s'),
-        'image' => 'https://www.thikanadhabla.in/images/Bajekan_logo_small_1.png'
-    ],
-    // Add more posts as needed...
-];
-
-// Generate the RSS feed
-echo '<?xml version="1.0" encoding="UTF-8"?>';
-?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-    <title>Thikana Dhabla Ghosi Updates</title>
-    <link>https://www.thikanadhabla.in</link>
-    <atom:link href="https://www.thikanadhabla.in/rss.php" rel="self" type="application/rss+xml" />
-    <description>Latest news from Thikana Dhabla Ghosi</description>
-    <lastBuildDate><?= date(DATE_RSS) ?></lastBuildDate>
+  <channel>
+    <title>Thikana Dhabla</title>
+    <link>https://thikanadhabla.in/</link>
+    <description>Latest updates and news from Thikana Dhabla</description>
     <language>en-us</language>
+    <lastBuildDate>2024-12-19</lastBuildDate>
+    <atom:link href="https://thikanadhabla.in/rss" rel="self" type="application/rss+xml"/>
     
-    <?php foreach ($posts as $post): ?>
     <item>
-        <title><?= htmlspecialchars($post['title']) ?></title>
-        <link><?= htmlspecialchars($post['url']) ?></link>
-        <guid><?= htmlspecialchars($post['url']) ?></guid>
-        <pubDate><?= date(DATE_RSS, strtotime($post['date'])) ?></pubDate>
-        <description><![CDATA[<?= $post['description'] ?>]]></description>
+      <title>Location &amp; Map Updated</title>
+      <link>https://thikanadhabla.in/map</link>
+      <guid>https://thikanadhabla.in/map</guid>
+      <pubDate>2024-12-19</pubDate>
+      <description>New updates to our location and map page.</description>
     </item>
-    <?php endforeach; ?>
-</channel>
+    
+    <item>
+      <title>Privacy Policy Updated</title>
+      <link>https://thikanadhabla.in/privacy</link>
+      <guid>https://thikanadhabla.in/privacy</guid>
+      <pubDate>2024-12-19</pubDate>
+      <description>Our privacy policy has been updated. Please review the changes.</description>
+    </item>
+    
+    <item>
+      <title>Family Tree Updates</title>
+      <link>https://thikanadhabla.in/familytree</link>
+      <guid>https://thikanadhabla.in/familytree</guid>
+      <pubDate>2023-11-15</pubDate>
+      <description>Latest updates to the family tree section.</description>
+    </item>
+    
+    <item>
+      <title>History Section Updated</title>
+      <link>https://thikanadhabla.in/history</link>
+      <guid>https://thikanadhabla.in/history</guid>
+      <pubDate>2023-11-12</pubDate>
+      <description>New historical information added to our history page.</description>
+    </item>
+    
+    <item>
+      <title>About Page Updated</title>
+      <link>https://thikanadhabla.in/about</link>
+      <guid>https://thikanadhabla.in/about</guid>
+      <pubDate>2023-11-10</pubDate>
+      <description>Learn more about Thikana Dhabla on our updated about page.</description>
+    </item>
+  </channel>
 </rss>
