@@ -23,11 +23,11 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- ====================== CANONICAL & MULTILINGUAL ====================== -->
-    <link rel="canonical" href="https://www.thikanadhabla.in/contacts">
-    <link rel="alternate" href="https://www.thikanadhabla.in/contacts" hreflang="en-IN" title="English">
-    <link rel="alternate" href="https://www.thikanadhabla.in/contacts" hreflang="hi-IN" title="Hindi">
+    <link rel="canonical" href="https://thikanadhabla.in/contacts">
+    <link rel="alternate" href="https://thikanadhabla.in/contacts" hreflang="en-IN" title="English">
+    <link rel="alternate" href="https://thikanadhabla.in/contacts" hreflang="hi-IN" title="Hindi">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <link rel="alternate" type="application/rss+xml" title="Thikana Dhabla Updates" href="https://www.thikanadhabla.in/rss.php">
+    <link rel="alternate" type="application/rss+xml" title="Thikana Dhabla Updates" href="https://thikanadhabla.in/rss.php">
 
     <!-- ====================== GEO & LOCAL BUSINESS TAGS ====================== -->
     <meta name="geo.region" content="IN-MP">
@@ -46,8 +46,8 @@
     <!-- ====================== OPEN GRAPH (Facebook & Social Media) ====================== -->
     <meta property="og:title" content="Contact Directory - Thikana Dhabla Ghosi | Badgujar Rajput Family"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://www.thikanadhabla.in/contacts"/>
-    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:url" content="https://thikanadhabla.in/contacts"/>
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg"/>
     <meta property="og:description" content="Complete contact directory for Thikana Dhabla Ghosi family members. Badgujar Rajput dynasty contacts, Shajapur, Madhya Pradesh."/>
     <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
     <meta property="og:locale" content="en_IN"/>
@@ -74,7 +74,7 @@
     <meta name="twitter:creator" content="@BadgujarHeritage">
     <meta name="twitter:title" content="Contact Directory - Thikana Dhabla Ghosi | Rajput Family">
     <meta name="twitter:description" content="Complete family contact directory for Badgujar Rajput dynasty of Thikana Dhabla Ghosi, Shajapur, Madhya Pradesh.">
-    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
 
     <!-- ====================== SCHEMA.ORG STRUCTURED DATA ====================== -->
     <script type="application/ld+json">
@@ -83,7 +83,7 @@
         "@type": "WebPage",
         "name": "Contact Directory - Thikana Dhabla Ghosi",
         "description": "Complete contact directory for the Badgujar Rajput family of Thikana Dhabla Ghosi, Shajapur, Madhya Pradesh.",
-        "url": "https://www.thikanadhabla.in/contacts",
+        "url": "https://thikanadhabla.in/contacts",
         "about": {
             "@type": "Organization",
             "name": "Thikana Dhabla Ghosi",
@@ -105,7 +105,7 @@
         "isPartOf": {
             "@type": "WebSite",
             "name": "Thikana Dhabla Ghosi",
-            "url": "https://www.thikanadhabla.in"
+            "url": "https://thikanadhabla.in"
         },
         "inLanguage": ["en-IN", "hi-IN"],
         "dateModified": "2025-06-10"
