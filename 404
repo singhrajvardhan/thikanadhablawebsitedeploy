@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#800000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>404 - Page Not Found | Thikana Dhabla Ghosi</title>
+    <meta name="description" content="The page you are looking for does not exist. Return to Thikana Dhabla Ghosi homepage.">
+    <meta name="robots" content="noindex, follow">
+    
+    <meta property="og:title" content="404 - Page Not Found | Thikana Dhabla Ghosi">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thikanadhabla.in/404.html">
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg">
+    <meta property="og:description" content="Page not found. Return to the royal heritage of Thikana Dhabla Ghosi.">
+    
+    <link rel="icon" href="1200.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="1200.jpeg">
+    
+    <style>
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #D32F2F;
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --cream: #F5F5DC;
+            --dark-brown: #5D4037;
+            --light-brown: #8D6E63;
+            --sand: #E0C9A6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: var(--cream);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F5F5DC"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23E0C9A6" stroke-width="0.5"/></svg>');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Strip */
+        #topstrip {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 8px;
+        }
+
+        /* Header */
+        #headstrip {
+            background-color: var(--dark-brown);
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+        }
+
+        #headstrip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 10px, var(--saffron) 10px, var(--saffron) 20px);
+        }
+
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .logo-frame {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            padding: 6px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--gold), var(--saffron), var(--deep-red), var(--maroon), var(--gold));
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .logo-frame::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background: var(--dark-brown);
+            z-index: -1;
+        }
+
+        .logo-image {
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            background-color: white;
+            padding: 3px;
+        }
+
+        .decoration {
+            position: absolute;
+            width: 148px;
+            height: 148px;
+            border-radius: 50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="5,5"/><path d="M50,10 A40,40 0 1,1 50,90 A40,40 0 1,1 50,10 Z" fill="none" stroke="%23FF9933" stroke-width="1"/></svg>');
+            top: -9px;
+            left: -9px;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(255, 153, 51, 0.5); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Main Content */
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .error-card {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 2px solid var(--gold);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* Corner decorations */
+        .corner-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.3;
+        }
+
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+            border-top: 3px solid var(--gold);
+            border-left: 3px solid var(--gold);
+        }
+
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+            border-top: 3px solid var(--gold);
+            border-right: 3px solid var(--gold);
+        }
+
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 3px solid var(--gold);
+            border-left: 3px solid var(--gold);
+        }
+
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 3px solid var(--gold);
+            border-right: 3px solid var(--gold);
+        }
+
+        .error-number {
+            font-size: 120px;
+            font-weight: bold;
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--maroon), var(--dark-brown), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .crown-icon {
+            font-size: 50px;
+            margin-bottom: 5px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .error-title {
+            font-size: 2rem;
+            color: var(--maroon);
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .error-message .path {
+            background: #f5f0e6;
+            padding: 4px 12px;
+            border-radius: 5px;
+            font-family: monospace;
+            color: var(--deep-red);
+            font-weight: bold;
+            border: 1px dashed var(--gold);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            border: none;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--saffron));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--maroon);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .rajasthani-ornament {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .rajasthani-ornament span {
+            display: inline-block;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        .rajasthani-ornament .diamond {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--deep-red);
+            transform: rotate(45deg);
+            vertical-align: middle;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--sand);
+        }
+
+        .quick-links p {
+            color: var(--light-brown);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .quick-links-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-links-grid a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: #f9f5ea;
+            border: 1px solid var(--sand);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .quick-links-grid a:hover {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        #footertop {
+            background: linear-gradient(to right, var(--saffron), var(--deep-red), var(--gold));
+            height: 6px;
+        }
+
+        #footerstrip {
+            background-color: var(--dark-brown);
+            padding: 20px;
+            text-align: center;
+            color: var(--cream);
+            font-size: 0.9rem;
+        }
+
+        #footerstrip a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        #footerstrip a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .error-card {
+                padding: 35px 25px;
+            }
+            
+            .error-number {
+                font-size: 90px;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .crown-icon {
+                font-size: 35px;
+            }
+            
+            .logo-frame {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-image {
+                width: 88px;
+                height: 88px;
+            }
+            
+            .decoration {
+                width: 118px;
+                height: 118px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+            
+            .corner-decoration {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-number {
+                font-size: 70px;
+            }
+            
+            .error-title {
+                font-size: 1.3rem;
+            }
+            
+            .error-message {
+                font-size: 0.95rem;
+            }
+            
+            .quick-links-grid a {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Strip -->
+    <div id="topstrip"></div>
+    
+    <!-- Header with Logo -->
+    <div id="headstrip">
+        <a href="index.html">
+            <div class="logo-container">
+                <div class="decoration"></div>
+                <div class="logo-frame">
+                    <img src="1200.jpeg" alt="Thikana Dhabla Ghosi" class="logo-image"/>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <!-- Main Error Content -->
+    <div class="main-container">
+        <div class="error-card">
+            <!-- Corner decorations -->
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+            
+            <!-- Crown Icon -->
+            <div class="crown-icon">👑</div>
+            
+            <!-- Error Number -->
+            <div class="error-number">404</div>
+            
+            <!-- Rajasthani Ornament -->
+            <div class="rajasthani-ornament">
+                <span></span>
+                <div class="diamond"></div>
+                <span></span>
+            </div>
+            
+            <!-- Error Title -->
+            <h1 class="error-title">⚔️ Kshama Karein | क्षमा करें ⚔️</h1>
+            
+            <!-- Error Message -->
+            <div class="error-message">
+                <p>The royal page you seek cannot be found in our ancestral records.</p>
+                <p style="margin-top: 10px;">
+                    The path <span class="path" id="errorPath">/unknown-page</span> does not exist in the kingdom of Thikana Dhabla Ghosi.
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: var(--light-brown);">
+                    "Perhaps it has been lost in the sands of time, like an ancient Rajput tale..."
+                </p>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <a href="index.html" class="btn btn-primary">🏰 Return to Home</a>
+                <a href="contactus.html" class="btn btn-secondary">📬 Contact Us</a>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <p>Explore other parts of our heritage:</p>
+                <div class="quick-links-grid">
+                    <a href="history.html">📜 History</a>
+                    <a href="familytree.html">🌳 Family Tree</a>
+                    <a href="map.html">🗺️ Location</a>
+                    <a href="dist.html">📞 Directory</a>
+                    <a href="about.html">ℹ️ About</a>
+                    <a href="sitemap.html">📍 Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div id="footertop"></div>
+    <div id="footerstrip">
+        <div>
+            Copyright © 2026 
+            <a href="https://rajvardhansingh.in" target="_blank" rel="noopener">Rajvardhan Singh Badgujar</a> 
+            & Family. All Rights Reserved.
+        </div>
+        <div style="margin-top: 5px;">
+            🙏 जय माँ आसावरी | राघवाय नमः 🙏
+        </div>
+    </div>
+
+    <script>
+        // Display the actual path that caused the 404
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorPath = document.getElementById('errorPath');
+            if (errorPath) {
+                // Get the current URL path
+                const currentPath = window.location.pathname;
+                if (currentPath && currentPath !== '/') {
+                    errorPath.textContent = currentPath;
+                }
+            }
+        });
+
+        // Add subtle particle effect (Rajasthani themed)
+        function createParticle() {
+            const particle = document.createElement('div');
+            const symbols = ['✨', '🌹', '🪔', '💫', '⚜️', '🔱'];
+            particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.position = 'fixed';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = '-30px';
+            particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            particle.style.opacity = '0.6';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            particle.style.animation = `fall ${Math.random() * 3 + 3}s linear forwards`;
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        // Add falling animation style
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-30px) rotate(0deg); opacity: 0.6; }
+                100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create particles every few seconds
+        setInterval(createParticle, 2000);
+        createParticle();
+        createParticle();
+    </script>
+</body>
+</html>
