@@ -639,6 +639,8 @@
             <a class="item" href="index.html">Home</a>
             <a class="item" href="history">History</a>
             <a class="item" href="familytree">Family Tree</a>
+            <a class="item" href="dist">Directory</a>
+
             <a class="item" href="map">Location & Map</a>
             <a class="item" href="about">About</a>
             <a class="item" href="contactus">Contact</a>
@@ -710,6 +712,10 @@
                 <li>
                     <a href="about">👨‍💻 About - Website Creator</a>
                 </li>
+
+   <li>
+            <a class="item" href="dist">Directory</a>
+  </li>
                 <li>
                     <a href="contactus">📧 Contact - Get in Touch</a>
                 </li>
@@ -739,6 +745,7 @@
                 <a href="history">History</a>
                 <a href="familytree">Family Tree</a>
                 <a href="map">Location & Map</a>
+ <a class="item" href="dist">Directory</a>
                 <a href="about">About</a>
                 <a href="privacy">Privacy Policy</a>
                 <a href="sitemap">Sitemap</a>
