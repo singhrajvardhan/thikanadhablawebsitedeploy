@@ -17,8 +17,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Privacy Policy - Thikana Dhabla Ghosi"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://www.thikanadhabla.in/privacy.html"/>
-    <meta property="og:image" content="https://www.thikanadhabla.in/1200.jpeg"/>
+    <meta property="og:url" content="https://thikanadhabla.in/privacy.html"/>
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg"/>
     <meta property="og:description" content="Privacy Policy for Thikana Dhabla Ghosi website - Your data protection and privacy matters."/>
     <meta property="og:site_name" content="Thikana Dhabla Ghosi"/>
     <meta property="og:locale" content="en_IN"/>
@@ -37,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Privacy Policy - Thikana Dhabla Ghosi">
     <meta name="twitter:description" content="Read our privacy policy to understand how we protect your data.">
-    <meta name="twitter:image" content="https://www.thikanadhabla.in/1200.jpeg">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" href="1200.jpeg" type="image/jpeg">
