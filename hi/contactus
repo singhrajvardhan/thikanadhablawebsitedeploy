@@ -344,8 +344,60 @@
     </footer>
 
     <script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', () => { const open = primaryNav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && primaryNav.classList.contains('open')) { primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', false); } });
+
+        function generateCaptcha() {
+            const num1 = Math.floor(Math.random() * 10);
+            const num2 = Math.floor(Math.random() * 10);
+            const num3 = Math.floor(Math.random() * 10);
+            const num4 = Math.floor(Math.random() * 10);
+            document.getElementById('captchaText').textContent = `${num1} ${num2} ${num3} ${num4}`;
+            document.getElementById('captchaAnswer').value = `${num1}${num2}${num3}${num4}`;
+        }
+        generateCaptcha();
+
+        fetch("https://ipinfo.io/json?token=ba2d92c60f3b36").then(res => res.json()).catch(() => ({})).then(data => {
+            if(data && data.ip) {
+                document.getElementById("ip").value = data.ip || '';
+                document.getElementById("city").value = data.city || '';
+                document.getElementById("country").value = data.country || '';
+            }
+        });
+
+        const contactForm = document.getElementById('contactFormReal');
+        const successMsg = document.getElementById('successMessage');
+        const formContainer = document.getElementById('formContainer');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userCaptcha = document.getElementById('captchaInput').value.trim();
+            const correctCaptcha = document.getElementById('captchaAnswer').value;
+            if(userCaptcha !== correctCaptcha) { alert("❌ कैप्चा सत्यापन विफल। कृपया सही अंक दर्ज करें।"); generateCaptcha(); document.getElementById('captchaInput').value = ''; return; }
+            const name = document.getElementById('contact_name').value.trim();
+            if(name.length < 2) { alert("कृपया एक मान्य नाम दर्ज करें (कम से कम 2 अक्षर)।"); return; }
+            const email = document.getElementById('contact_email').value.trim();
+            const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            if(!emailRegex.test(email)) { alert("कृपया एक मान्य ईमेल पता दर्ज करें।"); return; }
+            const message = document.getElementById('contact_message').value.trim();
+            if(message.length < 10) { alert("कृपया एक सार्थक संदेश लिखें (कम से कम 10 अक्षर)।"); return; }
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            submitBtn.textContent = '⏳ भेज रहे हैं...'; submitBtn.disabled = true;
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData, headers: { 'Accept': 'application/json' } });
+                const result = await response.json();
+                if(result.success) { formContainer.style.display = 'none'; successMsg.style.display = 'block'; successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); contactForm.reset(); generateCaptcha(); }
+                else { alert("फॉर्म जमा करने में विफल: " + (result.message || "कृपया पुनः प्रयास करें।")); }
+            } catch(error) { console.error("जमा करने में त्रुटि:", error); alert("नेटवर्क त्रुटि। कृपया अपना कनेक्शन जाँचें और पुनः प्रयास करें।"); }
+            finally { submitBtn.textContent = '✨ संदेश भेजें ✨'; submitBtn.disabled = false; }
+        });
     </script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 
 </body>
 </html>
