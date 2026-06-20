@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thikana Dhabla</title>
+    <link>https://thikanadhabla.in/</link>
+    <description>Latest updates and news from Thikana Dhabla</description>
+    <language>en-us</language>
+    <lastBuildDate>2024-12-19</lastBuildDate>
+    <atom:link href="https://thikanadhabla.in/rss" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Location &amp; Map Updated</title>
+      <link>https://thikanadhabla.in/map</link>
+      <guid>https://thikanadhabla.in/map</guid>
+      <pubDate>2024-12-19</pubDate>
+      <description>New updates to our location and map page.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy Updated</title>
+      <link>https://thikanadhabla.in/privacy</link>
+      <guid>https://thikanadhabla.in/privacy</guid>
+      <pubDate>2024-12-19</pubDate>
+      <description>Our privacy policy has been updated. Please review the changes.</description>
+    </item>
+    
+    <item>
+      <title>Family Tree Updates</title>
+      <link>https://thikanadhabla.in/familytree</link>
+      <guid>https://thikanadhabla.in/familytree</guid>
+      <pubDate>2023-11-15</pubDate>
+      <description>Latest updates to the family tree section.</description>
+    </item>
+    
+    <item>
+      <title>History Section Updated</title>
+      <link>https://thikanadhabla.in/history</link>
+      <guid>https://thikanadhabla.in/history</guid>
+      <pubDate>2023-11-12</pubDate>
+      <description>New historical information added to our history page.</description>
+    </item>
+    
+    <item>
+      <title>About Page Updated</title>
+      <link>https://thikanadhabla.in/about</link>
+      <guid>https://thikanadhabla.in/about</guid>
+      <pubDate>2023-11-10</pubDate>
+      <description>Learn more about Thikana Dhabla on our updated about page.</description>
+    </item>
+  </channel>
+</rss>
