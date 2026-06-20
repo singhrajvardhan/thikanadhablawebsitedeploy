@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    
+    <title>Privacy Policy — Thikana Dhabla Ghosi | Badgujar Rajput Heritage</title>
+    <meta name="description" content="Privacy Policy for Thikana Dhabla Ghosi website. Learn how we collect, use, and protect your personal information when visiting our royal heritage website.">
+    <meta name="keywords" content="Privacy Policy, Thikana Dhabla Ghosi, Badgujar Rajput, data protection, website privacy">
+    <meta name="author" content="Thikana Dhabla Ghosi, Rajvardhan Singh Badgujar">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://thikanadhabla.in/privacy">
+    <link rel="alternate" href="https://thikanadhabla.in/privacy" hreflang="en-IN">
+    <link rel="alternate" href="https://thikanadhabla.in/hi/privacy" hreflang="hi-IN" title="हिन्दी">
+    
+    <meta property="og:title" content="Privacy Policy — Thikana Dhabla Ghosi | Badgujar Rajput Heritage">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thikanadhabla.in/privacy">
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg">
+    <meta property="og:description" content="Privacy Policy for Thikana Dhabla Ghosi website — Your data protection and privacy matters.">
+    <meta property="og:site_name" content="Thikana Dhabla Ghosi">
+    <meta property="og:locale" content="en_IN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy — Thikana Dhabla Ghosi">
+    <meta name="twitter:description" content="Read our privacy policy to understand how we protect your data.">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
+    
+    <link rel="icon" href="1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810; --wood-deep: #1C0F0A; --lac: #7A1F1F; --lac-deep: #5C1717; --lac-bright: #9B2D2D;
+            --gold: #C99A3A; --gold-bright: #E8C166; --gold-pale: #F0D68A; --sand: #F2E8D5;
+            --paper: #E8DCC4; --paper-light: #F7F1E4; --indigo: #1B3A5C; --ink: #2A2118;
+            --smoke: #4A3C2C; --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif; --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif; --body: 'Lora', serif; --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-card: 0 8px 22px rgba(43, 24, 16, 0.08); --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body); color: var(--ink); background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+        }
+
+        a { color: inherit; } img { max-width: 100%; display: block; height: auto; }
+        :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
+
+        .lang-switcher-bar {
+            background: var(--wood-deep); border-bottom: 1px solid rgba(201, 154, 58, 0.25);
+            padding: 10px 24px; display: flex; justify-content: flex-end; align-items: center;
+            gap: 12px; font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.08em;
+            color: var(--ash); text-transform: uppercase;
+        }
+        .lang-switcher-bar .lang-label { color: var(--gold-bright); opacity: 0.9; font-size: 0.68rem; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px; }
+        .lang-switcher-bar .lang-label svg { width: 15px; height: 15px; fill: var(--gold-bright); opacity: 0.8; }
+        .lang-options { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border-radius: 4px; padding: 3px; border: 1px solid rgba(201,154,58,0.3); }
+        .lang-option { font-family: var(--eyebrow); font-size: 0.66rem; letter-spacing: 0.06em; padding: 7px 16px; border-radius: 3px; cursor: pointer; transition: all 0.25s ease; text-decoration: none; color: var(--ash); background: transparent; border: none; white-space: nowrap; }
+        .lang-option:hover { color: var(--gold-bright); background: rgba(201,154,58,0.1); }
+        .lang-option.active { background: var(--gold); color: var(--wood-deep); font-weight: 600; box-shadow: 0 2px 8px rgba(201,154,58,0.3); }
+        .lang-option .devnag-text { font-family: var(--devnag); font-size: 0.75rem; letter-spacing: 0.02em; }
+        @media (max-width: 600px) { .lang-switcher-bar { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 16px; } .lang-option { padding: 6px 12px; font-size: 0.62rem; } }
+
+        .ribbon { height: 5px; background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px); opacity: 0.5; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+
+        header { background: var(--wood-deep); border-bottom: 2px solid rgba(201, 154, 58, 0.3); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+        .nav-wrap { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; gap: 24px; }
+        .brandmark { display: flex; align-items: center; gap: 14px; text-decoration: none; transition: opacity 0.2s ease; }
+        .brandmark:hover { opacity: 0.85; }
+        .crest-mini { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); background: var(--sand); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 14px rgba(201, 154, 58, 0.35); }
+        .crest-mini img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        .word { font-family: var(--eyebrow); color: var(--sand); font-size: 0.74rem; letter-spacing: 0.13em; line-height: 1.45; }
+        .word strong { display: block; color: var(--gold-bright); font-size: 0.95rem; font-weight: 600; }
+        nav ul { list-style: none; display: flex; gap: 2px; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--paper); font-family: var(--eyebrow); font-size: 0.68rem; letter-spacing: 0.1em; padding: 10px 14px; border-radius: 3px; transition: all var(--transition-smooth); position: relative; text-transform: uppercase; }
+        nav a::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 0; height: 1.5px; background: var(--gold-bright); transition: width var(--transition-smooth); }
+        nav a:hover, nav a.current { color: var(--wood-deep); background: var(--gold); }
+        nav a:hover::after, nav a.current::after { width: 60%; }
+        .nav-toggle { display: none; background: none; border: 1px solid var(--gold); color: var(--gold-bright); font-family: var(--eyebrow); font-size: 0.66rem; letter-spacing: 0.12em; padding: 9px 16px; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
+        .nav-toggle:hover { background: rgba(201, 154, 58, 0.15); }
+        @media (max-width: 900px) { nav ul { display: none; } .nav-toggle { display: block; } nav ul.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--wood-deep); padding: 12px 20px 20px; border-bottom: 2px solid var(--gold); box-shadow: var(--shadow-elevated); } nav ul.open a { padding: 14px 16px; font-size: 0.72rem; } }
+
+        .page-hero { background: linear-gradient(175deg, var(--wood-deep) 0%, var(--wood) 50%, var(--lac-deep) 100%); padding: 50px 20px 55px; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,154,58,0.04) 0 2px, transparent 2px 28px); pointer-events: none; }
+        .page-hero .eyebrow { font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.34em; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 14px; position: relative; z-index: 1; }
+        .page-hero h1 { font-family: var(--display); font-weight: 700; color: var(--sand); font-size: clamp(2.2rem, 5vw, 3.5rem); text-shadow: 0 3px 20px rgba(0,0,0,0.6); position: relative; z-index: 1; }
+        .page-hero .devnag-line { font-family: var(--devnag); color: var(--gold-bright); font-size: 1.3rem; margin-top: 10px; position: relative; z-index: 1; }
+
+        .battlement { height: 24px; background: var(--sand); -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%, 20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%, 40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%, 60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%, 80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%, 100% 25%, 100% 100%); position: relative; z-index: 2; }
+
+        .content-section { padding: 55px 20px 65px; }
+        .wrap { max-width: 1000px; margin: 0 auto; }
+
+        .panel { background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 5px; padding: 32px 34px; margin-bottom: 30px; position: relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-card); }
+        .panel::before { content: ""; position: absolute; inset: 9px; border: 1px solid rgba(122,31,31,0.2); border-radius: 3px; pointer-events: none; }
+        .panel h2 { font-family: var(--display); font-size: 1.8rem; color: var(--wood); margin-bottom: 18px; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .panel h3 { font-family: var(--display); font-size: 1.3rem; color: var(--lac); margin: 20px 0 10px; font-weight: 600; }
+        .panel p { font-size: 1.02rem; color: var(--smoke); margin-bottom: 14px; text-align: justify; line-height: 1.8; }
+        .panel ul, .panel ol { margin: 12px 0 18px 28px; }
+        .panel li { font-size: 1rem; color: var(--smoke); margin-bottom: 8px; line-height: 1.7; }
+        .highlight { font-weight: 600; color: var(--lac); }
+
+        .last-updated {
+            text-align: center; font-style: italic; color: var(--ash);
+            margin-bottom: 25px; padding: 12px 20px;
+            background: rgba(201,154,58,0.08); border-radius: 8px;
+            font-family: var(--eyebrow); font-size: 0.72rem; letter-spacing: 0.05em;
+            border: 1px solid rgba(201,154,58,0.2);
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+        .data-table th { background: linear-gradient(135deg, var(--lac-deep), var(--wood)); color: var(--gold-bright); padding: 13px 16px; text-align: left; font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+        .data-table td { padding: 11px 16px; border-bottom: 1px solid var(--sand); background: white; color: var(--smoke); font-size: 0.93rem; }
+        .data-table tr:nth-child(even) td { background-color: rgba(201,154,58,0.04); }
+        .data-table tr:hover td { background-color: rgba(201,154,58,0.08); }
+
+        .contact-box {
+            background: linear-gradient(135deg, #fffdf8, #fff); border: 2px solid var(--gold);
+            border-radius: 10px; padding: 22px 26px; margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .contact-box p { margin-bottom: 6px; }
+
+        @media (max-width: 600px) {
+            .data-table th, .data-table td { padding: 8px 10px; font-size: 0.8rem; }
+        }
+
+        footer { background: var(--wood-deep); color: var(--paper); padding: 54px 20px 28px; position: relative; overflow: hidden; }
+        footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold)); opacity: 0.7; }
+        .footer-grid { max-width: 1100px; margin: 0 auto 38px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+        @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+        .footer-grid h5 { font-family: var(--eyebrow); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--gold-bright); margin-bottom: 16px; text-transform: uppercase; }
+        .footer-grid p, .footer-grid li { font-size: 0.9rem; color: #cfc2ad; line-height: 1.6; }
+        .footer-grid ul { list-style: none; } .footer-grid li { margin-bottom: 9px; }
+        .footer-grid a { text-decoration: none; color: #cfc2ad; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid a:hover { color: var(--gold-bright); padding-left: 4px; }
+        .footer-location { margin-top: 12px; font-style: italic; color: var(--gold-pale); font-size: 0.88rem; }
+        .footer-location .geo { display: block; font-size: 0.78rem; color: var(--ash); margin-top: 4px; font-style: normal; }
+        .social-row { display: flex; gap: 14px; margin-top: 16px; }
+        .social-row a { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all var(--transition-smooth); color: var(--gold-bright); }
+        .social-row a:hover { background: var(--gold); color: var(--wood-deep); transform: translateY(-2px); }
+        .social-row svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(201,154,58,0.2); padding-top: 24px; font-size: 0.82rem; color: var(--ash); max-width: 1100px; margin: 0 auto; }
+        .footer-bottom a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
+        .footer-bottom a:hover { color: var(--gold-pale); }
+        .footer-bottom .copyright-owner { display: block; margin-top: 6px; color: #b8a88a; font-size: 0.85rem; }
+        .footer-bottom .footer-links { margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+        .footer-bottom .footer-links a { color: #cfc2ad; text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+        .footer-bottom .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
+        .footer-bottom .footer-links span { color: #5a4636; }
+        .skip-link { position: absolute; left: -999px; top: 0; background: var(--gold); color: var(--wood-deep); padding: 12px 18px; z-index: 200; font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.06em; border-radius: 0 0 3px 3px; }
+        .skip-link:focus { left: 10px; top: 10px; }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="lang-switcher-bar">
+        <span class="lang-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            भाषा / Language
+        </span>
+        <div class="lang-options">
+            <a href="privacy" class="lang-option active" aria-current="page">English</a>
+            <a href="hi/privacy" class="lang-option"><span class="devnag-text">हिन्दी</span></a>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
+                <span class="crest-mini"><img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem"></span>
+                <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
+            <nav>
+                <ul id="primaryNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history">History</a></li>
+                    <li><a href="familytree">Family Tree</a></li>
+                    <li><a href="map">Location &amp; Map</a></li>
+                    <li><a href="dist">Directory</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contactus">Contact</a></li>
+                    <li><a href="privacy" class="current">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <p class="eyebrow">Data Protection · Transparency · Trust</p>
+        <h1>Privacy Policy</h1>
+        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+    </section>
+
+    <div class="battlement"></div>
+
+    <main id="main-content" class="content-section">
+        <div class="wrap">
+
+            <div class="panel">
+                <h2>🛡️ Privacy Policy for Thikana Dhabla Ghosi</h2>
+                <p class="last-updated">Last Updated: <span id="currentDate"></span></p>
+
+                <h3>1. Introduction</h3>
+                <p>Welcome to <span class="highlight">www.thikanadhabla.in</span> ("Website", "Service", "we", "us", or "our"). We are committed to protecting your privacy and handling your data transparently. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, which showcases the royal heritage and history of the Badgujar Rajput family of Thikana Dhabla Ghosi.</p>
+                <p>By using our website, you consent to the data practices described in this policy. We respect your privacy and are dedicated to maintaining the trust you place in us.</p>
+            </div>
+
+            <div class="panel">
+                <h2>2. Information We Collect</h2>
+                
+                <h3>2.1 Automatically Collected Data</h3>
+                <p>When you visit our website, we automatically collect certain technical information to improve your experience and ensure security:</p>
+                <table class="data-table">
+                    <thead><tr><th>Data Type</th><th>Description</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                        <tr><td>IP Address</td><td>Your device's internet protocol address</td><td>Security, analytics, and geolocation</td></tr>
+                        <tr><td>Browser & Device Info</td><td>Browser type, version, screen resolution, device type</td><td>Optimize website display and functionality</td></tr>
+                        <tr><td>Visit Details</td><td>Pages visited, time spent, referral source</td><td>Analyze usage patterns and improve content</td></tr>
+                        <tr><td>Geolocation Data</td><td>Approximate location derived from IP address</td><td>Content personalization and analytics</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 User Interaction Data</h3>
+                <p>We track how you interact with our website to enhance user experience:</p>
+                <ul>
+                    <li><span class="highlight">Clicked Elements</span> — Buttons, links, or forms you interact with</li>
+                    <li><span class="highlight">Scroll Behavior</span> — How far you scroll on our pages</li>
+                    <li><span class="highlight">Time Spent</span> — Duration of your visit and engagement</li>
+                </ul>
+
+                <h3>2.3 Information You Provide</h3>
+                <p>When you fill out forms on our website (such as the contact form), we may collect:</p>
+                <ul>
+                    <li>Contact information (name, email address)</li>
+                    <li>Message content and inquiries</li>
+                    <li>Any other details you voluntarily provide</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the collected information to:</p>
+                <ul>
+                    <li>Provide and maintain our website services</li>
+                    <li>Analyze usage patterns to improve user experience</li>
+                    <li>Respond to inquiries and provide customer support</li>
+                    <li>Enhance website security and prevent fraudulent activity</li>
+                    <li>Comply with legal obligations</li>
+                    <li>Preserve and share the cultural heritage of the Badgujar Rajputs</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>4. Data Collection Technologies</h2>
+                <p>We use the following methods to collect data:</p>
+                <table class="data-table">
+                    <thead><tr><th>Technology</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                        <tr><td>JavaScript Tracking</td><td>Collects interaction data (clicks, scrolls, time spent)</td></tr>
+                        <tr><td>IP API (ipapi.co)</td><td>Determines approximate geolocation from IP address</td></tr>
+                        <tr><td>Browser APIs</td><td>Accesses device information (screen size, language, etc.)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel">
+                <h2>5. Data Sharing and Disclosure</h2>
+                <p>We do not sell your personal information. Data may be shared with:</p>
+                <ul>
+                    <li><span class="highlight">Service Providers</span> — Third parties assisting in website operations</li>
+                    <li><span class="highlight">Legal Authorities</span> — When required by law or to protect our rights</li>
+                    <li><span class="highlight">Analytics Tools</span> — For understanding user behavior</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>6. Your Rights and Choices</h2>
+                <p>You have certain rights regarding your data:</p>
+                <ul>
+                    <li>Request access to your personal data</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Opt-out of certain data collection methods</li>
+                    <li>Request deletion of your data (where applicable)</li>
+                </ul>
+                <p>To exercise these rights, please contact us at <span class="highlight">admin@thikanadhabla.in</span>.</p>
+            </div>
+
+            <div class="panel">
+                <h2>7. Data Security</h2>
+                <p>We implement appropriate security measures including:</p>
+                <ul>
+                    <li>Secure transmission protocols (HTTPS)</li>
+                    <li>IP address filtering and monitoring</li>
+                    <li>Regular security reviews</li>
+                </ul>
+                <p>However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+            </div>
+
+            <div class="panel">
+                <h2>8. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. The updated version will be posted on this page with a revised "Last Updated" date. We encourage you to review this policy regularly.</p>
+            </div>
+
+            <div class="panel">
+                <h2>9. Contact Us</h2>
+                <div class="contact-box">
+                    <p><span class="highlight">Data Protection Contact:</span> Rajvardhan Singh Badgujar</p>
+                    <p><span class="highlight">Email:</span> admin@thikanadhabla.in</p>
+                    <p><span class="highlight">Address:</span> V.P.O: Dhabla Ghosi, District: Shajapur - 465335, Madhya Pradesh, India</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h5>Thikana Dhabla Ghosi</h5>
+                <p>The ancestral seat of the Badgujar Rajput family — Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
+                <p class="footer-location">Connected to Ujjain · Indore · Bhopal · Dewas · Jabalpur · Rajasthan<span class="geo">Coordinates: 23.3207° N, 76.7085° E</span></p>
+                <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                <div class="social-row">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></a>
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                    <a href="mailto:info@thikanadhabla.in" aria-label="Email"><svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h5>Navigate</h5>
+                <ul><li><a href="index.html">Home</a></li><li><a href="history">History</a></li><li><a href="familytree">Family Tree</a></li><li><a href="map">Location &amp; Map</a></li><li><a href="dist">Directory</a></li></ul>
+            </div>
+            <div>
+                <h5>Information</h5>
+                <ul><li><a href="about">About</a></li><li><a href="contactus">Contact Us</a></li><li><a href="privacy">Privacy Policy</a></li><li><a href="sitemap">Sitemap</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="index.html">Home</a><span>|</span><a href="history">History</a><span>|</span><a href="familytree">Family Tree</a><span>|</span><a href="map">Location &amp; Map</a><span>|</span><a href="dist">Directory</a><span>|</span><a href="about">About</a><span>|</span><a href="contactus">Contact Us</a><span>|</span><a href="privacy">Privacy Policy</a><span>|</span><a href="sitemap">Sitemap</a>
+            </div>
+            <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', () => { const open = primaryNav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && primaryNav.classList.contains('open')) { primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', false); } });
+
+        const dateElement = document.getElementById('currentDate');
+        if(dateElement) {
+            dateElement.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+    </script>
+
+</body>
+</html>

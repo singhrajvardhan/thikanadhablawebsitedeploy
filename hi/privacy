@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    
+    <title>गोपनीयता नीति — ठिकाना ढाबला घोसी | बड़गुजर राजपूत विरासत</title>
+    <meta name="description" content="ठिकाना ढाबला घोसी वेबसाइट की गोपनीयता नीति। जानें कि हमारी शाही विरासत वेबसाइट पर आने पर हम आपकी व्यक्तिगत जानकारी कैसे एकत्र करते हैं, उपयोग करते हैं और सुरक्षित रखते हैं।">
+    <meta name="keywords" content="गोपनीयता नीति, ठिकाना ढाबला घोसी, बड़गुजर राजपूत, डेटा सुरक्षा, वेबसाइट गोपनीयता">
+    <meta name="author" content="ठिकाना ढाबला घोसी, राजवर्धन सिंह बड़गुजर">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://thikanadhabla.in/hi/privacy">
+    <link rel="alternate" href="https://thikanadhabla.in/privacy" hreflang="en-IN">
+    <link rel="alternate" href="https://thikanadhabla.in/hi/privacy" hreflang="hi-IN" title="हिन्दी">
+    
+    <meta property="og:title" content="गोपनीयता नीति — ठिकाना ढाबला घोसी | बड़गुजर राजपूत विरासत">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thikanadhabla.in/hi/privacy">
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg">
+    <meta property="og:description" content="ठिकाना ढाबला घोसी वेबसाइट की गोपनीयता नीति — आपकी डेटा सुरक्षा और गोपनीयता हमारे लिए महत्वपूर्ण है।">
+    <meta property="og:site_name" content="ठिकाना ढाबला घोसी">
+    <meta property="og:locale" content="hi_IN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="गोपनीयता नीति — ठिकाना ढाबला घोसी">
+    <meta name="twitter:description" content="हम आपके डेटा की सुरक्षा कैसे करते हैं, यह समझने के लिए हमारी गोपनीयता नीति पढ़ें।">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
+    
+    <link rel="icon" href="../1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810; --wood-deep: #1C0F0A; --lac: #7A1F1F; --lac-deep: #5C1717; --lac-bright: #9B2D2D;
+            --gold: #C99A3A; --gold-bright: #E8C166; --gold-pale: #F0D68A; --sand: #F2E8D5;
+            --paper: #E8DCC4; --paper-light: #F7F1E4; --indigo: #1B3A5C; --ink: #2A2118;
+            --smoke: #4A3C2C; --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif; --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif; --body: 'Lora', serif; --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-card: 0 8px 22px rgba(43, 24, 16, 0.08); --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--devnag); color: var(--ink); background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; line-height: 1.9; -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+        }
+
+        a { color: inherit; } img { max-width: 100%; display: block; height: auto; }
+        :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
+
+        .lang-switcher-bar {
+            background: var(--wood-deep); border-bottom: 1px solid rgba(201, 154, 58, 0.25);
+            padding: 10px 24px; display: flex; justify-content: flex-end; align-items: center;
+            gap: 12px; font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.08em;
+            color: var(--ash); text-transform: uppercase;
+        }
+        .lang-switcher-bar .lang-label { color: var(--gold-bright); opacity: 0.9; font-size: 0.68rem; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px; }
+        .lang-switcher-bar .lang-label svg { width: 15px; height: 15px; fill: var(--gold-bright); opacity: 0.8; }
+        .lang-options { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border-radius: 4px; padding: 3px; border: 1px solid rgba(201,154,58,0.3); }
+        .lang-option { font-family: var(--eyebrow); font-size: 0.66rem; letter-spacing: 0.06em; padding: 7px 16px; border-radius: 3px; cursor: pointer; transition: all 0.25s ease; text-decoration: none; color: var(--ash); background: transparent; border: none; white-space: nowrap; }
+        .lang-option:hover { color: var(--gold-bright); background: rgba(201,154,58,0.1); }
+        .lang-option.active { background: var(--gold); color: var(--wood-deep); font-weight: 600; box-shadow: 0 2px 8px rgba(201,154,58,0.3); }
+        .lang-option .devnag-text { font-family: var(--devnag); font-size: 0.78rem; letter-spacing: 0.02em; }
+        @media (max-width: 600px) { .lang-switcher-bar { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 16px; } .lang-option { padding: 6px 12px; font-size: 0.62rem; } }
+
+        .ribbon { height: 5px; background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px); opacity: 0.5; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+
+        header { background: var(--wood-deep); border-bottom: 2px solid rgba(201, 154, 58, 0.3); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); }
+        .nav-wrap { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; gap: 24px; }
+        .brandmark { display: flex; align-items: center; gap: 14px; text-decoration: none; transition: opacity 0.2s ease; }
+        .brandmark:hover { opacity: 0.85; }
+        .crest-mini { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); background: var(--sand); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 14px rgba(201, 154, 58, 0.35); }
+        .crest-mini img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        .word { font-family: var(--devnag); color: var(--sand); font-size: 0.78rem; letter-spacing: 0.04em; line-height: 1.55; }
+        .word strong { display: block; color: var(--gold-bright); font-size: 0.95rem; font-weight: 600; }
+        nav ul { list-style: none; display: flex; gap: 2px; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--paper); font-family: var(--devnag); font-size: 0.72rem; letter-spacing: 0.03em; padding: 10px 14px; border-radius: 3px; transition: all var(--transition-smooth); position: relative; }
+        nav a::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 0; height: 1.5px; background: var(--gold-bright); transition: width var(--transition-smooth); }
+        nav a:hover, nav a.current { color: var(--wood-deep); background: var(--gold); }
+        nav a:hover::after, nav a.current::after { width: 60%; }
+        .nav-toggle { display: none; background: none; border: 1px solid var(--gold); color: var(--gold-bright); font-family: var(--devnag); font-size: 0.7rem; letter-spacing: 0.04em; padding: 9px 16px; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
+        .nav-toggle:hover { background: rgba(201, 154, 58, 0.15); }
+        @media (max-width: 900px) { nav ul { display: none; } .nav-toggle { display: block; } nav ul.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--wood-deep); padding: 12px 20px 20px; border-bottom: 2px solid var(--gold); box-shadow: var(--shadow-elevated); } nav ul.open a { padding: 14px 16px; font-size: 0.76rem; } }
+
+        .page-hero { background: linear-gradient(175deg, var(--wood-deep) 0%, var(--wood) 50%, var(--lac-deep) 100%); padding: 50px 20px 55px; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,154,58,0.04) 0 2px, transparent 2px 28px); pointer-events: none; }
+        .page-hero .eyebrow { font-family: var(--devnag); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--gold-bright); margin-bottom: 14px; position: relative; z-index: 1; }
+        .page-hero h1 { font-family: var(--devnag); font-weight: 700; color: var(--sand); font-size: clamp(2.4rem, 5.5vw, 3.8rem); text-shadow: 0 3px 20px rgba(0,0,0,0.6); position: relative; z-index: 1; }
+        .page-hero .devnag-line { font-family: var(--devnag); color: var(--gold-bright); font-size: 1.5rem; margin-top: 10px; position: relative; z-index: 1; }
+
+        .battlement { height: 24px; background: var(--sand); -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%, 20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%, 40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%, 60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%, 80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%, 100% 25%, 100% 100%); position: relative; z-index: 2; }
+
+        .content-section { padding: 55px 20px 65px; }
+        .wrap { max-width: 1000px; margin: 0 auto; }
+
+        .panel { background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 5px; padding: 32px 34px; margin-bottom: 30px; position: relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-card); }
+        .panel::before { content: ""; position: absolute; inset: 9px; border: 1px solid rgba(122,31,31,0.2); border-radius: 3px; pointer-events: none; }
+        .panel h2 { font-family: var(--devnag); font-size: 1.8rem; color: var(--wood); margin-bottom: 18px; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        .panel h3 { font-family: var(--devnag); font-size: 1.3rem; color: var(--lac); margin: 20px 0 10px; font-weight: 600; }
+        .panel p { font-size: 1.08rem; color: var(--smoke); margin-bottom: 16px; text-align: justify; line-height: 1.9; }
+        .panel ul, .panel ol { margin: 12px 0 18px 28px; }
+        .panel li { font-size: 1.05rem; color: var(--smoke); margin-bottom: 9px; line-height: 1.8; }
+        .highlight { font-weight: 600; color: var(--lac); }
+
+        .last-updated {
+            text-align: center; color: var(--ash);
+            margin-bottom: 25px; padding: 12px 20px;
+            background: rgba(201,154,58,0.08); border-radius: 8px;
+            font-family: var(--devnag); font-size: 0.8rem; letter-spacing: 0.03em;
+            border: 1px solid rgba(201,154,58,0.2);
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+        .data-table th { background: linear-gradient(135deg, var(--lac-deep), var(--wood)); color: var(--gold-bright); padding: 13px 16px; text-align: left; font-family: var(--devnag); font-size: 0.78rem; letter-spacing: 0.03em; }
+        .data-table td { padding: 11px 16px; border-bottom: 1px solid var(--sand); background: white; color: var(--smoke); font-size: 0.95rem; font-family: var(--devnag); }
+        .data-table tr:nth-child(even) td { background-color: rgba(201,154,58,0.04); }
+        .data-table tr:hover td { background-color: rgba(201,154,58,0.08); }
+
+        .contact-box {
+            background: linear-gradient(135deg, #fffdf8, #fff); border: 2px solid var(--gold);
+            border-radius: 10px; padding: 22px 26px; margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .contact-box p { margin-bottom: 6px; font-family: var(--devnag); font-size: 1.02rem; }
+
+        @media (max-width: 600px) {
+            .data-table th, .data-table td { padding: 8px 10px; font-size: 0.8rem; }
+        }
+
+        footer { background: var(--wood-deep); color: var(--paper); padding: 54px 20px 28px; position: relative; overflow: hidden; }
+        footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold)); opacity: 0.7; }
+        .footer-grid { max-width: 1100px; margin: 0 auto 38px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+        @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+        .footer-grid h5 { font-family: var(--devnag); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--gold-bright); margin-bottom: 16px; }
+        .footer-grid p, .footer-grid li { font-size: 0.92rem; color: #cfc2ad; line-height: 1.7; }
+        .footer-grid ul { list-style: none; } .footer-grid li { margin-bottom: 9px; }
+        .footer-grid a { text-decoration: none; color: #cfc2ad; transition: color 0.2s, padding-right 0.2s; }
+        .footer-grid a:hover { color: var(--gold-bright); padding-right: 4px; }
+        .footer-location { margin-top: 12px; color: var(--gold-pale); font-size: 0.9rem; }
+        .footer-location .geo { display: block; font-size: 0.8rem; color: var(--ash); margin-top: 4px; }
+        .social-row { display: flex; gap: 14px; margin-top: 16px; }
+        .social-row a { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all var(--transition-smooth); color: var(--gold-bright); }
+        .social-row a:hover { background: var(--gold); color: var(--wood-deep); transform: translateY(-2px); }
+        .social-row svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(201,154,58,0.2); padding-top: 24px; font-size: 0.85rem; color: var(--ash); max-width: 1100px; margin: 0 auto; }
+        .footer-bottom a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
+        .footer-bottom a:hover { color: var(--gold-pale); }
+        .footer-bottom .copyright-owner { display: block; margin-top: 6px; color: #b8a88a; font-size: 0.88rem; }
+        .footer-bottom .footer-links { margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+        .footer-bottom .footer-links a { color: #cfc2ad; text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+        .footer-bottom .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
+        .footer-bottom .footer-links span { color: #5a4636; }
+        .skip-link { position: absolute; left: -999px; top: 0; background: var(--gold); color: var(--wood-deep); padding: 12px 18px; z-index: 200; font-family: var(--devnag); font-size: 0.75rem; border-radius: 0 0 3px 3px; }
+        .skip-link:focus { left: 10px; top: 10px; }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">मुख्य सामग्री पर जाएं</a>
+
+    <div class="lang-switcher-bar">
+        <span class="lang-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            भाषा / Language
+        </span>
+        <div class="lang-options">
+            <a href="../privacy" class="lang-option">English</a>
+            <a href="privacy" class="lang-option active" aria-current="page"><span class="devnag-text">हिन्दी</span></a>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
+                <span class="crest-mini"><img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न"></span>
+                <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
+            <nav>
+                <ul id="primaryNav">
+                    <li><a href="index.html">होम</a></li>
+                    <li><a href="history">इतिहास</a></li>
+                    <li><a href="familytree">वंशावली</a></li>
+                    <li><a href="map">स्थान और नक्शा</a></li>
+                    <li><a href="dist">निर्देशिका</a></li>
+                    <li><a href="about">परिचय</a></li>
+                    <li><a href="contactus">संपर्क करें</a></li>
+                    <li><a href="privacy" class="current">गोपनीयता नीति</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <p class="eyebrow">डेटा सुरक्षा · पारदर्शिता · विश्वास</p>
+        <h1>गोपनीयता नीति</h1>
+        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+    </section>
+
+    <div class="battlement"></div>
+
+    <main id="main-content" class="content-section">
+        <div class="wrap">
+
+            <div class="panel">
+                <h2>🛡️ ठिकाना ढाबला घोसी की गोपनीयता नीति</h2>
+                <p class="last-updated">अंतिम अपडेट: <span id="currentDate"></span></p>
+
+                <h3>1. परिचय</h3>
+                <p><span class="highlight">www.thikanadhabla.in</span> ("वेबसाइट", "सेवा", "हम", या "हमारी") में आपका स्वागत है। हम आपकी गोपनीयता की रक्षा करने और आपके डेटा को पारदर्शी तरीके से संभालने के लिए प्रतिबद्ध हैं। यह गोपनीयता नीति बताती है कि जब आप हमारी वेबसाइट पर आते हैं, जो ठिकाना ढाबला घोसी के बड़गुजर राजपूत परिवार की शाही विरासत और इतिहास को प्रदर्शित करती है, तो हम आपकी जानकारी कैसे एकत्र करते हैं, उपयोग करते हैं, प्रकट करते हैं और सुरक्षित रखते हैं।</p>
+                <p>हमारी वेबसाइट का उपयोग करके, आप इस नीति में वर्णित डेटा प्रथाओं के लिए सहमति देते हैं। हम आपकी गोपनीयता का सम्मान करते हैं और आपके द्वारा हम पर रखे गए विश्वास को बनाए रखने के लिए समर्पित हैं।</p>
+            </div>
+
+            <div class="panel">
+                <h2>2. हम कौन सी जानकारी एकत्र करते हैं</h2>
+                
+                <h3>2.1 स्वचालित रूप से एकत्र किया गया डेटा</h3>
+                <p>जब आप हमारी वेबसाइट पर आते हैं, तो हम आपके अनुभव को बेहतर बनाने और सुरक्षा सुनिश्चित करने के लिए स्वचालित रूप से कुछ तकनीकी जानकारी एकत्र करते हैं:</p>
+                <table class="data-table">
+                    <thead><tr><th>डेटा प्रकार</th><th>विवरण</th><th>उद्देश्य</th></tr></thead>
+                    <tbody>
+                        <tr><td>आईपी पता</td><td>आपके उपकरण का इंटरनेट प्रोटोकॉल पता</td><td>सुरक्षा, विश्लेषण और भौगोलिक स्थिति</td></tr>
+                        <tr><td>ब्राउज़र और उपकरण जानकारी</td><td>ब्राउज़र प्रकार, संस्करण, स्क्रीन रिज़ॉल्यूशन, उपकरण प्रकार</td><td>वेबसाइट प्रदर्शन और कार्यक्षमता को अनुकूलित करना</td></tr>
+                        <tr><td>विज़िट विवरण</td><td>देखे गए पृष्ठ, बिताया गया समय, रेफ़रल स्रोत</td><td>उपयोग पैटर्न का विश्लेषण और सामग्री में सुधार</td></tr>
+                        <tr><td>भौगोलिक स्थान डेटा</td><td>आईपी पते से प्राप्त अनुमानित स्थान</td><td>सामग्री वैयक्तिकरण और विश्लेषण</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 उपयोगकर्ता सहभागिता डेटा</h3>
+                <p>हम उपयोगकर्ता अनुभव को बढ़ाने के लिए यह ट्रैक करते हैं कि आप हमारी वेबसाइट के साथ कैसे बातचीत करते हैं:</p>
+                <ul>
+                    <li><span class="highlight">क्लिक किए गए तत्व</span> — बटन, लिंक या फ़ॉर्म जिनसे आप बातचीत करते हैं</li>
+                    <li><span class="highlight">स्क्रॉल व्यवहार</span> — आप हमारे पृष्ठों पर कितनी दूर तक स्क्रॉल करते हैं</li>
+                    <li><span class="highlight">बिताया गया समय</span> — आपकी विज़िट की अवधि और सहभागिता</li>
+                </ul>
+
+                <h3>2.3 आपके द्वारा प्रदान की गई जानकारी</h3>
+                <p>जब आप हमारी वेबसाइट पर फ़ॉर्म भरते हैं (जैसे संपर्क फ़ॉर्म), तो हम एकत्र कर सकते हैं:</p>
+                <ul>
+                    <li>संपर्क जानकारी (नाम, ईमेल पता)</li>
+                    <li>संदेश सामग्री और पूछताछ</li>
+                    <li>आपके द्वारा स्वेच्छा से प्रदान किए गए कोई अन्य विवरण</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>3. हम आपकी जानकारी का उपयोग कैसे करते हैं</h2>
+                <p>हम एकत्रित जानकारी का उपयोग निम्नलिखित के लिए करते हैं:</p>
+                <ul>
+                    <li>हमारी वेबसाइट सेवाएँ प्रदान करना और बनाए रखना</li>
+                    <li>उपयोगकर्ता अनुभव को बेहतर बनाने के लिए उपयोग पैटर्न का विश्लेषण करना</li>
+                    <li>पूछताछ का उत्तर देना और ग्राहक सहायता प्रदान करना</li>
+                    <li>वेबसाइट सुरक्षा बढ़ाना और धोखाधड़ी गतिविधि रोकना</li>
+                    <li>कानूनी दायित्वों का पालन करना</li>
+                    <li>बड़गुजर राजपूतों की सांस्कृतिक विरासत को संरक्षित और साझा करना</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>4. डेटा संग्रह तकनीकें</h2>
+                <p>हम डेटा एकत्र करने के लिए निम्नलिखित विधियों का उपयोग करते हैं:</p>
+                <table class="data-table">
+                    <thead><tr><th>तकनीक</th><th>उद्देश्य</th></tr></thead>
+                    <tbody>
+                        <tr><td>जावास्क्रिप्ट ट्रैकिंग</td><td>सहभागिता डेटा एकत्र करता है (क्लिक, स्क्रॉल, बिताया गया समय)</td></tr>
+                        <tr><td>आईपी एपीआई (ipapi.co)</td><td>आईपी पते से अनुमानित भौगोलिक स्थिति निर्धारित करता है</td></tr>
+                        <tr><td>ब्राउज़र एपीआई</td><td>उपकरण जानकारी तक पहुँचता है (स्क्रीन आकार, भाषा, आदि)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel">
+                <h2>5. डेटा साझाकरण और प्रकटीकरण</h2>
+                <p>हम आपकी व्यक्तिगत जानकारी नहीं बेचते हैं। डेटा निम्नलिखित के साथ साझा किया जा सकता है:</p>
+                <ul>
+                    <li><span class="highlight">सेवा प्रदाता</span> — वेबसाइट संचालन में सहायता करने वाले तृतीय पक्ष</li>
+                    <li><span class="highlight">कानूनी प्राधिकरण</span> — जब कानून द्वारा आवश्यक हो या हमारे अधिकारों की रक्षा के लिए</li>
+                    <li><span class="highlight">विश्लेषण उपकरण</span> — उपयोगकर्ता व्यवहार को समझने के लिए</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>6. आपके अधिकार और विकल्प</h2>
+                <p>आपके डेटा के संबंध में आपके कुछ अधिकार हैं:</p>
+                <ul>
+                    <li>अपने व्यक्तिगत डेटा तक पहुँच का अनुरोध करें</li>
+                    <li>गलत जानकारी के सुधार का अनुरोध करें</li>
+                    <li>कुछ डेटा संग्रह विधियों से ऑप्ट-आउट करें</li>
+                    <li>अपने डेटा को हटाने का अनुरोध करें (जहाँ लागू हो)</li>
+                </ul>
+                <p>इन अधिकारों का प्रयोग करने के लिए, कृपया हमसे <span class="highlight">admin@thikanadhabla.in</span> पर संपर्क करें।</p>
+            </div>
+
+            <div class="panel">
+                <h2>7. डेटा सुरक्षा</h2>
+                <p>हम उचित सुरक्षा उपाय लागू करते हैं जिनमें शामिल हैं:</p>
+                <ul>
+                    <li>सुरक्षित प्रसारण प्रोटोकॉल (HTTPS)</li>
+                    <li>आईपी पता फ़िल्टरिंग और निगरानी</li>
+                    <li>नियमित सुरक्षा समीक्षा</li>
+                </ul>
+                <p>हालाँकि, कोई भी इंटरनेट प्रसारण पूरी तरह से सुरक्षित नहीं है, और हम पूर्ण सुरक्षा की गारंटी नहीं दे सकते।</p>
+            </div>
+
+            <div class="panel">
+                <h2>8. इस नीति में बदलाव</h2>
+                <p>हम समय-समय पर इस गोपनीयता नीति को अपडेट कर सकते हैं। अपडेट किया गया संस्करण इस पृष्ठ पर संशोधित "अंतिम अपडेट" तिथि के साथ पोस्ट किया जाएगा। हम आपको इस नीति की नियमित समीक्षा करने के लिए प्रोत्साहित करते हैं।</p>
+            </div>
+
+            <div class="panel">
+                <h2>9. संपर्क करें</h2>
+                <div class="contact-box">
+                    <p><span class="highlight">डेटा सुरक्षा संपर्क:</span> राजवर्धन सिंह बड़गुजर</p>
+                    <p><span class="highlight">ईमेल:</span> admin@thikanadhabla.in</p>
+                    <p><span class="highlight">पता:</span> ग्राम एवं डाक: ढाबला घोसी, जिला: शाजापुर - 465335, मध्य प्रदेश, भारत</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h5>ठिकाना ढाबला घोसी</h5>
+                <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
+                <p class="footer-location">उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ<span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span></p>
+                <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                <div class="social-row">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></a>
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                    <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल"><svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h5>नेविगेट करें</h5>
+                <ul><li><a href="index.html">होम</a></li><li><a href="history">इतिहास</a></li><li><a href="familytree">वंशावली</a></li><li><a href="map">स्थान और नक्शा</a></li><li><a href="dist">निर्देशिका</a></li></ul>
+            </div>
+            <div>
+                <h5>जानकारी</h5>
+                <ul><li><a href="about">परिचय</a></li><li><a href="contactus">संपर्क करें</a></li><li><a href="privacy">गोपनीयता नीति</a></li><li><a href="sitemap">साइटमैप</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="index.html">होम</a><span>|</span><a href="history">इतिहास</a><span>|</span><a href="familytree">वंशावली</a><span>|</span><a href="map">स्थान और नक्शा</a><span>|</span><a href="dist">निर्देशिका</a><span>|</span><a href="about">परिचय</a><span>|</span><a href="contactus">संपर्क करें</a><span>|</span><a href="privacy">गोपनीयता नीति</a><span>|</span><a href="sitemap">साइटमैप</a>
+            </div>
+            <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', () => { const open = primaryNav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && primaryNav.classList.contains('open')) { primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', false); } });
+
+        const dateElement = document.getElementById('currentDate');
+        if(dateElement) {
+            dateElement.textContent = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+    </script>
+
+</body>
+</html>

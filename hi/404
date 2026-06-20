@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    <meta name="robots" content="noindex, follow">
+    
+    <title>404 — पृष्ठ नहीं मिला | ठिकाना ढाबला घोसी</title>
+    <meta name="description" content="आप जिस पृष्ठ को खोज रहे हैं वह नहीं मिल सका। बड़गुजर राजपूत विरासत के बारे में जानने के लिए ठिकाना ढाबला घोसी के मुख्य पृष्ठ पर वापस जाएं।">
+    
+    <link rel="icon" href="../thikanadhabla.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810; --wood-deep: #1C0F0A; --lac: #7A1F1F; --lac-deep: #5C1717;
+            --gold: #C99A3A; --gold-bright: #E8C166; --gold-pale: #F0D68A;
+            --sand: #F2E8D5; --paper: #E8DCC4; --paper-light: #F7F1E4;
+            --smoke: #4A3C2C; --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif; --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif; --body: 'Lora', serif; --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--devnag); color: var(--smoke); background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; line-height: 1.9;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ribbon { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px); opacity: 0.5; z-index: 10; }
+
+        .error-container {
+            max-width: 650px; margin: 40px 20px; text-align: center;
+            background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 12px;
+            padding: 50px 40px; position: relative;
+            box-shadow: var(--shadow-elevated);
+        }
+        .error-container::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--lac), var(--gold));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .error-icon {
+            font-size: 5rem; margin-bottom: 10px; animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        .error-code {
+            font-family: var(--display-decorative); font-size: 6rem; font-weight: 700;
+            color: var(--lac); line-height: 1; margin-bottom: 8px;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+        .error-title {
+            font-family: var(--devnag); font-size: 2.2rem; color: var(--wood);
+            margin-bottom: 16px; font-weight: 700;
+        }
+        .error-message {
+            font-size: 1.15rem; color: var(--smoke); margin-bottom: 12px;
+            line-height: 1.9; font-family: var(--devnag);
+        }
+        .error-hindi {
+            font-family: var(--devnag); font-size: 1.4rem; color: var(--lac);
+            margin-bottom: 25px; font-weight: 600;
+        }
+        .error-divider {
+            width: 80px; height: 2px; background: var(--gold);
+            margin: 0 auto 25px; position: relative;
+        }
+        .error-divider::before, .error-divider::after {
+            content: "◆"; color: var(--lac); position: absolute; top: 50%;
+            transform: translateY(-50%); font-size: 0.5rem;
+        }
+        .error-divider::before { left: -18px; } .error-divider::after { right: -18px; }
+
+        .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .btn {
+            display: inline-block; padding: 14px 30px; border-radius: 40px;
+            text-decoration: none; font-family: var(--devnag); font-size: 0.82rem;
+            letter-spacing: 0.04em; font-weight: 600; transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--wood-deep); box-shadow: 0 4px 14px rgba(201,154,58,0.3);
+        }
+        .btn-ghost {
+            border: 1.5px solid var(--gold); color: var(--wood);
+            background: transparent;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+        .btn-ghost:hover { background: var(--gold); color: var(--wood-deep); }
+
+        .suggestions {
+            text-align: right; margin-top: 30px; padding: 20px;
+            background: rgba(201,154,58,0.06); border-radius: 8px;
+            border: 1px solid rgba(201,154,58,0.2);
+        }
+        .suggestions h3 { font-family: var(--devnag); font-size: 0.82rem; letter-spacing: 0.04em; color: var(--wood); margin-bottom: 12px; font-weight: 600; }
+        .suggestions ul { list-style: none; }
+        .suggestions li { margin-bottom: 8px; }
+        .suggestions a { color: var(--lac); text-decoration: none; font-size: 1rem; transition: color 0.2s; font-family: var(--devnag); }
+        .suggestions a:hover { color: var(--gold); text-decoration: underline; }
+        .suggestions a::before { content: "→ "; color: var(--gold); font-size: 0.9rem; }
+
+        @media (max-width: 600px) {
+            .error-container { padding: 35px 22px; }
+            .error-code { font-size: 4rem; }
+            .error-title { font-size: 1.6rem; }
+            .error-icon { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="error-container">
+        <div class="error-icon">🏯</div>
+        <div class="error-code">404</div>
+        <div class="error-title">पृष्ठ नहीं मिला</div>
+        <div class="error-divider"></div>
+        <p class="error-message">आप जिस पृष्ठ को खोज रहे हैं वह किले की दीवारों के पार चला गया है। शायद यह कभी था ही नहीं, या शायद इसे हमारे पैतृक ठिकाने के किसी और कोने में ले जाया गया है।</p>
+        <p class="error-hindi">॥ क्षमा करें, यह पृष्ठ उपलब्ध नहीं है ॥</p>
+
+        <div class="btn-row">
+            <a href="../index.html" class="btn btn-primary">🏠 मुख्य पृष्ठ पर जाएं</a>
+            <a href="../sitemap" class="btn btn-ghost">🗺️ साइटमैप देखें</a>
+        </div>
+
+        <div class="suggestions">
+            <h3>शायद आप यह ढूँढ रहे थे:</h3>
+            <ul>
+                <li><a href="../history">बड़गुजर राजपूतों का इतिहास</a></li>
+                <li><a href="../familytree">शाही वंशावली और परंपरा</a></li>
+                <li><a href="../map">ढाबला घोसी का स्थान और नक्शा</a></li>
+                <li><a href="../about">निर्माता के बारे में</a></li>
+                <li><a href="../contactus">परिवार से संपर्क करें</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

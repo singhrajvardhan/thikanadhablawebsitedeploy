@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    
+    <title>निर्देशिका — ठिकाना ढाबला घोसी | बड़गुजर परिवार संपर्क</title>
+    <meta name="description" content="ठिकाना ढाबला घोसी परिवार के सदस्यों की संपर्क निर्देशिका। शाजापुर के ढाबला घोसी के बड़गुजर राजपूत परिवार के फोन नंबर खोजें और जुड़ें।">
+    <meta name="keywords" content="ठिकाना ढाबला घोसी निर्देशिका, बड़गुजर परिवार संपर्क, ढाबला घोसी फोन नंबर, राजपूत परिवार निर्देशिका, शाजापुर संपर्क">
+    <meta name="author" content="ठिकाना ढाबला घोसी, राजवर्धन सिंह बड़गुजर">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://thikanadhabla.in/hi/dist">
+    <link rel="alternate" href="https://thikanadhabla.in/dist" hreflang="en-IN">
+    <link rel="alternate" href="https://thikanadhabla.in/hi/dist" hreflang="hi-IN" title="हिन्दी">
+    
+    <meta property="og:title" content="निर्देशिका — ठिकाना ढाबला घोसी | बड़गुजर परिवार संपर्क">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thikanadhabla.in/hi/dist">
+    <meta property="og:image" content="https://thikanadhabla.in/1200.jpeg">
+    <meta property="og:description" content="ठिकाना ढाबला घोसी परिवार की संपर्क निर्देशिका देखें। परिवार के सदस्यों और रिश्तेदारों के फोन नंबर खोजें।">
+    <meta property="og:site_name" content="ठिकाना ढाबला घोसी">
+    <meta property="og:locale" content="hi_IN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="निर्देशिका — ठिकाना ढाबला घोसी">
+    <meta name="twitter:description" content="ठिकाना ढाबला घोसी की पारिवारिक संपर्क निर्देशिका। नाम या नंबर से खोजें।">
+    <meta name="twitter:image" content="https://thikanadhabla.in/1200.jpeg">
+    
+    <link rel="icon" href="../1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810;
+            --wood-deep: #1C0F0A;
+            --lac: #7A1F1F;
+            --lac-deep: #5C1717;
+            --lac-bright: #9B2D2D;
+            --gold: #C99A3A;
+            --gold-bright: #E8C166;
+            --gold-pale: #F0D68A;
+            --sand: #F2E8D5;
+            --paper: #E8DCC4;
+            --paper-light: #F7F1E4;
+            --indigo: #1B3A5C;
+            --ink: #2A2118;
+            --smoke: #4A3C2C;
+            --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif;
+            --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif;
+            --body: 'Lora', serif;
+            --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-card: 0 8px 22px rgba(43, 24, 16, 0.08);
+            --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--devnag);
+            color: var(--ink);
+            background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+            line-height: 1.9;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+        }
+
+        a { color: inherit; }
+        img { max-width: 100%; display: block; height: auto; }
+        :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
+
+        /* ============ LANGUAGE SWITCHER BAR ============ */
+        .lang-switcher-bar {
+            background: var(--wood-deep);
+            border-bottom: 1px solid rgba(201, 154, 58, 0.25);
+            padding: 10px 24px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--eyebrow);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--ash);
+            text-transform: uppercase;
+        }
+        .lang-switcher-bar .lang-label {
+            color: var(--gold-bright);
+            opacity: 0.9;
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .lang-switcher-bar .lang-label svg {
+            width: 15px; height: 15px;
+            fill: var(--gold-bright);
+            opacity: 0.8;
+        }
+        .lang-options {
+            display: flex; gap: 2px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 3px;
+            border: 1px solid rgba(201,154,58,0.3);
+        }
+        .lang-option {
+            font-family: var(--eyebrow);
+            font-size: 0.66rem;
+            letter-spacing: 0.06em;
+            padding: 7px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: var(--ash);
+            background: transparent;
+            border: none;
+            white-space: nowrap;
+        }
+        .lang-option:hover { color: var(--gold-bright); background: rgba(201,154,58,0.1); }
+        .lang-option.active {
+            background: var(--gold);
+            color: var(--wood-deep);
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(201,154,58,0.3);
+        }
+        .lang-option .devnag-text {
+            font-family: var(--devnag);
+            font-size: 0.78rem;
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 600px) {
+            .lang-switcher-bar { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
+            .lang-option { padding: 6px 12px; font-size: 0.62rem; }
+        }
+
+        /* ============ TOP RIBBON ============ */
+        .ribbon {
+            height: 5px;
+            background: repeating-linear-gradient(90deg,
+                    #FF9933 0px, #FF9933 20px,
+                    #FFFFFF 20px, #FFFFFF 40px,
+                    #138808 40px, #138808 60px);
+            opacity: 0.5;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============ HEADER / NAV ============ */
+        header {
+            background: var(--wood-deep);
+            border-bottom: 2px solid rgba(201, 154, 58, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+        }
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 28px;
+            gap: 24px;
+        }
+        .brandmark {
+            display: flex; align-items: center; gap: 14px;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        .brandmark:hover { opacity: 0.85; }
+        .crest-mini {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: var(--sand);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 0 14px rgba(201, 154, 58, 0.35);
+        }
+        .crest-mini img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        .word {
+            font-family: var(--devnag);
+            color: var(--sand);
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            line-height: 1.55;
+        }
+        .word strong { display: block; color: var(--gold-bright); font-size: 0.95rem; font-weight: 600; }
+        nav ul { list-style: none; display: flex; gap: 2px; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none;
+            color: var(--paper);
+            font-family: var(--devnag);
+            font-size: 0.72rem;
+            letter-spacing: 0.03em;
+            padding: 10px 14px;
+            border-radius: 3px;
+            transition: all var(--transition-smooth);
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute; bottom: 4px; left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 1.5px;
+            background: var(--gold-bright);
+            transition: width var(--transition-smooth);
+        }
+        nav a:hover, nav a.current { color: var(--wood-deep); background: var(--gold); }
+        nav a:hover::after, nav a.current::after { width: 60%; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold-bright);
+            font-family: var(--devnag);
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            padding: 9px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .nav-toggle:hover { background: rgba(201, 154, 58, 0.15); }
+
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+            .nav-toggle { display: block; }
+            nav ul.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--wood-deep);
+                padding: 12px 20px 20px;
+                border-bottom: 2px solid var(--gold);
+                box-shadow: var(--shadow-elevated);
+            }
+            nav ul.open a { padding: 14px 16px; font-size: 0.76rem; }
+        }
+
+        /* ============ PAGE HERO ============ */
+        .page-hero {
+            background: linear-gradient(175deg, var(--wood-deep) 0%, var(--wood) 50%, var(--lac-deep) 100%);
+            padding: 50px 20px 55px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201,154,58,0.04) 0 2px, transparent 2px 28px);
+            pointer-events: none;
+        }
+        .page-hero .eyebrow {
+            font-family: var(--devnag);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--gold-bright);
+            margin-bottom: 14px;
+            position: relative; z-index: 1;
+        }
+        .page-hero h1 {
+            font-family: var(--devnag);
+            font-weight: 700;
+            color: var(--sand);
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            text-shadow: 0 3px 20px rgba(0,0,0,0.6);
+            position: relative; z-index: 1;
+        }
+        .page-hero .devnag-line {
+            font-family: var(--devnag);
+            color: var(--gold-bright);
+            font-size: 1.5rem;
+            margin-top: 10px;
+            position: relative; z-index: 1;
+        }
+
+        .battlement {
+            height: 24px;
+            background: var(--sand);
+            -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%,
+                    20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%,
+                    40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%,
+                    60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%,
+                    80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%,
+                    100% 25%, 100% 100%);
+            position: relative; z-index: 2;
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        .content-section { padding: 55px 20px 65px; }
+        .wrap { max-width: 1000px; margin: 0 auto; }
+
+        .panel {
+            background: var(--paper-light);
+            border: 1px solid #d6c39a;
+            border-radius: 5px;
+            padding: 32px 34px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-card);
+        }
+        .panel::before {
+            content: "";
+            position: absolute; inset: 9px;
+            border: 1px solid rgba(122,31,31,0.2);
+            border-radius: 3px;
+            pointer-events: none;
+        }
+        .panel h2 {
+            font-family: var(--devnag);
+            font-size: 2rem;
+            color: var(--wood);
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .panel p {
+            font-size: 1.08rem;
+            color: var(--smoke);
+            margin-bottom: 14px;
+            text-align: center;
+            line-height: 1.9;
+        }
+
+        /* Search Bar */
+        .search-wrap {
+            text-align: center;
+            margin: 20px 0 30px;
+        }
+        .search-wrap input {
+            padding: 14px 22px;
+            width: 70%;
+            max-width: 500px;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            font-size: 1rem;
+            font-family: var(--devnag);
+            background: #fff;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .search-wrap input:focus {
+            outline: none;
+            border-color: var(--gold-bright);
+            box-shadow: 0 0 0 4px rgba(201,154,58,0.15);
+            background: #fffef9;
+        }
+        .search-wrap input::placeholder {
+            color: var(--ash);
+            font-family: var(--devnag);
+        }
+
+        /* Contact Count */
+        .contact-count {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: var(--devnag);
+            font-size: 0.82rem;
+            letter-spacing: 0.03em;
+            color: var(--lac);
+            background: rgba(201,154,58,0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--sand);
+        }
+        th {
+            background: linear-gradient(135deg, var(--lac-deep), var(--wood));
+            color: var(--gold-bright);
+            font-family: var(--devnag);
+            font-size: 0.78rem;
+            letter-spacing: 0.03em;
+            text-align: center;
+        }
+        tr:nth-child(even) { background-color: rgba(201,154,58,0.04); }
+        tr:hover { background-color: rgba(201,154,58,0.1); }
+        td {
+            color: var(--smoke);
+            font-size: 0.95rem;
+            font-family: var(--devnag);
+        }
+        td:first-child {
+            text-align: center;
+            font-weight: 600;
+            color: var(--lac);
+            width: 70px;
+            font-family: var(--devnag);
+            font-size: 0.8rem;
+        }
+        td:nth-child(2) { font-weight: 500; color: var(--wood); }
+        td:nth-child(3) {
+            font-family: var(--devnag);
+            font-size: 0.82rem;
+            letter-spacing: 0.03em;
+            color: var(--smoke);
+        }
+
+        @media (max-width: 600px) {
+            th, td { padding: 10px 8px; font-size: 0.8rem; }
+            .search-wrap input { width: 90%; }
+        }
+
+        .closing-quote {
+            text-align: center;
+            font-family: var(--devnag);
+            font-size: 1.2rem;
+            color: var(--lac);
+            margin-top: 30px;
+            padding: 18px;
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            line-height: 1.8;
+        }
+        .closing-quote .devnag {
+            font-family: var(--devnag);
+            font-size: 1.4rem;
+            color: var(--gold-bright);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--wood-deep);
+            color: var(--paper);
+            padding: 54px 20px 28px;
+            position: relative; overflow: hidden;
+        }
+        footer::before {
+            content: "";
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold));
+            opacity: 0.7;
+        }
+        .footer-grid {
+            max-width: 1100px; margin: 0 auto 38px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+        .footer-grid h5 {
+            font-family: var(--devnag);
+            font-size: 0.78rem; letter-spacing: 0.04em;
+            color: var(--gold-bright);
+            margin-bottom: 16px;
+        }
+        .footer-grid p, .footer-grid li { font-size: 0.92rem; color: #cfc2ad; line-height: 1.7; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 9px; }
+        .footer-grid a { text-decoration: none; color: #cfc2ad; transition: color 0.2s, padding-right 0.2s; }
+        .footer-grid a:hover { color: var(--gold-bright); padding-right: 4px; }
+        .footer-location { margin-top: 12px; color: var(--gold-pale); font-size: 0.9rem; }
+        .footer-location .geo { display: block; font-size: 0.8rem; color: var(--ash); margin-top: 4px; }
+        .social-row { display: flex; gap: 14px; margin-top: 16px; }
+        .social-row a {
+            width: 40px; height: 40px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--transition-smooth);
+            color: var(--gold-bright);
+        }
+        .social-row a:hover { background: var(--gold); color: var(--wood-deep); transform: translateY(-2px); }
+        .social-row svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(201,154,58,0.2);
+            padding-top: 24px;
+            font-size: 0.85rem;
+            color: var(--ash);
+            max-width: 1100px; margin: 0 auto;
+        }
+        .footer-bottom a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
+        .footer-bottom a:hover { color: var(--gold-pale); }
+        .footer-bottom .copyright-owner { display: block; margin-top: 6px; color: #b8a88a; font-size: 0.88rem; }
+        .footer-bottom .footer-links {
+            margin-bottom: 10px;
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 8px 16px;
+        }
+        .footer-bottom .footer-links a { color: #cfc2ad; text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+        .footer-bottom .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
+        .footer-bottom .footer-links span { color: #5a4636; }
+
+        .skip-link {
+            position: absolute; left: -999px; top: 0;
+            background: var(--gold); color: var(--wood-deep);
+            padding: 12px 18px; z-index: 200;
+            font-family: var(--devnag);
+            font-size: 0.75rem;
+            border-radius: 0 0 3px 3px;
+        }
+        .skip-link:focus { left: 10px; top: 10px; }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">मुख्य सामग्री पर जाएं</a>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher-bar">
+        <span class="lang-label">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            भाषा / Language
+        </span>
+        <div class="lang-options">
+            <a href="../dist" class="lang-option">English</a>
+            <a href="dist" class="lang-option active" aria-current="page">
+                <span class="devnag-text">हिन्दी</span>
+            </a>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
+                <span class="crest-mini">
+                    <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न">
+                </span>
+                <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
+            <nav>
+                <ul id="primaryNav">
+                    <li><a href="index.html">होम</a></li>
+                    <li><a href="history">इतिहास</a></li>
+                    <li><a href="familytree">वंशावली</a></li>
+                    <li><a href="map">स्थान और नक्शा</a></li>
+                    <li><a href="dist" class="current">निर्देशिका</a></li>
+                    <li><a href="about">परिचय</a></li>
+                    <li><a href="contactus">संपर्क करें</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <p class="eyebrow">परिवार · संपर्क · निर्देशिका</p>
+        <h1>संपर्क निर्देशिका</h1>
+        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+    </section>
+
+    <div class="battlement"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="content-section">
+        <div class="wrap">
+
+            <div class="panel">
+                <h2>📞 ठिकाना ढाबला संपर्क निर्देशिका</h2>
+                <p>बड़गुजर राजपूत विरासत के परिवार के सदस्यों और रिश्तेदारों की विस्तृत सूची। किसी नाम या नंबर को जल्दी से खोजने के लिए सर्च बार का उपयोग करें।</p>
+
+                <div class="contact-count">📋 कुल संपर्क: 38 परिवार सदस्य</div>
+
+                <div class="search-wrap">
+                    <input type="text" id="search" placeholder="नाम या मोबाइल नंबर से खोजें..." onkeyup="searchContacts()" aria-label="संपर्क खोजें">
+                </div>
+
+                <div class="table-wrapper">
+                    <table id="contactsTable">
+                        <thead>
+                            <tr>
+                                <th>क्र.सं.</th>
+                                <th>नाम</th>
+                                <th>मोबाइल नंबर</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>अनुराग</td><td>90984 51236</td></tr>
+                            <tr><td>2</td><td>अभिषेक नौरका</td><td>96304 16711</td></tr>
+                            <tr><td>3</td><td>आदित्य राज (शुजालपुर)</td><td>62628 92296</td></tr>
+                            <tr><td>4</td><td>देवराज (बाबू दादाभाई)</td><td>79794 17034</td></tr>
+                            <tr><td>5</td><td>धर्मपाल सिंह (बंटी दादाभाई)</td><td>90989 33677</td></tr>
+                            <tr><td>6</td><td>भानु दादाभाई</td><td>90391 71148</td></tr>
+                            <tr><td>7</td><td>भानुप्रताप सिंह (उज्जैन)</td><td>97535 46609</td></tr>
+                            <tr><td>8</td><td>दादू दादाभाई</td><td>97542 43918</td></tr>
+                            <tr><td>9</td><td>हर्ष</td><td>79742 37328</td></tr>
+                            <tr><td>10</td><td>हर्ष उमठ</td><td>63768 76525</td></tr>
+                            <tr><td>11</td><td>जितेंद्र सिंह</td><td>98262 97621</td></tr>
+                            <tr><td>12</td><td>लोकेंद्र (लल्लू दादाभाई)</td><td>77479 87600</td></tr>
+                            <tr><td>13</td><td>लोकेंद्र सिंह</td><td>99869 30395</td></tr>
+                            <tr><td>14</td><td>मोहन (मोनू दादाभाई)</td><td>77489 29823</td></tr>
+                            <tr><td>15</td><td>नरेंद्र सिंह</td><td>89658 75251</td></tr>
+                            <tr><td>16</td><td>नित्यराज</td><td>86430 62798</td></tr>
+                            <tr><td>17</td><td>पुष्पेंद्र सिंह (पिंकू काकोसा शुजालपुर)</td><td>99269 22232</td></tr>
+                            <tr><td>18</td><td>रमेंद्र सिंह</td><td>88272 44435</td></tr>
+                            <tr><td>19</td><td>रोहन सिंह</td><td>97553 99969</td></tr>
+                            <tr><td>20</td><td>राहुल सिंह</td><td>89629 80018</td></tr>
+                            <tr><td>21</td><td>संदीप सिंह</td><td>62635 25046</td></tr>
+                            <tr><td>22</td><td>बरजपाल सिंह (सैंकी दादाभाई)</td><td>79877 54045</td></tr>
+                            <tr><td>23</td><td>सतेंद्र सिंह</td><td>94253 48286</td></tr>
+                            <tr><td>24</td><td>सुंदर दादाभाई</td><td>93997 41544</td></tr>
+                            <tr><td>25</td><td>जयपाल (सोनू दादाभाई)</td><td>95891 53859</td></tr>
+                            <tr><td>26</td><td>केपी (विक्की दादाभाई)</td><td>93435 39886</td></tr>
+                            <tr><td>27</td><td>वैभव शर्मा (टुक टुक)</td><td>87190 26784</td></tr>
+                            <tr><td>28</td><td>युवराज सिंह</td><td>96446 24077</td></tr>
+                            <tr><td>29</td><td>राजवर्धन (राज)</td><td>97540 07756</td></tr>
+                            <tr><td>30</td><td>विशाल सिंह</td><td>91790 60724</td></tr>
+                            <tr><td>31</td><td>लोकेंद्र सिंह (दादाभाई शुजालपुर)</td><td>97540 37622</td></tr>
+                            <tr><td>32</td><td>राघवेंद्र सिंह (लाला दादाभाई)</td><td>95757 84033</td></tr>
+                            <tr><td>33</td><td>शुभम</td><td>62679 46785</td></tr>
+                            <tr><td>34</td><td>विजेंद्र सिंह (लकी दादाभाई)</td><td>98266 68934</td></tr>
+                            <tr><td>35</td><td>विजयपाल</td><td>93295 10868</td></tr>
+                            <tr><td>36</td><td>वेबसाइट डेवलपर</td><td>97702 89936</td></tr>
+                            <tr><td>37</td><td>भवानी</td><td>74158 47581</td></tr>
+                            <tr><td>38</td><td>विनय बाना</td><td>93997 41291</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="closing-quote">
+                    <p class="devnag">🙏 जय माँ आसावरी | राघवाय नमः 🙏</p>
+                    <p style="font-size: 0.9rem; margin-top: 8px; color: var(--smoke);">अंतिम अपडेट: जून 2026 • ठिकाना ढाबला घोसी निर्देशिका</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h5>ठिकाना ढाबला घोसी</h5>
+                <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
+                <p class="footer-location">
+                    उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ
+                    <span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span>
+                </p>
+                <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                <div class="social-row">
+                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                    <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल">
+                        <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h5>नेविगेट करें</h5>
+                <ul>
+                    <li><a href="index.html">होम</a></li>
+                    <li><a href="history">इतिहास</a></li>
+                    <li><a href="familytree">वंशावली</a></li>
+                    <li><a href="map">स्थान और नक्शा</a></li>
+                    <li><a href="dist">निर्देशिका</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>जानकारी</h5>
+                <ul>
+                    <li><a href="about">परिचय</a></li>
+                    <li><a href="contactus">संपर्क करें</a></li>
+                    <li><a href="privacy">गोपनीयता नीति</a></li>
+                    <li><a href="sitemap">साइटमैप</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="index.html">होम</a><span>|</span>
+                <a href="history">इतिहास</a><span>|</span>
+                <a href="familytree">वंशावली</a><span>|</span>
+                <a href="map">स्थान और नक्शा</a><span>|</span>
+                <a href="dist">निर्देशिका</a><span>|</span>
+                <a href="about">परिचय</a><span>|</span>
+                <a href="contactus">संपर्क करें</a><span>|</span>
+                <a href="privacy">गोपनीयता नीति</a><span>|</span>
+                <a href="sitemap">साइटमैप</a>
+            </div>
+            <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', () => {
+            const open = primaryNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', open);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
+                primaryNav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', false);
+            }
+        });
+
+        // Search function for contacts table
+        function searchContacts() {
+            let input = document.getElementById("search");
+            let filter = input.value.toUpperCase();
+            let table = document.getElementById("contactsTable");
+            let tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                let nameTd = tr[i].getElementsByTagName("td")[1];
+                let mobileTd = tr[i].getElementsByTagName("td")[2];
+                
+                if (nameTd || mobileTd) {
+                    let nameValue = nameTd ? (nameTd.textContent || nameTd.innerText) : "";
+                    let mobileValue = mobileTd ? (mobileTd.textContent || mobileTd.innerText) : "";
+                    
+                    if (nameValue.toUpperCase().indexOf(filter) > -1 || 
+                        mobileValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
+
+</body>
+</html>

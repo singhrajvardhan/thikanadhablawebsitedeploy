@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    <meta name="robots" content="noindex, follow">
+    
+    <title>Error — Thikana Dhabla Ghosi | Badgujar Rajput Heritage</title>
+    <meta name="description" content="Something went wrong. Please try again or return to Thikana Dhabla Ghosi homepage.">
+    
+    <link rel="icon" href="1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810; --wood-deep: #1C0F0A; --lac: #7A1F1F; --lac-deep: #5C1717;
+            --gold: #C99A3A; --gold-bright: #E8C166; --gold-pale: #F0D68A;
+            --sand: #F2E8D5; --paper: #E8DCC4; --paper-light: #F7F1E4;
+            --smoke: #4A3C2C; --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif; --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif; --body: 'Lora', serif; --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body); color: var(--smoke); background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; line-height: 1.7;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ribbon { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px); opacity: 0.5; z-index: 10; }
+
+        .error-container {
+            max-width: 600px; margin: 40px 20px; text-align: center;
+            background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 12px;
+            padding: 50px 40px; position: relative;
+            box-shadow: var(--shadow-elevated);
+        }
+        .error-container::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(to right, var(--lac), var(--gold), var(--lac));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .error-icon { font-size: 4.5rem; margin-bottom: 10px; }
+        .error-code {
+            font-family: var(--display-decorative); font-size: 3rem; font-weight: 700;
+            color: var(--lac); line-height: 1; margin-bottom: 8px;
+            text-shadow: 2px 2px 0 var(--gold);
+        }
+        .error-title {
+            font-family: var(--display); font-size: 1.8rem; color: var(--wood);
+            margin-bottom: 16px; font-weight: 700;
+        }
+        .error-message {
+            font-size: 1.05rem; color: var(--smoke); margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        .error-hindi {
+            font-family: var(--devnag); font-size: 1.3rem; color: var(--lac);
+            margin-bottom: 25px; font-weight: 600;
+        }
+        .error-divider {
+            width: 80px; height: 2px; background: var(--gold);
+            margin: 0 auto 25px; position: relative;
+        }
+        .error-divider::before, .error-divider::after {
+            content: "◆"; color: var(--lac); position: absolute; top: 50%;
+            transform: translateY(-50%); font-size: 0.5rem;
+        }
+        .error-divider::before { left: -18px; } .error-divider::after { right: -18px; }
+
+        .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .btn {
+            display: inline-block; padding: 13px 28px; border-radius: 40px;
+            text-decoration: none; font-family: var(--eyebrow); font-size: 0.72rem;
+            letter-spacing: 0.08em; font-weight: 600; transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--wood-deep); box-shadow: 0 4px 14px rgba(201,154,58,0.3);
+        }
+        .btn-ghost {
+            border: 1.5px solid var(--gold); color: var(--wood);
+            background: transparent;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+        .btn-ghost:hover { background: var(--gold); color: var(--wood-deep); }
+
+        .suggestions {
+            text-align: left; margin-top: 30px; padding: 20px;
+            background: rgba(201,154,58,0.06); border-radius: 8px;
+            border: 1px solid rgba(201,154,58,0.2);
+        }
+        .suggestions h3 { font-family: var(--eyebrow); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--wood); margin-bottom: 12px; text-transform: uppercase; }
+        .suggestions ul { list-style: none; }
+        .suggestions li { margin-bottom: 6px; }
+        .suggestions a { color: var(--lac); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .suggestions a:hover { color: var(--gold); text-decoration: underline; }
+        .suggestions a::before { content: "→ "; color: var(--gold); font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .error-container { padding: 35px 22px; }
+            .error-code { font-size: 2.2rem; }
+            .error-title { font-size: 1.4rem; }
+            .error-icon { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="error-container">
+        <div class="error-icon">⚔️</div>
+        <div class="error-code">Server Error</div>
+        <div class="error-title">Something Went Wrong</div>
+        <div class="error-divider"></div>
+        <p class="error-message">Our fortifications have encountered an unexpected disturbance. Please try refreshing the page, or return to the main gate. If the issue persists, send a messenger to our contact page.</p>
+        <p class="error-hindi">॥ कुछ त्रुटि हुई है, कृपया पुनः प्रयास करें ॥</p>
+
+        <div class="btn-row">
+            <a href="index.html" class="btn btn-primary">🏠 Return to Home</a>
+            <a href="contactus" class="btn btn-ghost">📧 Report Issue</a>
+        </div>
+
+        <div class="suggestions">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home — Thikana Dhabla Ghosi</a></li>
+                <li><a href="history">History of the Badgujar Rajputs</a></li>
+                <li><a href="familytree">Royal Family Tree</a></li>
+                <li><a href="contactus">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
