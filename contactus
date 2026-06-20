@@ -343,7 +343,7 @@
     <header>
         <div class="nav-wrap">
             <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
-                <span class="crest-mini"><img src="Main logo1.jpeg" alt="Thikana Dhabla Ghosi royal emblem"></span>
+                <span class="crest-mini"><img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem"></span>
                 <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
             </a>
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
