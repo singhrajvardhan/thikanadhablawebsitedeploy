@@ -195,7 +195,7 @@
     <header>
         <div class="nav-wrap">
             <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
-                <span class="crest-mini"><img src="../Main logo1.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न"></span>
+                <span class="crest-mini"><img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न"></span>
                 <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
             </a>
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
