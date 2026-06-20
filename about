@@ -558,7 +558,7 @@
             <!-- Author Note -->
             <div class="panel">
                 <h2>✍️ A Note from the Author & Designer</h2>
-                <div class="author-name">Kr. Rajvardhan Singh Badgujar</div>
+                <div class="author-name">Kr.sa Rajvardhan Singh Badgujar</div>
                 <p>Hello and welcome to the official website of Thikana Dhabla Ghosi. I am Kr. Sa. Rajvardhan Singh Badgujar, son of Thakur Sa. Suresh Singh Badgujar. Born and raised in Thikana Dhabla Ghosi, I am currently pursuing BCA from Govt. Holkar Science College, Indore. Through my studies in web development, I have gained knowledge about front-end technologies, which inspired me to create this digital platform.</p>
 
                 <blockquote>
@@ -604,9 +604,9 @@
         <div class="footer-grid">
             <div>
                 <h5>Thikana Dhabla Ghosi</h5>
-                <p>The ancestral seat of the Badgujar Rajput family — Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
+                <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
                 <p class="footer-location">
-                    Connected to Ujjain · Indore · Bhopal · Dewas · Jabalpur · Rajasthan
+                    Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan
                     <span class="geo">Coordinates: 23.3207° N, 76.7085° E</span>
                 </p>
                 <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
