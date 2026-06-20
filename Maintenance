@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#4a0e0e">
+    <meta name="robots" content="noindex, follow">
+    
+    <title>Under Maintenance — Thikana Dhabla Ghosi | Badgujar Rajput Heritage</title>
+    <meta name="description" content="Thikana Dhabla Ghosi website is currently under maintenance. We are polishing the royal halls and will return shortly. Please check back soon.">
+    
+    <link rel="icon" href="1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --wood: #2B1810; --wood-deep: #1C0F0A; --lac: #7A1F1F; --lac-deep: #5C1717;
+            --gold: #C99A3A; --gold-bright: #E8C166; --gold-pale: #F0D68A;
+            --sand: #F2E8D5; --paper: #E8DCC4; --paper-light: #F7F1E4;
+            --smoke: #4A3C2C; --ash: #9C8D76;
+            --display: 'Cormorant Garamond', serif; --display-decorative: 'Cinzel Decorative', cursive;
+            --eyebrow: 'Cinzel', serif; --body: 'Lora', serif; --devnag: 'Tiro Devanagari Hindi', serif;
+            --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body); color: var(--smoke); background: var(--sand);
+            background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; line-height: 1.7;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ribbon { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px); opacity: 0.5; z-index: 10; }
+
+        .maintenance-container {
+            max-width: 620px; margin: 40px 20px; text-align: center;
+            background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 12px;
+            padding: 50px 40px; position: relative;
+            box-shadow: var(--shadow-elevated);
+        }
+        .maintenance-container::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--gold-bright), var(--lac), var(--gold-bright), var(--gold));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .maintenance-icon {
+            font-size: 5rem; margin-bottom: 8px;
+            animation: hammerFloat 2s ease-in-out infinite;
+        }
+        @keyframes hammerFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(-5deg); }
+            75% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .maintenance-title {
+            font-family: var(--display); font-size: 2.2rem; color: var(--wood);
+            margin-bottom: 8px; font-weight: 700;
+        }
+        .maintenance-subtitle {
+            font-family: var(--eyebrow); font-size: 0.72rem; letter-spacing: 0.2em;
+            color: var(--lac); margin-bottom: 18px; text-transform: uppercase;
+        }
+        .maintenance-divider {
+            width: 80px; height: 2px; background: var(--gold);
+            margin: 0 auto 22px; position: relative;
+        }
+        .maintenance-divider::before, .maintenance-divider::after {
+            content: "◆"; color: var(--lac); position: absolute; top: 50%;
+            transform: translateY(-50%); font-size: 0.5rem;
+        }
+        .maintenance-divider::before { left: -18px; } .maintenance-divider::after { right: -18px; }
+
+        .maintenance-message {
+            font-size: 1.05rem; color: var(--smoke); margin-bottom: 14px;
+            line-height: 1.8;
+        }
+        .maintenance-hindi {
+            font-family: var(--devnag); font-size: 1.3rem; color: var(--lac);
+            margin-bottom: 8px; font-weight: 600;
+        }
+        .maintenance-estimate {
+            font-size: 0.88rem; color: var(--ash); font-style: italic;
+            margin-bottom: 25px;
+            padding: 10px 18px; background: rgba(201,154,58,0.08);
+            border-radius: 8px; display: inline-block;
+            border: 1px solid rgba(201,154,58,0.2);
+        }
+
+        .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+        .btn {
+            display: inline-block; padding: 13px 28px; border-radius: 40px;
+            text-decoration: none; font-family: var(--eyebrow); font-size: 0.72rem;
+            letter-spacing: 0.08em; font-weight: 600; transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--wood-deep); box-shadow: 0 4px 14px rgba(201,154,58,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+        .progress-bar-wrap {
+            margin: 25px auto 0; max-width: 350px;
+        }
+        .progress-label {
+            display: flex; justify-content: space-between;
+            font-family: var(--eyebrow); font-size: 0.65rem; letter-spacing: 0.06em;
+            color: var(--ash); margin-bottom: 6px;
+        }
+        .progress-bar {
+            width: 100%; height: 6px; background: var(--sand);
+            border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(201,154,58,0.3);
+        }
+        .progress-fill {
+            height: 100%; width: 65%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--lac));
+            border-radius: 10px;
+            animation: progressPulse 2s ease-in-out infinite;
+        }
+        @keyframes progressPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .contact-info {
+            margin-top: 28px; padding: 16px 20px;
+            background: rgba(201,154,58,0.05); border-radius: 8px;
+            border: 1px solid rgba(201,154,58,0.15);
+            font-size: 0.88rem; color: var(--ash); line-height: 1.7;
+        }
+        .contact-info a { color: var(--lac); text-decoration: none; font-weight: 600; }
+        .contact-info a:hover { text-decoration: underline; color: var(--gold); }
+
+        @media (max-width: 600px) {
+            .maintenance-container { padding: 35px 22px; }
+            .maintenance-title { font-size: 1.6rem; }
+            .maintenance-icon { font-size: 3.5rem; }
+            .maintenance-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="maintenance-container">
+        <div class="maintenance-icon">🔨</div>
+        <div class="maintenance-title">Under Maintenance</div>
+        <div class="maintenance-subtitle">Polishing the Royal Halls</div>
+        <div class="maintenance-divider"></div>
+        
+        <p class="maintenance-message">
+            Our digital fortress is undergoing restoration work. Like the great forts of Rajputana, we believe in keeping our walls strong and our halls worthy of the Badgujar legacy.
+        </p>
+        <p class="maintenance-hindi">॥ क्षमा करें, वेबसाइट रखरखाव के लिए अस्थायी रूप से बंद है ॥</p>
+        
+        <div class="maintenance-estimate">
+            ⏳ Estimated Time: We'll be back shortly — please check again soon
+        </div>
+
+        <div class="progress-bar-wrap">
+            <div class="progress-label">
+                <span>Restoration Progress</span>
+                <span>65%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <a href="javascript:location.reload()" class="btn btn-primary">🔄 Refresh Page</a>
+        </div>
+
+        <div class="contact-info">
+            <p>📧 For urgent inquiries, contact us at: <a href="mailto:info@thikanadhabla.in">info@thikanadhabla.in</a></p>
+            <p>🏰 Thikana Dhabla Ghosi — Shajapur, Madhya Pradesh</p>
+            <p style="margin-top: 6px; font-family: var(--devnag); color: var(--gold-bright);">॥ जय माँ आसावरी — राघवाय नमः ॥</p>
+        </div>
+    </div>
+
+</body>
+</html>
