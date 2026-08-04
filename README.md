@@ -18,6 +18,9 @@ This website documents the glorious history of the **Badgujar Rajputs** — a no
 - **Privacy Policy** – Transparent data protection information  
 - **Sitemap** – Complete site navigation structure for easy access  
 
+
+
+
 ---
 
 ## 🌟 Website Features
