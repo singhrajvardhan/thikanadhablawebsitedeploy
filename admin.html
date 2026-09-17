@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Thikana Directory</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, system-ui, monospace; background: #1C0F0A; color: #E8C166; margin: 0; padding: 20px; }
+  input, button, textarea, select { padding: 10px; margin: 4px; font-family: inherit; font-size: 14px; border-radius: 4px; border: 1px solid #C99A3A; }
+  input, textarea, select { background: #2B1810; color: #E8C166; }
+  button { background: #5C1717; color: #E8C166; cursor: pointer; transition: background 0.2s; }
+  button:hover { background: #9B2D2D; }
+  button.active { background: #C99A3A; color: #1C0F0A; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  th, td { border: 1px solid #C99A3A; padding: 8px; text-align: left; }
+  th { background: #5C1717; position: sticky; top: 0; z-index: 1; }
+  #login, #dash { max-width: 1400px; margin: 0 auto; }
+  .stat { display: inline-block; background: #2B1810; padding: 12px 18px; margin: 6px 6px 6px 0; border-radius: 6px; border: 1px solid #C99A3A; }
+  .stat b { color: #fff; font-size: 1.5em; display: block; }
+  .tabs { margin: 12px 0; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 100; }
+  .modal.open { display: flex; }
+  .modal-box { background: #2B1810; padding: 24px; border-radius: 8px; border: 2px solid #C99A3A; max-width: 480px; width: 90%; }
+  .modal-box h3 { color: #E8C166; margin-top: 0; }
+  .modal-box input { width: 100%; margin: 6px 0; }
+  .actions button { padding: 6px 10px; font-size: 12px; margin: 2px; }
+  .delete-btn { background: #8B0000; }
+  .delete-btn:hover { background: #B22222; }
+  .live-dot { display: inline-block; width: 8px; height: 8px; background: #00ff00; border-radius: 50%; animation: pulse 1.5s infinite; margin-right: 6px; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .flagged { color: #ff6b6b; font-weight: bold; }
+  .ok { color: #90ee90; }
+</style>
+</head>
+<body>
+
+<div id="login">
+  <h2>🔐 Admin Login</h2>
+  <input id="email" placeholder="Email" style="width:280px" type="email">
+  <input id="pass" placeholder="Password" style="width:280px" type="password">
+  <button onclick="doLogin()">Login</button>
+  <p id="loginStatus" style="color:#ff6b6b;"></p>
+</div>
+
+<div id="dash" style="display:none">
+  <h2>Admin Dashboard — Thikana Dhabla Ghosi</h2>
+  <div class="tabs">
+    <button onclick="showTab('live')" id="tab-live" class="active">📍 Live Activity</button>
+    <button onclick="showTab('logs')" id="tab-logs">📊 Access Logs</button>
+    <button onclick="showTab('bots')" id="tab-bots">🤖 Blocked Bots</button>
+    <button onclick="showTab('contacts')" id="tab-contacts">📋 Contacts (Edit)</button>
+    <button onclick="doLogout()" style="background:#8B0000;">Logout</button>
+  </div>
+  <div id="content">Loading...</div>
+</div>
+
+<div class="modal" id="editModal">
+  <div class="modal-box">
+    <h3 id="modalTitle">Add Contact</h3>
+    <input id="m_name" placeholder="Name">
+    <input id="m_phone" placeholder="Phone (10 digits)">
+    <input id="m_relation" placeholder="Relation (e.g., Family)">
+    <input id="m_city" placeholder="City">
+    <input type="hidden" id="m_id">
+    <div style="text-align:right; margin-top:12px;">
+      <button onclick="closeModal()">Cancel</button>
+      <button onclick="saveContact()" style="background:#138808;">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://fmrmiylqjokyrsztfmgp.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_cNHjqBdWpu98niKZqMvIuA_96VjEQxk";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentTab = "live";
+let realtimeChannel = null;
+
+async function doLogin() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("pass").value;
+  const { error } = await sb.auth.signInWithPassword({ email, password });
+  if (error) {
+    document.getElementById("loginStatus").textContent = "❌ " + error.message;
+    return;
+  }
+  document.getElementById("login").style.display = "none";
+  document.getElementById("dash").style.display = "block";
+  showTab("live");
+}
+
+async function doLogout() {
+  await sb.auth.signOut();
+  location.reload();
+}
+
+async function showTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + tab)?.classList.add("active");
+
+  // Unsubscribe previous realtime
+  if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+
+  const c = document.getElementById("content");
+  c.innerHTML = "Loading...";
+
+  if (tab === "live") {
+    await renderLive();
+    // Realtime: auto-refresh on new log
+    realtimeChannel = sb.channel("live-logs")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "access_logs" },
+          () => { if (currentTab === "live") renderLive(); })
+      .subscribe();
+  } else if (tab === "logs") {
+    await renderLogs();
+  } else if (tab === "bots") {
+    await renderBots();
+  } else if (tab === "contacts") {
+    await renderContacts();
+  }
+}
+
+async function renderLive() {
+  const since = new Date(Date.now() - 30 * 60000).toISOString();
+  const { data, error } = await sb.from("access_logs")
+    .select("*").gte("timestamp", since)
+    .order("timestamp", { ascending: false }).limit(200);
+
+  const c = document.getElementById("content");
+  if (error) { c.innerHTML = "Error: " + error.message; return; }
+
+  const uniqIPs = new Set(data.map(x => x.ip)).size;
+  const blocked = data.filter(x => x.action.startsWith("blocked")).length;
+
+  c.innerHTML = `
+    <div><span class="live-dot"></span><strong>Live</strong> (auto-refreshing)</div>
+    <div class="stat">Active IPs (30m)<b>${uniqIPs}</b></div>
+    <div class="stat">Total events<b>${data.length}</b></div>
+    <div class="stat">Blocked<b>${blocked}</b></div>
+    <table>
+      <tr>
+        <th>Time (IST)</th><th>IP</th><th>City</th><th>Region</th><th>Country</th>
+        <th>Lat, Lon</th><th>Timezone</th><th>Action</th><th>Contact</th><th>UA</th>
+      </tr>
+      ${data.map(l => `<tr>
+        <td>${fmt(l.timestamp)}</td>
+        <td>${l.ip}</td>
+        <td>${l.city || ''}</td>
+        <td>${l.region || ''}</td>
+        <td>${l.country || ''}</td>
+        <td>${l.latitude ?? ''}, ${l.longitude ?? ''}</td>
+        <td>${l.timezone || ''}</td>
+        <td class="${l.action.startsWith('blocked') ? 'flagged' : 'ok'}">${l.action}</td>
+        <td>${l.contact_id || ''}</td>
+        <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.user_agent || ''}</td>
+      </tr>`).join("")}
+    </table>`;
+}
+
+async function renderLogs() {
+  const { data } = await sb.from("access_logs")
+    .select("*").order("timestamp", { ascending: false }).limit(500);
+  document.getElementById("content").innerHTML = `
+    <h3>All Access Logs (latest 500)</h3>
+    <table>
+      <tr><th>Time (IST)</th><th>IP</th><th>Location</th><th>Lat/Lon</th>
+          <th>Action</th><th>Session</th><th>Contact</th><th>Flags</th></tr>
+      ${data.map(l => `<tr>
+        <td>${fmt(l.timestamp)}</td>
+        <td>${l.ip}</td>
+        <td>${l.city || ''}, ${l.region || ''}, ${l.country || ''}</td>
+        <td>${l.latitude ?? ''}, ${l.longitude ?? ''}</td>
+        <td>${l.action}</td>
+        <td>${(l.session_id || '').slice(0, 8)}</td>
+        <td>${l.contact_id || ''}</td>
+        <td>${l.suspicious ? '🚩' : ''}</td>
+      </tr>`).join("")}
+    </table>`;
+}
+
+async function renderBots() {
+  const { data } = await sb.from("bot_signatures")
+    .select("*").order("detected_at", { ascending: false }).limit(200);
+  document.getElementById("content").innerHTML = `
+    <h3>Blocked Bots & Suspicious Activity</h3>
+    <table>
+      <tr><th>Time (IST)</th><th>IP</th><th>Reason</th><th>User Agent</th></tr>
+      ${data.map(b => `<tr>
+        <td>${fmt(b.detected_at)}</td>
+        <td>${b.ip}</td>
+        <td class="flagged">${b.reason}</td>
+        <td style="max-width:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.user_agent || ''}</td>
+      </tr>`).join("")}
+    </table>`;
+}
+
+async function renderContacts() {
+  const { data } = await sb.from("contacts").select("*").order("id");
+  document.getElementById("content").innerHTML = `
+    <h3>All Contacts — Full Access</h3>
+    <button onclick="openAddModal()" style="background:#138808;margin-bottom:10px;">+ Add Contact</button>
+    <table>
+      <tr><th>ID</th><th>Name</th><th>Phone</th><th>Relation</th><th>City</th>
+          <th>Updated</th><th>Actions</th></tr>
+      ${data.map(x => `<tr>
+        <td>${x.id}</td>
+        <td>${esc(x.name)}</td>
+        <td>${x.phone}</td>
+        <td>${esc(x.relation || '')}</td>
+        <td>${esc(x.city || '')}</td>
+        <td>${fmt(x.updated_at)}</td>
+        <td class="actions">
+          <button onclick='openEditModal(${JSON.stringify(x)})'>✎ Edit</button>
+          <button class="delete-btn" onclick="deleteContact(${x.id}, '${esc(x.name)}')">🗑 Delete</button>
+        </td>
+      </tr>`).join("")}
+    </table>`;
+}
+
+function openAddModal() {
+  document.getElementById("modalTitle").textContent = "Add Contact";
+  document.getElementById("m_id").value = "";
+  document.getElementById("m_name").value = "";
+  document.getElementById("m_phone").value = "";
+  document.getElementById("m_relation").value = "Family";
+  document.getElementById("m_city").value = "";
+  document.getElementById("editModal").classList.add("open");
+}
+
+function openEditModal(c) {
+  document.getElementById("modalTitle").textContent = "Edit Contact #" + c.id;
+  document.getElementById("m_id").value = c.id;
+  document.getElementById("m_name").value = c.name;
+  document.getElementById("m_phone").value = c.phone;
+  document.getElementById("m_relation").value = c.relation || "";
+  document.getElementById("m_city").value = c.city || "";
+  document.getElementById("editModal").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("editModal").classList.remove("open");
+}
+
+async function saveContact() {
+  const id = document.getElementById("m_id").value;
+  const payload = {
+    name: document.getElementById("m_name").value.trim(),
+    phone: document.getElementById("m_phone").value.trim(),
+    relation: document.getElementById("m_relation").value.trim(),
+    city: document.getElementById("m_city").value.trim(),
+    updated_at: new Date().toISOString(),
+  };
+  if (!payload.name || !payload.phone) { alert("Name and phone are required."); return; }
+
+  let result;
+  if (id) {
+    result = await sb.from("contacts").update(payload).eq("id", id);
+  } else {
+    result = await sb.from("contacts").insert(payload);
+  }
+  if (result.error) { alert("Error: " + result.error.message); return; }
+  closeModal();
+  renderContacts();
+}
+
+async function deleteContact(id, name) {
+  if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
+  const { error } = await sb.from("contacts").delete().eq("id", id);
+  if (error) { alert("Error: " + error.message); return; }
+  renderContacts();
+}
+
+function fmt(ts) {
+  return new Date(ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+}
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c])).replace(/'/g, "\\'");
+}
+
+// Check existing session on load
+sb.auth.getSession().then(({ data }) => {
+  if (data.session) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dash").style.display = "block";
+    showTab("live");
+  }
+});
+</script>
+</body>
+</html>
