@@ -30,6 +30,7 @@
   .counter { text-align: center; font-size: 0.9rem; color: #7A1F1F; margin-bottom: 12px; background: #fff3cd; padding: 10px; border-radius: 4px; }
   .back { display: inline-block; margin-bottom: 16px; color: #5C1717; text-decoration: none; font-size: 0.9rem; }
   .back:hover { text-decoration: underline; }
+  .error { color: #B00020; background: #ffebee; padding: 12px; border-radius: 4px; margin: 10px 0; font-family: monospace; font-size: 0.85rem; }
 </style>
 </head>
 <body>
@@ -67,8 +68,7 @@ const FN_URL = `${SUPABASE_URL}/functions/v1`;
 const BATCH_SIZE = 5;
 const MAX_VIEWS = 15;
 
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
+let sb = null;
 let sessionId = null;
 let viewsRemaining = MAX_VIEWS;
 let allContacts = [];
@@ -76,24 +76,65 @@ let revealedSet = new Set();
 let selectedIds = new Set();
 let needsCaptcha = true;
 
-async function loadList() {
-  const { data, error } = await sb
-    .from("contacts")
-    .select("id, name, relation, city")
-    .order("id");
-
-  if (error) {
-    document.getElementById("list").textContent = "Error: " + error.message;
+// ---- Wait for libraries to load ----
+function waitForLibraries(cb, tries = 0) {
+  if (window.supabase && window.supabase.createClient) {
+    cb();
     return;
   }
-  allContacts = data;
-  render();
-  showCaptcha();
+  if (tries > 50) {
+    document.getElementById("list").innerHTML =
+      '<div class="error">Failed to load Supabase library. Check your internet connection.</div>';
+    return;
+  }
+  setTimeout(() => waitForLibraries(cb, tries + 1), 100);
+}
+
+waitForLibraries(() => {
+  sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  loadList();
+});
+
+async function loadList() {
+  try {
+    const { data, error } = await sb
+      .from("contacts")
+      .select("id, name, relation, city")
+      .order("id");
+
+    if (error) {
+      document.getElementById("list").innerHTML =
+        `<div class="error">Failed to load contacts: ${error.message}<br>
+         Code: ${error.code || 'n/a'}</div>`;
+      console.error("Supabase error:", error);
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      document.getElementById("list").innerHTML =
+        '<div class="error">No contacts found. The table may be empty or RLS is blocking reads.</div>';
+      return;
+    }
+
+    allContacts = data;
+    render();
+    showCaptcha();
+  } catch (e) {
+    document.getElementById("list").innerHTML =
+      `<div class="error">Unexpected error: ${e.message}</div>`;
+    console.error(e);
+  }
 }
 
 function render() {
-  const q = document.getElementById("search").value.toLowerCase();
+  const q = (document.getElementById("search").value || "").toLowerCase();
   const filtered = allContacts.filter(c => c.name.toLowerCase().includes(q));
+
+  if (filtered.length === 0) {
+    document.getElementById("list").innerHTML =
+      '<div style="text-align:center;padding:20px;color:#7A6A55;">No contacts match your search.</div>';
+    return;
+  }
 
   document.getElementById("list").innerHTML = filtered.map(c => `
     <div class="card">
@@ -162,44 +203,48 @@ async function revealSelected() {
   if (selectedIds.size === 0) return;
 
   const ids = Array.from(selectedIds);
-  const res = await fetch(`${FN_URL}/get-contact`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ contact_ids: ids, session_id: sessionId }),
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch(`${FN_URL}/get-contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contact_ids: ids, session_id: sessionId }),
+    });
+    const data = await res.json();
 
-  if (res.status === 428) {
-    needsCaptcha = true;
-    sessionId = null;
+    if (res.status === 428) {
+      needsCaptcha = true;
+      sessionId = null;
+      selectedIds.clear();
+      showCaptcha();
+      document.getElementById("status").textContent =
+        "🔒 View limit reached. Please complete captcha again.";
+      return;
+    }
+
+    if (data.error) {
+      document.getElementById("status").textContent = "⚠️ " + data.error;
+      return;
+    }
+
+    data.contacts.forEach(c => {
+      revealedSet.add(c.id);
+      const el = document.getElementById(`phone-${c.id}`);
+      if (el) el.textContent = "+91 " + c.phone;
+    });
+
+    viewsRemaining = data.views_remaining;
     selectedIds.clear();
-    showCaptcha();
-    document.getElementById("status").textContent =
-      "🔒 View limit reached. Please complete captcha again.";
-    return;
-  }
+    render();
 
-  if (data.error) {
-    document.getElementById("status").textContent = "⚠️ " + data.error;
-    return;
-  }
-
-  data.contacts.forEach(c => {
-    revealedSet.add(c.id);
-    const el = document.getElementById(`phone-${c.id}`);
-    if (el) el.textContent = "+91 " + c.phone;
-  });
-
-  viewsRemaining = data.views_remaining;
-  selectedIds.clear();
-  render();
-
-  if (viewsRemaining <= 0) {
-    needsCaptcha = true;
-    sessionId = null;
-    showCaptcha();
-    document.getElementById("status").textContent =
-      "🔒 Session views used. Please verify again.";
+    if (viewsRemaining <= 0) {
+      needsCaptcha = true;
+      sessionId = null;
+      showCaptcha();
+      document.getElementById("status").textContent =
+        "🔒 Session views used. Please verify again.";
+    }
+  } catch (e) {
+    document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
   }
 }
 
@@ -216,23 +261,27 @@ function showCaptcha() {
 
 async function onCaptchaSuccess(token) {
   document.getElementById("status").textContent = "Verifying...";
-  const res = await fetch(`${FN_URL}/verify-captcha`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token }),
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch(`${FN_URL}/verify-captcha`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
 
-  if (data.session_id) {
-    sessionId = data.session_id;
-    viewsRemaining = data.views_before_recaptcha;
-    needsCaptcha = false;
-    document.getElementById("captchaBox").style.display = "none";
-    document.getElementById("status").textContent =
-      "✅ Verified. Select up to 5 numbers, then click Reveal.";
-    updateCounter();
-  } else {
-    document.getElementById("status").textContent = "⚠️ " + (data.error || "Verification failed");
+    if (data.session_id) {
+      sessionId = data.session_id;
+      viewsRemaining = data.views_before_recaptcha;
+      needsCaptcha = false;
+      document.getElementById("captchaBox").style.display = "none";
+      document.getElementById("status").textContent =
+        "✅ Verified. Select up to 5 numbers, then click Reveal.";
+      updateCounter();
+    } else {
+      document.getElementById("status").textContent = "⚠️ " + (data.error || "Verification failed");
+    }
+  } catch (e) {
+    document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
   }
 }
 
@@ -241,8 +290,6 @@ function esc(s) {
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[c]));
 }
-
-loadList();
 </script>
 </body>
 </html>
