@@ -49,7 +49,7 @@
   <div id="captchaBox">
     <p style="margin-bottom: 14px;"><strong>Please complete verification to continue:</strong></p>
     <div class="cf-turnstile"
-         data-sitekey="0x4AAAAAAA_YOUR_SITE_KEY_HERE"
+         data-sitekey="0x4AAAAAAE6FfzKH0NJKU_fE"
          data-callback="onCaptchaSuccess"
          data-theme="light"></div>
   </div>
