@@ -33,6 +33,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../1200.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Supabase client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
         :root {
@@ -147,17 +154,6 @@
         @media (max-width: 600px) {
             .lang-switcher-bar { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
             .lang-option { padding: 6px 12px; font-size: 0.62rem; }
-        }
-
-        /* ============ TOP RIBBON ============ */
-        .ribbon {
-            height: 5px;
-            background: repeating-linear-gradient(90deg,
-                    #FF9933 0px, #FF9933 20px,
-                    #FFFFFF 20px, #FFFFFF 40px,
-                    #138808 40px, #138808 60px);
-            opacity: 0.5;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         /* ============ HEADER / NAV ============ */
@@ -333,12 +329,114 @@
             font-weight: 700;
             line-height: 1.4;
         }
-        .panel p {
+        .panel > p {
             font-size: 1.08rem;
             color: var(--smoke);
             margin-bottom: 14px;
             text-align: center;
             line-height: 1.9;
+        }
+
+        /* ============ CAPTCHA ============ */
+        .captcha-panel {
+            background: #fff;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 24px 22px;
+            margin: 20px auto 28px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            max-width: 520px;
+            position: relative;
+            z-index: 2;
+        }
+        .captcha-panel h3 {
+            font-family: var(--devnag);
+            color: var(--lac-deep);
+            margin: 0 0 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .captcha-code {
+            font-family: 'Courier New', monospace;
+            font-size: 2.4rem;
+            letter-spacing: 0.4em;
+            color: var(--lac-deep);
+            font-weight: bold;
+            background: #fff3cd;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 2px dashed var(--gold);
+            margin: 12px auto;
+            max-width: 260px;
+            user-select: all;
+            -webkit-user-select: all;
+        }
+        .captcha-timer {
+            font-size: 0.85rem;
+            color: var(--smoke);
+            margin: 6px 0 14px;
+        }
+        .captcha-timer span { font-weight: bold; color: var(--lac-deep); }
+        #captchaInput {
+            font-size: 1.6rem;
+            font-family: 'Courier New', monospace;
+            padding: 11px;
+            width: 150px;
+            text-align: center;
+            letter-spacing: 0.3em;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--ink);
+        }
+        #captchaInput:focus {
+            outline: none;
+            border-color: var(--gold-bright);
+            box-shadow: 0 0 0 4px rgba(201,154,58,0.22);
+        }
+        .captcha-buttons {
+            margin-top: 14px;
+            display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+        }
+        .btn-captcha {
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-family: var(--devnag);
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-verify { background: var(--lac-deep); color: var(--gold-bright); font-weight: 600; }
+        .btn-verify:hover { background: var(--lac-bright); }
+        .btn-new { background: var(--smoke); color: #fff; }
+        .btn-new:hover { background: var(--wood); }
+        .captcha-msg {
+            color: #B00020;
+            min-height: 20px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            margin-top: 10px;
+            font-family: var(--devnag);
+        }
+        .verified-badge {
+            display: inline-block;
+            background: #138808;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-size: 0.92rem;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(19,136,8,0.25);
+            font-family: var(--devnag);
+        }
+        .verified-info {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            color: var(--smoke);
+            line-height: 1.7;
+            font-family: var(--devnag);
         }
 
         /* Search Bar */
@@ -374,7 +472,7 @@
             text-align: center;
             margin-bottom: 20px;
             font-family: var(--devnag);
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             letter-spacing: 0.03em;
             color: var(--lac);
             background: rgba(201,154,58,0.1);
@@ -399,12 +497,13 @@
             padding: 14px 18px;
             text-align: left;
             border-bottom: 1px solid var(--sand);
+            vertical-align: middle;
         }
         th {
             background: linear-gradient(135deg, var(--lac-deep), var(--wood));
             color: var(--gold-bright);
             font-family: var(--devnag);
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             letter-spacing: 0.03em;
             text-align: center;
         }
@@ -423,17 +522,46 @@
             font-family: var(--devnag);
             font-size: 0.8rem;
         }
-        td:nth-child(2) { font-weight: 500; color: var(--wood); }
-        td:nth-child(3) {
+        /* NAME CELL with city subtitle */
+        td.name-cell {
+            font-weight: 500;
+            color: var(--wood);
+            font-size: 1rem;
             font-family: var(--devnag);
+            line-height: 1.5;
+        }
+        td.name-cell .name-text {
+            display: block;
+            font-weight: 600;
+            color: var(--wood);
+        }
+        td.name-cell .city-text {
+            display: block;
             font-size: 0.82rem;
+            color: var(--ash);
+            font-family: var(--devnag);
+            margin-top: 2px;
+        }
+        /* PHONE CELL */
+        td.phone-cell {
+            font-family: var(--devnag);
+            font-size: 0.88rem;
             letter-spacing: 0.03em;
             color: var(--smoke);
+            white-space: nowrap;
         }
-
+        td.phone-cell.revealed-number {
+            color: #138808;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
         @media (max-width: 600px) {
             th, td { padding: 10px 8px; font-size: 0.8rem; }
+            td.name-cell { font-size: 0.9rem; }
+            td.name-cell .city-text { font-size: 0.72rem; }
             .search-wrap input { width: 90%; }
+            .captcha-code { font-size: 1.8rem; padding: 12px; }
+            #captchaInput { font-size: 1.3rem; width: 130px; }
         }
 
         .closing-quote {
@@ -476,7 +604,7 @@
         @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
         .footer-grid h5 {
             font-family: var(--devnag);
-            font-size: 0.78rem; letter-spacing: 0.04em;
+            font-size: 0.82rem; letter-spacing: 0.04em;
             color: var(--gold-bright);
             margin-bottom: 16px;
         }
@@ -586,12 +714,27 @@
 
             <div class="panel">
                 <h2>📞 ठिकाना ढाबला संपर्क निर्देशिका</h2>
-                <p>बड़गुजर राजपूत विरासत के परिवार के सदस्यों और रिश्तेदारों की विस्तृत सूची। किसी नाम या नंबर को जल्दी से खोजने के लिए सर्च बार का उपयोग करें।</p>
+                <p>बड़गुजर राजपूत विरासत के परिवार के सदस्यों और रिश्तेदारों की विस्तृत सूची। फ़ोन नंबर सुरक्षित हैं — देखने के लिए नीचे दिया गया 4 अंकों का कोड डालें।</p>
 
-                <div class="contact-count">📋 कुल संपर्क: 38 परिवार सदस्य</div>
+                <!-- CAPTCHA PANEL -->
+                <div class="captcha-panel" id="captchaBox">
+                    <h3>🔐 फ़ोन नंबर देखने के लिए 4 अंकों का कोड डालें</h3>
+                    <div class="captcha-code" id="captchaCode">••••</div>
+                    <div class="captcha-timer">कोड <span id="captchaTimer">5:00</span> में समाप्त होगा</div>
+                    <input type="text" id="captchaInput" maxlength="4" inputmode="numeric"
+                           pattern="[0-9]*" placeholder="0000"
+                           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <div class="captcha-buttons">
+                        <button class="btn-captcha btn-verify" onclick="submitCaptcha()">सत्यापित करें</button>
+                        <button class="btn-captcha btn-new" onclick="loadCaptcha()">नया कोड</button>
+                    </div>
+                    <div class="captcha-msg" id="captchaMsg"></div>
+                </div>
+
+                <div class="contact-count" id="contactCount">📋 कुल संपर्क: — परिवार सदस्य</div>
 
                 <div class="search-wrap">
-                    <input type="text" id="search" placeholder="नाम या मोबाइल नंबर से खोजें..." onkeyup="searchContacts()" aria-label="संपर्क खोजें">
+                    <input type="text" id="search" placeholder="🔍 नाम या शहर से खोजें..." oninput="renderTable()" aria-label="संपर्क खोजें">
                 </div>
 
                 <div class="table-wrapper">
@@ -599,49 +742,12 @@
                         <thead>
                             <tr>
                                 <th>क्र.सं.</th>
-                                <th>नाम</th>
+                                <th>नाम · स्थान</th>
                                 <th>मोबाइल नंबर</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr><td>1</td><td>अनुराग</td><td>90984 51236</td></tr>
-                            <tr><td>2</td><td>अभिषेक नौरका</td><td>96304 16711</td></tr>
-                            <tr><td>3</td><td>आदित्य राज (शुजालपुर)</td><td>62628 92296</td></tr>
-                            <tr><td>4</td><td>देवराज (बाबू दादाभाई)</td><td>79794 17034</td></tr>
-                            <tr><td>5</td><td>धर्मपाल सिंह (बंटी दादाभाई)</td><td>90989 33677</td></tr>
-                            <tr><td>6</td><td>भानु दादाभाई</td><td>90391 71148</td></tr>
-                            <tr><td>7</td><td>भानुप्रताप सिंह (उज्जैन)</td><td>97535 46609</td></tr>
-                            <tr><td>8</td><td>दादू दादाभाई</td><td>97542 43918</td></tr>
-                            <tr><td>9</td><td>हर्ष</td><td>79742 37328</td></tr>
-                            <tr><td>10</td><td>हर्ष उमठ</td><td>63768 76525</td></tr>
-                            <tr><td>11</td><td>जितेंद्र सिंह</td><td>98262 97621</td></tr>
-                            <tr><td>12</td><td>लोकेंद्र (लल्लू दादाभाई)</td><td>77479 87600</td></tr>
-                            <tr><td>13</td><td>लोकेंद्र सिंह</td><td>99869 30395</td></tr>
-                            <tr><td>14</td><td>मोहन (मोनू दादाभाई)</td><td>77489 29823</td></tr>
-                            <tr><td>15</td><td>नरेंद्र सिंह</td><td>89658 75251</td></tr>
-                            <tr><td>16</td><td>नित्यराज</td><td>86430 62798</td></tr>
-                            <tr><td>17</td><td>पुष्पेंद्र सिंह (पिंकू काकोसा शुजालपुर)</td><td>99269 22232</td></tr>
-                            <tr><td>18</td><td>रमेंद्र सिंह</td><td>88272 44435</td></tr>
-                            <tr><td>19</td><td>रोहन सिंह</td><td>97553 99969</td></tr>
-                            <tr><td>20</td><td>राहुल सिंह</td><td>89629 80018</td></tr>
-                            <tr><td>21</td><td>संदीप सिंह</td><td>62635 25046</td></tr>
-                            <tr><td>22</td><td>बरजपाल सिंह (सैंकी दादाभाई)</td><td>79877 54045</td></tr>
-                            <tr><td>23</td><td>सतेंद्र सिंह</td><td>94253 48286</td></tr>
-                            <tr><td>24</td><td>सुंदर दादाभाई</td><td>93997 41544</td></tr>
-                            <tr><td>25</td><td>जयपाल (सोनू दादाभाई)</td><td>95891 53859</td></tr>
-                            <tr><td>26</td><td>केपी (विक्की दादाभाई)</td><td>93435 39886</td></tr>
-                            <tr><td>27</td><td>वैभव शर्मा (टुक टुक)</td><td>87190 26784</td></tr>
-                            <tr><td>28</td><td>युवराज सिंह</td><td>96446 24077</td></tr>
-                            <tr><td>29</td><td>राजवर्धन (राज)</td><td>97540 07756</td></tr>
-                            <tr><td>30</td><td>विशाल सिंह</td><td>91790 60724</td></tr>
-                            <tr><td>31</td><td>लोकेंद्र सिंह (दादाभाई शुजालपुर)</td><td>97540 37622</td></tr>
-                            <tr><td>32</td><td>राघवेंद्र सिंह (लाला दादाभाई)</td><td>95757 84033</td></tr>
-                            <tr><td>33</td><td>शुभम</td><td>62679 46785</td></tr>
-                            <tr><td>34</td><td>विजेंद्र सिंह (लकी दादाभाई)</td><td>98266 68934</td></tr>
-                            <tr><td>35</td><td>विजयपाल</td><td>93295 10868</td></tr>
-                            <tr><td>36</td><td>वेबसाइट डेवलपर</td><td>97702 89936</td></tr>
-                            <tr><td>37</td><td>भवानी</td><td>74158 47581</td></tr>
-                            <tr><td>38</td><td>विनय बाना</td><td>93997 41291</td></tr>
+                        <tbody id="contactsBody">
+                            <tr><td colspan="3" style="text-align:center;color:var(--ash);">निर्देशिका लोड हो रही है…</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -715,47 +821,257 @@
     </footer>
 
     <script>
+        // ============================================================
         // Mobile nav toggle
-        const navToggle = document.getElementById('navToggle');
-        const primaryNav = document.getElementById('primaryNav');
-        navToggle.addEventListener('click', () => {
-            const open = primaryNav.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', open);
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
-                primaryNav.classList.remove('open');
-                navToggle.setAttribute('aria-expanded', false);
-            }
-        });
-
-        // Search function for contacts table
-        function searchContacts() {
-            let input = document.getElementById("search");
-            let filter = input.value.toUpperCase();
-            let table = document.getElementById("contactsTable");
-            let tr = table.getElementsByTagName("tr");
-
-            for (let i = 0; i < tr.length; i++) {
-                let nameTd = tr[i].getElementsByTagName("td")[1];
-                let mobileTd = tr[i].getElementsByTagName("td")[2];
-                
-                if (nameTd || mobileTd) {
-                    let nameValue = nameTd ? (nameTd.textContent || nameTd.innerText) : "";
-                    let mobileValue = mobileTd ? (mobileTd.textContent || mobileTd.innerText) : "";
-                    
-                    if (nameValue.toUpperCase().indexOf(filter) > -1 || 
-                        mobileValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
+        // ============================================================
+        (function() {
+            const navToggle = document.getElementById('navToggle');
+            const primaryNav = document.getElementById('primaryNav');
+            if (navToggle && primaryNav) {
+                navToggle.addEventListener('click', () => {
+                    const open = primaryNav.classList.toggle('open');
+                    navToggle.setAttribute('aria-expanded', open);
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
+                        primaryNav.classList.remove('open');
+                        navToggle.setAttribute('aria-expanded', false);
                     }
-                }       
+                });
+            }
+        })();
+
+        // ============================================================
+        // CONFIG
+        // ============================================================
+        const SUPABASE_URL = "https://fmrmiylqjokyrsztfmgp.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_cNHjqBdWpu98niKZqMvIuA_96VjEQxk";
+        const FN_URL = `${SUPABASE_URL}/functions/v1`;
+
+        let sb = null;
+        let allContacts = [];
+        let phones = {};
+        let verified = false;
+        let captchaTimerInterval = null;
+
+        function waitForLibraries(cb, tries = 0) {
+            if (window.supabase && window.supabase.createClient) { cb(); return; }
+            if (tries > 50) {
+                document.getElementById("contactsBody").innerHTML =
+                    '<tr><td colspan="3" style="text-align:center;color:#B00020;">लोड नहीं हो सका। कृपया पृष्ठ को पुनः लोड करें।</td></tr>';
+                return;
+            }
+            setTimeout(() => waitForLibraries(cb, tries + 1), 100);
+        }
+
+        waitForLibraries(() => {
+            sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            loadContacts();
+            loadCaptcha();
+        });
+
+        // ---- Load names only ----
+        async function loadContacts() {
+            try {
+                const { data, error } = await sb
+                    .from("contacts")
+                    .select("id, name, relation, city")
+                    .order("id");
+
+                if (error) {
+                    document.getElementById("contactsBody").innerHTML =
+                        `<tr><td colspan="3" style="text-align:center;color:#B00020;">लोड विफल: ${error.message}</td></tr>`;
+                    return;
+                }
+                allContacts = data || [];
+                document.getElementById("contactCount").textContent =
+                    `📋 कुल संपर्क: ${allContacts.length} परिवार सदस्य`;
+                renderTable();
+            } catch (e) {
+                document.getElementById("contactsBody").innerHTML =
+                    `<tr><td colspan="3" style="text-align:center;color:#B00020;">त्रुटि: ${e.message}</td></tr>`;
             }
         }
+
+        // ---- Render table ----
+        function renderTable() {
+            const q = (document.getElementById("search").value || "").toLowerCase();
+            const filtered = allContacts.filter(c =>
+                c.name.toLowerCase().includes(q) ||
+                (c.city && c.city.toLowerCase().includes(q))
+            );
+
+            if (filtered.length === 0) {
+                document.getElementById("contactsBody").innerHTML =
+                    '<tr><td colspan="3" style="text-align:center;color:var(--ash);">आपकी खोज से कोई संपर्क मेल नहीं खाता।</td></tr>';
+                return;
+            }
+
+            document.getElementById("contactsBody").innerHTML = filtered.map((c, i) => {
+                const phone = phones[c.id];
+                const isRevealed = !!phone;
+                const displayNumber = isRevealed
+                    ? formatPhone(phone)
+                    : "+91 ••••• •••••";
+                const cls = isRevealed ? ' class="phone-cell revealed-number"' : ' class="phone-cell"';
+
+                const cityLine = c.city
+                    ? `<span class="city-text">· ${esc(c.city)}</span>`
+                    : '';
+
+                return `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td class="name-cell">
+                            <span class="name-text">${esc(c.name)}</span>
+                            ${cityLine}
+                        </td>
+                        <td${cls}>${displayNumber}</td>
+                    </tr>
+                `;
+            }).join("");
+        }
+
+        function formatPhone(p) {
+            const s = String(p).replace(/\D/g, "");
+            if (s.length === 10) return "+91 " + s.slice(0, 5) + " " + s.slice(5);
+            return "+91 " + s;
+        }
+
+        // ---- Captcha ----
+        async function loadCaptcha() {
+            document.getElementById("captchaCode").textContent = "••••";
+            document.getElementById("captchaInput").value = "";
+            document.getElementById("captchaMsg").textContent = "";
+
+            try {
+                const res = await fetch(`${FN_URL}/generate-captcha`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({}),
+                });
+                const data = await res.json();
+
+                if (data.code) {
+                    document.getElementById("captchaCode").textContent = data.code;
+                    startCaptchaTimer(data.expires_in_seconds || 300);
+                    document.getElementById("captchaInput").focus();
+                } else {
+                    document.getElementById("captchaMsg").textContent = data.error || "कोड लोड नहीं हो सका";
+                }
+            } catch (e) {
+                document.getElementById("captchaMsg").textContent = "नेटवर्क त्रुटि: " + e.message;
+            }
+        }
+
+        function startCaptchaTimer(seconds) {
+            if (captchaTimerInterval) clearInterval(captchaTimerInterval);
+            let remaining = seconds;
+            const el = document.getElementById("captchaTimer");
+            if (!el) return;
+
+            function tick() {
+                const m = Math.floor(remaining / 60);
+                const s = remaining % 60;
+                el.textContent = `${m}:${String(s).padStart(2, "0")}`;
+                if (remaining <= 0) {
+                    clearInterval(captchaTimerInterval);
+                    el.textContent = "समाप्त";
+                    const msg = document.getElementById("captchaMsg");
+                    if (msg) msg.textContent = "कोड समाप्त हो गया। 'नया कोड' पर क्लिक करें।";
+                    return;
+                }
+                remaining--;
+            }
+            tick();
+            captchaTimerInterval = setInterval(tick, 1000);
+        }
+
+        async function submitCaptcha() {
+            const input = document.getElementById("captchaInput");
+            const msg = document.getElementById("captchaMsg");
+            const code = input.value.trim();
+
+            if (!/^\d{4}$/.test(code)) {
+                msg.textContent = "कृपया ठीक 4 अंक दर्ज करें।";
+                return;
+            }
+
+            msg.textContent = "सत्यापित किया जा रहा है…";
+
+            try {
+                const verifyRes = await fetch(`${FN_URL}/check-captcha`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ code }),
+                });
+                const verifyData = await verifyRes.json();
+
+                if (!verifyData.session_id) {
+                    msg.textContent = verifyData.error || "सत्यापन विफल।";
+                    if (verifyData.attempts_left !== undefined) {
+                        msg.textContent += ` (${verifyData.attempts_left} प्रयास शेष)`;
+                    }
+                    input.value = "";
+                    input.focus();
+                    return;
+                }
+
+                const sessionId = verifyData.session_id;
+                msg.textContent = "फ़ोन नंबर लोड हो रहे हैं…";
+
+                const allRes = await fetch(`${FN_URL}/get-all-contacts`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ session_id: sessionId }),
+                });
+                const allData = await allRes.json();
+
+                if (allData.error || !allData.contacts) {
+                    msg.textContent = "नंबर लोड नहीं हो सके: " + (allData.error || "अज्ञात");
+                    return;
+                }
+
+                allData.contacts.forEach(c => {
+                    phones[c.id] = c.phone;
+                });
+                verified = true;
+
+                if (captchaTimerInterval) clearInterval(captchaTimerInterval);
+
+                document.getElementById("captchaBox").innerHTML = `
+                    <div class="verified-badge">✅ सत्यापित — सभी फ़ोन नंबर अब दिखाई दे रहे हैं</div>
+                    <div class="verified-info">
+                        <strong>${Object.keys(phones).length}</strong> फ़ोन नंबर अनलॉक किए गए। आपकी पहुँच दर्ज कर ली गई है।
+                    </div>
+                `;
+
+                renderTable();
+            } catch (e) {
+                msg.textContent = "नेटवर्क त्रुटि: " + e.message;
+            }
+        }
+
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, c => ({
+                '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+            }[c]));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const input = document.getElementById("captchaInput");
+            if (input) {
+                input.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter") submitCaptcha();
+                });
+            }
+        });
     </script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+
+<script src="/track.js" defer></script>
+
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztjTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </body>
 </html>
