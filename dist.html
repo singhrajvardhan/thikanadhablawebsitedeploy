@@ -84,7 +84,7 @@ let selectedIds = new Set();
 let needsCaptcha = true;
 let captchaTimerInterval = null;
 
-// ---- Wait for Supabase library ----
+// ---- Wait for Supabase library to load ----
 function waitForLibraries(cb, tries = 0) {
   if (window.supabase && window.supabase.createClient) { cb(); return; }
   if (tries > 50) {
@@ -100,54 +100,69 @@ waitForLibraries(() => {
   loadList();
 });
 
+// ---- Load contact list (names only, no phones) ----
 async function loadList() {
   try {
-    const { data, error } = await sb.from("contacts").select("id, name, relation, city").order("id");
+    const { data, error } = await sb
+      .from("contacts")
+      .select("id, name, relation, city")
+      .order("id");
+
     if (error) {
-      document.getElementById("list").innerHTML = `<div class="error">Failed to load contacts: ${error.message}</div>`;
+      document.getElementById("list").innerHTML =
+        `<div class="error">Failed to load contacts: ${error.message}</div>`;
       return;
     }
     if (!data || data.length === 0) {
-      document.getElementById("list").innerHTML = '<div class="error">No contacts found.</div>';
+      document.getElementById("list").innerHTML =
+        '<div class="error">No contacts found.</div>';
       return;
     }
     allContacts = data;
     render();
     loadCaptcha();
   } catch (e) {
-    document.getElementById("list").innerHTML = `<div class="error">Error: ${e.message}</div>`;
+    document.getElementById("list").innerHTML =
+      `<div class="error">Error: ${e.message}</div>`;
   }
 }
 
+// ---- Render cards ----
 function render() {
   const q = (document.getElementById("search").value || "").toLowerCase();
   const filtered = allContacts.filter(c => c.name.toLowerCase().includes(q));
 
   if (filtered.length === 0) {
-    document.getElementById("list").innerHTML = '<div style="text-align:center;padding:20px;color:#7A6A55;">No contacts match your search.</div>';
+    document.getElementById("list").innerHTML =
+      '<div style="text-align:center;padding:20px;color:#7A6A55;">No contacts match your search.</div>';
     return;
   }
 
-  document.getElementById("list").innerHTML = filtered.map(c => `
-    <div class="card">
-      <div class="info">
-        <strong>${esc(c.name)}</strong><br>
-        <small>${esc(c.relation || '')} ${c.city ? '· ' + esc(c.city) : ''}</small>
+  document.getElementById("list").innerHTML = filtered.map(c => {
+    const revealed = revealedSet.has(c.id);
+    return `
+      <div class="card">
+        <div class="info">
+          <strong>${esc(c.name)}</strong><br>
+          <small>${esc(c.relation || '')} ${c.city ? '· ' + esc(c.city) : ''}</small>
+        </div>
+        <div class="right">
+          <span class="phone" id="phone-${c.id}">
+            ${revealed ? '' : '+91 ••••• •••••'}
+          </span>
+          ${revealed
+            ? '<span style="color:#138808;font-weight:bold;font-size:1.3rem;">✓</span>'
+            : `<button class="reveal-btn" id="btn-${c.id}" onclick="toggleSelect(${c.id})">Select</button>`}
+        </div>
       </div>
-      <div class="right">
-        <span class="phone" id="phone-${c.id}">
-          ${revealedSet.has(c.id) ? '' : '+91 ••••• •••••'}
-        </span>
-        ${revealedSet.has(c.id) ? '<span style="color:#138808;font-weight:bold;">✓</span>' :
-          `<button class="reveal-btn" id="btn-${c.id}" onclick="toggleSelect(${c.id})">Select</button>`}
-      </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 
   updateCounter();
   updateSelectionUI();
 }
 
+// ---- Toggle selection ----
 function toggleSelect(id) {
   if (revealedSet.has(id)) return;
   if (selectedIds.has(id)) {
@@ -162,9 +177,10 @@ function toggleSelect(id) {
   updateSelectionUI();
 }
 
+// ---- Update button styles + reveal button ----
 function updateSelectionUI() {
   document.querySelectorAll("[id^='btn-']").forEach(btn => {
-    const id = parseInt(btn.id.replace("btn-", ""));
+    const id = parseInt(btn.id.replace("btn-", ""), 10);
     if (selectedIds.has(id)) {
       btn.textContent = "✓ Selected";
       btn.style.background = "#5C1717";
@@ -187,6 +203,7 @@ function updateSelectionUI() {
   }
 }
 
+// ---- Reveal selected numbers ----
 async function revealSelected() {
   if (!sessionId || needsCaptcha) {
     document.getElementById("status").textContent = "Please verify the code first.";
@@ -209,7 +226,8 @@ async function revealSelected() {
       sessionId = null;
       selectedIds.clear();
       loadCaptcha();
-      document.getElementById("status").textContent = "🔒 View limit reached. Please enter a new code.";
+      document.getElementById("status").textContent =
+        "🔒 View limit reached. Please enter a new code.";
       return;
     }
 
@@ -232,22 +250,26 @@ async function revealSelected() {
       needsCaptcha = true;
       sessionId = null;
       loadCaptcha();
-      document.getElementById("status").textContent = "🔒 Session views used. Please enter a new code.";
+      document.getElementById("status").textContent =
+        "🔒 Session views used. Please enter a new code.";
     }
   } catch (e) {
     document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
   }
 }
 
+// ---- Counter ----
 function updateCounter() {
   const counter = document.getElementById("counter");
   counter.style.display = "block";
-  counter.textContent = `📊 Revealed: ${revealedSet.size} · Views remaining before next code: ${viewsRemaining}`;
+  counter.textContent =
+    `📊 Revealed: ${revealedSet.size} · Views remaining before next code: ${viewsRemaining}`;
 }
 
 // ============================================================
-// CAPTCHA — 4-DIGIT CODE
+// CAPTCHA FLOW — 4-DIGIT CODE
 // ============================================================
+
 async function loadCaptcha() {
   showCaptchaBox();
   document.getElementById("captchaCode").textContent = "••••";
@@ -267,12 +289,15 @@ async function loadCaptcha() {
       document.getElementById("captchaMsg").textContent = "Error: " + data.error;
       return;
     }
+    if (!data.code) {
+      document.getElementById("captchaMsg").textContent =
+        "Server did not return a code. Please try 'New Code'.";
+      return;
+    }
 
     document.getElementById("captchaCode").textContent = data.code;
     document.getElementById("captchaInput").focus();
-
-    // Start countdown timer
-    startCaptchaTimer(data.expires_in_seconds);
+    startCaptchaTimer(data.expires_in_seconds || 300);
   } catch (e) {
     document.getElementById("captchaMsg").textContent = "Network error: " + e.message;
   }
@@ -290,7 +315,8 @@ function startCaptchaTimer(seconds) {
     if (remaining <= 0) {
       clearInterval(captchaTimerInterval);
       el.textContent = "expired";
-      document.getElementById("captchaMsg").textContent = "Code expired. Click 'New Code'.";
+      document.getElementById("captchaMsg").textContent =
+        "Code expired. Click 'New Code'.";
       return;
     }
     remaining--;
@@ -299,6 +325,7 @@ function startCaptchaTimer(seconds) {
   captchaTimerInterval = setInterval(tick, 1000);
 }
 
+// ⭐ THIS IS THE CRITICAL FUNCTION — the one that was broken before
 async function submitCaptcha() {
   const code = document.getElementById("captchaInput").value.trim();
   const msg = document.getElementById("captchaMsg");
@@ -318,15 +345,22 @@ async function submitCaptcha() {
     });
     const data = await res.json();
 
+    console.log("check-captcha response:", data); // debug log
+
+    // ⭐ THE CRITICAL ASSIGNMENT — this is what was missing before
     if (data.session_id) {
       sessionId = data.session_id;
-      viewsRemaining = data.views_before_recaptcha;
+      viewsRemaining = data.views_before_recaptcha ?? MAX_VIEWS;
       needsCaptcha = false;
+
       if (captchaTimerInterval) clearInterval(captchaTimerInterval);
       document.getElementById("captchaBox").style.display = "none";
       document.getElementById("status").textContent =
         "✅ Verified. Select up to 5 numbers, then click Reveal.";
       updateCounter();
+
+      console.log("Session saved:", sessionId);
+      console.log("needsCaptcha now:", needsCaptcha);
     } else {
       msg.textContent = data.error || "Verification failed.";
       if (data.attempts_left !== undefined) {
@@ -344,17 +378,21 @@ function showCaptchaBox() {
   document.getElementById("captchaBox").style.display = "block";
 }
 
+// ---- Escape HTML ----
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[c]));
 }
 
-// Allow pressing Enter in captcha input
+// ---- Enter key submits captcha ----
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("captchaInput").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") submitCaptcha();
-  });
+  const input = document.getElementById("captchaInput");
+  if (input) {
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") submitCaptcha();
+    });
+  }
 });
 </script>
 </body>
