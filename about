@@ -559,9 +559,8 @@
             <div class="panel">
                 <h2>✍️ A Note from the Author & Designer</h2>
                 <div class="author-name">Kr.sa Rajvardhan Singh Badgujar</div>
-                <p>Hello and welcome to the official website of Thikana Dhabla Ghosi. I am Kr. Sa. Rajvardhan Singh Badgujar, son of Thakur Sa. Suresh Singh Badgujar. Born and raised in Thikana Dhabla Ghosi, I am currently pursuing BCA from Govt. Holkar Science College, Indore. Through my studies in web development, I have gained knowledge about front-end technologies, which inspired me to create this digital platform.</p>
-
-                <blockquote>
+<p>Hello and welcome to the official website of Thikana Dhabla Ghosi. I am Kr. Sa. Rajvardhan Singh Badgujar, son of Thakur Sa. Suresh Singh Badgujar. Born and raised in Thikana Dhabla Ghosi, I have completed my graduation and developed a strong interest in web development and technology. Through my knowledge and practical experience in front-end development, I was inspired to create this digital platform to preserve, share, and promote the rich history, heritage, and culture of Thikana Dhabla Ghosi.</p>
+<blockquote>
                     In vain have you acquired knowledge if you do not impart it to others.
                 </blockquote>
 
@@ -583,11 +582,11 @@
                     <p>A special thanks to the esteemed elders and residents of Thikana Dhabla Ghosi, who generously shared their knowledge, stories, and valuable insights about our rich culture, history, and ancestral traditions. Their contributions have added depth, authenticity, and a personal touch to this platform, helping preserve our legacy for future generations.</p>
                 </div>
 
-                <div class="acknowledgement-item">
+            <!--    <div class="acknowledgement-item">
                     <h3>💻 Technical & General Appreciation</h3>
                     <p>I am thankful to my professors at Govt. Holkar Science College, Indore, for their guidance in web development. I also appreciate the support of friends who provided feedback and encouragement. Lastly, thank you to every visitor of this website — your interest in our heritage keeps our traditions alive.</p>
                 </div>
-
+-->
                 <div class="signature-box">
                     <p><strong>With warm regards,</strong><br>
                     <strong>Kr. Sa. Rajvardhan Singh Badgujar</strong><br>
