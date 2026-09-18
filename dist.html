@@ -13,26 +13,188 @@
   h1 { color: #5C1717; text-align: center; font-size: 2rem; margin-bottom: 8px; }
   .subtitle { text-align: center; color: #7A1F1F; font-size: 1.1rem; margin-bottom: 24px; }
   .notice { background: #fff3cd; border-left: 4px solid #C99A3A; padding: 14px; margin: 20px 0; border-radius: 4px; line-height: 1.6; font-size: 0.95rem; }
-  .card { background: #fff; border: 1px solid #d6c39a; border-radius: 8px; padding: 16px; margin: 10px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  /* ===== CAPTCHA BOX ===== */
+  #captchaBox {
+    background: #fff;
+    border: 2px solid #C99A3A;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+  #captchaBox h3 {
+    color: #5C1717;
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+  }
+  .code-display {
+    font-family: monospace;
+    font-size: 2.4rem;
+    letter-spacing: 0.4em;
+    color: #5C1717;
+    font-weight: bold;
+    background: #fff3cd;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px dashed #C99A3A;
+    margin: 12px auto;
+    max-width: 260px;
+    user-select: all;
+  }
+  .timer {
+    font-size: 0.85rem;
+    color: #7A6A55;
+    margin: 8px 0 14px;
+  }
+  .timer span { font-weight: bold; color: #5C1717; }
+  #captchaInput {
+    font-size: 1.6rem;
+    font-family: monospace;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    letter-spacing: 0.3em;
+    border: 2px solid #C99A3A;
+    border-radius: 8px;
+    background: #fff;
+  }
+  #captchaInput:focus {
+    outline: none;
+    border-color: #E8C166;
+    box-shadow: 0 0 0 4px rgba(201,154,58,0.2);
+  }
+  .captcha-buttons {
+    margin-top: 14px;
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-verify {
+    background: #5C1717; color: #E8C166;
+    border: none; padding: 10px 22px; border-radius: 6px;
+    font-family: inherit; font-size: 1rem; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-verify:hover { background: #9B2D2D; }
+  .btn-new {
+    background: #7A6A55; color: #fff;
+    border: none; padding: 10px 22px; border-radius: 6px;
+    font-family: inherit; font-size: 1rem; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-new:hover { background: #5C4D3A; }
+  .captcha-msg {
+    color: #B00020;
+    min-height: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  .verified-badge {
+    display: inline-block;
+    background: #138808;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+
+  /* ===== SEARCH ===== */
+  #search {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #C99A3A;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 16px;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: #fff;
+    border: 1px solid #d6c39a;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
   .card .info strong { color: #5C1717; font-size: 1.05rem; }
   .card .info small { color: #7A6A55; }
   .card .right { display: flex; gap: 10px; align-items: center; }
-  .card .phone { font-family: monospace; color: #5C1717; font-size: 1rem; min-width: 170px; text-align: right; }
-  button { background: #5C1717; color: #E8C166; border: none; padding: 10px 18px; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 0.95rem; transition: background 0.2s; }
-  button:hover:not(:disabled) { background: #9B2D2D; }
-  button:disabled { opacity: 0.5; cursor: not-allowed; }
-  .reveal-btn { background: #C99A3A; color: #1C0F0A; }
-  .reveal-btn:hover:not(:disabled) { background: #E8C166; }
-  #captchaBox { display: none; text-align: center; padding: 24px; background: #fff; border: 2px solid #C99A3A; border-radius: 8px; margin: 20px 0; }
-  #captchaBox .code-display { font-family: monospace; font-size: 2.5rem; letter-spacing: 0.3em; color: #5C1717; font-weight: bold; margin: 16px 0; background: #fff3cd; padding: 16px; border-radius: 8px; user-select: all; }
-  #captchaInput { font-size: 1.5rem; font-family: monospace; padding: 12px; width: 160px; text-align: center; letter-spacing: 0.2em; border: 2px solid #C99A3A; border-radius: 6px; }
-  #captchaInput:focus { outline: none; border-color: #E8C166; box-shadow: 0 0 0 3px rgba(201,154,58,0.2); }
-  #search { width: 100%; padding: 12px; border: 2px solid #C99A3A; border-radius: 6px; font-size: 1rem; font-family: inherit; }
-  #status { text-align: center; color: #7A1F1F; margin: 12px 0; min-height: 22px; font-weight: 600; }
-  .counter { text-align: center; font-size: 0.9rem; color: #7A1F1F; margin-bottom: 12px; background: #fff3cd; padding: 10px; border-radius: 4px; }
-  .back { display: inline-block; margin-bottom: 16px; color: #5C1717; text-decoration: none; font-size: 0.9rem; }
+  .card .phone {
+    font-family: monospace;
+    color: #5C1717;
+    font-size: 1rem;
+    min-width: 170px;
+    text-align: right;
+  }
+
+  /* ===== BUTTONS ===== */
+  button.reveal-btn {
+    background: #C99A3A;
+    color: #1C0F0A;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  button.reveal-btn:hover:not(:disabled) { background: #E8C166; }
+  button.reveal-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.action {
+    background: #5C1717;
+    color: #E8C166;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  button.action:hover { background: #9B2D2D; }
+
+  /* ===== STATUS ===== */
+  #status {
+    text-align: center;
+    color: #7A1F1F;
+    margin: 12px 0;
+    min-height: 22px;
+    font-weight: 600;
+  }
+  .counter {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7A1F1F;
+    margin-bottom: 12px;
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #5C1717;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
   .back:hover { text-decoration: underline; }
-  .error { color: #B00020; background: #ffebee; padding: 12px; border-radius: 4px; margin: 10px 0; font-family: monospace; font-size: 0.85rem; }
+  .error {
+    color: #B00020;
+    background: #ffebee;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
 </style>
 </head>
 <body>
@@ -42,25 +204,32 @@
   <p class="subtitle">Thikana Dhabla Ghosi — Family Contact Directory</p>
 
   <div class="notice">
-    <strong>🔒 Privacy Notice:</strong> Phone numbers are protected.
-    Enter the 4-digit code shown below to unlock numbers (5 at a time, 15 total per session).
+    <strong>🔒 Privacy Notice:</strong> Names are public. Phone numbers are protected —
+    enter the 4-digit code to reveal numbers (5 at a time, 15 total per session).
     Your IP, approximate location, and access time are logged.
   </div>
 
-  <input type="text" id="search" placeholder="🔍 Search by name..." oninput="render()">
-
+  <!-- ===== CAPTCHA AT TOP ===== -->
   <div id="captchaBox">
-    <p style="margin-bottom: 8px;"><strong>Enter this 4-digit code to continue:</strong></p>
+    <h3 id="captchaHeading">🔐 Enter the 4-digit code to unlock phone numbers</h3>
     <div class="code-display" id="captchaCode">••••</div>
-    <p style="font-size: 0.85rem; color: #7A6A55; margin: 8px 0;">
-      Code expires in <span id="captchaTimer">5:00</span>
-    </p>
-    <input type="text" id="captchaInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="0000" autocomplete="off">
-    <br>
-    <button onclick="submitCaptcha()" style="margin-top: 12px;">Verify</button>
-    <button onclick="loadCaptcha()" style="margin-top: 12px; background: #7A6A55;">New Code</button>
-    <p id="captchaMsg" style="color: #B00020; margin-top: 10px; min-height: 18px;"></p>
+    <div class="timer">Code expires in <span id="captchaTimer">5:00</span></div>
+    <input
+      type="text"
+      id="captchaInput"
+      maxlength="4"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      placeholder="0000"
+      autocomplete="off">
+    <div class="captcha-buttons">
+      <button class="btn-verify" onclick="submitCaptcha()">Verify</button>
+      <button class="btn-new" onclick="loadCaptcha()">New Code</button>
+    </div>
+    <div class="captcha-msg" id="captchaMsg"></div>
   </div>
+
+  <input type="text" id="search" placeholder="🔍 Search by name..." oninput="render()">
 
   <div id="status"></div>
   <div id="counter" class="counter" style="display:none;"></div>
@@ -84,7 +253,9 @@ let selectedIds = new Set();
 let needsCaptcha = true;
 let captchaTimerInterval = null;
 
-// ---- Wait for Supabase library to load ----
+// ============================================================
+// BOOT — load list immediately, then load captcha
+// ============================================================
 function waitForLibraries(cb, tries = 0) {
   if (window.supabase && window.supabase.createClient) { cb(); return; }
   if (tries > 50) {
@@ -97,10 +268,13 @@ function waitForLibraries(cb, tries = 0) {
 
 waitForLibraries(() => {
   sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  loadList();
+  loadList();      // show names immediately
+  loadCaptcha();   // show captcha for numbers
 });
 
-// ---- Load contact list (names only, no phones) ----
+// ============================================================
+// LOAD CONTACT LIST — runs on page load (names only)
+// ============================================================
 async function loadList() {
   try {
     const { data, error } = await sb
@@ -120,14 +294,15 @@ async function loadList() {
     }
     allContacts = data;
     render();
-    loadCaptcha();
   } catch (e) {
     document.getElementById("list").innerHTML =
       `<div class="error">Error: ${e.message}</div>`;
   }
 }
 
-// ---- Render cards ----
+// ============================================================
+// RENDER CARDS — names always shown, numbers masked until revealed
+// ============================================================
 function render() {
   const q = (document.getElementById("search").value || "").toLowerCase();
   const filtered = allContacts.filter(c => c.name.toLowerCase().includes(q));
@@ -162,8 +337,18 @@ function render() {
   updateSelectionUI();
 }
 
-// ---- Toggle selection ----
+// ============================================================
+// SELECTION
+// ============================================================
 function toggleSelect(id) {
+  if (!sessionId || needsCaptcha) {
+    document.getElementById("status").textContent =
+      "🔐 Please enter the code above first to unlock numbers.";
+    document.getElementById("captchaBox").scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById("captchaInput").focus();
+    return;
+  }
+
   if (revealedSet.has(id)) return;
   if (selectedIds.has(id)) {
     selectedIds.delete(id);
@@ -177,7 +362,6 @@ function toggleSelect(id) {
   updateSelectionUI();
 }
 
-// ---- Update button styles + reveal button ----
 function updateSelectionUI() {
   document.querySelectorAll("[id^='btn-']").forEach(btn => {
     const id = parseInt(btn.id.replace("btn-", ""), 10);
@@ -195,7 +379,7 @@ function updateSelectionUI() {
   if (selectedIds.size > 0) {
     document.getElementById("status").innerHTML =
       `Selected ${selectedIds.size}/${BATCH_SIZE} — 
-       <button onclick="revealSelected()" style="padding:6px 14px;font-size:0.85rem;margin-left:8px">
+       <button class="action" onclick="revealSelected()" style="padding:6px 14px;font-size:0.85rem;margin-left:8px">
          Reveal ${selectedIds.size}
        </button>`;
   } else {
@@ -203,11 +387,14 @@ function updateSelectionUI() {
   }
 }
 
-// ---- Reveal selected numbers ----
+// ============================================================
+// REVEAL SELECTED NUMBERS
+// ============================================================
 async function revealSelected() {
   if (!sessionId || needsCaptcha) {
-    document.getElementById("status").textContent = "Please verify the code first.";
-    showCaptchaBox();
+    document.getElementById("status").textContent =
+      "🔐 Session expired. Please enter a new code above.";
+    loadCaptcha();
     return;
   }
   if (selectedIds.size === 0) return;
@@ -222,12 +409,14 @@ async function revealSelected() {
     const data = await res.json();
 
     if (res.status === 428) {
-      needsCaptcha = true;
       sessionId = null;
+      needsCaptcha = true;
       selectedIds.clear();
-      loadCaptcha();
+      render();
       document.getElementById("status").textContent =
-        "🔒 View limit reached. Please enter a new code.";
+        "🔒 Session limit reached. Please enter a new code above.";
+      loadCaptcha();
+      document.getElementById("captchaBox").scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
@@ -247,35 +436,25 @@ async function revealSelected() {
     render();
 
     if (viewsRemaining <= 0) {
-      needsCaptcha = true;
       sessionId = null;
-      loadCaptcha();
+      needsCaptcha = true;
       document.getElementById("status").textContent =
-        "🔒 Session views used. Please enter a new code.";
+        "🔒 All 15 views used. Please enter a new code above.";
+      loadCaptcha();
+      document.getElementById("captchaBox").scrollIntoView({ behavior: "smooth", block: "center" });
     }
   } catch (e) {
     document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
   }
 }
 
-// ---- Counter ----
-function updateCounter() {
-  const counter = document.getElementById("counter");
-  counter.style.display = "block";
-  counter.textContent =
-    `📊 Revealed: ${revealedSet.size} · Views remaining before next code: ${viewsRemaining}`;
-}
-
 // ============================================================
-// CAPTCHA FLOW — 4-DIGIT CODE
+// CAPTCHA
 // ============================================================
-
 async function loadCaptcha() {
-  showCaptchaBox();
   document.getElementById("captchaCode").textContent = "••••";
   document.getElementById("captchaInput").value = "";
   document.getElementById("captchaMsg").textContent = "";
-  document.getElementById("status").textContent = "";
 
   try {
     const res = await fetch(`${FN_URL}/generate-captcha`, {
@@ -290,8 +469,7 @@ async function loadCaptcha() {
       return;
     }
     if (!data.code) {
-      document.getElementById("captchaMsg").textContent =
-        "Server did not return a code. Please try 'New Code'.";
+      document.getElementById("captchaMsg").textContent = "Server did not return a code.";
       return;
     }
 
@@ -315,8 +493,7 @@ function startCaptchaTimer(seconds) {
     if (remaining <= 0) {
       clearInterval(captchaTimerInterval);
       el.textContent = "expired";
-      document.getElementById("captchaMsg").textContent =
-        "Code expired. Click 'New Code'.";
+      document.getElementById("captchaMsg").textContent = "Code expired. Click 'New Code'.";
       return;
     }
     remaining--;
@@ -325,7 +502,6 @@ function startCaptchaTimer(seconds) {
   captchaTimerInterval = setInterval(tick, 1000);
 }
 
-// ⭐ THIS IS THE CRITICAL FUNCTION — the one that was broken before
 async function submitCaptcha() {
   const code = document.getElementById("captchaInput").value.trim();
   const msg = document.getElementById("captchaMsg");
@@ -345,16 +521,24 @@ async function submitCaptcha() {
     });
     const data = await res.json();
 
-    console.log("check-captcha response:", data); // debug log
+    console.log("check-captcha response:", data);
 
-    // ⭐ THE CRITICAL ASSIGNMENT — this is what was missing before
     if (data.session_id) {
       sessionId = data.session_id;
       viewsRemaining = data.views_before_recaptcha ?? MAX_VIEWS;
       needsCaptcha = false;
 
       if (captchaTimerInterval) clearInterval(captchaTimerInterval);
-      document.getElementById("captchaBox").style.display = "none";
+
+      // Hide the captcha box and show verified badge
+      document.getElementById("captchaBox").innerHTML = `
+        <div class="verified-badge">✅ Verified — you can now reveal phone numbers</div>
+        <div style="margin-top: 12px; font-size: 0.9rem; color: #7A6A55;">
+          Select up to ${BATCH_SIZE} numbers, then click Reveal.
+          <br>Views remaining: <strong>${viewsRemaining}</strong> of ${MAX_VIEWS}.
+        </div>
+      `;
+
       document.getElementById("status").textContent =
         "✅ Verified. Select up to 5 numbers, then click Reveal.";
       updateCounter();
@@ -374,18 +558,22 @@ async function submitCaptcha() {
   }
 }
 
-function showCaptchaBox() {
-  document.getElementById("captchaBox").style.display = "block";
+// ============================================================
+// HELPERS
+// ============================================================
+function updateCounter() {
+  const counter = document.getElementById("counter");
+  counter.style.display = "block";
+  counter.textContent =
+    `📊 Revealed: ${revealedSet.size} · Views remaining before next code: ${viewsRemaining}`;
 }
 
-// ---- Escape HTML ----
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[c]));
 }
 
-// ---- Enter key submits captcha ----
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("captchaInput");
   if (input) {
