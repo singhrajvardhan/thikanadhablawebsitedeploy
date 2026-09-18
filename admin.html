@@ -2,95 +2,917 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Admin — Thikana Directory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="theme-color" content="#4a0e0e">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Admin Panel — Thikana Dhabla Ghosi</title>
+
+<link rel="icon" href="1200.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
-  * { box-sizing: border-box; }
-  body { font-family: -apple-system, system-ui, monospace; background: #1C0F0A; color: #E8C166; margin: 0; padding: 20px; }
-  input, button, textarea, select { padding: 10px; margin: 4px; font-family: inherit; font-size: 14px; border-radius: 4px; border: 1px solid #C99A3A; }
-  input, textarea, select { background: #2B1810; color: #E8C166; }
-  button { background: #5C1717; color: #E8C166; cursor: pointer; transition: background 0.2s; }
-  button:hover { background: #9B2D2D; }
-  button.active { background: #C99A3A; color: #1C0F0A; }
-  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
-  th, td { border: 1px solid #C99A3A; padding: 8px; text-align: left; }
-  th { background: #5C1717; position: sticky; top: 0; z-index: 1; }
-  #login, #dash { max-width: 1400px; margin: 0 auto; }
-  .stat { display: inline-block; background: #2B1810; padding: 12px 18px; margin: 6px 6px 6px 0; border-radius: 6px; border: 1px solid #C99A3A; }
-  .stat b { color: #fff; font-size: 1.5em; display: block; }
-  .tabs { margin: 12px 0; }
-  .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 100; }
-  .modal.open { display: flex; }
-  .modal-box { background: #2B1810; padding: 24px; border-radius: 8px; border: 2px solid #C99A3A; max-width: 480px; width: 90%; }
-  .modal-box h3 { color: #E8C166; margin-top: 0; }
-  .modal-box input { width: 100%; margin: 6px 0; }
-  .actions button { padding: 6px 10px; font-size: 12px; margin: 2px; }
-  .delete-btn { background: #8B0000; }
-  .delete-btn:hover { background: #B22222; }
-  .live-dot { display: inline-block; width: 8px; height: 8px; background: #00ff00; border-radius: 50%; animation: pulse 1.5s infinite; margin-right: 6px; }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .flagged { color: #ff6b6b; font-weight: bold; }
-  .ok { color: #90ee90; }
+  :root {
+    --wood: #2B1810;
+    --wood-deep: #1C0F0A;
+    --lac: #7A1F1F;
+    --lac-deep: #5C1717;
+    --lac-bright: #9B2D2D;
+    --gold: #C99A3A;
+    --gold-bright: #E8C166;
+    --gold-pale: #F0D68A;
+    --sand: #F2E8D5;
+    --paper: #E8DCC4;
+    --paper-light: #F7F1E4;
+    --indigo: #1B3A5C;
+    --ink: #2A2118;
+    --smoke: #4A3C2C;
+    --ash: #9C8D76;
+    --green: #138808;
+    --red: #B00020;
+    --display: 'Cormorant Garamond', serif;
+    --eyebrow: 'Cinzel', serif;
+    --body: 'Lora', serif;
+    --devnag: 'Tiro Devanagari Hindi', serif;
+    --shadow-card: 0 8px 22px rgba(43, 24, 16, 0.08);
+    --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--sand);
+    background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  a { color: inherit; }
+  img { max-width: 100%; display: block; height: auto; }
+  :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
+
+  .ribbon {
+    height: 5px;
+    background: repeating-linear-gradient(90deg,
+      #FF9933 0px, #FF9933 20px,
+      #FFFFFF 20px, #FFFFFF 40px,
+      #138808 40px, #138808 60px);
+    opacity: 0.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  header {
+    background: var(--wood-deep);
+    border-bottom: 2px solid rgba(201, 154, 58, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+  }
+  .nav-wrap {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brandmark {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .brandmark:hover { opacity: 0.85; }
+  .crest-mini {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(201, 154, 58, 0.35);
+  }
+  .crest-mini img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+  .word {
+    font-family: var(--eyebrow);
+    color: var(--sand);
+    font-size: 0.74rem;
+    letter-spacing: 0.13em;
+    line-height: 1.45;
+  }
+  .word strong { display: block; color: var(--gold-bright); font-size: 0.95rem; font-weight: 600; }
+  .header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .admin-badge {
+    font-family: var(--eyebrow);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-bright);
+    background: rgba(201,154,58,0.15);
+    border: 1px solid var(--gold);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .logout-btn {
+    font-family: var(--eyebrow);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--sand);
+    background: var(--lac-deep);
+    border: 1px solid var(--lac-bright);
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-transform: uppercase;
+  }
+  .logout-btn:hover { background: var(--lac-bright); }
+
+  .main {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  /* ============ LOGIN SCREEN ============ */
+  #loginScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    padding: 20px;
+  }
+  .login-box {
+    background: var(--paper-light);
+    border: 2px solid #d6c39a;
+    border-radius: 12px;
+    padding: 40px 36px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-elevated);
+    position: relative;
+  }
+  .login-box::before {
+    content: "";
+    position: absolute; inset: 10px;
+    border: 1px solid rgba(122,31,31,0.2);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .login-box h1 {
+    font-family: var(--display);
+    font-size: 1.9rem;
+    color: var(--lac-deep);
+    text-align: center;
+    margin-bottom: 6px;
+    font-weight: 700;
+    position: relative;
+  }
+  .login-box .devnag {
+    font-family: var(--devnag);
+    font-size: 1rem;
+    color: var(--lac);
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .login-box label {
+    font-family: var(--eyebrow);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--lac-deep);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .login-box input[type="email"],
+  .login-box input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--body);
+    background: #fff;
+    color: var(--ink);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .login-box input[type="email"]:focus,
+  .login-box input[type="password"]:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 0 4px rgba(201,154,58,0.15);
+  }
+  .captcha-block {
+    background: #fff;
+    border: 2px dashed var(--gold);
+    border-radius: 8px;
+    padding: 16px 14px;
+    margin: 6px 0 16px;
+    text-align: center;
+    position: relative;
+  }
+  .captcha-block .captcha-label {
+    font-family: var(--eyebrow);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--lac-deep);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .captcha-code {
+    font-family: 'Courier New', monospace;
+    font-size: 1.9rem;
+    letter-spacing: 0.35em;
+    color: var(--lac-deep);
+    font-weight: bold;
+    background: #fff3cd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 140px;
+    user-select: all;
+    -webkit-user-select: all;
+  }
+  .captcha-refresh {
+    background: none;
+    border: none;
+    color: var(--lac-deep);
+    font-size: 0.78rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: var(--body);
+  }
+  .captcha-refresh:hover { color: var(--lac-bright); }
+
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--lac-deep);
+    color: var(--gold-bright);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--eyebrow);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .login-btn:hover { background: var(--lac-bright); }
+  .login-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .login-msg {
+    color: var(--red);
+    font-size: 0.88rem;
+    text-align: center;
+    margin-top: 14px;
+    min-height: 20px;
+    font-weight: 600;
+    position: relative;
+  }
+
+  /* ============ DASHBOARD ============ */
+  #dashboard { display: none; }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(201,154,58,0.3);
+    padding-bottom: 2px;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--smoke);
+    font-family: var(--eyebrow);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 12px 20px;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    position: relative;
+    bottom: -2px;
+  }
+  .tab-btn:hover {
+    background: rgba(201,154,58,0.1);
+    color: var(--lac-deep);
+  }
+  .tab-btn.active {
+    background: var(--lac-deep);
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+
+  .panel {
+    background: var(--paper-light);
+    border: 1px solid #d6c39a;
+    border-radius: 6px;
+    padding: 24px 26px;
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-card);
+  }
+  .panel::before {
+    content: "";
+    position: absolute; inset: 8px;
+    border: 1px solid rgba(122,31,31,0.15);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  .panel > * { position: relative; }
+
+  .panel h2 {
+    font-family: var(--display);
+    font-size: 1.7rem;
+    color: var(--lac-deep);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .panel .panel-sub {
+    font-family: var(--body);
+    font-size: 0.92rem;
+    color: var(--smoke);
+    margin-bottom: 20px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-card .stat-label {
+    font-family: var(--eyebrow);
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    color: var(--ash);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .stat-card .stat-value {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--lac-deep);
+    line-height: 1;
+  }
+
+  .filter-bar {
+    background: #fff;
+    border: 1px solid #d6c39a;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-bar label {
+    font-family: var(--eyebrow);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-bar select, .filter-bar input {
+    padding: 8px 12px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    font-family: var(--body);
+    font-size: 0.88rem;
+    background: #fff;
+    color: var(--ink);
+  }
+  .filter-bar select:focus, .filter-bar input:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 0 3px rgba(201,154,58,0.15);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 6px;
+    border: 1px solid #d6c39a;
+    background: #fff;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 900px;
+  }
+  thead th {
+    background: linear-gradient(135deg, var(--lac-deep), var(--wood));
+    color: var(--gold-bright);
+    font-family: var(--eyebrow);
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 12px 14px;
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+  }
+  tbody tr { transition: background 0.15s; }
+  tbody tr:nth-child(even) { background: rgba(201,154,58,0.04); }
+  tbody tr:hover { background: rgba(201,154,58,0.12); }
+  tbody td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(214,195,154,0.4);
+    color: var(--smoke);
+    vertical-align: top;
+    font-family: var(--body);
+  }
+  tbody td.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--lac-deep);
+    letter-spacing: 0.02em;
+  }
+  tbody td.time {
+    font-family: 'Courier New', monospace;
+    font-size: 0.76rem;
+    white-space: nowrap;
+    color: var(--smoke);
+  }
+  tbody td.event {
+    font-family: var(--eyebrow);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .event-pageview { color: var(--indigo); }
+  .event-click { color: var(--lac-bright); }
+  .event-scroll { color: #8B6914; }
+  .event-time_spent { color: var(--green); }
+  .event-test { color: var(--ash); }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-family: var(--eyebrow);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .badge-mobile { background: #fff3cd; color: #8B6914; }
+  .badge-desktop { background: #e3f2fd; color: var(--indigo); }
+  .badge-en { background: rgba(201,154,58,0.2); color: var(--lac-deep); }
+  .badge-hi { background: rgba(122,31,31,0.15); color: var(--lac-deep); }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .form-field label {
+    display: block;
+    font-family: var(--eyebrow);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--lac-deep);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    font-family: var(--body);
+    font-size: 0.92rem;
+    background: #fff;
+    color: var(--ink);
+  }
+  .form-field input:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 0 3px rgba(201,154,58,0.15);
+  }
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  .btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--eyebrow);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-primary { background: var(--lac-deep); color: var(--gold-bright); }
+  .btn-primary:hover { background: var(--lac-bright); }
+  .btn-secondary { background: var(--smoke); color: #fff; }
+  .btn-secondary:hover { background: var(--wood); }
+  .btn-danger { background: #8B0000; color: #fff; }
+  .btn-danger:hover { background: #B22222; }
+  .btn-small {
+    padding: 6px 12px;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+  }
+
+  .action-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    font-family: var(--body);
+    color: var(--ash);
+    font-style: italic;
+  }
+
+  .loading {
+    padding: 40px 20px;
+    text-align: center;
+    font-family: var(--eyebrow);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--ash);
+    text-transform: uppercase;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--lac-deep);
+    color: var(--gold-bright);
+    padding: 14px 22px;
+    border-radius: 6px;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-elevated);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 340px;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast.success { background: var(--green); }
+  .toast.error { background: var(--red); }
+
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(28,15,10,0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--paper-light);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 28px 26px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: var(--shadow-elevated);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-box h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--lac-deep);
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .pagination button {
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold);
+    background: #fff;
+    color: var(--lac-deep);
+    border-radius: 4px;
+    font-family: var(--eyebrow);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .pagination button:hover:not(:disabled) {
+    background: rgba(201,154,58,0.15);
+  }
+  .pagination button.active {
+    background: var(--lac-deep);
+    color: var(--gold-bright);
+    border-color: var(--lac-deep);
+  }
+  .pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 700px) {
+    .summary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 700px) {
+    .nav-wrap { padding: 12px 16px; }
+    .word { font-size: 0.68rem; }
+    .word strong { font-size: 0.85rem; }
+    .crest-mini { width: 42px; height: 42px; }
+    .crest-mini img { width: 34px; height: 34px; }
+    .admin-badge, .logout-btn { font-size: 0.62rem; padding: 7px 12px; }
+    .main { padding: 16px 12px 40px; }
+    .panel { padding: 18px 16px; }
+    .login-box { padding: 28px 22px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+    .tab-btn { white-space: nowrap; }
+  }
 </style>
 </head>
 <body>
 
-<div id="login">
-  <h2>🔐 Admin Login</h2>
-  <input id="email" placeholder="Email" style="width:280px" type="email">
-  <input id="pass" placeholder="Password" style="width:280px" type="password">
-  <button onclick="doLogin()">Login</button>
-  <p id="loginStatus" style="color:#ff6b6b;"></p>
-</div>
+<div class="ribbon"></div>
 
-<div id="dash" style="display:none">
-  <h2>Admin Dashboard — Thikana Dhabla Ghosi</h2>
-  <div class="tabs">
-    <button onclick="showTab('live')" id="tab-live" class="active">📍 Live Activity</button>
-    <button onclick="showTab('logs')" id="tab-logs">📊 Access Logs</button>
-    <button onclick="showTab('bots')" id="tab-bots">🤖 Blocked Bots</button>
-    <button onclick="showTab('contacts')" id="tab-contacts">📋 Contacts (Edit)</button>
-    <button onclick="doLogout()" style="background:#8B0000;">Logout</button>
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brandmark">
+      <span class="crest-mini">
+        <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi crest">
+      </span>
+      <span class="word">Thikana Dhabla Ghosi<strong>Admin Panel</strong></span>
+    </a>
+    <div class="header-actions">
+      <span class="admin-badge" id="adminBadge">🔒 Secure Area</span>
+      <button class="logout-btn" id="logoutBtn" style="display:none;" onclick="doLogout()">Logout</button>
+    </div>
   </div>
-  <div id="content">Loading...</div>
+</header>
+
+<div class="main">
+
+  <!-- LOGIN -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <h1>Admin Access</h1>
+      <p class="devnag">॥ राघवाय नमः ॥</p>
+
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" placeholder="admin@example.com" autocomplete="username">
+
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+
+      <label>Verification Code</label>
+      <div class="captcha-block">
+        <div class="captcha-label">Enter the 4-digit code shown below</div>
+        <div class="captcha-code" id="captchaCode">••••</div>
+        <div>
+          <button class="captcha-refresh" onclick="generateCaptcha()">↻ New code</button>
+        </div>
+      </div>
+      <input type="text" id="loginCaptcha" placeholder="0000" maxlength="4"
+             inputmode="numeric" pattern="[0-9]*" autocomplete="off"
+             style="width:100%;padding:12px 14px;border:2px solid var(--gold);border-radius:6px;
+                    font-size:1.4rem;font-family:'Courier New',monospace;text-align:center;
+                    letter-spacing:0.3em;background:#fff;color:var(--ink);margin-bottom:16px;">
+
+      <button class="login-btn" id="loginBtn" onclick="doLogin()">Sign In</button>
+      <p class="login-msg" id="loginMsg"></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="visitors" onclick="showTab('visitors')">👥 Visitors</button>
+      <button class="tab-btn" data-tab="logs" onclick="showTab('logs')">📊 Access Logs</button>
+      <button class="tab-btn" data-tab="bots" onclick="showTab('bots')">🤖 Blocked Bots</button>
+      <button class="tab-btn" data-tab="contacts" onclick="showTab('contacts')">📋 Contacts</button>
+      <button class="tab-btn" data-tab="addcontact" onclick="showTab('addcontact')">➕ Add Contact</button>
+    </div>
+
+    <div id="content" class="panel">
+      <div class="loading">Loading dashboard…</div>
+    </div>
+  </div>
+
 </div>
 
-<div class="modal" id="editModal">
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="editModal">
   <div class="modal-box">
-    <h3 id="modalTitle">Add Contact</h3>
-    <input id="m_name" placeholder="Name">
-    <input id="m_phone" placeholder="Phone (10 digits)">
-    <input id="m_relation" placeholder="Relation (e.g., Family)">
-    <input id="m_city" placeholder="City">
-    <input type="hidden" id="m_id">
-    <div style="text-align:right; margin-top:12px;">
-      <button onclick="closeModal()">Cancel</button>
-      <button onclick="saveContact()" style="background:#138808;">Save</button>
+    <h3 id="modalTitle">Edit Contact</h3>
+    <div class="form-grid">
+      <div class="form-field">
+        <label>Name</label>
+        <input type="text" id="editName">
+      </div>
+      <div class="form-field">
+        <label>Phone (10 digits)</label>
+        <input type="text" id="editPhone" maxlength="10" inputmode="numeric">
+      </div>
+      <div class="form-field">
+        <label>Relation</label>
+        <input type="text" id="editRelation">
+      </div>
+      <div class="form-field">
+        <label>City</label>
+        <input type="text" id="editCity">
+      </div>
+    </div>
+    <input type="hidden" id="editId">
+    <div class="form-actions">
+      <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveContact()">Save Changes</button>
     </div>
   </div>
 </div>
 
 <script>
+// ============================================================
+// CONFIG
+// ============================================================
 const SUPABASE_URL = "https://fmrmiylqjokyrsztfmgp.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_cNHjqBdWpu98niKZqMvIuA_96VjEQxk";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-let currentTab = "live";
-let realtimeChannel = null;
+let sb = null;
+let currentTab = "visitors";
+let currentUser = null;
+let currentCaptcha = null;
+let allContacts = [];
+let visitorData = [];
+let accessLogsData = [];
+let botData = [];
 
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg, type = "success") {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast show " + type;
+  setTimeout(() => t.className = "toast " + type, 3000);
+}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+function fmt(ts) {
+  if (!ts) return "—";
+  try {
+    return new Date(ts).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+  } catch { return ts; }
+}
+function timeAgo(ts) {
+  if (!ts) return "—";
+  const diffMs = Date.now() - new Date(ts).getTime();
+  const sec = Math.floor(diffMs / 1000);
+  if (sec < 60) return sec + "s ago";
+  const min = Math.floor(sec / 60);
+  if (min < 60) return min + "m ago";
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return hr + "h ago";
+  return Math.floor(hr / 24) + "d ago";
+}
+
+// ============================================================
+// CAPTCHA
+// ============================================================
+function generateCaptcha() {
+  currentCaptcha = String(Math.floor(1000 + Math.random() * 9000));
+  document.getElementById("captchaCode").textContent = currentCaptcha;
+  document.getElementById("loginCaptcha").value = "";
+}
+
+// ============================================================
+// LOGIN / LOGOUT
+// ============================================================
 async function doLogin() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("pass").value;
-  const { error } = await sb.auth.signInWithPassword({ email, password });
-  if (error) {
-    document.getElementById("loginStatus").textContent = "❌ " + error.message;
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const captcha = document.getElementById("loginCaptcha").value.trim();
+  const msg = document.getElementById("loginMsg");
+
+  msg.textContent = "";
+
+  if (!email || !password) {
+    msg.textContent = "Please enter email and password.";
     return;
   }
-  document.getElementById("login").style.display = "none";
-  document.getElementById("dash").style.display = "block";
-  showTab("live");
+  if (captcha !== currentCaptcha) {
+    msg.textContent = "Incorrect verification code. Try a new one.";
+    generateCaptcha();
+    return;
+  }
+
+  document.getElementById("loginBtn").disabled = true;
+  document.getElementById("loginBtn").textContent = "Signing in…";
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+  document.getElementById("loginBtn").disabled = false;
+  document.getElementById("loginBtn").textContent = "Sign In";
+
+  if (error) {
+    msg.textContent = "❌ " + error.message;
+    generateCaptcha();
+    return;
+  }
+
+  currentUser = data.user;
+  await logAdminLogin();
+  enterDashboard();
+}
+
+async function logAdminLogin() {
+  try {
+    await sb.from("access_logs").insert({
+      ip: "unknown",
+      user_agent: navigator.userAgent,
+      action: "admin_login",
+      suspicious: false,
+    });
+  } catch (e) {
+    console.warn("Login log failed:", e);
+  }
 }
 
 async function doLogout() {
@@ -98,201 +920,684 @@ async function doLogout() {
   location.reload();
 }
 
-async function showTab(tab) {
+// ============================================================
+// DASHBOARD
+// ============================================================
+function enterDashboard() {
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+  document.getElementById("logoutBtn").style.display = "inline-block";
+  document.getElementById("adminBadge").textContent = "👤 " + (currentUser?.email || "Admin");
+  showTab("visitors");
+}
+
+function showTab(tab) {
   currentTab = tab;
-  document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
-  document.getElementById("tab-" + tab)?.classList.add("active");
-
-  // Unsubscribe previous realtime
-  if (realtimeChannel) { sb.removeChannel(realtimeChannel); realtimeChannel = null; }
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.tab === tab);
+  });
 
   const c = document.getElementById("content");
-  c.innerHTML = "Loading...";
+  c.innerHTML = '<div class="loading">Loading…</div>';
 
-  if (tab === "live") {
-    await renderLive();
-    // Realtime: auto-refresh on new log
-    realtimeChannel = sb.channel("live-logs")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "access_logs" },
-          () => { if (currentTab === "live") renderLive(); })
-      .subscribe();
-  } else if (tab === "logs") {
-    await renderLogs();
-  } else if (tab === "bots") {
-    await renderBots();
-  } else if (tab === "contacts") {
-    await renderContacts();
+  if (tab === "visitors") renderVisitors(1);
+  else if (tab === "logs") renderLogs(1);
+  else if (tab === "bots") renderBots(1);
+  else if (tab === "contacts") renderContacts();
+  else if (tab === "addcontact") renderAddContact();
+}
+
+// ============================================================
+// TAB: VISITORS  — full pagination + export
+// ============================================================
+async function renderVisitors(page = 1) {
+  // Preserve filter values across pagination
+  const fSite = document.getElementById("fSite")?.value || "";
+  const fPage = document.getElementById("fPage")?.value || "";
+  const fLang = document.getElementById("fLang")?.value || "";
+  const pageSize = parseInt(document.getElementById("fPageSize")?.value || "100", 10);
+
+  // Build paginated query
+  let query = sb.from("visitor_events").select("*", { count: "exact" });
+
+  if (fSite) query = query.eq("site", fSite);
+  if (fPage) query = query.eq("page_name", fPage);
+  if (fLang) query = query.eq("page_lang", fLang);
+
+  query = query.order("created_at", { ascending: false });
+
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+  query = query.range(from, to);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    document.getElementById("content").innerHTML =
+      `<h2>👥 Visitors</h2><div class="empty-state">Failed: ${esc(error.message)}</div>`;
+    return;
   }
-}
 
-async function renderLive() {
-  const since = new Date(Date.now() - 30 * 60000).toISOString();
-  const { data, error } = await sb.from("access_logs")
-    .select("*").gte("timestamp", since)
-    .order("timestamp", { ascending: false }).limit(200);
+  visitorData = data || [];
+  const total = count || 0;
+  const totalPages = Math.ceil(total / pageSize);
 
-  const c = document.getElementById("content");
-  if (error) { c.innerHTML = "Error: " + error.message; return; }
+  // Fetch aggregate stats from ALL matching rows
+  const stats = await fetchVisitorStats(fSite, fPage, fLang);
 
-  const uniqIPs = new Set(data.map(x => x.ip)).size;
-  const blocked = data.filter(x => x.action.startsWith("blocked")).length;
-
-  c.innerHTML = `
-    <div><span class="live-dot"></span><strong>Live</strong> (auto-refreshing)</div>
-    <div class="stat">Active IPs (30m)<b>${uniqIPs}</b></div>
-    <div class="stat">Total events<b>${data.length}</b></div>
-    <div class="stat">Blocked<b>${blocked}</b></div>
-    <table>
-      <tr>
-        <th>Time (IST)</th><th>IP</th><th>City</th><th>Region</th><th>Country</th>
-        <th>Lat, Lon</th><th>Timezone</th><th>Action</th><th>Contact</th><th>UA</th>
-      </tr>
-      ${data.map(l => `<tr>
-        <td>${fmt(l.timestamp)}</td>
-        <td>${l.ip}</td>
-        <td>${l.city || ''}</td>
-        <td>${l.region || ''}</td>
-        <td>${l.country || ''}</td>
-        <td>${l.latitude ?? ''}, ${l.longitude ?? ''}</td>
-        <td>${l.timezone || ''}</td>
-        <td class="${l.action.startsWith('blocked') ? 'flagged' : 'ok'}">${l.action}</td>
-        <td>${l.contact_id || ''}</td>
-        <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.user_agent || ''}</td>
-      </tr>`).join("")}
-    </table>`;
-}
-
-async function renderLogs() {
-  const { data } = await sb.from("access_logs")
-    .select("*").order("timestamp", { ascending: false }).limit(500);
   document.getElementById("content").innerHTML = `
-    <h3>All Access Logs (latest 500)</h3>
-    <table>
-      <tr><th>Time (IST)</th><th>IP</th><th>Location</th><th>Lat/Lon</th>
-          <th>Action</th><th>Session</th><th>Contact</th><th>Flags</th></tr>
-      ${data.map(l => `<tr>
-        <td>${fmt(l.timestamp)}</td>
-        <td>${l.ip}</td>
-        <td>${l.city || ''}, ${l.region || ''}, ${l.country || ''}</td>
-        <td>${l.latitude ?? ''}, ${l.longitude ?? ''}</td>
-        <td>${l.action}</td>
-        <td>${(l.session_id || '').slice(0, 8)}</td>
-        <td>${l.contact_id || ''}</td>
-        <td>${l.suspicious ? '🚩' : ''}</td>
-      </tr>`).join("")}
-    </table>`;
+    <h2>👥 Visitor Analytics</h2>
+    <p class="panel-sub">Showing ${visitorData.length} of <strong>${total.toLocaleString()}</strong> total events</p>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-label">Unique IPs</div><div class="stat-value">${stats.uniqueIPs}</div></div>
+      <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value">${stats.uniqueSessions}</div></div>
+      <div class="stat-card"><div class="stat-label">Pageviews</div><div class="stat-value">${stats.pageviews}</div></div>
+      <div class="stat-card"><div class="stat-label">Mobile</div><div class="stat-value">${stats.mobile}</div></div>
+      <div class="stat-card"><div class="stat-label">Total Events</div><div class="stat-value">${stats.total}</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Time</div><div class="stat-value">${stats.avgTime}s</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <label>Site:
+        <select id="fSite" onchange="renderVisitors(1)">
+          <option value="">All</option>
+          <option ${fSite === 'Thikana Dhabla Ghosi' ? 'selected' : ''}>Thikana Dhabla Ghosi</option>
+          <option ${fSite === 'Rajvardhan Singh' ? 'selected' : ''}>Rajvardhan Singh</option>
+        </select>
+      </label>
+      <label>Page:
+        <select id="fPage" onchange="renderVisitors(1)">
+          <option value="">All</option>
+          <option ${fPage === 'Home' ? 'selected' : ''}>Home</option>
+          <option ${fPage === 'History' ? 'selected' : ''}>History</option>
+          <option ${fPage === 'Family Tree' ? 'selected' : ''}>Family Tree</option>
+          <option ${fPage === 'Location & Map' ? 'selected' : ''}>Location & Map</option>
+          <option ${fPage === 'Directory' ? 'selected' : ''}>Directory</option>
+          <option ${fPage === 'About' ? 'selected' : ''}>About</option>
+          <option ${fPage === 'Contact' ? 'selected' : ''}>Contact</option>
+        </select>
+      </label>
+      <label>Lang:
+        <select id="fLang" onchange="renderVisitors(1)">
+          <option value="">All</option>
+          <option value="en" ${fLang === 'en' ? 'selected' : ''}>English</option>
+          <option value="hi" ${fLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
+        </select>
+      </label>
+      <label>Show:
+        <select id="fPageSize" onchange="renderVisitors(1)">
+          <option value="50" ${pageSize === 50 ? 'selected' : ''}>50</option>
+          <option value="100" ${pageSize === 100 ? 'selected' : ''}>100</option>
+          <option value="250" ${pageSize === 250 ? 'selected' : ''}>250</option>
+          <option value="500" ${pageSize === 500 ? 'selected' : ''}>500</option>
+          <option value="1000" ${pageSize === 1000 ? 'selected' : ''}>1000</option>
+          <option value="5000" ${pageSize === 5000 ? 'selected' : ''}>5000</option>
+        </select>
+      </label>
+      <button class="btn btn-secondary btn-small" onclick="renderVisitors(${page})">↻ Refresh</button>
+      <button class="btn btn-primary btn-small" onclick="exportVisitorsCSV()">⬇ Export CSV</button>
+    </div>
+
+    <h3 style="font-family:var(--eyebrow);font-size:0.72rem;letter-spacing:0.08em;color:var(--lac-deep);text-transform:uppercase;margin-bottom:10px;">Summary</h3>
+    <div class="summary-grid">
+      <div>
+        <div class="table-wrap">
+          <table style="min-width:auto;">
+            <thead><tr><th>Site</th><th style="text-align:right;">Views</th></tr></thead>
+            <tbody>
+              ${Object.entries(stats.bySite).map(([k,v]) =>
+                `<tr><td>${esc(k)}</td><td style="text-align:right;font-weight:600;">${v}</td></tr>`
+              ).join("") || '<tr><td colspan="2" class="empty-state">No data yet</td></tr>'}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="table-wrap">
+          <table style="min-width:auto;">
+            <thead><tr><th>Page (Lang)</th><th style="text-align:right;">Views</th></tr></thead>
+            <tbody>
+              ${Object.entries(stats.byPage).sort((a,b)=>b[1]-a[1]).slice(0, 10).map(([k,v]) =>
+                `<tr><td>${esc(k)}</td><td style="text-align:right;font-weight:600;">${v}</td></tr>`
+              ).join("") || '<tr><td colspan="2" class="empty-state">No data yet</td></tr>'}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--eyebrow);font-size:0.72rem;letter-spacing:0.08em;color:var(--lac-deep);text-transform:uppercase;margin-bottom:10px;">Events (Page ${page} of ${totalPages || 1})</h3>
+    <div class="table-wrap">
+      ${renderVisitorsTable(visitorData)}
+    </div>
+
+    ${totalPages > 1 ? renderPagination("renderVisitors", page, totalPages) : ""}
+  `;
 }
 
-async function renderBots() {
-  const { data } = await sb.from("bot_signatures")
-    .select("*").order("detected_at", { ascending: false }).limit(200);
+async function fetchVisitorStats(fSite, fPage, fLang) {
+  let query = sb.from("visitor_events").select("ip, session_id, event_type, site, page_name, page_lang, device, time_spent");
+
+  if (fSite) query = query.eq("site", fSite);
+  if (fPage) query = query.eq("page_name", fPage);
+  if (fLang) query = query.eq("page_lang", fLang);
+
+  const { data, error } = await query.limit(50000);
+  if (error || !data) {
+    return {
+      uniqueIPs: 0, uniqueSessions: 0, pageviews: 0, mobile: 0, total: 0, avgTime: 0,
+      bySite: {}, byPage: {}
+    };
+  }
+
+  const uniqueIPs = new Set(data.filter(x => x.ip).map(x => x.ip)).size;
+  const uniqueSessions = new Set(data.filter(x => x.session_id).map(x => x.session_id)).size;
+  const pageviews = data.filter(x => x.event_type === "pageview").length;
+  const mobile = data.filter(x => x.device === "Mobile").length;
+
+  const timeSpentRows = data.filter(x => x.event_type === "time_spent" && x.time_spent);
+  const avgTime = timeSpentRows.length
+    ? Math.round(timeSpentRows.reduce((s, x) => s + x.time_spent, 0) / timeSpentRows.length)
+    : 0;
+
+  const bySite = {};
+  data.filter(x => x.event_type === "pageview").forEach(x => {
+    const k = x.site || "Unknown";
+    bySite[k] = (bySite[k] || 0) + 1;
+  });
+
+  const byPage = {};
+  data.filter(x => x.event_type === "pageview").forEach(x => {
+    const k = `${x.page_name || "Unknown"} (${x.page_lang || "en"})`;
+    byPage[k] = (byPage[k] || 0) + 1;
+  });
+
+  return {
+    uniqueIPs, uniqueSessions, pageviews, mobile,
+    total: data.length, avgTime, bySite, byPage
+  };
+}
+
+function renderVisitorsTable(rows) {
+  if (!rows.length) return '<div class="empty-state">No events match your filter.</div>';
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Time (IST)</th>
+          <th>When</th>
+          <th>Site</th>
+          <th>Event</th>
+          <th>Page</th>
+          <th>Lang</th>
+          <th>IP</th>
+          <th>City</th>
+          <th>Lat, Lon</th>
+          <th>Device</th>
+          <th>Spent</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(v => `
+          <tr>
+            <td class="time">${fmt(v.created_at)}</td>
+            <td class="time" style="color:var(--ash);">${timeAgo(v.created_at)}</td>
+            <td>${esc(v.site || "—")}</td>
+            <td class="event event-${esc(v.event_type)}">${esc(v.event_type)}</td>
+            <td>${esc(v.page_name || "—")}</td>
+            <td><span class="badge badge-${v.page_lang === 'hi' ? 'hi' : 'en'}">${esc(v.page_lang || "en")}</span></td>
+            <td class="mono">${esc(v.ip || "—")}</td>
+            <td>${esc(v.city || "—")}</td>
+            <td class="mono" style="font-size:0.72rem;">${v.latitude ? `${v.latitude}, ${v.longitude}` : "—"}</td>
+            <td><span class="badge badge-${v.device === 'Mobile' ? 'mobile' : 'desktop'}">${esc(v.device || "—")}</span></td>
+            <td>${v.time_spent ? v.time_spent + "s" : "—"}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+// ============================================================
+// PAGINATION (shared)
+// ============================================================
+function renderPagination(fnName, current, total) {
+  const buttons = [];
+  buttons.push(`<button ${current === 1 ? 'disabled' : ''} onclick="${fnName}(${current - 1})">‹</button>`);
+
+  for (let i = 1; i <= Math.min(3, total); i++) {
+    buttons.push(`<button class="${i === current ? 'active' : ''}" onclick="${fnName}(${i})">${i}</button>`);
+  }
+  if (current > 5) buttons.push(`<button disabled>…</button>`);
+  for (let i = Math.max(4, current - 2); i <= Math.min(total - 3, current + 2); i++) {
+    buttons.push(`<button class="${i === current ? 'active' : ''}" onclick="${fnName}(${i})">${i}</button>`);
+  }
+  if (current < total - 3) buttons.push(`<button disabled>…</button>`);
+  for (let i = Math.max(4, total - 2); i <= total; i++) {
+    buttons.push(`<button class="${i === current ? 'active' : ''}" onclick="${fnName}(${i})">${i}</button>`);
+  }
+
+  buttons.push(`<button ${current === total ? 'disabled' : ''} onclick="${fnName}(${current + 1})">›</button>`);
+  return `<div class="pagination">${buttons.join("")}</div>`;
+}
+
+// ============================================================
+// EXPORT CSV
+// ============================================================
+async function exportVisitorsCSV() {
+  const fSite = document.getElementById("fSite")?.value || "";
+  const fPage = document.getElementById("fPage")?.value || "";
+  const fLang = document.getElementById("fLang")?.value || "";
+
+  let query = sb.from("visitor_events").select("*").order("created_at", { ascending: false });
+  if (fSite) query = query.eq("site", fSite);
+  if (fPage) query = query.eq("page_name", fPage);
+  if (fLang) query = query.eq("page_lang", fLang);
+
+  const { data, error } = await query.limit(50000);
+  if (error || !data) {
+    showToast("Export failed: " + (error?.message || "unknown"), "error");
+    return;
+  }
+
+  const headers = [
+    "id","created_at","event_type","site","page","page_name","page_lang",
+    "ip","country","city","region","latitude","longitude","org",
+    "device","browser","os","screen","language","timezone",
+    "user_id","session_id","referrer","time_spent","scroll_percent"
+  ];
+
+  const escCSV = (v) => {
+    if (v === null || v === undefined) return "";
+    const s = String(v).replace(/"/g, '""');
+    return /[",\n]/.test(s) ? `"${s}"` : s;
+  };
+
+  const csv = [
+    headers.join(","),
+    ...data.map(row => headers.map(h => escCSV(row[h])).join(","))
+  ].join("\n");
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `visitors-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+
+  showToast(`✅ Exported ${data.length} rows`);
+}
+
+// ============================================================
+// TAB: ACCESS LOGS  — also with pagination + export
+// ============================================================
+async function renderLogs(page = 1) {
+  const pageSize = parseInt(document.getElementById("logPageSize")?.value || "100", 10);
+
+  let query = sb.from("access_logs").select("*", { count: "exact" });
+  query = query.order("timestamp", { ascending: false });
+
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+  query = query.range(from, to);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    document.getElementById("content").innerHTML =
+      `<h2>📊 Access Logs</h2><div class="empty-state">Failed: ${esc(error.message)}</div>`;
+    return;
+  }
+
+  accessLogsData = data || [];
+  const total = count || 0;
+  const totalPages = Math.ceil(total / pageSize);
+
+  const blocked = accessLogsData.filter(x => x.action?.startsWith("blocked")).length;
+  const captchaFails = accessLogsData.filter(x => x.action === "captcha_failed").length;
+
   document.getElementById("content").innerHTML = `
-    <h3>Blocked Bots & Suspicious Activity</h3>
-    <table>
-      <tr><th>Time (IST)</th><th>IP</th><th>Reason</th><th>User Agent</th></tr>
-      ${data.map(b => `<tr>
-        <td>${fmt(b.detected_at)}</td>
-        <td>${b.ip}</td>
-        <td class="flagged">${b.reason}</td>
-        <td style="max-width:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.user_agent || ''}</td>
-      </tr>`).join("")}
-    </table>`;
+    <h2>📊 Access Logs</h2>
+    <p class="panel-sub">Showing ${accessLogsData.length} of <strong>${total.toLocaleString()}</strong> security events</p>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-label">Total Events</div><div class="stat-value">${total}</div></div>
+      <div class="stat-card"><div class="stat-label">Blocked</div><div class="stat-value">${blocked}</div></div>
+      <div class="stat-card"><div class="stat-label">Failed Captcha</div><div class="stat-value">${captchaFails}</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <label>Show:
+        <select id="logPageSize" onchange="renderLogs(1)">
+          <option value="100" ${pageSize === 100 ? 'selected' : ''}>100</option>
+          <option value="250" ${pageSize === 250 ? 'selected' : ''}>250</option>
+          <option value="500" ${pageSize === 500 ? 'selected' : ''}>500</option>
+          <option value="1000" ${pageSize === 1000 ? 'selected' : ''}>1000</option>
+        </select>
+      </label>
+      <button class="btn btn-secondary btn-small" onclick="renderLogs(${page})">↻ Refresh</button>
+      <button class="btn btn-primary btn-small" onclick="exportLogsCSV()">⬇ Export CSV</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time (IST)</th>
+            <th>When</th>
+            <th>IP</th>
+            <th>Location</th>
+            <th>Action</th>
+            <th>Contact</th>
+            <th>Flags</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${accessLogsData.length ? accessLogsData.map(l => `
+            <tr>
+              <td class="time">${fmt(l.timestamp)}</td>
+              <td class="time" style="color:var(--ash);">${timeAgo(l.timestamp)}</td>
+              <td class="mono">${esc(l.ip || "—")}</td>
+              <td>${esc([l.city, l.region, l.country].filter(Boolean).join(", ") || "—")}</td>
+              <td class="event event-${esc(l.action)}">${esc(l.action || "—")}</td>
+              <td>${l.contact_id ? "#" + l.contact_id : "—"}</td>
+              <td>${l.suspicious ? '<span class="badge" style="background:#ffebee;color:var(--red);">🚩</span>' : "—"}</td>
+            </tr>
+          `).join("") : '<tr><td colspan="7" class="empty-state">No access logs yet.</td></tr>'}
+        </tbody>
+      </table>
+    </div>
+
+    ${totalPages > 1 ? renderPagination("renderLogs", page, totalPages) : ""}
+  `;
 }
 
+async function exportLogsCSV() {
+  const { data, error } = await sb.from("access_logs").select("*").order("timestamp", { ascending: false }).limit(50000);
+  if (error || !data) { showToast("Export failed", "error"); return; }
+
+  const headers = ["id","timestamp","ip","country","city","region","latitude","longitude","user_agent","action","contact_id","session_id","suspicious"];
+  const escCSV = v => v === null || v === undefined ? "" : (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g,'""')}"` : String(v));
+  const csv = [headers.join(","), ...data.map(r => headers.map(h => escCSV(r[h])).join(","))].join("\n");
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `access-logs-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`✅ Exported ${data.length} rows`);
+}
+
+// ============================================================
+// TAB: BLOCKED BOTS
+// ============================================================
+async function renderBots(page = 1) {
+  const pageSize = 100;
+
+  let query = sb.from("bot_signatures").select("*", { count: "exact" });
+  query = query.order("detected_at", { ascending: false });
+
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+  query = query.range(from, to);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    document.getElementById("content").innerHTML =
+      `<h2>🤖 Blocked Bots</h2><div class="empty-state">Failed: ${esc(error.message)}</div>`;
+    return;
+  }
+
+  botData = data || [];
+  const total = count || 0;
+  const totalPages = Math.ceil(total / pageSize);
+
+  document.getElementById("content").innerHTML = `
+    <h2>🤖 Blocked Bots</h2>
+    <p class="panel-sub">Automated visitors, scrapers, and rate-limited IPs — ${total} total</p>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-label">Blocked Events</div><div class="stat-value">${total}</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="btn btn-secondary btn-small" onclick="renderBots(${page})">↻ Refresh</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time (IST)</th>
+            <th>When</th>
+            <th>IP</th>
+            <th>Reason</th>
+            <th>User Agent</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${botData.length ? botData.map(b => `
+            <tr>
+              <td class="time">${fmt(b.detected_at)}</td>
+              <td class="time" style="color:var(--ash);">${timeAgo(b.detected_at)}</td>
+              <td class="mono">${esc(b.ip || "—")}</td>
+              <td style="color:var(--red);font-weight:600;">${esc(b.reason || "—")}</td>
+              <td style="max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${esc(b.user_agent)}">${esc(b.user_agent || "—")}</td>
+            </tr>
+          `).join("") : '<tr><td colspan="5" class="empty-state">No bots blocked yet.</td></tr>'}
+        </tbody>
+      </table>
+    </div>
+
+    ${totalPages > 1 ? renderPagination("renderBots", page, totalPages) : ""}
+  `;
+}
+
+// ============================================================
+// TAB: CONTACTS
+// ============================================================
 async function renderContacts() {
-  const { data } = await sb.from("contacts").select("*").order("id");
+  const { data, error } = await sb.from("contacts").select("*").order("id");
+
+  if (error) {
+    document.getElementById("content").innerHTML =
+      `<h2>📋 Contacts</h2><div class="empty-state">Failed: ${esc(error.message)}</div>`;
+    return;
+  }
+  allContacts = data || [];
+
   document.getElementById("content").innerHTML = `
-    <h3>All Contacts — Full Access</h3>
-    <button onclick="openAddModal()" style="background:#138808;margin-bottom:10px;">+ Add Contact</button>
+    <h2>📋 Contacts (${allContacts.length})</h2>
+    <p class="panel-sub">Edit phone numbers, names, cities. Changes save instantly.</p>
+
+    <div class="filter-bar">
+      <label>Search:
+        <input type="text" id="contactSearch" placeholder="Name or phone…" oninput="filterContacts()" style="width:220px;">
+      </label>
+      <button class="btn btn-secondary btn-small" onclick="renderContacts()">↻ Refresh</button>
+    </div>
+
+    <div class="table-wrap" id="contactsTableWrap">
+      ${renderContactsTable(allContacts)}
+    </div>
+  `;
+}
+
+function filterContacts() {
+  const q = (document.getElementById("contactSearch").value || "").toLowerCase();
+  const filtered = allContacts.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    (c.phone && c.phone.includes(q)) ||
+    (c.city && c.city.toLowerCase().includes(q))
+  );
+  document.getElementById("contactsTableWrap").innerHTML = renderContactsTable(filtered);
+}
+
+function renderContactsTable(rows) {
+  if (!rows.length) return '<div class="empty-state">No contacts found.</div>';
+  return `
     <table>
-      <tr><th>ID</th><th>Name</th><th>Phone</th><th>Relation</th><th>City</th>
-          <th>Updated</th><th>Actions</th></tr>
-      ${data.map(x => `<tr>
-        <td>${x.id}</td>
-        <td>${esc(x.name)}</td>
-        <td>${x.phone}</td>
-        <td>${esc(x.relation || '')}</td>
-        <td>${esc(x.city || '')}</td>
-        <td>${fmt(x.updated_at)}</td>
-        <td class="actions">
-          <button onclick='openEditModal(${JSON.stringify(x)})'>✎ Edit</button>
-          <button class="delete-btn" onclick="deleteContact(${x.id}, '${esc(x.name)}')">🗑 Delete</button>
-        </td>
-      </tr>`).join("")}
-    </table>`;
+      <thead>
+        <tr>
+          <th>#</th><th>Name</th><th>Phone</th><th>Relation</th><th>City</th>
+          <th>Updated</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(c => `
+          <tr>
+            <td>${c.id}</td>
+            <td style="font-weight:600;color:var(--lac-deep);">${esc(c.name)}</td>
+            <td class="mono">+91 ${esc(c.phone)}</td>
+            <td>${esc(c.relation || "—")}</td>
+            <td>${esc(c.city || "—")}</td>
+            <td class="time" style="font-size:0.72rem;">${timeAgo(c.updated_at || c.created_at)}</td>
+            <td>
+              <div class="action-row">
+                <button class="btn btn-primary btn-small" onclick="openEditModal(${c.id})">✎ Edit</button>
+                <button class="btn btn-danger btn-small" onclick="deleteContact(${c.id}, '${esc(c.name)}')">🗑 Delete</button>
+              </div>
+            </td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
-function openAddModal() {
-  document.getElementById("modalTitle").textContent = "Add Contact";
-  document.getElementById("m_id").value = "";
-  document.getElementById("m_name").value = "";
-  document.getElementById("m_phone").value = "";
-  document.getElementById("m_relation").value = "Family";
-  document.getElementById("m_city").value = "";
-  document.getElementById("editModal").classList.add("open");
-}
-
-function openEditModal(c) {
+function openEditModal(id) {
+  const c = allContacts.find(x => x.id === id);
+  if (!c) return;
+  document.getElementById("editId").value = c.id;
+  document.getElementById("editName").value = c.name || "";
+  document.getElementById("editPhone").value = c.phone || "";
+  document.getElementById("editRelation").value = c.relation || "";
+  document.getElementById("editCity").value = c.city || "";
   document.getElementById("modalTitle").textContent = "Edit Contact #" + c.id;
-  document.getElementById("m_id").value = c.id;
-  document.getElementById("m_name").value = c.name;
-  document.getElementById("m_phone").value = c.phone;
-  document.getElementById("m_relation").value = c.relation || "";
-  document.getElementById("m_city").value = c.city || "";
   document.getElementById("editModal").classList.add("open");
 }
 
-function closeModal() {
+function closeEditModal() {
   document.getElementById("editModal").classList.remove("open");
 }
 
 async function saveContact() {
-  const id = document.getElementById("m_id").value;
-  const payload = {
-    name: document.getElementById("m_name").value.trim(),
-    phone: document.getElementById("m_phone").value.trim(),
-    relation: document.getElementById("m_relation").value.trim(),
-    city: document.getElementById("m_city").value.trim(),
-    updated_at: new Date().toISOString(),
-  };
-  if (!payload.name || !payload.phone) { alert("Name and phone are required."); return; }
+  const id = document.getElementById("editId").value;
+  const name = document.getElementById("editName").value.trim();
+  const phone = document.getElementById("editPhone").value.trim().replace(/\D/g, "");
+  const relation = document.getElementById("editRelation").value.trim();
+  const city = document.getElementById("editCity").value.trim();
 
-  let result;
-  if (id) {
-    result = await sb.from("contacts").update(payload).eq("id", id);
-  } else {
-    result = await sb.from("contacts").insert(payload);
-  }
-  if (result.error) { alert("Error: " + result.error.message); return; }
-  closeModal();
+  if (!name) { showToast("Name is required", "error"); return; }
+  if (!/^\d{10}$/.test(phone)) { showToast("Phone must be exactly 10 digits", "error"); return; }
+
+  const { error } = await sb.from("contacts").update({
+    name, phone, relation, city,
+    updated_at: new Date().toISOString(),
+  }).eq("id", id);
+
+  if (error) { showToast("Failed: " + error.message, "error"); return; }
+
+  showToast("✅ Contact updated successfully");
+  closeEditModal();
   renderContacts();
 }
 
 async function deleteContact(id, name) {
   if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
   const { error } = await sb.from("contacts").delete().eq("id", id);
-  if (error) { alert("Error: " + error.message); return; }
+  if (error) { showToast("Failed: " + error.message, "error"); return; }
+  showToast("🗑 Contact deleted");
   renderContacts();
 }
 
-function fmt(ts) {
-  return new Date(ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+// ============================================================
+// TAB: ADD CONTACT
+// ============================================================
+function renderAddContact() {
+  document.getElementById("content").innerHTML = `
+    <h2>➕ Add New Contact</h2>
+    <p class="panel-sub">Create a new entry in the family directory</p>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label>Name *</label>
+        <input type="text" id="newName" placeholder="e.g., Rajvardhan Singh">
+      </div>
+      <div class="form-field">
+        <label>Phone (10 digits) *</label>
+        <input type="text" id="newPhone" maxlength="10" inputmode="numeric" placeholder="e.g., 9876543210">
+      </div>
+      <div class="form-field">
+        <label>Relation</label>
+        <input type="text" id="newRelation" placeholder="e.g., Family">
+      </div>
+      <div class="form-field">
+        <label>City</label>
+        <input type="text" id="newCity" placeholder="e.g., Dhabla Ghosi">
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-secondary" onclick="clearAddForm()">Clear</button>
+      <button class="btn btn-primary" onclick="addNewContact()">➕ Add Contact</button>
+    </div>
+  `;
 }
 
-function esc(s) {
-  return String(s || '').replace(/[&<>"']/g, c => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[c])).replace(/'/g, "\\'");
+function clearAddForm() {
+  document.getElementById("newName").value = "";
+  document.getElementById("newPhone").value = "";
+  document.getElementById("newRelation").value = "";
+  document.getElementById("newCity").value = "";
 }
 
-// Check existing session on load
-sb.auth.getSession().then(({ data }) => {
-  if (data.session) {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("dash").style.display = "block";
-    showTab("live");
+async function addNewContact() {
+  const name = document.getElementById("newName").value.trim();
+  const phone = document.getElementById("newPhone").value.trim().replace(/\D/g, "");
+  const relation = document.getElementById("newRelation").value.trim();
+  const city = document.getElementById("newCity").value.trim();
+
+  if (!name) { showToast("Name is required", "error"); return; }
+  if (!/^\d{10}$/.test(phone)) { showToast("Phone must be exactly 10 digits", "error"); return; }
+
+  const { error } = await sb.from("contacts").insert({ name, phone, relation, city });
+
+  if (error) { showToast("Failed: " + error.message, "error"); return; }
+
+  showToast("✅ Contact added successfully");
+  clearAddForm();
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+async function init() {
+  sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  generateCaptcha();
+
+  ["loginEmail", "loginPassword", "loginCaptcha"].forEach(id => {
+    document.getElementById(id).addEventListener("keydown", e => {
+      if (e.key === "Enter") doLogin();
+    });
+  });
+  document.getElementById("loginCaptcha").addEventListener("input", e => {
+    e.target.value = e.target.value.replace(/\D/g, "").slice(0, 4);
+  });
+
+  const { data } = await sb.auth.getSession();
+  if (data?.session) {
+    currentUser = data.session.user;
+    enterDashboard();
   }
-});
+}
+
+document.addEventListener("DOMContentLoaded", init);
 </script>
+
 </body>
 </html>
