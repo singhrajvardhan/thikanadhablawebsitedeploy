@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Directory — Thikana Dhabla Ghosi</title>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
   * { box-sizing: border-box; }
@@ -25,6 +24,9 @@
   .reveal-btn { background: #C99A3A; color: #1C0F0A; }
   .reveal-btn:hover:not(:disabled) { background: #E8C166; }
   #captchaBox { display: none; text-align: center; padding: 24px; background: #fff; border: 2px solid #C99A3A; border-radius: 8px; margin: 20px 0; }
+  #captchaBox .code-display { font-family: monospace; font-size: 2.5rem; letter-spacing: 0.3em; color: #5C1717; font-weight: bold; margin: 16px 0; background: #fff3cd; padding: 16px; border-radius: 8px; user-select: all; }
+  #captchaInput { font-size: 1.5rem; font-family: monospace; padding: 12px; width: 160px; text-align: center; letter-spacing: 0.2em; border: 2px solid #C99A3A; border-radius: 6px; }
+  #captchaInput:focus { outline: none; border-color: #E8C166; box-shadow: 0 0 0 3px rgba(201,154,58,0.2); }
   #search { width: 100%; padding: 12px; border: 2px solid #C99A3A; border-radius: 6px; font-size: 1rem; font-family: inherit; }
   #status { text-align: center; color: #7A1F1F; margin: 12px 0; min-height: 22px; font-weight: 600; }
   .counter { text-align: center; font-size: 0.9rem; color: #7A1F1F; margin-bottom: 12px; background: #fff3cd; padding: 10px; border-radius: 4px; }
@@ -41,18 +43,23 @@
 
   <div class="notice">
     <strong>🔒 Privacy Notice:</strong> Phone numbers are protected.
-    Verify you are human to reveal numbers (5 at a time, 15 total per session).
+    Enter the 4-digit code shown below to unlock numbers (5 at a time, 15 total per session).
     Your IP, approximate location, and access time are logged.
   </div>
 
   <input type="text" id="search" placeholder="🔍 Search by name..." oninput="render()">
 
   <div id="captchaBox">
-    <p style="margin-bottom: 14px;"><strong>Please complete verification to continue:</strong></p>
-    <div class="cf-turnstile"
-         data-sitekey="0x4AAAAAAE6FfzKH0NJKU_fE"
-         data-callback="onCaptchaSuccess"
-         data-theme="light"></div>
+    <p style="margin-bottom: 8px;"><strong>Enter this 4-digit code to continue:</strong></p>
+    <div class="code-display" id="captchaCode">••••</div>
+    <p style="font-size: 0.85rem; color: #7A6A55; margin: 8px 0;">
+      Code expires in <span id="captchaTimer">5:00</span>
+    </p>
+    <input type="text" id="captchaInput" maxlength="4" inputmode="numeric" pattern="[0-9]*" placeholder="0000" autocomplete="off">
+    <br>
+    <button onclick="submitCaptcha()" style="margin-top: 12px;">Verify</button>
+    <button onclick="loadCaptcha()" style="margin-top: 12px; background: #7A6A55;">New Code</button>
+    <p id="captchaMsg" style="color: #B00020; margin-top: 10px; min-height: 18px;"></p>
   </div>
 
   <div id="status"></div>
@@ -75,13 +82,11 @@ let allContacts = [];
 let revealedSet = new Set();
 let selectedIds = new Set();
 let needsCaptcha = true;
+let captchaTimerInterval = null;
 
-// ---- Wait for libraries to load ----
+// ---- Wait for Supabase library ----
 function waitForLibraries(cb, tries = 0) {
-  if (window.supabase && window.supabase.createClient) {
-    cb();
-    return;
-  }
+  if (window.supabase && window.supabase.createClient) { cb(); return; }
   if (tries > 50) {
     document.getElementById("list").innerHTML =
       '<div class="error">Failed to load Supabase library. Check your internet connection.</div>';
@@ -97,32 +102,20 @@ waitForLibraries(() => {
 
 async function loadList() {
   try {
-    const { data, error } = await sb
-      .from("contacts")
-      .select("id, name, relation, city")
-      .order("id");
-
+    const { data, error } = await sb.from("contacts").select("id, name, relation, city").order("id");
     if (error) {
-      document.getElementById("list").innerHTML =
-        `<div class="error">Failed to load contacts: ${error.message}<br>
-         Code: ${error.code || 'n/a'}</div>`;
-      console.error("Supabase error:", error);
+      document.getElementById("list").innerHTML = `<div class="error">Failed to load contacts: ${error.message}</div>`;
       return;
     }
-
     if (!data || data.length === 0) {
-      document.getElementById("list").innerHTML =
-        '<div class="error">No contacts found. The table may be empty or RLS is blocking reads.</div>';
+      document.getElementById("list").innerHTML = '<div class="error">No contacts found.</div>';
       return;
     }
-
     allContacts = data;
     render();
-    showCaptcha();
+    loadCaptcha();
   } catch (e) {
-    document.getElementById("list").innerHTML =
-      `<div class="error">Unexpected error: ${e.message}</div>`;
-    console.error(e);
+    document.getElementById("list").innerHTML = `<div class="error">Error: ${e.message}</div>`;
   }
 }
 
@@ -131,8 +124,7 @@ function render() {
   const filtered = allContacts.filter(c => c.name.toLowerCase().includes(q));
 
   if (filtered.length === 0) {
-    document.getElementById("list").innerHTML =
-      '<div style="text-align:center;padding:20px;color:#7A6A55;">No contacts match your search.</div>';
+    document.getElementById("list").innerHTML = '<div style="text-align:center;padding:20px;color:#7A6A55;">No contacts match your search.</div>';
     return;
   }
 
@@ -197,7 +189,8 @@ function updateSelectionUI() {
 
 async function revealSelected() {
   if (!sessionId || needsCaptcha) {
-    showCaptcha();
+    document.getElementById("status").textContent = "Please verify the code first.";
+    showCaptchaBox();
     return;
   }
   if (selectedIds.size === 0) return;
@@ -215,9 +208,8 @@ async function revealSelected() {
       needsCaptcha = true;
       sessionId = null;
       selectedIds.clear();
-      showCaptcha();
-      document.getElementById("status").textContent =
-        "🔒 View limit reached. Please complete captcha again.";
+      loadCaptcha();
+      document.getElementById("status").textContent = "🔒 View limit reached. Please enter a new code.";
       return;
     }
 
@@ -239,9 +231,8 @@ async function revealSelected() {
     if (viewsRemaining <= 0) {
       needsCaptcha = true;
       sessionId = null;
-      showCaptcha();
-      document.getElementById("status").textContent =
-        "🔒 Session views used. Please verify again.";
+      loadCaptcha();
+      document.getElementById("status").textContent = "🔒 Session views used. Please enter a new code.";
     }
   } catch (e) {
     document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
@@ -251,21 +242,79 @@ async function revealSelected() {
 function updateCounter() {
   const counter = document.getElementById("counter");
   counter.style.display = "block";
-  counter.textContent =
-    `📊 Revealed: ${revealedSet.size} · Views remaining before next captcha: ${viewsRemaining}`;
+  counter.textContent = `📊 Revealed: ${revealedSet.size} · Views remaining before next code: ${viewsRemaining}`;
 }
 
-function showCaptcha() {
-  document.getElementById("captchaBox").style.display = "block";
-}
+// ============================================================
+// CAPTCHA — 4-DIGIT CODE
+// ============================================================
+async function loadCaptcha() {
+  showCaptchaBox();
+  document.getElementById("captchaCode").textContent = "••••";
+  document.getElementById("captchaInput").value = "";
+  document.getElementById("captchaMsg").textContent = "";
+  document.getElementById("status").textContent = "";
 
-async function onCaptchaSuccess(token) {
-  document.getElementById("status").textContent = "Verifying...";
   try {
-    const res = await fetch(`${FN_URL}/verify-captcha`, {
+    const res = await fetch(`${FN_URL}/generate-captcha`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token }),
+      body: JSON.stringify({}),
+    });
+    const data = await res.json();
+
+    if (data.error) {
+      document.getElementById("captchaMsg").textContent = "Error: " + data.error;
+      return;
+    }
+
+    document.getElementById("captchaCode").textContent = data.code;
+    document.getElementById("captchaInput").focus();
+
+    // Start countdown timer
+    startCaptchaTimer(data.expires_in_seconds);
+  } catch (e) {
+    document.getElementById("captchaMsg").textContent = "Network error: " + e.message;
+  }
+}
+
+function startCaptchaTimer(seconds) {
+  if (captchaTimerInterval) clearInterval(captchaTimerInterval);
+  let remaining = seconds;
+  const el = document.getElementById("captchaTimer");
+
+  function tick() {
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    el.textContent = `${m}:${String(s).padStart(2, "0")}`;
+    if (remaining <= 0) {
+      clearInterval(captchaTimerInterval);
+      el.textContent = "expired";
+      document.getElementById("captchaMsg").textContent = "Code expired. Click 'New Code'.";
+      return;
+    }
+    remaining--;
+  }
+  tick();
+  captchaTimerInterval = setInterval(tick, 1000);
+}
+
+async function submitCaptcha() {
+  const code = document.getElementById("captchaInput").value.trim();
+  const msg = document.getElementById("captchaMsg");
+
+  if (!/^\d{4}$/.test(code)) {
+    msg.textContent = "Please enter exactly 4 digits.";
+    return;
+  }
+
+  msg.textContent = "Verifying...";
+
+  try {
+    const res = await fetch(`${FN_URL}/check-captcha`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
     });
     const data = await res.json();
 
@@ -273,16 +322,26 @@ async function onCaptchaSuccess(token) {
       sessionId = data.session_id;
       viewsRemaining = data.views_before_recaptcha;
       needsCaptcha = false;
+      if (captchaTimerInterval) clearInterval(captchaTimerInterval);
       document.getElementById("captchaBox").style.display = "none";
       document.getElementById("status").textContent =
         "✅ Verified. Select up to 5 numbers, then click Reveal.";
       updateCounter();
     } else {
-      document.getElementById("status").textContent = "⚠️ " + (data.error || "Verification failed");
+      msg.textContent = data.error || "Verification failed.";
+      if (data.attempts_left !== undefined) {
+        msg.textContent += ` (${data.attempts_left} attempts left)`;
+      }
+      document.getElementById("captchaInput").value = "";
+      document.getElementById("captchaInput").focus();
     }
   } catch (e) {
-    document.getElementById("status").textContent = "⚠️ Network error: " + e.message;
+    msg.textContent = "Network error: " + e.message;
   }
+}
+
+function showCaptchaBox() {
+  document.getElementById("captchaBox").style.display = "block";
 }
 
 function esc(s) {
@@ -290,6 +349,13 @@ function esc(s) {
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   }[c]));
 }
+
+// Allow pressing Enter in captcha input
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("captchaInput").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submitCaptcha();
+  });
+});
 </script>
 </body>
 </html>
