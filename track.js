@@ -1,21 +1,32 @@
-/* Universal Visitor Tracker v3.0 */
+/* ============================================================
+   UNIVERSAL VISITOR TRACKER — v4.0
+   Thikana Dhabla Ghosi + Rajvardhan Singh
+   Auto-detects site, page, language. Sends to Supabase.
+   ============================================================ */
 (function () {
   "use strict";
-  const ENDPOINT = "https://fmrmiylqjkyrsztfmgp.supabase.co/functions/v1/track-visitor";
-  const DEBUG = false;
 
+  // ---------- CONFIG ----------
+  const ENDPOINT = "https://fmrmiylqjokyrsztfmgp.supabase.co/functions/v1/track-visitor";
+  const DEBUG = true; // set to true to see console logs while testing
+
+  // ---------- SITE DETECTION ----------
   const SITES = [
     { match: ["thikanadhabla.in", "thikanadhabla.workers.dev", "thikanadhablawebsitedeploy"], label: "Thikana Dhabla Ghosi" },
     { match: ["rajvardhansingh.in", "rajvardhansingh.workers.dev"], label: "Rajvardhan Singh" },
   ];
+
   function detectSite() {
     const host = window.location.hostname.toLowerCase();
     const found = SITES.find(s => s.match.some(m => host.includes(m)));
     return found ? found.label : host;
   }
+
+  // ---------- PAGE + LANGUAGE ----------
   function detectPageInfo() {
     const path = window.location.pathname.toLowerCase();
     const lang = /\/hi(\/|$)/.test(path) ? "hi" : "en";
+
     let pageName = "Home";
     if (path.includes("history") || path.includes("itihas")) pageName = "History";
     else if (path.includes("familytree") || path.includes("vanshavali")) pageName = "Family Tree";
@@ -26,27 +37,41 @@
     else if (path.includes("privacy")) pageName = "Privacy";
     else if (path.includes("sitemap")) pageName = "Sitemap";
     else if (path.includes("admin")) pageName = "Admin";
+
     return { pageName, lang, href: window.location.href, site: detectSite() };
   }
+
+  // ---------- IDs ----------
   function getUserId() {
     let id = localStorage.getItem("_ut_userId");
-    if (!id) { id = "user_" + Date.now() + "_" + Math.random().toString(36).substring(2, 10); localStorage.setItem("_ut_userId", id); }
+    if (!id) {
+      id = "user_" + Date.now() + "_" + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem("_ut_userId", id);
+    }
     return id;
   }
   function getSessionId() {
     let sid = sessionStorage.getItem("_ut_sessionId");
-    if (!sid) { sid = "sess_" + Date.now() + "_" + Math.random().toString(36).substring(2, 10); sessionStorage.setItem("_ut_sessionId", sid); }
+    if (!sid) {
+      sid = "sess_" + Date.now() + "_" + Math.random().toString(36).substring(2, 10);
+      sessionStorage.setItem("_ut_sessionId", sid);
+    }
     return sid;
   }
   function getLandingPage() {
     let lp = sessionStorage.getItem("_ut_landing");
-    if (!lp) { lp = window.location.href; sessionStorage.setItem("_ut_landing", lp); }
+    if (!lp) {
+      lp = window.location.href;
+      sessionStorage.setItem("_ut_landing", lp);
+    }
     return lp;
   }
 
+  // ---------- SEND ----------
   async function track(eventData) {
     try {
       const info = detectPageInfo();
+
       const payload = {
         event_type: eventData.event_type || "pageview",
         site: info.site,
@@ -55,31 +80,44 @@
         page_lang: info.lang,
         referrer: document.referrer || "",
         landing_page: getLandingPage(),
+
         browser: navigator.userAgent,
         os: navigator.platform || "unknown",
         device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
         screen: screen.width + "x" + screen.height,
         language: navigator.language,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+
         user_id: getUserId(),
         session_id: getSessionId(),
+
         utm_source: new URLSearchParams(location.search).get("utm_source") || "",
         utm_medium: new URLSearchParams(location.search).get("utm_medium") || "",
+
         ...eventData,
       };
-      await fetch(ENDPOINT, {
+
+      const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-    } catch (e) { if (DEBUG) console.warn(e); }
+
+      if (DEBUG) console.log("📤 Tracker sent:", payload.event_type, "→", res.status);
+    } catch (e) {
+      if (DEBUG) console.warn("Tracker error:", e);
+    }
   }
 
+  // ---------- PAGEVIEW ON LOAD ----------
   const startTime = Date.now();
-  function firePageview() { setTimeout(() => track({ event_type: "pageview" }), 400); }
+  function firePageview() {
+    setTimeout(() => track({ event_type: "pageview" }), 400);
+  }
   if (document.readyState === "complete") firePageview();
   else window.addEventListener("load", firePageview);
 
+  // ---------- CLICKS ----------
   document.addEventListener("click", function (e) {
     const t = e.target;
     if (t.closest && t.closest(".no-track")) return;
@@ -92,7 +130,9 @@
     });
   });
 
-  let maxScroll = 0, scrollTimer;
+  // ---------- SCROLL (25 / 50 / 75 / 100) ----------
+  let maxScroll = 0;
+  let scrollTimer;
   window.addEventListener("scroll", function () {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(function () {
@@ -107,24 +147,49 @@
     }, 400);
   });
 
+  // ---------- TIME SPENT ON UNLOAD ----------
   let sent = false;
   function sendTimeSpent() {
-    if (sent) return; sent = true;
+    if (sent) return;
+    sent = true;
     const seconds = Math.round((Date.now() - startTime) / 1000);
     if (seconds < 3) return;
+
     const info = detectPageInfo();
     const payload = {
-      event_type: "time_spent", site: info.site, page: info.href,
-      page_name: info.pageName, page_lang: info.lang,
-      time_spent: seconds, total_time: seconds,
-      user_id: getUserId(), session_id: getSessionId(),
+      event_type: "time_spent",
+      site: info.site,
+      page: info.href,
+      page_name: info.pageName,
+      page_lang: info.lang,
+      time_spent: seconds,
+      total_time: seconds,
+      user_id: getUserId(),
+      session_id: getSessionId(),
       device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
-      browser: navigator.userAgent, screen: screen.width + "x" + screen.height,
-      language: navigator.language, timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      browser: navigator.userAgent,
+      screen: screen.width + "x" + screen.height,
+      language: navigator.language,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
-    if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, new Blob([JSON.stringify(payload)], { type: "application/json" }));
-    else fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true });
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(ENDPOINT, new Blob([JSON.stringify(payload)], { type: "application/json" }));
+    } else {
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      });
+    }
   }
   window.addEventListener("beforeunload", sendTimeSpent);
   window.addEventListener("pagehide", sendTimeSpent);
+
+  // ---------- DEBUG INFO ----------
+  if (DEBUG) {
+    const info = detectPageInfo();
+    console.log("📊 Tracker loaded for:", info.site, "→", info.pageName, "(" + info.lang + ")");
+  }
 })();
