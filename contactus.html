@@ -418,6 +418,14 @@
                             <input id="contact_email" name="email" type="email" maxlength="60" required placeholder="your@email.com">
                         </div>
                     </div>
+                    <!-- Mobile Number (Optional) -->
+                    <div class="form-row">
+                        <label class="form-label" for="contact_mobile">Mobile Number:</label>
+                        <div class="form-input-wrap">
+                            <input id="contact_mobile" name="mobile" type="tel" maxlength="20" placeholder="+91 98765 43210 (optional)" pattern="[+0-9\s\-\(\)]{7,20}">
+                            <small style="display:block; font-size:0.75rem; color:var(--ash); margin-top:4px; font-family:var(--body);">Optional — with country code if outside India</small>
+                        </div>
+                    </div>
                     <div class="form-row">
                         <label class="form-label" for="contact_message">Message:</label>
                         <div class="form-input-wrap">
@@ -538,6 +546,7 @@
             if(!emailRegex.test(email)) { alert("Please enter a valid email address."); return; }
             const message = document.getElementById('contact_message').value.trim();
             if(message.length < 10) { alert("Please enter a meaningful message (at least 10 characters)."); return; }
+            // Mobile is optional; no validation needed (pattern only helps formatting)
             const submitBtn = contactForm.querySelector('.submit-btn');
             submitBtn.textContent = '⏳ Sending...'; submitBtn.disabled = true;
             const formData = new FormData(contactForm);
