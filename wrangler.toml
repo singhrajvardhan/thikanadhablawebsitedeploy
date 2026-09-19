@@ -1,4 +1,6 @@
+name = "thikanadhabla"
+compatibility_date = "2026-09-19"
+
 [assets]
 directory = "./"
-binding = "ASSETS"
 not_found_handling = "single-page-application"
