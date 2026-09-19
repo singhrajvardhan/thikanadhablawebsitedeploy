@@ -1,0 +1,5 @@
+# Catch-all for English paths
+/*    /index.html    404
+
+# Hindi subfolder
+/hi/*    /hi/index.html    404
