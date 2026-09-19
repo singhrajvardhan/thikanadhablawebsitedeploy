@@ -1,0 +1,27 @@
+name = "thikanadhablawebsitedeploy2026testing"
+main = "_worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ─────────────────────────────────────────────
+# Static assets configuration
+# ─────────────────────────────────────────────
+[assets]
+directory = "./"
+binding = "ASSETS"
+not_found_handling = "none"   # Let the worker handle 404s
+
+# ─────────────────────────────────────────────
+# Optional: Custom domain (uncomment after setup)
+# ─────────────────────────────────────────────
+# routes = [
+#   { pattern = "thikanadhabla.in/*", custom_domain = true },
+#   { pattern = "www.thikanadhabla.in/*", custom_domain = true }
+# ]
+
+# ─────────────────────────────────────────────
+# Environment variables (if needed)
+# ─────────────────────────────────────────────
+[vars]
+SITE_NAME = "Thikana Dhabla Ghosi"
+DEFAULT_LOCALE = "en"
