@@ -1,1 +1,22 @@
+# Cloudflare internals
+_worker.js
+_worker.js.map
+_routes.json
 
+# Build tools
+.wrangler/
+node_modules/
+
+# Git metadata (CRITICAL — do not expose!)
+.git/
+.gitignore
+.gitattributes
+
+# Config files
+wrangler.toml
+package.json
+package-lock.json
+
+# Files served via Worker, not static
+_redirects
+_headers
