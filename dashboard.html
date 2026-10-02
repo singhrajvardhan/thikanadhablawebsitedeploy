@@ -302,7 +302,7 @@
   /* ============================================================ */
   /* MOBILE ENHANCEMENTS                                           */
   /* ============================================================ */
-  input, select, textarea { font-size: 16px; } /* prevent iOS zoom */
+  input, select, textarea { font-size: 16px; }
   @media (min-width: 561px) { input, select, textarea, button { font-size: inherit; } }
 
   @media (max-width: 1100px) {
@@ -346,7 +346,6 @@
     }
     .mobilebar strong { font-family: var(--display); font-size: 1.35rem; }
 
-    /* Bigger, easier-to-tap controls */
     .btn { height: 44px; padding: 0 18px; font-size: 15px; }
     .btn-sm { height: 38px; padding: 0 14px; font-size: 13.5px; }
     .nav-item { height: 48px; font-size: 15px; }
@@ -375,12 +374,10 @@
     .toolbar .search { flex: 1 1 100%; max-width: none; }
     .toolbar .select { flex: 1 1 calc(50% - 4px); min-width: 0; }
 
-    /* Table: allow horizontal scroll */
     table { min-width: 720px; }
     thead th { padding: 12px 12px; font-size: 12px; }
     tbody td { padding: 12px 12px; font-size: 13.5px; }
 
-    /* Dialog / drawer full-width on mobile */
     .dialog { padding: 22px 20px; border-radius: 16px; }
     .dialog h3 { font-size: 1.5rem; }
     .form-card { padding: 20px; }
@@ -390,7 +387,6 @@
     .drawer-body { padding: 6px 20px 20px; }
     .drawer-foot { padding: 14px 20px; }
 
-    /* Toasts: keep readable width on mobile */
     .toasts { left: 16px; right: 16px; bottom: 16px; }
     .toast { max-width: none; }
 
@@ -411,7 +407,6 @@
     table { min-width: 640px; }
   }
 
-  /* Desktop scrollbar polish */
   @media (min-width: 961px) {
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -510,8 +505,8 @@
 const SUPABASE_URL = "https://fmrmiylqjokyrsztfmgp.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_cNHjqBdWpu98niKZqMvIuA_96VjEQxk";
 const LOGIN_URL = "admin.html";
-const IDLE_LIMIT_MS = 5 * 60 * 1000;     // 5 minutes
-const IDLE_WARN_MS = 30 * 1000;          // warn 30s before expiry
+const IDLE_LIMIT_MS = 5 * 60 * 1000;
+const IDLE_WARN_MS = 30 * 1000;
 
 let sb = null;
 let currentUser = null;
@@ -522,6 +517,7 @@ let tabToken = 0;
 let lastActive = Date.now();
 let lastActivityWrite = 0;
 let idleWarned = false;
+let sessionGuardChannel = null;
 
 const state = {
   visitors: { site: "", page: "", lang: "", range: "all", size: 100, q: "", rows: [] },
@@ -800,16 +796,99 @@ async function logAdminActivity(action, details = {}) {
 }
 
 // ============================================================
-// LOGOUT
+// SINGLE ACTIVE SESSION GUARD
 // ============================================================
-async function doLogout(idle = false) {
+async function forceLogout(reason, options = {}) {
+  const { idle = false, kicked = false } = options;
   const dur = adminLoginTime ? Math.round((Date.now() - adminLoginTime) / 1000) : 0;
-  try { await logAdminActivity("logout", { session_duration_seconds: dur, reason: idle ? "idle_timeout" : "manual" }); } catch (e) {}
-  await sb.auth.signOut();
+
+  // Clear this admin's session row so any other open tab stops matching
+  try {
+    if (kicked && currentUser?.id) {
+      // Do NOT delete the row here — the other device just wrote it.
+      // Only the newest session should stay.
+    } else if (currentUser?.id) {
+      await sb.from("admin_sessions").delete().eq("admin_id", currentUser.id);
+    }
+  } catch (e) {}
+
+  try {
+    await logAdminActivity("logout", {
+      session_duration_seconds: dur,
+      reason: idle ? "idle_timeout" : (kicked ? "kicked_by_new_login" : "manual")
+    });
+  } catch (e) {}
+
+  try { await sb.auth.signOut(); } catch (e) {}
+
   sessionStorage.removeItem("_admin_login_time");
   sessionStorage.removeItem("_admin_last_active");
-  if (idle) sessionStorage.setItem("_admin_idle", "1");
+  sessionStorage.removeItem("_admin_session");
+  sessionStorage.setItem("_admin_idle", "1");
+  if (reason) sessionStorage.setItem("_admin_kicked_reason", reason);
+
   location.replace(LOGIN_URL);
+}
+
+async function doLogout(idle = false) {
+  await forceLogout(idle ? "You were signed out after 5 minutes of inactivity." : null, { idle });
+}
+
+function startSessionGuard() {
+  const mySessionId = sessionStorage.getItem("_admin_session");
+  if (!mySessionId) return;
+
+  const check = async () => {
+    try {
+      const { data, error } = await sb
+        .from("admin_sessions")
+        .select("session_id")
+        .eq("admin_id", currentUser.id)
+        .maybeSingle();
+
+      if (error) return;
+
+      if (!data || data.session_id !== mySessionId) {
+        await forceLogout("You were signed out because you logged in from another device.", { kicked: true });
+      }
+    } catch (e) { /* transient */ }
+  };
+
+  // 1) Poll every 8 seconds (fallback)
+  setInterval(check, 8000);
+
+  // 2) Check on tab focus
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") check();
+  });
+
+  // 3) Realtime: immediate kick when another device writes
+  try {
+    sessionGuardChannel = sb
+      .channel("admin_session_watch_" + currentUser.id)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",   // INSERT / UPDATE / DELETE
+          schema: "public",
+          table: "admin_sessions",
+          filter: `admin_id=eq.${currentUser.id}`,
+        },
+        (payload) => {
+          const row = payload.new || payload.old || {};
+          const newId = row.session_id;
+          if (!newId || newId !== mySessionId) {
+            forceLogout("You were signed out because you logged in from another device.", { kicked: true });
+          }
+        }
+      )
+      .subscribe();
+  } catch (e) {
+    console.warn("Realtime session watch failed:", e);
+  }
+
+  // Initial check
+  check();
 }
 
 // ============================================================
@@ -830,9 +909,8 @@ function enterApp() {
   showTab("overview");
 }
 function toggleSidebar(open) {
-  const sb = $("sidebar");
-  sb.classList.toggle("open", open);
-  // Prevent body scroll when sidebar is open on mobile
+  const sbEl = $("sidebar");
+  sbEl.classList.toggle("open", open);
   document.body.style.overflow = (open && window.innerWidth <= 960) ? "hidden" : "";
 }
 
@@ -1402,6 +1480,14 @@ function renderAccount() {
             <div class="kv-row"><span class="k">Automatic sign-out</span><span class="v">After 5 minutes of inactivity</span></div>
           </div>
         </div></section>
+
+      <section class="panel"><div class="panel-head"><h3>Current session</h3></div>
+        <div class="panel-body">
+          <div class="kv-row"><span class="k">Session ID</span><span class="v mono">${esc(s("_admin_session") || "—")}</span></div>
+          <div class="kv-row"><span class="k">Logged in at</span><span class="v">${fmt(new Date(parseInt(s("_admin_login_time") || "0", 10)).toISOString())}</span></div>
+          <div class="kv-row"><span class="k">Note</span><span class="v">Signing in from another device will end this session.</span></div>
+        </div></section>
+
       <section class="panel"><div class="panel-head"><h3>Change password</h3></div>
         <div class="panel-body">
           <div class="form-grid">
@@ -1608,37 +1694,32 @@ async function exportAdminLogsCSV() {
 }
 
 // ============================================================
-// IDLE TIMEOUT (5 minutes)
+// IDLE TIMEOUT — 5 minutes
 // ============================================================
 function markActivity() {
   const now = Date.now();
-  if (now - lastActivityWrite < 1500) return;    // throttle to 1 update every 1.5s
+  if (now - lastActivityWrite < 1500) return;
   lastActivityWrite = now;
   lastActive = now;
   sessionStorage.setItem("_admin_last_active", String(now));
 }
 
 function startIdleWatch() {
-  // Resume from the last activity timestamp (survives page reloads)
   lastActive = parseInt(sessionStorage.getItem("_admin_last_active") || "0", 10) || Date.now();
 
-  // Every kind of interaction resets the timer
   const events = ["mousedown", "mousemove", "keydown", "keypress", "scroll", "click",
                   "touchstart", "touchmove", "touchend", "pointerdown", "pointermove",
                   "focusin", "wheel"];
   events.forEach(ev => document.addEventListener(ev, markActivity, { passive: true, capture: true }));
 
-  // Coming back to the tab also counts as activity
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") markActivity();
   });
 
-  // Check every 5 seconds
   setInterval(() => {
     if (!currentUser) return;
     const idle = Date.now() - lastActive;
 
-    // Warning 30 seconds before expiry
     if (!idleWarned && idle > IDLE_LIMIT_MS - IDLE_WARN_MS && idle < IDLE_LIMIT_MS) {
       idleWarned = true;
       const secs = Math.max(1, Math.round((IDLE_LIMIT_MS - idle) / 1000));
@@ -1646,16 +1727,14 @@ function startIdleWatch() {
     }
     if (idle < IDLE_LIMIT_MS - IDLE_WARN_MS) idleWarned = false;
 
-    // Auto logout when limit is reached
     if (idle > IDLE_LIMIT_MS) {
-      sessionStorage.setItem("_admin_idle", "1");
-      doLogout(true);
+      forceLogout("You were signed out after 5 minutes of inactivity.", { idle: true });
     }
   }, 5000);
 }
 
 // ============================================================
-// SIDEBAR SWIPE (mobile)
+// SIDEBAR SWIPE
 // ============================================================
 (function enableSidebarSwipe() {
   let startX = 0, startY = 0, swiping = false;
@@ -1693,7 +1772,6 @@ function startIdleWatch() {
   }, { passive: true });
 })();
 
-// Sidebar closes on resize to desktop
 window.addEventListener("resize", () => {
   if (window.innerWidth > 960) {
     document.getElementById("sidebar")?.classList.remove("open");
@@ -1746,6 +1824,9 @@ async function init() {
   sb.auth.onAuthStateChange((event) => {
     if (event === "SIGNED_OUT") location.replace(LOGIN_URL);
   });
+
+  // Single-session guard: kicks this tab out if another device logs in
+  startSessionGuard();
 
   enterApp();
 }
