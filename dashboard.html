@@ -564,6 +564,10 @@ const ic = (n, s = 18) => `<svg class="ic" width="${s}" height="${s}" viewBox="0
 
 const NAV = [
   { group: null, items: [{ id: "overview", label: "Overview", icon: "grid" }] },
+   
+  { group: "System", items: [
+    { id: "reports-page", label: "Reports Center", icon: "inbox", href: "reports.html" }
+  ] },
   { group: "Traffic", items: [
     { id: "visitors", label: "Visitors", icon: "users" },
     { id: "charts", label: "Charts", icon: "chart" },
@@ -895,8 +899,14 @@ function startSessionGuard() {
 // SHELL
 // ============================================================
 function buildNav() {
-  $("nav").innerHTML = NAV.map(g => `${g.group ? `<div class="nav-group">${g.group}</div>` : ""}${g.items.map(i =>
-    `<button class="nav-item" data-tab="${i.id}" onclick="showTab('${i.id}')">${ic(i.icon, 18)}<span>${i.label}</span></button>`).join("")}`).join("");
+  $("nav").innerHTML = NAV.map(g =>
+    `${g.group ? `<div class="nav-group">${g.group}</div>` : ""}${g.items.map(i => {
+      if (i.href) {
+        return `<a class="nav-item" href="${i.href}">${ic(i.icon, 18)}<span>${i.label}</span></a>`;
+      }
+      return `<button class="nav-item" data-tab="${i.id}" onclick="showTab('${i.id}')">${ic(i.icon, 18)}<span>${i.label}</span></button>`;
+    }).join("")}`
+  ).join("");
   $("menuBtn").innerHTML = ic("menu", 20);
   $("logoutBtn").innerHTML = ic("logout", 18);
   $("drawerClose").innerHTML = ic("x", 18);
