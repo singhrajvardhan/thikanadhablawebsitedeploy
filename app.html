@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Download the Thikana Dhabla Ghosi App · Rajput Heritage</title>
+  <meta name="description" content="Download the official Thikana Dhabla Ghosi mobile app for Android & iOS. Explore the Badgujar Rajput heritage, family tree, history and live darshan of Aashwari Mata Ji.">
+  <meta name="keywords" content="Thikana Dhabla Ghosi app, Badgujar Rajput app, Rajput heritage app, Android, iOS, download">
+  <meta name="author" content="Thikana Dhabla Ghosi">
+  <meta name="theme-color" content="#1C0F0A">
+  <link rel="icon" href="thikanadhabla.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wood: #2B1810;
+      --wood-deep: #1C0F0A;
+      --lac: #7A1F1F;
+      --lac-deep: #5C1717;
+      --lac-bright: #9B2D2D;
+      --gold: #C99A3A;
+      --gold-bright: #E8C166;
+      --gold-pale: #F0D68A;
+      --sand: #F2E8D5;
+      --paper: #E8DCC4;
+      --paper-light: #F7F1E4;
+      --indigo: #1B3A5C;
+      --ink: #2A2118;
+      --smoke: #4A3C2C;
+      --ash: #9C8D76;
+      --display: 'Cormorant Garamond', serif;
+      --display-decorative: 'Cinzel Decorative', cursive;
+      --eyebrow: 'Cinzel', serif;
+      --body: 'Lora', serif;
+      --devnag: 'Tiro Devanagari Hindi', serif;
+      --shadow-card: 0 8px 22px rgba(43, 24, 16, 0.08);
+      --shadow-elevated: 0 14px 34px rgba(0, 0, 0, 0.25);
+      --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background: var(--sand);
+      background-image: radial-gradient(circle at 1px 1px, rgba(122, 31, 31, 0.05) 1px, transparent 0);
+      background-size: 24px 24px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; height: auto; }
+
+    :focus-visible {
+      outline: 3px solid var(--indigo);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--gold);
+      color: var(--wood-deep);
+      padding: 12px 18px;
+      z-index: 200;
+      font-family: var(--eyebrow);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      border-radius: 0 0 3px 3px;
+    }
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+    }
+
+    /* ribbon */
+    .ribbon {
+      height: 5px;
+      background: repeating-linear-gradient(90deg,
+        #FF9933 0px, #FF9933 20px,
+        #FFFFFF 20px, #FFFFFF 40px,
+        #138808 40px, #138808 60px);
+      opacity: 0.5;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* header / nav (simplified consistent with main site) */
+    header {
+      background: var(--wood-deep);
+      border-bottom: 2px solid rgba(201, 154, 58, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
+    }
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      gap: 24px;
+    }
+    .brandmark {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    .brandmark:hover { opacity: 0.85; }
+    .crest-mini {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(201, 154, 58, 0.35);
+    }
+    .crest-mini img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .word {
+      font-family: var(--eyebrow);
+      color: var(--sand);
+      font-size: 0.74rem;
+      letter-spacing: 0.13em;
+      line-height: 1.45;
+    }
+    .word strong {
+      display: block;
+      color: var(--gold-bright);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .simple-nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .simple-nav-links a {
+      text-decoration: none;
+      color: var(--paper);
+      font-family: var(--eyebrow);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-radius: 3px;
+      transition: all var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+    .simple-nav-links a:hover {
+      color: var(--wood-deep);
+      background: var(--gold);
+      border-color: var(--gold-bright);
+    }
+    .btn-back-home {
+      border: 1.5px solid var(--gold) !important;
+      color: var(--gold-bright) !important;
+      background: rgba(28, 15, 10, 0.3);
+      border-radius: 3px;
+    }
+    .btn-back-home:hover {
+      background: var(--gold) !important;
+      color: var(--wood-deep) !important;
+    }
+
+    @media (max-width: 780px) {
+      .nav-wrap { flex-direction: column; align-items: center; gap: 10px; padding: 12px 18px; }
+      .simple-nav-links { justify-content: center; }
+    }
+
+    /* HERO SECTION - DOWNLOAD */
+    .download-hero {
+      position: relative;
+      background: linear-gradient(175deg, var(--wood-deep) 0%, var(--wood) 45%, var(--lac-deep) 90%);
+      padding: 56px 20px 70px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .download-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.04) 0 2px, transparent 2px 28px),
+        radial-gradient(circle at 25% 30%, rgba(232, 193, 102, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(122, 31, 31, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .toran-suggestion {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+      color: var(--gold-bright);
+      font-family: var(--devnag);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+    .toran-suggestion span {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .jharokha {
+      position: relative;
+      max-width: 280px;
+      margin: 0 auto 22px;
+    }
+    .arch-frame {
+      width: 100%;
+      filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.5));
+    }
+    .crest-seat {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -43%);
+      width: 56%;
+    }
+    .crest-seat img {
+      width: 100%;
+      border-radius: 50%;
+      background: var(--sand);
+      border: 3px solid var(--gold-bright);
+      padding: 8px;
+      box-shadow: 0 0 25px rgba(232, 193, 102, 0.3);
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+    .eyebrow {
+      font-family: var(--eyebrow);
+      font-size: 0.7rem;
+      letter-spacing: 0.34em;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .download-hero h1 {
+      font-family: var(--display);
+      font-weight: 700;
+      color: var(--sand);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+      position: relative;
+      z-index: 1;
+    }
+    .devnag-line {
+      font-family: var(--devnag);
+      color: var(--gold-bright);
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.03em;
+      position: relative;
+      z-index: 1;
+    }
+    .download-hero p.lede {
+      max-width: 640px;
+      margin: 0 auto 32px;
+      color: var(--paper);
+      font-size: 1.05rem;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    /* store buttons */
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 18px;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--wood-deep);
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 12px 28px 12px 22px;
+      text-decoration: none;
+      color: var(--sand);
+      font-family: var(--eyebrow);
+      transition: all var(--transition-smooth);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+      min-width: 200px;
+    }
+    .store-btn:hover {
+      transform: translateY(-4px);
+      background: var(--lac-deep);
+      border-color: var(--gold-bright);
+      box-shadow: 0 14px 32px rgba(201, 154, 58, 0.3);
+    }
+    .store-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--gold-bright);
+      flex-shrink: 0;
+    }
+    .store-btn .store-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.3;
+    }
+    .store-btn .store-text .small {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--ash);
+      text-transform: uppercase;
+    }
+    .store-btn .store-text .large {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 560px) {
+      .store-buttons { flex-direction: column; align-items: center; }
+      .store-btn { width: 100%; max-width: 280px; justify-content: center; }
+    }
+
+    /* battlement divider */
+    .battlement {
+      height: 24px;
+      background: var(--sand);
+      -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%,
+        20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%,
+        40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%,
+        60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%,
+        80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%,
+        100% 25%, 100% 100%);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* section scaffolding */
+    section {
+      padding: 58px 20px;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+    .section-head .eyebrow {
+      color: var(--lac);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      margin-bottom: 10px;
+    }
+    .section-head h2 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      color: var(--wood);
+      line-height: 1.2;
+    }
+    .section-head .rule {
+      width: 80px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px auto 0;
+      position: relative;
+    }
+    .section-head .rule::before,
+    .section-head .rule::after {
+      content: "◆";
+      color: var(--lac);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.55rem;
+    }
+    .section-head .rule::before { left: -20px; }
+    .section-head .rule::after { right: -20px; }
+
+    /* feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 780px) {
+      .feature-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    }
+    .feature-card {
+      background: var(--paper-light);
+      border: 1px solid #d6c39a;
+      border-radius: 8px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+      position: relative;
+    }
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(122, 31, 31, 0.15);
+      border-radius: 5px;
+      pointer-events: none;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 34px rgba(43, 24, 16, 0.12);
+    }
+    .feature-icon {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      color: var(--wood);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--smoke);
+    }
+
+    /* preview / screenshot strip */
+    .preview-strip {
+      background: var(--wood-deep);
+      padding: 56px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview-strip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(0deg, rgba(201, 154, 58, 0.03) 0px 1px, transparent 1px 32px);
+      pointer-events: none;
+    }
+    .preview-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .phone-mock {
+      width: 220px;
+      height: 400px;
+      background: var(--wood);
+      border-radius: 32px;
+      border: 5px solid var(--gold);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .phone-mock img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .phone-mock::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 6px;
+      background: var(--wood-deep);
+      border-radius: 20px;
+      opacity: 0.6;
+    }
+    .preview-text {
+      max-width: 380px;
+      color: var(--paper);
+    }
+    .preview-text h3 {
+      font-family: var(--display);
+      font-size: 2rem;
+      color: var(--gold-bright);
+      margin-bottom: 12px;
+    }
+    .preview-text p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+    .preview-text .devnag {
+      font-family: var(--devnag);
+      color: var(--gold-pale);
+      font-size: 1.15rem;
+    }
+
+    /* download steps */
+    .steps-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+    }
+    .step {
+      background: var(--paper-light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 22px 26px;
+      max-width: 280px;
+      box-shadow: var(--shadow-card);
+      flex: 1 1 220px;
+    }
+    .step .num-badge {
+      display: inline-block;
+      background: var(--lac);
+      color: var(--gold-bright);
+      font-family: var(--eyebrow);
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+    }
+    .step h4 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      color: var(--wood);
+      margin-bottom: 6px;
+    }
+    .step p {
+      font-size: 0.92rem;
+      color: var(--smoke);
+    }
+
+    /* footer simplified */
+    footer {
+      background: var(--wood-deep);
+      color: var(--paper);
+      padding: 40px 20px 24px;
+      text-align: center;
+      position: relative;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold));
+      opacity: 0.7;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 22px;
+      margin-bottom: 18px;
+    }
+    .footer-links a {
+      color: #cfc2ad;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
+    .copyright {
+      font-size: 0.82rem;
+      color: var(--ash);
+    }
+    .copyright a {
+      color: var(--gold-bright);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* small ornament */
+    .ornament-small {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 6px;
+      margin: 14px 0;
+      opacity: 0.6;
+    }
+
+    /* utility */
+    .text-center { text-align: center; }
+    .mt-2 { margin-top: 18px; }
+
+    /* APK / iOS note styling */
+    .direct-note {
+      margin-top: 16px;
+      color: var(--gold-pale);
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+      opacity: 0.85;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .direct-note a {
+      color: var(--gold-bright);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 600;
+    }
+    .direct-note a:hover {
+      color: var(--sand);
+    }
+    .direct-note code {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--gold-pale);
+      border: 1px solid rgba(201,154,58,0.2);
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- top ribbon -->
+  <div class="ribbon"></div>
+
+  <!-- header -->
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
+        <span class="crest-mini">
+          <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem">
+        </span>
+        <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
+      </a>
+      <div class="simple-nav-links">
+        <a href="index.html" class="btn-back-home">← Back to Home</a>
+        <a href="history.html">History</a>
+        <a href="Familytree.html">Family Tree</a>
+        <a href="contactus.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ DOWNLOAD HERO ============ -->
+    <section class="download-hero">
+      <div class="toran-suggestion">
+        <span></span> खम्मा घणी सा — पधारो म्हारे ठिकाने <span></span>
+      </div>
+
+      <div class="jharokha">
+        <svg class="arch-frame" viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F0D68A"/>
+              <stop offset="40%" stop-color="#E8C166"/>
+              <stop offset="100%" stop-color="#A87D2A"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"
+            fill="none" stroke="url(#goldGrad)" stroke-width="12" filter="url(#glow)"/>
+          <path d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"
+            fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.6"/>
+          <g fill="#E8C166">
+            <circle cx="190" cy="18" r="5.5"/>
+            <circle cx="118" cy="30" r="4.5"/>
+            <circle cx="262" cy="30" r="4.5"/>
+            <circle cx="62" cy="78" r="4"/>
+            <circle cx="318" cy="78" r="4"/>
+            <circle cx="28" cy="148" r="3.5"/>
+            <circle cx="352" cy="148" r="3.5"/>
+          </g>
+          <g stroke="#A87D2A" stroke-width="1.8" opacity="0.5">
+            <path d="M18,460 V255 M38,460 V265 M58,460 V280"/>
+            <path d="M362,460 V255 M342,460 V265 M322,460 V280"/>
+          </g>
+          <text x="190" y="140" font-size="70" text-anchor="middle" fill="#E8C166" opacity="0.2">☀</text>
+        </svg>
+        <div class="crest-seat">
+          <img src="thikanadhabla.jpeg" alt="Royal crest of Thikana Dhabla Ghosi">
+        </div>
+      </div>
+
+      <p class="eyebrow">Suryavanshi · Badgujar · Sisodiya · Rajora · Since the 16th Century</p>
+      <h1>Carry the Legacy</h1>
+      <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+      <p class="lede">The official Thikana Dhabla Ghosi app — genealogy, history, live darshan &amp; heritage at your fingertips. Download now on Android &amp; iOS.</p>
+
+      <div class="store-buttons">
+        <!-- Android APK Download — points to app/thikana_dhabla.apk -->
+        <a href="app/thikana_dhabla.apk" class="store-btn" download aria-label="Download Android APK">
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M99.617 8.057a50.191 50.191 0 00-38.815 17.965l267.11 267.11L99.617 8.057zm364.323 226.912l-83.665-46.314-63.354 63.354 63.354 63.354 85.573-47.43c18.096-10.056 18.096-26.259-1.908-32.964zm-96.662-53.354L99.617 8.057l267.661 267.661 63.354-63.354-63.354-30.749zm0 120.578L99.617 503.943a50.191 50.191 0 0038.815 17.965l285.44-158.32-56.594-62.395z"/>
+          </svg>
+          <span class="store-text">
+            <span class="small">DOWNLOAD FOR</span>
+            <span class="large">Android APK</span>
+          </span>
+        </a>
+
+        <!-- iOS Download — points to app/thikana_dhabla.ios -->
+        <a href="app/thikana_dhabla.ios" class="store-btn" download aria-label="Download iOS app">
+          <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+          <span class="store-text">
+            <span class="small">DOWNLOAD FOR</span>
+            <span class="large">iOS</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Direct path note for clarity -->
+      <div class="direct-note">
+        <span>Direct download links:</span>
+        <span><code>app/thikana_dhabla.apk</code> &nbsp;·&nbsp; <code>app/thikana_dhabla.ios</code></span>
+      </div>
+
+      <p style="margin-top: 18px; color: var(--gold-pale); font-size: 0.95rem; position: relative; z-index: 1; opacity: 0.8;">
+        <span style="font-family: var(--devnag);">॥ जय माँ आसावरी ॥</span> — Free · No ads · Heritage preserved
+      </p>
+    </section>
+
+    <div class="battlement"></div>
+
+    <!-- ============ APP FEATURES ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What's Inside</p>
+          <h2>Features of the App</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🌳</span>
+            <h3>Family Tree</h3>
+            <p>Explore the complete Badgujar genealogy from Lava of Ayodhya to the present generation — with interactive branches and clan history.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📜</span>
+            <h3>Living History</h3>
+            <p>Read the chronicles of Thikana Dhabla Ghosi, from the 16th century to modern times, with rare archival records and photographs.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🙏</span>
+            <h3>Live Darshan</h3>
+            <p>Receive blessings from Aashwari Mata Ji — daily darshan, aarti timings, and festival alerts delivered to your phone.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🖼️</span>
+            <h3>Heritage Gallery</h3>
+            <p>Curated photo collections of family gatherings, royal ceremonies, and the ancestral thikana at Dhabla Ghosi.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <h3>Event Calendar</h3>
+            <p>Never miss a family celebration or sacred ritual — the app keeps you updated with all upcoming events.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔔</span>
+            <h3>Push Notifications</h3>
+            <p>Important announcements, festival greetings, and updates from the Thikana, straight to your device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREVIEW STRIP ============ -->
+    <div class="preview-strip">
+      <div class="preview-inner">
+        <div class="phone-mock">
+          <img src="app-preview.jpg" alt="Thikana Dhabla Ghosi app screenshot showing family tree" loading="lazy"
+               onerror="this.src='https://placehold.co/220x400/2B1810/E8C166?text=Thikana+App&font=serif'">
+        </div>
+        <div class="preview-text">
+          <h3>Royal Heritage, Digitally Preserved</h3>
+          <p>Every branch of the Badgujar lineage, every sacred ritual, and every milestone of the Thikana — now in the palm of your hand. Beautifully crafted with the same gold-and-maroon aesthetic as our ancestral home.</p>
+          <p class="devnag">॥ राघवाय नमः ॥</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ HOW TO DOWNLOAD ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Simple Steps</p>
+          <h2>How to Install</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="steps-list">
+          <div class="step">
+            <span class="num-badge">STEP 1</span>
+            <h4>Tap your store</h4>
+            <p>Choose the Android APK or iOS download button above — whichever matches your phone.</p>
+          </div>
+          <div class="step">
+            <span class="num-badge">STEP 2</span>
+            <h4>Install the app</h4>
+            <p>Download the file and follow your device's prompts. The app is free and takes under a minute.</p>
+          </div>
+          <div class="step">
+            <span class="num-badge">STEP 3</span>
+            <h4>Sign in &amp; explore</h4>
+            <p>Open the app and dive into the living legacy of the Badgujar Rajputs.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-2" style="margin-top: 30px;">
+          <p style="font-family: var(--devnag); color: var(--lac); font-size: 1.2rem;">॥ जय माँ आसावरी — जय बदगुजर वंश ॥</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer (consistent) -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="history.html">History</a>
+      <a href="Familytree.html">Family Tree</a>
+      <a href="map.html">Location &amp; Map</a>
+      <a href="dist.html">Directory</a>
+      <a href="about.html">About</a>
+      <a href="contactus.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <p class="copyright">
+      Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.
+    </p>
+    <p style="margin-top: 10px; font-size: 0.75rem; color: #6b5a46;">Thikana Dhabla Ghosi · Shajapur, Madhya Pradesh · 465335</p>
+  </footer>
+    <script src="/track.js" defer></script>
+</body>
+</html>
