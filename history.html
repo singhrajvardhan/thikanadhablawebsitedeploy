@@ -89,6 +89,213 @@
         img { max-width: 100%; display: block; height: auto; }
         :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
 
+        /* ============ HERITAGE LOADER ============ */
+        .heritage-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2B1810, #1C0F0A 85%);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            overflow: hidden;
+        }
+        .heritage-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.03) 0 2px, transparent 2px 32px);
+            pointer-events: none;
+        }
+        .heritage-loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(28, 15, 10, 0.6) 90%);
+            pointer-events: none;
+        }
+        .loader-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: loaderReveal 1.4s ease-out;
+        }
+        @keyframes loaderReveal {
+            0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .loader-arch {
+            width: 160px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 0 30px rgba(232, 193, 102, 0.25));
+        }
+        .loader-arch svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .loader-arch .arch-path {
+            fill: none;
+            stroke: url(#loaderGoldGrad);
+            stroke-width: 4;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawArch 2.2s ease-in-out infinite alternate;
+        }
+        @keyframes drawArch {
+            0% { stroke-dashoffset: 600; opacity: 0.4; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .loader-arch .arch-inner {
+            fill: none;
+            stroke: rgba(232, 193, 102, 0.3);
+            stroke-width: 1.2;
+            stroke-dasharray: 8 12;
+            animation: rotateSlow 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes rotateSlow {
+            to { transform: rotate(360deg); }
+        }
+        .loader-arch .crest-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -42%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 2.5px solid var(--gold-bright);
+            box-shadow: 0 0 24px rgba(232, 193, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display-decorative);
+            font-size: 1.6rem;
+            color: var(--lac);
+            animation: pulseSeal 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseSeal {
+            0%, 100% { box-shadow: 0 0 24px rgba(232, 193, 102, 0.35); transform: translate(-50%, -42%) scale(1); }
+            50% { box-shadow: 0 0 42px rgba(232, 193, 102, 0.65); transform: translate(-50%, -42%) scale(1.04); }
+        }
+
+        .loader-title {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.2;
+        }
+        .loader-sub {
+            font-family: var(--eyebrow);
+            font-size: 0.62rem;
+            letter-spacing: 0.32em;
+            color: var(--ash);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .loader-sub .devnag {
+            font-family: var(--devnag);
+            letter-spacing: 0.06em;
+            color: var(--gold-pale);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .loader-progress-wrap {
+            width: 240px;
+            height: 3px;
+            background: rgba(201, 154, 58, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        .loader-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold-pale));
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(232, 193, 102, 0.6);
+            animation: shimmerBar 1.8s linear infinite;
+        }
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loader-progress-text {
+            margin-top: 12px;
+            font-family: var(--eyebrow);
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            color: var(--ash);
+            text-transform: uppercase;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .loader-progress-text .pct {
+            color: var(--gold-bright);
+            font-weight: 600;
+            min-width: 2.6em;
+            text-align: right;
+            font-size: 0.68rem;
+        }
+
+        .loader-ornament {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .loader-ornament span {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dotPulse 1.4s ease-in-out infinite;
+        }
+        .loader-ornament span:nth-child(2) { animation-delay: 0.2s; }
+        .loader-ornament span:nth-child(3) { animation-delay: 0.4s; }
+        .loader-ornament span:nth-child(4) { animation-delay: 0.6s; }
+        .loader-ornament span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.3); background: var(--gold-bright); }
+        }
+
+        .heritage-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .main-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+        .main-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ============ LANGUAGE SWITCHER BAR ============ */
         .lang-switcher-bar {
             background: var(--wood-deep);
@@ -489,263 +696,376 @@
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher-bar">
-        <span class="lang-label">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            भाषा / Language
-        </span>
-        <div class="lang-options">
-            <a href="history.html" class="lang-option active" aria-current="page">English</a>
-            <a href="hi/history.html" class="lang-option">
-                <span class="devnag-text">हिन्दी</span>
-            </a>
+    <!-- ============ HERITAGE LOADER ============ -->
+    <div class="heritage-loader" id="heritageLoader" aria-label="Loading Thikana Dhabla Ghosi" role="status">
+        <div class="loader-content">
+            <div class="loader-arch">
+                <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="loaderGoldGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#F0D68A"/>
+                            <stop offset="40%" stop-color="#E8C166"/>
+                            <stop offset="100%" stop-color="#A87D2A"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arch-path" d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"/>
+                    <path class="arch-inner" d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"/>
+                    <g fill="#E8C166" opacity="0.85">
+                        <circle cx="190" cy="18" r="5"/>
+                        <circle cx="118" cy="30" r="4"/>
+                        <circle cx="262" cy="30" r="4"/>
+                        <circle cx="62" cy="78" r="3.5"/>
+                        <circle cx="318" cy="78" r="3.5"/>
+                    </g>
+                </svg>
+                <div class="crest-seal">☀</div>
+            </div>
+            <div class="loader-title">Thikana Dhabla Ghosi</div>
+            <div class="loader-sub">
+                History · Warrior Legacy
+                <span class="devnag">॥ राघवाय नमः ॥</span>
+            </div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-fill" id="loaderProgressFill"></div>
+            </div>
+            <div class="loader-progress-text">
+                <span>Chronicling the past</span>
+                <span class="pct" id="loaderPct">0%</span>
+            </div>
+            <div class="loader-ornament">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
     </div>
 
+    <!-- Main content wrapper -->
+    <div class="main-content" id="mainContent">
 
-    <header>
-        <div class="nav-wrap">
-            <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
-                <span class="crest-mini">
-                    <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem">
-                </span>
-                <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
-            <nav>
-                <ul id="primaryNav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="history.html" class="current">History</a></li>
-                    <li><a href="Familytree.html">Family Tree</a></li>
-                    <li><a href="map.html">Location &amp; Map</a></li>
-                    <li><a href="dist.html">Directory</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contactus.html">Contact</a></li>
-                </ul>
-            </nav>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher-bar">
+            <span class="lang-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                भाषा / Language
+            </span>
+            <div class="lang-options">
+                <a href="history.html" class="lang-option active" aria-current="page">English</a>
+                <a href="hi/history.html" class="lang-option">
+                    <span class="devnag-text">हिन्दी</span>
+                </a>
+            </div>
         </div>
-    </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <p class="eyebrow">Suryavanshi · Badgujar · Warrior Clan</p>
-        <h1>The Glorious History</h1>
-        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
-    </section>
-
-    <div class="battlement"></div>
-
-    <!-- Main Content -->
-    <main id="main-content" class="content-section">
-        <div class="wrap">
-
-            <!-- Introduction -->
-            <div class="panel">
-                <h2>🏰 The Badgujar Rajput Legacy</h2>
-                <p class="dropcap">The Badgujar Rajputs, a legendary warrior clan, have left an indelible mark on Indian history, particularly in the regions of Rajasthan and Madhya Pradesh. Tracing their lineage to <strong>Lava (Luv)</strong>, the elder son of Bhagwan Shri Ram, the Badgujars ruled over several kingdoms and princely states before India's independence in 1947. Known for their bravery, military prowess, and administrative acumen, the Badgujar Rajputs played a crucial role in shaping the history and culture of central India. Their legacy is not just a tale of kings and kingdoms but a story of resilience, honor, and cultural preservation.</p>
+        <header>
+            <div class="nav-wrap">
+                <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
+                    <span class="crest-mini">
+                        <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem">
+                    </span>
+                    <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
+                <nav>
+                    <ul id="primaryNav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html" class="current">History</a></li>
+                        <li><a href="Familytree.html">Family Tree</a></li>
+                        <li><a href="map.html">Location &amp; Map</a></li>
+                        <li><a href="dist.html">Directory</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <!-- Badgujar in MP -->
-            <div class="panel">
-                <h2>⚔️ Badgujar Rajputs in Madhya Pradesh</h2>
-                <p>Madhya Pradesh was home to several prominent Badgujar Rajput estates, including:</p>
-                <ul>
-                    <li><strong>Th. Dhabla Ghosi</strong> — The ancestral seat of our family</li>
-                    <li>Th.Dabla Dheer</li>
-                    <li>Th.Dadiya Khedi</li>
-                    <li>Th.Kamalpur</li>
-                    <li>Th.Sadhan Khedi</li>
-                </ul>
-                <p>One of the most significant branches of the Badgujar Rajputs in the region was the <strong>Raizada branch</strong>, which held a twelve-village estate in Vidisha, granted to Raja Raisingh Badgujar by the Marathas. The main branches of the Badgujar Rajputs in Madhya Pradesh were:</p>
-                <ul>
-                    <li><strong>Bhojavat</strong></li>
-                    <li><strong>Dharmangaj</strong></li>
-                    <li><strong>Raizada</strong></li>
-                </ul>
-                <p>Each of these branches contributed to the region's governance and cultural heritage.</p>
-            </div>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <p class="eyebrow">Suryavanshi · Badgujar · Warrior Clan</p>
+            <h1>The Glorious History</h1>
+            <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+        </section>
 
-            <!-- Dabla Ghosi Estate -->
-            <div class="panel">
-                <h2>🏯 The Th.Dabla Ghosi Estate: A Symbol of Badgujar Legacy</h2>
-                <p>One of the most notable Badgujar estates was <strong>Th. Dabla Ghosi</strong>, whose history is intertwined with the legacy of <strong>Raja Goga Dev of Rajgarh-Machadi</strong>. His second son, Bhojraj Ji, moved from Machadi to Banawad, where his descendants lived for five generations. The lineage of Dabla Ghosi is as follows:</p>
-                <ul>
-                    <li>Rudra Ji → Desh Ji → Madanmal Ji → Gyan Sahay Ji → Khanderay Ji</li>
-                </ul>
-                <p>Khanderay Ji later moved from Banawad to Kotda in Kheechiwada, where his successors continued to rule. His descendants included Karn Singh Ji, Kumbha Ji, Dashraj Ji, Mohkam Singh Ji, Guman Singh Ji, Raghunath Singh Ji, and Achal Singh Ji.</p>
-                <p>Achal Singh Ji had two sons, <strong>Govardhan Singh and Zorawar Singh</strong>. After the defeat of the Marathas by Lord Hastings in 1818, <strong>Dabla Ghosi was declared a guaranteed estate (garanti riyasat)</strong>. The estate received financial support from various rulers:</p>
+        <div class="battlement"></div>
 
-                <table class="history-table">
-                    <thead>
-                        <tr><th>Ruler</th><th>Annual Support (₹)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Sindhia</td><td>4,000</td></tr>
-                        <tr><td>Dewas</td><td>100</td></tr>
-                        <tr><td>Bhopal Darbar</td><td>900</td></tr>
-                    </tbody>
-                </table>
+        <!-- Main Content -->
+        <main id="main-content" class="content-section">
+            <div class="wrap">
 
-                <p>Additionally, they held a village under Gwalior state, yielding ₹1,050 in revenue. After Rao Govardhan Singh's demise in 1854, his son <strong>Rao Gopal Singh</strong> took over, followed by <strong>Rao Chand Singh</strong> as the ruler of Th. Dhabla Ghosi.</p>
-
-                <h3>👑 The Successors of Th. Dhabla Ghosi</h3>
-                <p>Rao Chand Singh had five sons:</p>
-                <ul>
-                    <li>Rao Hanuvat Singh</li>
-                    <li>Zorawar Singh</li>
-                    <li><strong>Keshari Singh</strong></li>
-                    <li>Hakim Singh</li>
-                    <li>Hukam Singh</li>
-                </ul>
-                <p>When Rao Hanuvat Singh passed away childless, his nephew <strong>Tha.sa.Bhupendra Singh</strong>, the son of Keshari Singh, became the ruler of Th.Dhabla Ghosi. The family's influence extended to villages like Panda (Tehsil Shujalpur) and Babroda (near Thikana Umri, Guna district), showcasing their enduring legacy.</p>
-            </div>
-
-            <!-- Suryavanshi Lineage Details -->
-            <div class="panel">
-                <h2>📜 Suryavanshi Badgujar Rajput Lineage Details</h2>
-                <table class="history-table">
-                    <thead><tr><th>#</th><th>Category</th><th>Details</th></tr></thead>
-                    <tbody>
-                        <tr><td>1</td><td>Dynasty</td><td>Suryavansh</td></tr>
-                        <tr><td>2</td><td>Gotra</td><td>Kashyap</td></tr>
-                        <tr><td>3</td><td>Ancestral Land</td><td>Ayodhya</td></tr>
-                        <tr><td>4</td><td>Branch</td><td>Maradadhvani</td></tr>
-                        <tr><td>5</td><td>Sutra</td><td>Katyayani</td></tr>
-                        <tr><td>6</td><td>Guru</td><td>Vashishta</td></tr>
-                        <tr><td>7</td><td>Veda</td><td>Yajurveda</td></tr>
-                        <tr><td>8</td><td>River</td><td>Saryu</td></tr>
-                        <tr><td>9</td><td>Clan Goddess</td><td>Ashavari Mata</td></tr>
-                        <tr><td>10</td><td>Sword</td><td>Sakal (Vijayalakshmi)</td></tr>
-                        <tr><td>11</td><td>Flag Symbol</td><td>Panchayan</td></tr>
-                        <tr><td>12</td><td>Sacred Tree</td><td>Ashoka</td></tr>
-                        <tr><td>13</td><td>Worshipped Deity</td><td>Shri Sitaram Ji</td></tr>
-                        <tr><td>14</td><td>Clan God</td><td>Neelkanth Mahadev Ji</td></tr>
-                        <tr><td>15</td><td>Salutation</td><td>Jai Raghunath Ji</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Four Dhams & Eight Branches -->
-            <div class="panel">
-                <h2>🕉️ Four Sacred Places (Dhams) of Badgujar Clan</h2>
-                <ul>
-                    <li><strong>Machadi</strong> — The ancestral seat</li>
-                    <li><strong>Devti</strong></li>
-                    <li><strong>Koleshwar</strong></li>
-                    <li><strong>Kakavadi</strong></li>
-                </ul>
-            </div>
-
-            <div class="panel">
-                <h2>🌿 Eight Branches of Badgujar Rajput Suryavansh Clan</h2>
-                <ul>
-                    <li><strong>Rajora Badgujar</strong> (Rajoragrah)</li>
-                    <li><strong>Sikarwar</strong> (Sikri)</li>
-                    <li><strong>Khandara</strong> (Anupshahar, Bhodsi)</li>
-                    <li><strong>Marad</strong> (Panipat, Karnel)</li>
-                    <li><strong>Rayjada</strong> (Vidhisha, Bhenlsa)</li>
-                    <li><strong>Munjwal</strong> (Samahda)</li>
-                    <li><strong>Pokarna</strong> (Pokaran)</li>
-                    <li><strong>Kannaujiya Badgujar</strong> (Surgaj, U.P.)</li>
-                </ul>
-            </div>
-
-            <!-- Role in Indian History -->
-            <div class="panel">
-                <h2>⚔️ The Role of the Badgujars in Indian History</h2>
-                <p>The Badgujar Rajputs were not just rulers but also defenders of their land and culture. They played a pivotal role in resisting foreign invasions and maintaining regional stability during the reigns of the Marathas, Rajputs, and Mughals. Their military strategies and administrative skills ensured the prosperity of their territories, making them key players in the power dynamics of central and western India.</p>
-            </div>
-
-            <!-- Cultural Contributions -->
-            <div class="panel">
-                <h2>🎨 Cultural and Social Contributions</h2>
-                <p>Beyond their military achievements, the Badgujar Rajputs made significant contributions to the cultural and social fabric of Madhya Pradesh. They built forts, palaces, and temples that stand as testaments to their architectural prowess. Their patronage of art, literature, and religious institutions helped preserve Rajputana traditions, which continue to influence the region's culture today.</p>
-            </div>
-
-            <!-- Modern Legacy -->
-            <div class="panel">
-                <h2>🌟 The Modern Legacy of the Badgujar Rajputs</h2>
-                <p>Today, the Badgujar Rajputs continue to honor their heritage while adapting to modern times. Many descendants are active in politics, administration, and social service, ensuring that the clan's legacy remains relevant. Historical estates like <strong>Th.Dhabla Ghosi</strong> serve as reminders of their glorious past, while cultural events and family records keep their traditions alive.</p>
-
-                <div class="closing-quote">
-                    <p>"Veer Bhogya Vasundhara" — The brave inherit the earth</p>
-                    <p style="font-size: 0.9rem; margin-top: 8px; color: var(--smoke);">The Badgujar Rajputs of Madhya Pradesh have left an enduring legacy that transcends time. Their story is not just a chapter in Indian history but a testament to the enduring spirit of honor, courage, and resilience.</p>
+                <!-- Introduction -->
+                <div class="panel">
+                    <h2>🏰 The Badgujar Rajput Legacy</h2>
+                    <p class="dropcap">The Badgujar Rajputs, a legendary warrior clan, have left an indelible mark on Indian history, particularly in the regions of Rajasthan and Madhya Pradesh. Tracing their lineage to <strong>Lava (Luv)</strong>, the elder son of Bhagwan Shri Ram, the Badgujars ruled over several kingdoms and princely states before India's independence in 1947. Known for their bravery, military prowess, and administrative acumen, the Badgujar Rajputs played a crucial role in shaping the history and culture of central India. Their legacy is not just a tale of kings and kingdoms but a story of resilience, honor, and cultural preservation.</p>
                 </div>
-            </div>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h5>Thikana Dhabla Ghosi</h5>
-                <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
-                <p class="footer-location">
-                    Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan
-                    <span class="geo">Coordinates: 23.3207° N, 76.7085° E</span>
-                </p>
-                <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                    </a>
-                    <a href="mailto:info@thikanadhabla.in" aria-label="Email">
-                        <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                    </a>
+                <!-- Badgujar in MP -->
+                <div class="panel">
+                    <h2>⚔️ Badgujar Rajputs in Madhya Pradesh</h2>
+                    <p>Madhya Pradesh was home to several prominent Badgujar Rajput estates, including:</p>
+                    <ul>
+                        <li><strong>Th. Dhabla Ghosi</strong> — The ancestral seat of our family</li>
+                        <li>Th.Dabla Dheer</li>
+                        <li>Th.Dadiya Khedi</li>
+                        <li>Th.Kamalpur</li>
+                        <li>Th.Sadhan Khedi</li>
+                    </ul>
+                    <p>One of the most significant branches of the Badgujar Rajputs in the region was the <strong>Raizada branch</strong>, which held a twelve-village estate in Vidisha, granted to Raja Raisingh Badgujar by the Marathas. The main branches of the Badgujar Rajputs in Madhya Pradesh were:</p>
+                    <ul>
+                        <li><strong>Bhojavat</strong></li>
+                        <li><strong>Dharmangaj</strong></li>
+                        <li><strong>Raizada</strong></li>
+                    </ul>
+                    <p>Each of these branches contributed to the region's governance and cultural heritage.</p>
                 </div>
-            </div>
-            <div>
-              <h5>Navigate</h5>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="familytree.html">Family Tree</a></li>
-                    <li><a href="map.html">Location &amp; Map</a></li>
-                    <li><a href="dist.html">Directory</a></li>
-                                        <li><a href="admin.html">Admin</a></li>
 
-                </ul>
+                <!-- Dabla Ghosi Estate -->
+                <div class="panel">
+                    <h2>🏯 The Th.Dabla Ghosi Estate: A Symbol of Badgujar Legacy</h2>
+                    <p>One of the most notable Badgujar estates was <strong>Th. Dabla Ghosi</strong>, whose history is intertwined with the legacy of <strong>Raja Goga Dev of Rajgarh-Machadi</strong>. His second son, Bhojraj Ji, moved from Machadi to Banawad, where his descendants lived for five generations. The lineage of Dabla Ghosi is as follows:</p>
+                    <ul>
+                        <li>Rudra Ji → Desh Ji → Madanmal Ji → Gyan Sahay Ji → Khanderay Ji</li>
+                    </ul>
+                    <p>Khanderay Ji later moved from Banawad to Kotda in Kheechiwada, where his successors continued to rule. His descendants included Karn Singh Ji, Kumbha Ji, Dashraj Ji, Mohkam Singh Ji, Guman Singh Ji, Raghunath Singh Ji, and Achal Singh Ji.</p>
+                    <p>Achal Singh Ji had two sons, <strong>Govardhan Singh and Zorawar Singh</strong>. After the defeat of the Marathas by Lord Hastings in 1818, <strong>Dabla Ghosi was declared a guaranteed estate (garanti riyasat)</strong>. The estate received financial support from various rulers:</p>
+
+                    <table class="history-table">
+                        <thead>
+                            <tr><th>Ruler</th><th>Annual Support (₹)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sindhia</td><td>4,000</td></tr>
+                            <tr><td>Dewas</td><td>100</td></tr>
+                            <tr><td>Bhopal Darbar</td><td>900</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Additionally, they held a village under Gwalior state, yielding ₹1,050 in revenue. After Rao Govardhan Singh's demise in 1854, his son <strong>Rao Gopal Singh</strong> took over, followed by <strong>Rao Chand Singh</strong> as the ruler of Th. Dhabla Ghosi.</p>
+
+                    <h3>👑 The Successors of Th. Dhabla Ghosi</h3>
+                    <p>Rao Chand Singh had five sons:</p>
+                    <ul>
+                        <li>Rao Hanuvat Singh</li>
+                        <li>Zorawar Singh</li>
+                        <li><strong>Keshari Singh</strong></li>
+                        <li>Hakim Singh</li>
+                        <li>Hukam Singh</li>
+                    </ul>
+                    <p>When Rao Hanuvat Singh passed away childless, his nephew <strong>Tha.sa.Bhupendra Singh</strong>, the son of Keshari Singh, became the ruler of Th.Dhabla Ghosi. The family's influence extended to villages like Panda (Tehsil Shujalpur) and Babroda (near Thikana Umri, Guna district), showcasing their enduring legacy.</p>
+                </div>
+
+                <!-- Suryavanshi Lineage Details -->
+                <div class="panel">
+                    <h2>📜 Suryavanshi Badgujar Rajput Lineage Details</h2>
+                    <table class="history-table">
+                        <thead><tr><th>#</th><th>Category</th><th>Details</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Dynasty</td><td>Suryavansh</td></tr>
+                            <tr><td>2</td><td>Gotra</td><td>Kashyap</td></tr>
+                            <tr><td>3</td><td>Ancestral Land</td><td>Ayodhya</td></tr>
+                            <tr><td>4</td><td>Branch</td><td>Maradadhvani</td></tr>
+                            <tr><td>5</td><td>Sutra</td><td>Katyayani</td></tr>
+                            <tr><td>6</td><td>Guru</td><td>Vashishta</td></tr>
+                            <tr><td>7</td><td>Veda</td><td>Yajurveda</td></tr>
+                            <tr><td>8</td><td>River</td><td>Saryu</td></tr>
+                            <tr><td>9</td><td>Clan Goddess</td><td>Ashavari Mata</td></tr>
+                            <tr><td>10</td><td>Sword</td><td>Sakal (Vijayalakshmi)</td></tr>
+                            <tr><td>11</td><td>Flag Symbol</td><td>Panchayan</td></tr>
+                            <tr><td>12</td><td>Sacred Tree</td><td>Ashoka</td></tr>
+                            <tr><td>13</td><td>Worshipped Deity</td><td>Shri Sitaram Ji</td></tr>
+                            <tr><td>14</td><td>Clan God</td><td>Neelkanth Mahadev Ji</td></tr>
+                            <tr><td>15</td><td>Salutation</td><td>Jai Raghunath Ji</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Four Dhams & Eight Branches -->
+                <div class="panel">
+                    <h2>🕉️ Four Sacred Places (Dhams) of Badgujar Clan</h2>
+                    <ul>
+                        <li><strong>Machadi</strong> — The ancestral seat</li>
+                        <li><strong>Devti</strong></li>
+                        <li><strong>Koleshwar</strong></li>
+                        <li><strong>Kakavadi</strong></li>
+                    </ul>
+                </div>
+
+                <div class="panel">
+                    <h2>🌿 Eight Branches of Badgujar Rajput Suryavansh Clan</h2>
+                    <ul>
+                        <li><strong>Rajora Badgujar</strong> (Rajoragrah)</li>
+                        <li><strong>Sikarwar</strong> (Sikri)</li>
+                        <li><strong>Khandara</strong> (Anupshahar, Bhodsi)</li>
+                        <li><strong>Marad</strong> (Panipat, Karnel)</li>
+                        <li><strong>Rayjada</strong> (Vidhisha, Bhenlsa)</li>
+                        <li><strong>Munjwal</strong> (Samahda)</li>
+                        <li><strong>Pokarna</strong> (Pokaran)</li>
+                        <li><strong>Kannaujiya Badgujar</strong> (Surgaj, U.P.)</li>
+                    </ul>
+                </div>
+
+                <!-- Role in Indian History -->
+                <div class="panel">
+                    <h2>⚔️ The Role of the Badgujars in Indian History</h2>
+                    <p>The Badgujar Rajputs were not just rulers but also defenders of their land and culture. They played a pivotal role in resisting foreign invasions and maintaining regional stability during the reigns of the Marathas, Rajputs, and Mughals. Their military strategies and administrative skills ensured the prosperity of their territories, making them key players in the power dynamics of central and western India.</p>
+                </div>
+
+                <!-- Cultural Contributions -->
+                <div class="panel">
+                    <h2>🎨 Cultural and Social Contributions</h2>
+                    <p>Beyond their military achievements, the Badgujar Rajputs made significant contributions to the cultural and social fabric of Madhya Pradesh. They built forts, palaces, and temples that stand as testaments to their architectural prowess. Their patronage of art, literature, and religious institutions helped preserve Rajputana traditions, which continue to influence the region's culture today.</p>
+                </div>
+
+                <!-- Modern Legacy -->
+                <div class="panel">
+                    <h2>🌟 The Modern Legacy of the Badgujar Rajputs</h2>
+                    <p>Today, the Badgujar Rajputs continue to honor their heritage while adapting to modern times. Many descendants are active in politics, administration, and social service, ensuring that the clan's legacy remains relevant. Historical estates like <strong>Th.Dhabla Ghosi</strong> serve as reminders of their glorious past, while cultural events and family records keep their traditions alive.</p>
+
+                    <div class="closing-quote">
+                        <p>"Veer Bhogya Vasundhara" — The brave inherit the earth</p>
+                        <p style="font-size: 0.9rem; margin-top: 8px; color: var(--smoke);">The Badgujar Rajputs of Madhya Pradesh have left an enduring legacy that transcends time. Their story is not just a chapter in Indian history but a testament to the enduring spirit of honor, courage, and resilience.</p>
+                    </div>
+                </div>
+
             </div>
-            <div>
-                <h5>Information</h5>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h5>Thikana Dhabla Ghosi</h5>
+                    <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
+                    <p class="footer-location">
+                        Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan
+                        <span class="geo">Coordinates: 23.3207° N, 76.7085° E</span>
+                    </p>
+                    <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </a>
+                        <a href="mailto:info@thikanadhabla.in" aria-label="Email">
+                            <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                  <h5>Navigate</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="familytree.html">Family Tree</a></li>
+                        <li><a href="map.html">Location &amp; Map</a></li>
+                        <li><a href="dist.html">Directory</a></li>
+                                            <li><a href="admin.html">Admin</a></li>
+
+                    </ul>
+                </div>
+                <div>
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
 <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                    <li><a href="sitemap.html">Sitemap</a></li>
-                </ul>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="index.html">Home</a><span>|</span>
-                <a href="history.html">History</a><span>|</span>
-                <a href="Familytree.html">Family Tree</a><span>|</span>
-                <a href="map.html">Location &amp; Map</a><span>|</span>
-                <a href="dist.html">Directory</a><span>|</span>
-                <a href="about.html">About</a><span>|</span>
-                <a href="contactus.html">Contact Us</a><span>|</span>
-                <a href="privacy.html">Privacy Policy</a><span>|</span>
-                
-                <a href="sitemap.html">Sitemap</a>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">Home</a><span>|</span>
+                    <a href="history.html">History</a><span>|</span>
+                    <a href="Familytree.html">Family Tree</a><span>|</span>
+                    <a href="map.html">Location &amp; Map</a><span>|</span>
+                    <a href="dist.html">Directory</a><span>|</span>
+                    <a href="about.html">About</a><span>|</span>
+                    <a href="contactus.html">Contact Us</a><span>|</span>
+                    <a href="privacy.html">Privacy Policy</a><span>|</span>
+                    
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+                <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
             </div>
-            <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
-        </div>
-    </footer>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+        </footer>
+
+    </div><!-- /main-content -->
+
     <script>
-        // Mobile nav toggle
+        // ============ HERITAGE LOADER LOGIC ============
+        (function() {
+            const loader = document.getElementById('heritageLoader');
+            const progressFill = document.getElementById('loaderProgressFill');
+            const pctText = document.getElementById('loaderPct');
+            const mainContent = document.getElementById('mainContent');
+
+            let progress = 0;
+            let loaded = false;
+
+            const interval = setInterval(() => {
+                if (loaded) return;
+                const increment = Math.floor(Math.random() * 14) + 5;
+                progress = Math.min(progress + increment, 100);
+                progressFill.style.width = progress + '%';
+                pctText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 400);
+                }
+            }, 180);
+
+            setTimeout(() => {
+                if (!loaded) {
+                    clearInterval(interval);
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    pctText.textContent = '100%';
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 300);
+                }
+            }, 6000);
+
+            window.addEventListener('load', () => {
+                if (!loaded) {
+                    setTimeout(() => {
+                        if (!loaded) {
+                            clearInterval(interval);
+                            progress = 100;
+                            progressFill.style.width = '100%';
+                            pctText.textContent = '100%';
+                            loaded = true;
+                            setTimeout(() => {
+                                loader.classList.add('loaded');
+                                mainContent.classList.add('revealed');
+                                setTimeout(() => {
+                                    loader.style.display = 'none';
+                                }, 900);
+                            }, 300);
+                        }
+                    }, 600);
+                }
+            });
+        })();
+
+        // ============ MOBILE NAV TOGGLE ============
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
         navToggle.addEventListener('click', () => {
@@ -759,7 +1079,10 @@
             }
         });
     </script>
-<script src="/track.js" defer></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    <script src="/track.js" defer></script>
 
 </body>
 </html>
