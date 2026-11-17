@@ -89,6 +89,213 @@
         img { max-width: 100%; display: block; height: auto; }
         :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
 
+        /* ============ HERITAGE LOADER ============ */
+        .heritage-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2B1810, #1C0F0A 85%);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            overflow: hidden;
+        }
+        .heritage-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.03) 0 2px, transparent 2px 32px);
+            pointer-events: none;
+        }
+        .heritage-loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(28, 15, 10, 0.6) 90%);
+            pointer-events: none;
+        }
+        .loader-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: loaderReveal 1.4s ease-out;
+        }
+        @keyframes loaderReveal {
+            0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .loader-arch {
+            width: 160px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 0 30px rgba(232, 193, 102, 0.25));
+        }
+        .loader-arch svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .loader-arch .arch-path {
+            fill: none;
+            stroke: url(#loaderGoldGrad);
+            stroke-width: 4;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawArch 2.2s ease-in-out infinite alternate;
+        }
+        @keyframes drawArch {
+            0% { stroke-dashoffset: 600; opacity: 0.4; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .loader-arch .arch-inner {
+            fill: none;
+            stroke: rgba(232, 193, 102, 0.3);
+            stroke-width: 1.2;
+            stroke-dasharray: 8 12;
+            animation: rotateSlow 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes rotateSlow {
+            to { transform: rotate(360deg); }
+        }
+        .loader-arch .crest-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -42%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 2.5px solid var(--gold-bright);
+            box-shadow: 0 0 24px rgba(232, 193, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display-decorative);
+            font-size: 1.6rem;
+            color: var(--lac);
+            animation: pulseSeal 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseSeal {
+            0%, 100% { box-shadow: 0 0 24px rgba(232, 193, 102, 0.35); transform: translate(-50%, -42%) scale(1); }
+            50% { box-shadow: 0 0 42px rgba(232, 193, 102, 0.65); transform: translate(-50%, -42%) scale(1.04); }
+        }
+
+        .loader-title {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.2;
+        }
+        .loader-sub {
+            font-family: var(--eyebrow);
+            font-size: 0.62rem;
+            letter-spacing: 0.32em;
+            color: var(--ash);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .loader-sub .devnag {
+            font-family: var(--devnag);
+            letter-spacing: 0.06em;
+            color: var(--gold-pale);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .loader-progress-wrap {
+            width: 240px;
+            height: 3px;
+            background: rgba(201, 154, 58, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        .loader-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold-pale));
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(232, 193, 102, 0.6);
+            animation: shimmerBar 1.8s linear infinite;
+        }
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loader-progress-text {
+            margin-top: 12px;
+            font-family: var(--eyebrow);
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            color: var(--ash);
+            text-transform: uppercase;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .loader-progress-text .pct {
+            color: var(--gold-bright);
+            font-weight: 600;
+            min-width: 2.6em;
+            text-align: right;
+            font-size: 0.68rem;
+        }
+
+        .loader-ornament {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .loader-ornament span {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dotPulse 1.4s ease-in-out infinite;
+        }
+        .loader-ornament span:nth-child(2) { animation-delay: 0.2s; }
+        .loader-ornament span:nth-child(3) { animation-delay: 0.4s; }
+        .loader-ornament span:nth-child(4) { animation-delay: 0.6s; }
+        .loader-ornament span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.3); background: var(--gold-bright); }
+        }
+
+        .heritage-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .main-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+        .main-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ============ LANGUAGE SWITCHER BAR ============ */
         .lang-switcher-bar {
             background: var(--wood-deep);
@@ -113,44 +320,17 @@
             align-items: center;
             gap: 6px;
         }
-        .lang-switcher-bar .lang-label svg {
-            width: 15px; height: 15px;
-            fill: var(--gold-bright);
-            opacity: 0.8;
-        }
-        .lang-options {
-            display: flex; gap: 2px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-            padding: 3px;
-            border: 1px solid rgba(201,154,58,0.3);
-        }
+        .lang-switcher-bar .lang-label svg { width: 15px; height: 15px; fill: var(--gold-bright); opacity: 0.8; }
+        .lang-options { display: flex; gap: 2px; background: rgba(255,255,255,0.05); border-radius: 4px; padding: 3px; border: 1px solid rgba(201,154,58,0.3); }
         .lang-option {
-            font-family: var(--eyebrow);
-            font-size: 0.66rem;
-            letter-spacing: 0.06em;
-            padding: 7px 16px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            color: var(--ash);
-            background: transparent;
-            border: none;
-            white-space: nowrap;
+            font-family: var(--eyebrow); font-size: 0.66rem; letter-spacing: 0.06em;
+            padding: 7px 16px; border-radius: 3px; cursor: pointer;
+            transition: all 0.25s ease; text-decoration: none;
+            color: var(--ash); background: transparent; border: none; white-space: nowrap;
         }
         .lang-option:hover { color: var(--gold-bright); background: rgba(201,154,58,0.1); }
-        .lang-option.active {
-            background: var(--gold);
-            color: var(--wood-deep);
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(201,154,58,0.3);
-        }
-        .lang-option .devnag-text {
-            font-family: var(--devnag);
-            font-size: 0.75rem;
-            letter-spacing: 0.02em;
-        }
+        .lang-option.active { background: var(--gold); color: var(--wood-deep); font-weight: 600; box-shadow: 0 2px 8px rgba(201,154,58,0.3); }
+        .lang-option .devnag-text { font-family: var(--devnag); font-size: 0.75rem; letter-spacing: 0.02em; }
         @media (max-width: 600px) {
             .lang-switcher-bar { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
             .lang-option { padding: 6px 12px; font-size: 0.62rem; }
@@ -159,157 +339,57 @@
         /* ============ TOP RIBBON ============ */
         .ribbon {
             height: 5px;
-            background: repeating-linear-gradient(90deg,
-                    #FF9933 0px, #FF9933 20px,
-                    #FFFFFF 20px, #FFFFFF 40px,
-                    #138808 40px, #138808 60px);
-            opacity: 0.5;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            background: repeating-linear-gradient(90deg, #FF9933 0px, #FF9933 20px, #FFFFFF 20px, #FFFFFF 40px, #138808 40px, #138808 60px);
+            opacity: 0.5; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         /* ============ HEADER / NAV ============ */
         header {
-            background: var(--wood-deep);
-            border-bottom: 2px solid rgba(201, 154, 58, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(6px);
+            background: var(--wood-deep); border-bottom: 2px solid rgba(201, 154, 58, 0.3);
+            position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px);
         }
-        .nav-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 28px;
-            gap: 24px;
-        }
-        .brandmark {
-            display: flex; align-items: center; gap: 14px;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
+        .nav-wrap { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; gap: 24px; }
+        .brandmark { display: flex; align-items: center; gap: 14px; text-decoration: none; transition: opacity 0.2s ease; }
         .brandmark:hover { opacity: 0.85; }
         .crest-mini {
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            background: var(--sand);
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 0 14px rgba(201, 154, 58, 0.35);
+            width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold);
+            background: var(--sand); display: flex; align-items: center; justify-content: center;
+            overflow: hidden; flex-shrink: 0; box-shadow: 0 0 14px rgba(201, 154, 58, 0.35);
         }
         .crest-mini img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
-        .word {
-            font-family: var(--eyebrow);
-            color: var(--sand);
-            font-size: 0.74rem;
-            letter-spacing: 0.13em;
-            line-height: 1.45;
-        }
+        .word { font-family: var(--eyebrow); color: var(--sand); font-size: 0.74rem; letter-spacing: 0.13em; line-height: 1.45; }
         .word strong { display: block; color: var(--gold-bright); font-size: 0.95rem; font-weight: 600; }
         nav ul { list-style: none; display: flex; gap: 2px; flex-wrap: wrap; }
         nav a {
-            text-decoration: none;
-            color: var(--paper);
-            font-family: var(--eyebrow);
-            font-size: 0.68rem;
-            letter-spacing: 0.1em;
-            padding: 10px 14px;
-            border-radius: 3px;
-            transition: all var(--transition-smooth);
-            position: relative;
-            text-transform: uppercase;
+            text-decoration: none; color: var(--paper); font-family: var(--eyebrow);
+            font-size: 0.68rem; letter-spacing: 0.1em; padding: 10px 14px; border-radius: 3px;
+            transition: all var(--transition-smooth); position: relative; text-transform: uppercase;
         }
-        nav a::after {
-            content: '';
-            position: absolute; bottom: 4px; left: 50%;
-            transform: translateX(-50%);
-            width: 0; height: 1.5px;
-            background: var(--gold-bright);
-            transition: width var(--transition-smooth);
-        }
+        nav a::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 0; height: 1.5px; background: var(--gold-bright); transition: width var(--transition-smooth); }
         nav a:hover, nav a.current { color: var(--wood-deep); background: var(--gold); }
         nav a:hover::after, nav a.current::after { width: 60%; }
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: 1px solid var(--gold);
-            color: var(--gold-bright);
-            font-family: var(--eyebrow);
-            font-size: 0.66rem;
-            letter-spacing: 0.12em;
-            padding: 9px 16px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+        .nav-toggle { display: none; background: none; border: 1px solid var(--gold); color: var(--gold-bright); font-family: var(--eyebrow); font-size: 0.66rem; letter-spacing: 0.12em; padding: 9px 16px; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
         .nav-toggle:hover { background: rgba(201, 154, 58, 0.15); }
 
         @media (max-width: 900px) {
-            nav ul { display: none; }
-            .nav-toggle { display: block; }
-            nav ul.open {
-                display: flex; flex-direction: column;
-                position: absolute; top: 100%; left: 0; right: 0;
-                background: var(--wood-deep);
-                padding: 12px 20px 20px;
-                border-bottom: 2px solid var(--gold);
-                box-shadow: var(--shadow-elevated);
-            }
+            nav ul { display: none; } .nav-toggle { display: block; }
+            nav ul.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--wood-deep); padding: 12px 20px 20px; border-bottom: 2px solid var(--gold); box-shadow: var(--shadow-elevated); }
             nav ul.open a { padding: 14px 16px; font-size: 0.72rem; }
         }
 
         /* ============ PAGE HERO ============ */
         .page-hero {
             background: linear-gradient(175deg, var(--wood-deep) 0%, var(--wood) 50%, var(--lac-deep) 100%);
-            padding: 50px 20px 55px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 50px 20px 55px; text-align: center; position: relative; overflow: hidden;
         }
-        .page-hero::before {
-            content: "";
-            position: absolute; inset: 0;
-            background-image: repeating-linear-gradient(45deg, rgba(201,154,58,0.04) 0 2px, transparent 2px 28px);
-            pointer-events: none;
-        }
-        .page-hero .eyebrow {
-            font-family: var(--eyebrow);
-            font-size: 0.7rem;
-            letter-spacing: 0.34em;
-            color: var(--gold-bright);
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            position: relative; z-index: 1;
-        }
-        .page-hero h1 {
-            font-family: var(--display);
-            font-weight: 700;
-            color: var(--sand);
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            text-shadow: 0 3px 20px rgba(0,0,0,0.6);
-            position: relative; z-index: 1;
-        }
-        .page-hero .devnag-line {
-            font-family: var(--devnag);
-            color: var(--gold-bright);
-            font-size: 1.3rem;
-            margin-top: 10px;
-            position: relative; z-index: 1;
-        }
+        .page-hero::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,154,58,0.04) 0 2px, transparent 2px 28px); pointer-events: none; }
+        .page-hero .eyebrow { font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.34em; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 14px; position: relative; z-index: 1; }
+        .page-hero h1 { font-family: var(--display); font-weight: 700; color: var(--sand); font-size: clamp(2.2rem, 5vw, 3.5rem); text-shadow: 0 3px 20px rgba(0,0,0,0.6); position: relative; z-index: 1; }
+        .page-hero .devnag-line { font-family: var(--devnag); color: var(--gold-bright); font-size: 1.3rem; margin-top: 10px; position: relative; z-index: 1; }
 
         .battlement {
-            height: 24px;
-            background: var(--sand);
-            -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%,
-                    20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%,
-                    40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%,
-                    60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%,
-                    80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%,
-                    100% 25%, 100% 100%);
+            height: 24px; background: var(--sand);
+            -webkit-clip-path: polygon(0% 100%, 0% 25%, 4% 25%, 4% 0%, 8% 0%, 8% 25%, 12% 25%, 12% 0%, 16% 0%, 16% 25%, 20% 25%, 20% 0%, 24% 0%, 24% 25%, 28% 25%, 28% 0%, 32% 0%, 32% 25%, 36% 25%, 36% 0%, 40% 0%, 40% 25%, 44% 25%, 44% 0%, 48% 0%, 48% 25%, 52% 25%, 52% 0%, 56% 0%, 56% 25%, 60% 25%, 60% 0%, 64% 0%, 64% 25%, 68% 25%, 68% 0%, 72% 0%, 72% 25%, 76% 25%, 76% 0%, 80% 0%, 80% 25%, 84% 25%, 84% 0%, 88% 0%, 88% 25%, 92% 25%, 92% 0%, 96% 0%, 96% 25%, 100% 25%, 100% 100%);
             position: relative; z-index: 2;
         }
 
@@ -318,44 +398,14 @@
         .wrap { max-width: 1100px; margin: 0 auto; }
 
         .panel {
-            background: var(--paper-light);
-            border: 1px solid #d6c39a;
-            border-radius: 5px;
-            padding: 32px 34px;
-            margin-bottom: 30px;
-            position: relative;
+            background: var(--paper-light); border: 1px solid #d6c39a; border-radius: 5px;
+            padding: 32px 34px; margin-bottom: 30px; position: relative;
             box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), var(--shadow-card);
         }
-        .panel::before {
-            content: "";
-            position: absolute; inset: 9px;
-            border: 1px solid rgba(122,31,31,0.2);
-            border-radius: 3px;
-            pointer-events: none;
-        }
-        .panel h2 {
-            font-family: var(--display);
-            font-size: 2rem;
-            color: var(--wood);
-            margin-bottom: 16px;
-            border-left: 5px solid var(--gold);
-            padding-left: 18px;
-            font-weight: 700;
-        }
-        .panel h3 {
-            font-family: var(--display);
-            font-size: 1.3rem;
-            color: var(--lac);
-            margin: 16px 0 8px;
-            font-weight: 600;
-        }
-        .panel p {
-            font-size: 1.02rem;
-            color: var(--smoke);
-            margin-bottom: 14px;
-            text-align: justify;
-            line-height: 1.8;
-        }
+        .panel::before { content: ""; position: absolute; inset: 9px; border: 1px solid rgba(122,31,31,0.2); border-radius: 3px; pointer-events: none; }
+        .panel h2 { font-family: var(--display); font-size: 2rem; color: var(--wood); margin-bottom: 16px; border-left: 5px solid var(--gold); padding-left: 18px; font-weight: 700; }
+        .panel h3 { font-family: var(--display); font-size: 1.3rem; color: var(--lac); margin: 16px 0 8px; font-weight: 600; }
+        .panel p { font-size: 1.02rem; color: var(--smoke); margin-bottom: 14px; text-align: justify; line-height: 1.8; }
         .panel ul { margin: 12px 0 18px 28px; }
         .panel li { font-size: 1rem; color: var(--smoke); margin-bottom: 8px; line-height: 1.7; }
 
@@ -473,292 +523,361 @@
 
         /* ============ FOOTER ============ */
         footer {
-            background: var(--wood-deep);
-            color: var(--paper);
-            padding: 54px 20px 28px;
-            position: relative; overflow: hidden;
+            background: var(--wood-deep); color: var(--paper);
+            padding: 54px 20px 28px; position: relative; overflow: hidden;
         }
-        footer::before {
-            content: "";
-            position: absolute; top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold));
-            opacity: 0.7;
-        }
-        .footer-grid {
-            max-width: 1100px; margin: 0 auto 38px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 40px;
-        }
+        footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--lac-bright), var(--gold), var(--indigo), var(--gold)); opacity: 0.7; }
+        .footer-grid { max-width: 1100px; margin: 0 auto 38px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
         @media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
-        .footer-grid h5 {
-            font-family: var(--eyebrow);
-            font-size: 0.72rem; letter-spacing: 0.12em;
-            color: var(--gold-bright);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
+        .footer-grid h5 { font-family: var(--eyebrow); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--gold-bright); margin-bottom: 16px; text-transform: uppercase; }
         .footer-grid p, .footer-grid li { font-size: 0.9rem; color: #cfc2ad; line-height: 1.6; }
-        .footer-grid ul { list-style: none; }
-        .footer-grid li { margin-bottom: 9px; }
+        .footer-grid ul { list-style: none; } .footer-grid li { margin-bottom: 9px; }
         .footer-grid a { text-decoration: none; color: #cfc2ad; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--gold-bright); padding-left: 4px; }
         .footer-location { margin-top: 12px; font-style: italic; color: var(--gold-pale); font-size: 0.88rem; }
         .footer-location .geo { display: block; font-size: 0.78rem; color: var(--ash); margin-top: 4px; font-style: normal; }
         .social-row { display: flex; gap: 14px; margin-top: 16px; }
-        .social-row a {
-            width: 40px; height: 40px;
-            border: 1.5px solid var(--gold);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            transition: all var(--transition-smooth);
-            color: var(--gold-bright);
-        }
+        .social-row a { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all var(--transition-smooth); color: var(--gold-bright); }
         .social-row a:hover { background: var(--gold); color: var(--wood-deep); transform: translateY(-2px); }
         .social-row svg { width: 18px; height: 18px; fill: currentColor; }
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid rgba(201,154,58,0.2);
-            padding-top: 24px;
-            font-size: 0.82rem;
-            color: var(--ash);
-            max-width: 1100px; margin: 0 auto;
-        }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(201,154,58,0.2); padding-top: 24px; font-size: 0.82rem; color: var(--ash); max-width: 1100px; margin: 0 auto; }
         .footer-bottom a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
         .footer-bottom a:hover { color: var(--gold-pale); }
         .footer-bottom .copyright-owner { display: block; margin-top: 6px; color: #b8a88a; font-size: 0.85rem; }
-        .footer-bottom .footer-links {
-            margin-bottom: 10px;
-            display: flex; flex-wrap: wrap; justify-content: center;
-            gap: 8px 16px;
-        }
+        .footer-bottom .footer-links { margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
         .footer-bottom .footer-links a { color: #cfc2ad; text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
         .footer-bottom .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
         .footer-bottom .footer-links span { color: #5a4636; }
 
-        .skip-link {
-            position: absolute; left: -999px; top: 0;
-            background: var(--gold); color: var(--wood-deep);
-            padding: 12px 18px; z-index: 200;
-            font-family: var(--eyebrow);
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
-            border-radius: 0 0 3px 3px;
-        }
+        .skip-link { position: absolute; left: -999px; top: 0; background: var(--gold); color: var(--wood-deep); padding: 12px 18px; z-index: 200; font-family: var(--eyebrow); font-size: 0.7rem; letter-spacing: 0.06em; border-radius: 0 0 3px 3px; }
         .skip-link:focus { left: 10px; top: 10px; }
     </style>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher-bar">
-        <span class="lang-label">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            भाषा / Language
-        </span>
-        <div class="lang-options">
-            <a href="map.html" class="lang-option active" aria-current="page">English</a>
-            <a href="hi/map.html" class="lang-option">
-                <span class="devnag-text">हिन्दी</span>
-            </a>
+    <!-- ============ HERITAGE LOADER ============ -->
+    <div class="heritage-loader" id="heritageLoader" aria-label="Loading Thikana Dhabla Ghosi" role="status">
+        <div class="loader-content">
+            <div class="loader-arch">
+                <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="loaderGoldGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#F0D68A"/>
+                            <stop offset="40%" stop-color="#E8C166"/>
+                            <stop offset="100%" stop-color="#A87D2A"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arch-path" d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"/>
+                    <path class="arch-inner" d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"/>
+                    <g fill="#E8C166" opacity="0.85">
+                        <circle cx="190" cy="18" r="5"/>
+                        <circle cx="118" cy="30" r="4"/>
+                        <circle cx="262" cy="30" r="4"/>
+                        <circle cx="62" cy="78" r="3.5"/>
+                        <circle cx="318" cy="78" r="3.5"/>
+                    </g>
+                </svg>
+                <div class="crest-seal">☀</div>
+            </div>
+            <div class="loader-title">Thikana Dhabla Ghosi</div>
+            <div class="loader-sub">
+                Location &amp; Map · Directions
+                <span class="devnag">॥ राघवाय नमः ॥</span>
+            </div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-fill" id="loaderProgressFill"></div>
+            </div>
+            <div class="loader-progress-text">
+                <span>Charting the path</span>
+                <span class="pct" id="loaderPct">0%</span>
+            </div>
+            <div class="loader-ornament">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
     </div>
 
+    <!-- Main content wrapper -->
+    <div class="main-content" id="mainContent">
 
-    <header>
-        <div class="nav-wrap">
-            <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
-                <span class="crest-mini">
-                    <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem">
-                </span>
-                <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
-            <nav>
-                <ul id="primaryNav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="familytree.html">Family Tree</a></li>
-                    <li><a href="map.html" class="current">Location &amp; Map</a></li>
-                    <li><a href="dist.html">Directory</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contactus.html">Contact</a></li>
-                </ul>
-            </nav>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher-bar">
+            <span class="lang-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                भाषा / Language
+            </span>
+            <div class="lang-options">
+                <a href="map.html" class="lang-option active" aria-current="page">English</a>
+                <a href="hi/map.html" class="lang-option">
+                    <span class="devnag-text">हिन्दी</span>
+                </a>
+            </div>
         </div>
-    </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <p class="eyebrow">Malwa Region · Shajapur · Madhya Pradesh</p>
-        <h1>Location &amp; Map</h1>
-        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
-    </section>
-
-    <div class="battlement"></div>
-
-    <!-- Main Content -->
-    <main id="main-content" class="content-section">
-        <div class="wrap">
-
-            <!-- Introduction -->
-            <div class="panel">
-                <h2>📍 Thikana Dhabla Ghosi — Location Overview</h2>
-                <p><strong>Thikana Dhabla Ghosi</strong> is located in the central western region of Madhya Pradesh, in the historic district of Shajapur. This ancient seat of the Badgujar Rajputs stands as a proud testament to the valor and heritage of the Rajputana legacy. The village is situated approximately 16 km from Shujalpur city and is home to several historical structures, including forts and temples built by the Badgujar Rajputs.</p>
-                <p>These architectural marvels reflect the clan's patronage of art and culture, preserving the rich heritage of Rajputana traditions. Once a thriving estate under Badgujar Rajput rule, the village stands as a testament to their bravery, administrative acumen, and cultural contributions. The strategic location in the Malwa region made it an important stronghold throughout history.</p>
-                <p>Today, Thikana Dhabla Ghosi continues to celebrate its rich history through cultural events and festivals, keeping the traditions of the Badgujar clan alive for future generations.</p>
+        <header>
+            <div class="nav-wrap">
+                <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
+                    <span class="crest-mini">
+                        <img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem">
+                    </span>
+                    <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
+                <nav>
+                    <ul id="primaryNav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="familytree.html">Family Tree</a></li>
+                        <li><a href="map.html" class="current">Location &amp; Map</a></li>
+                        <li><a href="dist.html">Directory</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <!-- Coordinates Bar -->
-            <div class="coordinates-bar">
-                📍 Coordinates: 23.2836° N, 76.6835° E &nbsp;|&nbsp; 📮 Postal Code: 465335 &nbsp;|&nbsp; 🏙️ Nearest City: Shujalpur (16 km)
-            </div>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <p class="eyebrow">Malwa Region · Shajapur · Madhya Pradesh</p>
+            <h1>Location &amp; Map</h1>
+            <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+        </section>
 
-            <!-- Directions -->
-            <div class="panel">
-                <h2>🗺️ Directions to Thikana Dhabla Ghosi</h2>
-                <p>Click on any city below to get Google Maps directions to Dhabla Ghosi:</p>
-                <div class="directions-grid">
-                    <a href="https://www.google.com/maps/dir/Indore/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Indore to Th.Dhabla Ghosi</span>
-                        <span class="distance">~140 km | Approx. 2.5 hours</span>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/Bhopal/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Bhopal to Th.Dhabla Ghosi</span>
-                        <span class="distance">~96 km | Approx. 2.1 hours</span>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/Shujalpur/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Shujalpur to Th.Dhabla Ghosi</span>
-                        <span class="distance">~16 km | Approx. 30 minutes</span>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/Shajapur/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Shajapur to Th.Dhabla Ghosi</span>
-                        <span class="distance">~70 km | Approx. 1.3 hour</span>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/Ujjain/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Ujjain to Th.Dhabla Ghosi</span>
-                        <span class="distance">~140 km | Approx. 2.5 hours</span>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/Dewas/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
-                        <span class="icon">🚗</span>
-                        <span class="city">Dewas to Th.Dhabla Ghosi</span>
-                        <span class="distance">~102 km | Approx. 1.5 hours</span>
-                    </a>
+        <div class="battlement"></div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="content-section">
+            <div class="wrap">
+
+                <!-- Introduction -->
+                <div class="panel">
+                    <h2>📍 Thikana Dhabla Ghosi — Location Overview</h2>
+                    <p><strong>Thikana Dhabla Ghosi</strong> is located in the central western region of Madhya Pradesh, in the historic district of Shajapur. This ancient seat of the Badgujar Rajputs stands as a proud testament to the valor and heritage of the Rajputana legacy. The village is situated approximately 16 km from Shujalpur city and is home to several historical structures, including forts and temples built by the Badgujar Rajputs.</p>
+                    <p>These architectural marvels reflect the clan's patronage of art and culture, preserving the rich heritage of Rajputana traditions. Once a thriving estate under Badgujar Rajput rule, the village stands as a testament to their bravery, administrative acumen, and cultural contributions. The strategic location in the Malwa region made it an important stronghold throughout history.</p>
+                    <p>Today, Thikana Dhabla Ghosi continues to celebrate its rich history through cultural events and festivals, keeping the traditions of the Badgujar clan alive for future generations.</p>
                 </div>
-            </div>
 
-            <!-- Map -->
-            <div class="panel">
-                <h2>🗺️ Interactive Map</h2>
-                <div class="map-container">
-                    <iframe 
-                        title="Thikana Dhabla Ghosi Location Map — Badgujar Rajput Heritage"
-                        src="https://maps.google.com/maps?width=100%&height=480&hl=en&q=Dhabla%20Ghosi%20Shajapur%20Madhya%20Pradesh&t=&z=12&ie=UTF8&iwloc=B&output=embed" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                <!-- Coordinates Bar -->
+                <div class="coordinates-bar">
+                    📍 Coordinates: 23.2836° N, 76.6835° E &nbsp;|&nbsp; 📮 Postal Code: 465335 &nbsp;|&nbsp; 🏙️ Nearest City: Shujalpur (16 km)
                 </div>
-            </div>
 
-            <!-- About MP & Rajput Heritage -->
-            <div class="panel">
-                <h2>🏛️ About Madhya Pradesh & Rajput Heritage</h2>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <h3>🌄 Geographical Significance</h3>
-                        <p>Madhya Pradesh, the "Heart of India," is one of the most culturally and historically rich states. Known for its diverse landscapes, ancient heritage, and vibrant traditions, the state is a treasure trove of natural beauty, architectural marvels, and spiritual significance. The Malwa region, where Dhabla Ghosi is located, has been a cradle of Rajput civilization for centuries.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h3>🎭 Cultural Heritage</h3>
-                        <p>Madhya Pradesh is a melting pot of cultures, traditions, and religions. The state celebrates festivals like Diwali, Holi, Navratri, and the Khajuraho Dance Festival. The traditional crafts — Chanderi and Maheshwari sarees, Bagh prints, and Dhokra metal casting — are renowned worldwide. The Rajputs nurtured these traditions through their patronage.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h3>⚔️ Rajput Legacy</h3>
-                        <p>The Rajputs, known for their valor, chivalry, and rich cultural heritage, shaped the history of Madhya Pradesh. As one of the most prominent warrior clans, they established numerous kingdoms and princely states. The Badgujar Rajputs of Dhabla Ghosi exemplify this legacy, having ruled with honor and contributed to the region's architectural and cultural wealth.</p>
+                <!-- Directions -->
+                <div class="panel">
+                    <h2>🗺️ Directions to Thikana Dhabla Ghosi</h2>
+                    <p>Click on any city below to get Google Maps directions to Dhabla Ghosi:</p>
+                    <div class="directions-grid">
+                        <a href="https://www.google.com/maps/dir/Indore/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Indore to Th.Dhabla Ghosi</span>
+                            <span class="distance">~140 km | Approx. 2.5 hours</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/Bhopal/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Bhopal to Th.Dhabla Ghosi</span>
+                            <span class="distance">~96 km | Approx. 2.1 hours</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/Shujalpur/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Shujalpur to Th.Dhabla Ghosi</span>
+                            <span class="distance">~16 km | Approx. 30 minutes</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/Shajapur/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Shajapur to Th.Dhabla Ghosi</span>
+                            <span class="distance">~70 km | Approx. 1.3 hour</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/Ujjain/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Ujjain to Th.Dhabla Ghosi</span>
+                            <span class="distance">~140 km | Approx. 2.5 hours</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/Dewas/Dhabla+Ghoshi,+Madhya+Pradesh" target="_blank" rel="noopener" class="direction-card">
+                            <span class="icon">🚗</span>
+                            <span class="city">Dewas to Th.Dhabla Ghosi</span>
+                            <span class="distance">~102 km | Approx. 1.5 hours</span>
+                        </a>
                     </div>
                 </div>
-                <p>Madhya Pradesh is blessed with diverse geographical features, from the Vindhya and Satpura mountain ranges to the fertile plains of the Narmada River valley. The state is home to major rivers including the Narmada, Tapti, Chambal, and Betwa. The Rajputs of Madhya Pradesh were not just warriors but also great patrons of art, culture, and religion. They built magnificent forts, palaces, and temples that stand as testaments to their architectural prowess. Festivals, folk traditions, and local crafts were nurtured under their patronage. The Rajputs also promoted classical music, dance, and literature, enriching the cultural fabric of the state.</p>
 
-                <div class="closing-quote">
-                    <p>"Welcome to the historic land of the Badgujar Rajputs"</p>
-                    <p style="font-size: 0.9rem; margin-top: 8px; color: var(--smoke);">Visit Th.Dhabla Ghosi and experience the living heritage of Rajputana in the heart of Malwa.</p>
+                <!-- Map -->
+                <div class="panel">
+                    <h2>🗺️ Interactive Map</h2>
+                    <div class="map-container">
+                        <iframe 
+                            title="Thikana Dhabla Ghosi Location Map — Badgujar Rajput Heritage"
+                            src="https://maps.google.com/maps?width=100%&height=480&hl=en&q=Dhabla%20Ghosi%20Shajapur%20Madhya%20Pradesh&t=&z=12&ie=UTF8&iwloc=B&output=embed" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- About MP & Rajput Heritage -->
+                <div class="panel">
+                    <h2>🏛️ About Madhya Pradesh & Rajput Heritage</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <h3>🌄 Geographical Significance</h3>
+                            <p>Madhya Pradesh, the "Heart of India," is one of the most culturally and historically rich states. Known for its diverse landscapes, ancient heritage, and vibrant traditions, the state is a treasure trove of natural beauty, architectural marvels, and spiritual significance. The Malwa region, where Dhabla Ghosi is located, has been a cradle of Rajput civilization for centuries.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>🎭 Cultural Heritage</h3>
+                            <p>Madhya Pradesh is a melting pot of cultures, traditions, and religions. The state celebrates festivals like Diwali, Holi, Navratri, and the Khajuraho Dance Festival. The traditional crafts — Chanderi and Maheshwari sarees, Bagh prints, and Dhokra metal casting — are renowned worldwide. The Rajputs nurtured these traditions through their patronage.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>⚔️ Rajput Legacy</h3>
+                            <p>The Rajputs, known for their valor, chivalry, and rich cultural heritage, shaped the history of Madhya Pradesh. As one of the most prominent warrior clans, they established numerous kingdoms and princely states. The Badgujar Rajputs of Dhabla Ghosi exemplify this legacy, having ruled with honor and contributed to the region's architectural and cultural wealth.</p>
+                        </div>
+                    </div>
+                    <p>Madhya Pradesh is blessed with diverse geographical features, from the Vindhya and Satpura mountain ranges to the fertile plains of the Narmada River valley. The state is home to major rivers including the Narmada, Tapti, Chambal, and Betwa. The Rajputs of Madhya Pradesh were not just warriors but also great patrons of art, culture, and religion. They built magnificent forts, palaces, and temples that stand as testaments to their architectural prowess. Festivals, folk traditions, and local crafts were nurtured under their patronage. The Rajputs also promoted classical music, dance, and literature, enriching the cultural fabric of the state.</p>
+
+                    <div class="closing-quote">
+                        <p>"Welcome to the historic land of the Badgujar Rajputs"</p>
+                        <p style="font-size: 0.9rem; margin-top: 8px; color: var(--smoke);">Visit Th.Dhabla Ghosi and experience the living heritage of Rajputana in the heart of Malwa.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h5>Thikana Dhabla Ghosi</h5>
+                    <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
+                    <p class="footer-location">
+                        Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan
+                        <span class="geo">Coordinates: 23.2836° N, 76.6835° E</span>
+                    </p>
+                    <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </a>
+                        <a href="mailto:info@thikanadhabla.in" aria-label="Email">
+                            <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Navigate</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="familytree.html">Family Tree</a></li>
+                        <li><a href="map.html">Location &amp; Map</a></li>
+                        <li><a href="dist.html">Directory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                    </ul>
                 </div>
             </div>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h5>Thikana Dhabla Ghosi</h5>
-                <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
-                <p class="footer-location">
-                    Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan
-                    <span class="geo">Coordinates: 23.2836° N, 76.6835° E</span>
-                </p>
-                <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                    </a>
-                    <a href="mailto:info@thikanadhabla.in" aria-label="Email">
-                        <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                    </a>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">Home</a><span>|</span>
+                    <a href="history.html">History</a><span>|</span>
+                    <a href="Familytree.html">Family Tree</a><span>|</span>
+                    <a href="map.html">Location &amp; Map</a><span>|</span>
+                    <a href="dist.html">Directory</a><span>|</span>
+                    <a href="about.html">About</a><span>|</span>
+                    <a href="contactus.html">Contact Us</a><span>|</span>
+                    <a href="privacy.html">Privacy Policy</a><span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a><span>|</span>
+                    <a href="sitemap.html">Sitemap</a>
                 </div>
+                <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
             </div>
-            <div>
-                <h5>Navigate</h5>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="familytree.html">Family Tree</a></li>
-                    <li><a href="map.html">Location &amp; Map</a></li>
-                    <li><a href="dist.html">Directory</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5>Information</h5>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                    <li><a href="sitemap.html">Sitemap</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="index.html">Home</a><span>|</span>
-                <a href="history.html">History</a><span>|</span>
-                <a href="Familytree.html">Family Tree</a><span>|</span>
-                <a href="map.html">Location &amp; Map</a><span>|</span>
-                <a href="dist.html">Directory</a><span>|</span>
-                <a href="about.html">About</a><span>|</span>
-                <a href="contactus.html">Contact Us</a><span>|</span>
-                <a href="privacy.html">Privacy Policy</a><span>|</span>
-                <a href="terms.html">Terms &amp; Conditions</a><span>|</span>
-                <a href="sitemap.html">Sitemap</a>
-            </div>
-            <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
-        </div>
-    </footer>
+        </footer>
+
+    </div><!-- /main-content -->
 
     <script>
-        // Mobile nav toggle
+        // ============ HERITAGE LOADER LOGIC ============
+        (function() {
+            const loader = document.getElementById('heritageLoader');
+            const progressFill = document.getElementById('loaderProgressFill');
+            const pctText = document.getElementById('loaderPct');
+            const mainContent = document.getElementById('mainContent');
+
+            let progress = 0;
+            let loaded = false;
+
+            const interval = setInterval(() => {
+                if (loaded) return;
+                const increment = Math.floor(Math.random() * 14) + 5;
+                progress = Math.min(progress + increment, 100);
+                progressFill.style.width = progress + '%';
+                pctText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 400);
+                }
+            }, 180);
+
+            setTimeout(() => {
+                if (!loaded) {
+                    clearInterval(interval);
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    pctText.textContent = '100%';
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 300);
+                }
+            }, 6000);
+
+            window.addEventListener('load', () => {
+                if (!loaded) {
+                    setTimeout(() => {
+                        if (!loaded) {
+                            clearInterval(interval);
+                            progress = 100;
+                            progressFill.style.width = '100%';
+                            pctText.textContent = '100%';
+                            loaded = true;
+                            setTimeout(() => {
+                                loader.classList.add('loaded');
+                                mainContent.classList.add('revealed');
+                                setTimeout(() => {
+                                    loader.style.display = 'none';
+                                }, 900);
+                            }, 300);
+                        }
+                    }, 600);
+                }
+            });
+        })();
+
+        // ============ MOBILE NAV TOGGLE ============
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
         navToggle.addEventListener('click', () => {
@@ -772,9 +891,9 @@
             }
         });
     </script>
-<script src="/track.js" defer></script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script src="/track.js" defer></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 </body>
 </html>

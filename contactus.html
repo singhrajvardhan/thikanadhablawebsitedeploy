@@ -89,6 +89,213 @@
         img { max-width: 100%; display: block; height: auto; }
         :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
 
+        /* ============ HERITAGE LOADER ============ */
+        .heritage-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2B1810, #1C0F0A 85%);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            overflow: hidden;
+        }
+        .heritage-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.03) 0 2px, transparent 2px 32px);
+            pointer-events: none;
+        }
+        .heritage-loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(28, 15, 10, 0.6) 90%);
+            pointer-events: none;
+        }
+        .loader-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: loaderReveal 1.4s ease-out;
+        }
+        @keyframes loaderReveal {
+            0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .loader-arch {
+            width: 160px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 0 30px rgba(232, 193, 102, 0.25));
+        }
+        .loader-arch svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .loader-arch .arch-path {
+            fill: none;
+            stroke: url(#loaderGoldGrad);
+            stroke-width: 4;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawArch 2.2s ease-in-out infinite alternate;
+        }
+        @keyframes drawArch {
+            0% { stroke-dashoffset: 600; opacity: 0.4; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .loader-arch .arch-inner {
+            fill: none;
+            stroke: rgba(232, 193, 102, 0.3);
+            stroke-width: 1.2;
+            stroke-dasharray: 8 12;
+            animation: rotateSlow 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes rotateSlow {
+            to { transform: rotate(360deg); }
+        }
+        .loader-arch .crest-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -42%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 2.5px solid var(--gold-bright);
+            box-shadow: 0 0 24px rgba(232, 193, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display-decorative);
+            font-size: 1.6rem;
+            color: var(--lac);
+            animation: pulseSeal 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseSeal {
+            0%, 100% { box-shadow: 0 0 24px rgba(232, 193, 102, 0.35); transform: translate(-50%, -42%) scale(1); }
+            50% { box-shadow: 0 0 42px rgba(232, 193, 102, 0.65); transform: translate(-50%, -42%) scale(1.04); }
+        }
+
+        .loader-title {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.2;
+        }
+        .loader-sub {
+            font-family: var(--eyebrow);
+            font-size: 0.62rem;
+            letter-spacing: 0.32em;
+            color: var(--ash);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .loader-sub .devnag {
+            font-family: var(--devnag);
+            letter-spacing: 0.06em;
+            color: var(--gold-pale);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .loader-progress-wrap {
+            width: 240px;
+            height: 3px;
+            background: rgba(201, 154, 58, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        .loader-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold-pale));
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(232, 193, 102, 0.6);
+            animation: shimmerBar 1.8s linear infinite;
+        }
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loader-progress-text {
+            margin-top: 12px;
+            font-family: var(--eyebrow);
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            color: var(--ash);
+            text-transform: uppercase;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .loader-progress-text .pct {
+            color: var(--gold-bright);
+            font-weight: 600;
+            min-width: 2.6em;
+            text-align: right;
+            font-size: 0.68rem;
+        }
+
+        .loader-ornament {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .loader-ornament span {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dotPulse 1.4s ease-in-out infinite;
+        }
+        .loader-ornament span:nth-child(2) { animation-delay: 0.2s; }
+        .loader-ornament span:nth-child(3) { animation-delay: 0.4s; }
+        .loader-ornament span:nth-child(4) { animation-delay: 0.6s; }
+        .loader-ornament span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.3); background: var(--gold-bright); }
+        }
+
+        .heritage-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .main-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+        .main-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ============ LANGUAGE SWITCHER BAR ============ */
         .lang-switcher-bar {
             background: var(--wood-deep);
@@ -324,195 +531,311 @@
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher-bar">
-        <span class="lang-label">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            भाषा / Language
-        </span>
-        <div class="lang-options">
-            <a href="contactus.html" class="lang-option active" aria-current="page">English</a>
-            <a href="hi/contactus.html" class="lang-option"><span class="devnag-text">हिन्दी</span></a>
+    <!-- ============ HERITAGE LOADER ============ -->
+    <div class="heritage-loader" id="heritageLoader" aria-label="Loading Thikana Dhabla Ghosi" role="status">
+        <div class="loader-content">
+            <div class="loader-arch">
+                <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="loaderGoldGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#F0D68A"/>
+                            <stop offset="40%" stop-color="#E8C166"/>
+                            <stop offset="100%" stop-color="#A87D2A"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arch-path" d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"/>
+                    <path class="arch-inner" d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"/>
+                    <g fill="#E8C166" opacity="0.85">
+                        <circle cx="190" cy="18" r="5"/>
+                        <circle cx="118" cy="30" r="4"/>
+                        <circle cx="262" cy="30" r="4"/>
+                        <circle cx="62" cy="78" r="3.5"/>
+                        <circle cx="318" cy="78" r="3.5"/>
+                    </g>
+                </svg>
+                <div class="crest-seal">☀</div>
+            </div>
+            <div class="loader-title">Thikana Dhabla Ghosi</div>
+            <div class="loader-sub">
+                Contact Us · Connect
+                <span class="devnag">॥ राघवाय नमः ॥</span>
+            </div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-fill" id="loaderProgressFill"></div>
+            </div>
+            <div class="loader-progress-text">
+                <span>Opening the gates</span>
+                <span class="pct" id="loaderPct">0%</span>
+            </div>
+            <div class="loader-ornament">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
     </div>
 
-  
+    <!-- Main content wrapper -->
+    <div class="main-content" id="mainContent">
 
-    <header>
-        <div class="nav-wrap">
-            <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
-                <span class="crest-mini"><img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem"></span>
-                <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
-            <nav>
-                <ul id="primaryNav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="familytree.html">Family Tree</a></li>
-                    <li><a href="map.html">Location &amp; Map</a></li>
-                    <li><a href="dist.html">Directory</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contactus.html" class="current">Contact</a></li>
-                </ul>
-            </nav>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher-bar">
+            <span class="lang-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                भाषा / Language
+            </span>
+            <div class="lang-options">
+                <a href="contactus.html" class="lang-option active" aria-current="page">English</a>
+                <a href="hi/contactus.html" class="lang-option"><span class="devnag-text">हिन्दी</span></a>
+            </div>
         </div>
-    </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <p class="eyebrow">Connect · Reach Out · Visit</p>
-        <h1>Contact Us</h1>
-        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
-    </section>
-
-    <div class="battlement"></div>
-
-    <!-- Main Content -->
-    <main id="main-content" class="content-section">
-        <div class="wrap">
-
-            <!-- Introduction -->
-            <div class="panel">
-                <h2>📬 Get in Touch</h2>
-                <p>We welcome you to connect with the Badgujar family of Thikana Dhabla Ghosi. Whether you have questions about our heritage, want to share information, or simply wish to connect with the royal legacy of the Badgujar Rajputs, we would be delighted to hear from you. Your messages are valued and we strive to respond with the warmth and dignity befitting our ancestral traditions.</p>
+        <header>
+            <div class="nav-wrap">
+                <a href="index.html" class="brandmark" aria-label="Thikana Dhabla Ghosi — Return to homepage">
+                    <span class="crest-mini"><img src="thikanadhabla.jpeg" alt="Thikana Dhabla Ghosi royal emblem"></span>
+                    <span class="word">Thikana Dhabla Ghosi<strong>Badgujar Rajput Vansh</strong></span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu ☰</button>
+                <nav>
+                    <ul id="primaryNav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="familytree.html">Family Tree</a></li>
+                        <li><a href="map.html">Location &amp; Map</a></li>
+                        <li><a href="dist.html">Directory</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactus.html" class="current">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <!-- Address -->
-            <div class="address-box">
-                <h3>🏰 Postal Address</h3>
-                <p>To send correspondence by postal mail, please use the address below along with the name of the family member:</p>
-                <div class="address-highlight">
-                    <strong>Thikana Dhabla Ghosi</strong><br>
-                    V.P.O: Dhabla Ghosi<br>
-                    District: Shajapur - 465335<br>
-                    Madhya Pradesh, India<br><br>
-                    📧 info@thikanadhabla.in<br>
-                    📧 contact@thikanadhabla.in<br>
-                    📧 info@rajvardhansingh.in
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <p class="eyebrow">Connect · Reach Out · Visit</p>
+            <h1>Contact Us</h1>
+            <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+        </section>
+
+        <div class="battlement"></div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="content-section">
+            <div class="wrap">
+
+                <!-- Introduction -->
+                <div class="panel">
+                    <h2>📬 Get in Touch</h2>
+                    <p>We welcome you to connect with the Badgujar family of Thikana Dhabla Ghosi. Whether you have questions about our heritage, want to share information, or simply wish to connect with the royal legacy of the Badgujar Rajputs, we would be delighted to hear from you. Your messages are valued and we strive to respond with the warmth and dignity befitting our ancestral traditions.</p>
                 </div>
-                <p style="margin-top: 12px;">For specific family members, kindly mention their name on the envelope for proper delivery.</p>
-            </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-wrapper" id="formContainer">
-                <h2>📬 Send a Message</h2>
-                <form id="contactFormReal">
-                    <input type="hidden" name="access_key" value="d48d75d5-7ced-419a-b745-3f5aa0ae0728">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="IP" id="ip">
-                    <input type="hidden" name="City" id="city">
-                    <input type="hidden" name="Country" id="country">
+                <!-- Address -->
+                <div class="address-box">
+                    <h3>🏰 Postal Address</h3>
+                    <p>To send correspondence by postal mail, please use the address below along with the name of the family member:</p>
+                    <div class="address-highlight">
+                        <strong>Thikana Dhabla Ghosi</strong><br>
+                        V.P.O: Dhabla Ghosi<br>
+                        District: Shajapur - 465335<br>
+                        Madhya Pradesh, India<br><br>
+                        📧 info@thikanadhabla.in<br>
+                        📧 contact@thikanadhabla.in<br>
+                        📧 info@rajvardhansingh.in
+                    </div>
+                    <p style="margin-top: 12px;">For specific family members, kindly mention their name on the envelope for proper delivery.</p>
+                </div>
 
-                    <div class="form-row">
-                        <label class="form-label" for="contact_name">Your Name:</label>
-                        <div class="form-input-wrap">
-                            <input id="contact_name" name="name" type="text" maxlength="60" required placeholder="Enter your full name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="contact_email">Your Email:</label>
-                        <div class="form-input-wrap">
-                            <input id="contact_email" name="email" type="email" maxlength="60" required placeholder="your@email.com">
-                        </div>
-                    </div>
-                    <!-- Mobile Number (Optional) -->
-                    <div class="form-row">
-                        <label class="form-label" for="contact_mobile">Mobile Number:</label>
-                        <div class="form-input-wrap">
-                            <input id="contact_mobile" name="mobile" type="tel" maxlength="20" placeholder="+91 98765 43210 (optional)" pattern="[+0-9\s\-\(\)]{7,20}">
-                            <small style="display:block; font-size:0.75rem; color:var(--ash); margin-top:4px; font-family:var(--body);">Optional — with country code if outside India</small>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="contact_message">Message:</label>
-                        <div class="form-input-wrap">
-                            <textarea id="contact_message" name="message" maxlength="1000" required placeholder="Write your message here..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label">Security Check:</label>
-                        <div class="form-input-wrap">
-                            <div class="captcha-row">
-                                <div class="captcha-display" id="captchaText"></div>
-                                <button type="button" class="captcha-refresh" onclick="generateCaptcha()">⟳ Refresh</button>
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper" id="formContainer">
+                    <h2>📬 Send a Message</h2>
+                    <form id="contactFormReal">
+                        <input type="hidden" name="access_key" value="d48d75d5-7ced-419a-b745-3f5aa0ae0728">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="IP" id="ip">
+                        <input type="hidden" name="City" id="city">
+                        <input type="hidden" name="Country" id="country">
+
+                        <div class="form-row">
+                            <label class="form-label" for="contact_name">Your Name:</label>
+                            <div class="form-input-wrap">
+                                <input id="contact_name" name="name" type="text" maxlength="60" required placeholder="Enter your full name">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="captchaInput">Enter Captcha:</label>
-                        <div class="form-input-wrap">
-                            <input type="text" id="captchaInput" placeholder="Enter the numbers above" required style="max-width: 220px;">
-                            <input type="hidden" id="captchaAnswer">
+                        <div class="form-row">
+                            <label class="form-label" for="contact_email">Your Email:</label>
+                            <div class="form-input-wrap">
+                                <input id="contact_email" name="email" type="email" maxlength="60" required placeholder="your@email.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label"></label>
-                        <div class="form-input-wrap">
-                            <button type="submit" class="submit-btn">✨ Send Message ✨</button>
+                        <!-- Mobile Number (Optional) -->
+                        <div class="form-row">
+                            <label class="form-label" for="contact_mobile">Mobile Number:</label>
+                            <div class="form-input-wrap">
+                                <input id="contact_mobile" name="mobile" type="tel" maxlength="20" placeholder="+91 98765 43210 (optional)" pattern="[+0-9\s\-\(\)]{7,20}">
+                                <small style="display:block; font-size:0.75rem; color:var(--ash); margin-top:4px; font-family:var(--body);">Optional — with country code if outside India</small>
+                            </div>
                         </div>
+                        <div class="form-row">
+                            <label class="form-label" for="contact_message">Message:</label>
+                            <div class="form-input-wrap">
+                                <textarea id="contact_message" name="message" maxlength="1000" required placeholder="Write your message here..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">Security Check:</label>
+                            <div class="form-input-wrap">
+                                <div class="captcha-row">
+                                    <div class="captcha-display" id="captchaText"></div>
+                                    <button type="button" class="captcha-refresh" onclick="generateCaptcha()">⟳ Refresh</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label" for="captchaInput">Enter Captcha:</label>
+                            <div class="form-input-wrap">
+                                <input type="text" id="captchaInput" placeholder="Enter the numbers above" required style="max-width: 220px;">
+                                <input type="hidden" id="captchaAnswer">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label"></label>
+                            <div class="form-input-wrap">
+                                <button type="submit" class="submit-btn">✨ Send Message ✨</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    ✨ <strong>Dhanyavaad! Thank You!</strong><br>
+                    Your message has been sent successfully. We will reply to you soon with the warmth of our heritage.
+                </div>
+
+                <!-- Map -->
+                <div class="panel">
+                    <h2>📍 Our Ancestral Location</h2>
+                    <div class="map-container">
+                        <iframe title="Thikana Dhabla Ghosi Location Map" src="https://maps.google.com/maps?width=683&height=549&hl=en&q=Dhabla%20Ghosi%20Shajapur&t=&z=13&ie=UTF8&iwloc=B&output=embed" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                </form>
-            </div>
-
-            <div id="successMessage" class="success-message">
-                ✨ <strong>Dhanyavaad! Thank You!</strong><br>
-                Your message has been sent successfully. We will reply to you soon with the warmth of our heritage.
-            </div>
-
-            <!-- Map -->
-            <div class="panel">
-                <h2>📍 Our Ancestral Location</h2>
-                <div class="map-container">
-                    <iframe title="Thikana Dhabla Ghosi Location Map" src="https://maps.google.com/maps?width=683&height=549&hl=en&q=Dhabla%20Ghosi%20Shajapur&t=&z=13&ie=UTF8&iwloc=B&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                    <p style="margin-top: 16px; text-align: center;">🙏 <strong>Jay Mata Di | Jay Rajputana</strong> 🙏</p>
+                    <p style="text-align: center; font-size: 0.95rem;">We look forward to connecting with fellow heritage enthusiasts, family members, and those interested in the glorious history of the Badgujar Rajputs.</p>
                 </div>
-                <p style="margin-top: 16px; text-align: center;">🙏 <strong>Jay Mata Di | Jay Rajputana</strong> 🙏</p>
-                <p style="text-align: center; font-size: 0.95rem;">We look forward to connecting with fellow heritage enthusiasts, family members, and those interested in the glorious history of the Badgujar Rajputs.</p>
+
             </div>
+        </main>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h5>Thikana Dhabla Ghosi</h5>
-                <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
-                <p class="footer-location">Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan<span class="geo">Coordinates: 23.3207° N, 76.7085° E</span></p>
-                <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></a>
-                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
-                    <a href="mailto:info@thikanadhabla.in" aria-label="Email"><svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h5>Thikana Dhabla Ghosi</h5>
+                    <p>The ancestral seat of the Badgujar Rajput family — Th.Dhabla Ghosi, Shajapur district, Madhya Pradesh, India — 465335.</p>
+                    <p class="footer-location">Connected to Ujjain · Indore · Bhopal · Dewas  · Rajasthan<span class="geo">Coordinates: 23.3207° N, 76.7085° E</span></p>
+                    <p style="margin-top:8px; font-style:italic; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg></a>
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                        <a href="mailto:info@thikanadhabla.in" aria-label="Email"><svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Navigate</h5>
+                    <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="familytree.html">Family Tree</a></li><li><a href="map.html">Location &amp; Map</a></li><li><a href="dist.html">Directory</a></li></ul>
+                </div>
+                <div>
+                    <h5>Information</h5>
+                    <ul><li><a href="about.html">About</a></li><li><a href="contactus.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="sitemap.html">Sitemap</a></li></ul>
                 </div>
             </div>
-            <div>
-                <h5>Navigate</h5>
-                <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="familytree.html">Family Tree</a></li><li><a href="map.html">Location &amp; Map</a></li><li><a href="dist.html">Directory</a></li></ul>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">Home</a><span>|</span><a href="history.html">History</a><span>|</span><a href="Familytree.html">Family Tree</a><span>|</span><a href="map.html">Location &amp; Map</a><span>|</span><a href="dist.html">Directory</a><span>|</span><a href="about.html">About</a><span>|</span><a href="contactus.html">Contact Us</a><span>|</span><a href="privacy.html">Privacy Policy</a><span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a><span>|</span><a href="sitemap.html">Sitemap</a>
+                </div>
+                <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
             </div>
-            <div>
-                <h5>Information</h5>
-                <ul><li><a href="about.html">About</a></li><li><a href="contactus.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li>><li><a href="sitemap.html">Sitemap</a></li></ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="index.html">Home</a><span>|</span><a href="history.html">History</a><span>|</span><a href="Familytree.html">Family Tree</a><span>|</span><a href="map.html">Location &amp; Map</a><span>|</span><a href="dist.html">Directory</a><span>|</span><a href="about.html">About</a><span>|</span><a href="contactus.html">Contact Us</a><span>|</span><a href="privacy.html">Privacy Policy</a><span>|</span>
-                <a href="terms.html">Terms &amp; Conditions</a><span>|</span><a href="sitemap.html">Sitemap</a>
-            </div>
-            <span class="copyright-owner">Copyright © 2026 <a href="https://rajvardhansingh.in">Rajvardhan Singh Badgujar</a> &amp; Family. All Rights Reserved.</span>
-        </div>
-    </footer>
+        </footer>
+
+    </div><!-- /main-content -->
 
     <script>
+        // ============ HERITAGE LOADER LOGIC ============
+        (function() {
+            const loader = document.getElementById('heritageLoader');
+            const progressFill = document.getElementById('loaderProgressFill');
+            const pctText = document.getElementById('loaderPct');
+            const mainContent = document.getElementById('mainContent');
+
+            let progress = 0;
+            let loaded = false;
+
+            const interval = setInterval(() => {
+                if (loaded) return;
+                const increment = Math.floor(Math.random() * 14) + 5;
+                progress = Math.min(progress + increment, 100);
+                progressFill.style.width = progress + '%';
+                pctText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 400);
+                }
+            }, 180);
+
+            setTimeout(() => {
+                if (!loaded) {
+                    clearInterval(interval);
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    pctText.textContent = '100%';
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 300);
+                }
+            }, 6000);
+
+            window.addEventListener('load', () => {
+                if (!loaded) {
+                    setTimeout(() => {
+                        if (!loaded) {
+                            clearInterval(interval);
+                            progress = 100;
+                            progressFill.style.width = '100%';
+                            pctText.textContent = '100%';
+                            loaded = true;
+                            setTimeout(() => {
+                                loader.classList.add('loaded');
+                                mainContent.classList.add('revealed');
+                                setTimeout(() => {
+                                    loader.style.display = 'none';
+                                }, 900);
+                            }, 300);
+                        }
+                    }, 600);
+                }
+            });
+        })();
+
+        // ============ MOBILE NAV TOGGLE ============
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
         navToggle.addEventListener('click', () => { const open = primaryNav.classList.toggle('open'); navToggle.setAttribute('aria-expanded', open); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && primaryNav.classList.contains('open')) { primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', false); } });
 
+        // ============ CAPTCHA ============
         function generateCaptcha() {
             const num1 = Math.floor(Math.random() * 10);
             const num2 = Math.floor(Math.random() * 10);
@@ -523,6 +846,7 @@
         }
         generateCaptcha();
 
+        // ============ IP INFO ============
         fetch("https://ipinfo.io/json?token=ba2d92c60f3b36").then(res => res.json()).catch(() => ({})).then(data => {
             if(data && data.ip) {
                 document.getElementById("ip").value = data.ip || '';
@@ -531,6 +855,7 @@
             }
         });
 
+        // ============ CONTACT FORM ============
         const contactForm = document.getElementById('contactFormReal');
         const successMsg = document.getElementById('successMessage');
         const formContainer = document.getElementById('formContainer');
@@ -560,10 +885,10 @@
             finally { submitBtn.textContent = '✨ Send Message ✨'; submitBtn.disabled = false; }
         });
     </script>
-<script src="/track.js" defer></script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script src="/track.js" defer></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
 </body>
 </html>

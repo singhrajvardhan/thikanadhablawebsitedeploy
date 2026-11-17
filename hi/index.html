@@ -84,6 +84,210 @@
         img { max-width: 100%; display: block; height: auto; }
         :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
 
+        /* ============ HERITAGE LOADER ============ */
+        .heritage-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2B1810, #1C0F0A 85%);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            overflow: hidden;
+        }
+        .heritage-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.03) 0 2px, transparent 2px 32px);
+            pointer-events: none;
+        }
+        .heritage-loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(28, 15, 10, 0.6) 90%);
+            pointer-events: none;
+        }
+        .loader-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: loaderReveal 1.4s ease-out;
+        }
+        @keyframes loaderReveal {
+            0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .loader-arch {
+            width: 160px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 0 30px rgba(232, 193, 102, 0.25));
+        }
+        .loader-arch svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .loader-arch .arch-path {
+            fill: none;
+            stroke: url(#loaderGoldGrad);
+            stroke-width: 4;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawArch 2.2s ease-in-out infinite alternate;
+        }
+        @keyframes drawArch {
+            0% { stroke-dashoffset: 600; opacity: 0.4; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .loader-arch .arch-inner {
+            fill: none;
+            stroke: rgba(232, 193, 102, 0.3);
+            stroke-width: 1.2;
+            stroke-dasharray: 8 12;
+            animation: rotateSlow 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes rotateSlow {
+            to { transform: rotate(360deg); }
+        }
+        .loader-arch .crest-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -42%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 2.5px solid var(--gold-bright);
+            box-shadow: 0 0 24px rgba(232, 193, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display-decorative);
+            font-size: 1.6rem;
+            color: var(--lac);
+            animation: pulseSeal 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseSeal {
+            0%, 100% { box-shadow: 0 0 24px rgba(232, 193, 102, 0.35); transform: translate(-50%, -42%) scale(1); }
+            50% { box-shadow: 0 0 42px rgba(232, 193, 102, 0.65); transform: translate(-50%, -42%) scale(1.04); }
+        }
+
+        .loader-title {
+            font-family: var(--devnag);
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.02em;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.3;
+        }
+        .loader-sub {
+            font-family: var(--devnag);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            color: var(--ash);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .loader-sub .devnag {
+            color: var(--gold-pale);
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .loader-progress-wrap {
+            width: 240px;
+            height: 3px;
+            background: rgba(201, 154, 58, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        .loader-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold-pale));
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(232, 193, 102, 0.6);
+            animation: shimmerBar 1.8s linear infinite;
+        }
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loader-progress-text {
+            margin-top: 12px;
+            font-family: var(--devnag);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--ash);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .loader-progress-text .pct {
+            color: var(--gold-bright);
+            font-weight: 600;
+            min-width: 2.6em;
+            text-align: right;
+            font-size: 0.75rem;
+        }
+
+        .loader-ornament {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .loader-ornament span {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dotPulse 1.4s ease-in-out infinite;
+        }
+        .loader-ornament span:nth-child(2) { animation-delay: 0.2s; }
+        .loader-ornament span:nth-child(3) { animation-delay: 0.4s; }
+        .loader-ornament span:nth-child(4) { animation-delay: 0.6s; }
+        .loader-ornament span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.3); background: var(--gold-bright); }
+        }
+
+        .heritage-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .main-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+        .main-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ============ LANGUAGE SWITCHER BAR ============ */
         .lang-switcher-bar {
             background: var(--wood-deep);
@@ -764,316 +968,430 @@
 </head>
 <body>
 
-    <a href="#main" class="skip-link">मुख्य सामग्री पर जाएं</a>
-
-    <!-- ============ LANGUAGE SWITCHER BAR ============ -->
-    <div class="lang-switcher-bar">
-        <span class="lang-label">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            भाषा / Language
-        </span>
-        <div class="lang-options">
-            <a href="../index.html" class="lang-option">English</a>
-            <a href="index.html" class="lang-option active" aria-current="page">
-                <span class="devnag-text">हिन्दी</span>
-            </a>
-        </div>
-    </div>
-
-
-    <header>
-        <div class="nav-wrap">
-            <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
-                <span class="crest-mini">
-                    <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न">
-                </span>
-                <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
-            <nav>
-                <ul id="primaryNav">
-                    <li><a href="index.html" class="current">होम</a></li>
-                    <li><a href="history.html">इतिहास</a></li>
-                    <li><a href="Familytree.html">वंशावली</a></li>
-                    <li><a href="map.html">स्थान और नक्शा</a></li>
-                    <li><a href="dist.html">निर्देशिका</a></li>
-                    <li><a href="about.html">परिचय</a></li>
-                    <li><a href="contactus.html">संपर्क करें</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
-
-        <!-- ============ HERO ============ -->
-        <section class="hero" style="padding-top:48px;">
-            <div class="toran-suggestion">
-                <span></span> खम्मा घणी सा — पधारो म्हारे ठिकाने <span></span>
-            </div>
-            <div class="jharokha">
-                <svg class="arch-frame" viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- ============ HERITAGE LOADER ============ -->
+    <div class="heritage-loader" id="heritageLoader" aria-label="ठिकाना ढाबला घोसी लोड हो रहा है" role="status">
+        <div class="loader-content">
+            <div class="loader-arch">
+                <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs>
-                        <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                        <linearGradient id="loaderGoldGrad" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="0%" stop-color="#F0D68A"/>
                             <stop offset="40%" stop-color="#E8C166"/>
                             <stop offset="100%" stop-color="#A87D2A"/>
                         </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="2" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
                     </defs>
-                    <path d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"
-                    fill="none" stroke="url(#goldGrad)" stroke-width="12" filter="url(#glow)"/>
-                    <path d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"
-                    fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.6"/>
-                    <g fill="#E8C166">
-                        <circle cx="190" cy="18" r="5.5"/>
-                        <circle cx="118" cy="30" r="4.5"/>
-                        <circle cx="262" cy="30" r="4.5"/>
-                        <circle cx="62" cy="78" r="4"/>
-                        <circle cx="318" cy="78" r="4"/>
-                        <circle cx="28" cy="148" r="3.5"/>
-                        <circle cx="352" cy="148" r="3.5"/>
+                    <path class="arch-path" d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"/>
+                    <path class="arch-inner" d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"/>
+                    <g fill="#E8C166" opacity="0.85">
+                        <circle cx="190" cy="18" r="5"/>
+                        <circle cx="118" cy="30" r="4"/>
+                        <circle cx="262" cy="30" r="4"/>
+                        <circle cx="62" cy="78" r="3.5"/>
+                        <circle cx="318" cy="78" r="3.5"/>
                     </g>
-                    <g stroke="#A87D2A" stroke-width="1.8" opacity="0.5">
-                        <path d="M18,460 V255 M38,460 V265 M58,460 V280"/>
-                        <path d="M362,460 V255 M342,460 V265 M322,460 V280"/>
-                    </g>
-                    <text x="190" y="140" font-size="70" text-anchor="middle" fill="#E8C166" opacity="0.2">☀</text>
                 </svg>
-                <div class="crest-seat">
-                    <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न — बड़गुजर राजपूत प्रतीक">
-                </div>
+                <div class="crest-seal">☀</div>
             </div>
-
-            <p class="eyebrow">सूर्यवंशी · बड़गुजर · सिसोदिया · रजोरा · 16वीं शताब्दी से</p>
-            <h1>ठिकाना ढाबला घोसी</h1>
-            <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
-            <p class="lede">मालवा में बड़गुजर राजपूतों का शाही ठिकाना — भगवान श्री राम के पुत्र लव के वंशज — मध्य प्रदेश के शाजापुर जिले के ढाबला घोसी में स्थित एक जीवंत सूर्यवंशी क्षत्रिय परंपरा। उज्जैन, इंदौर, भोपाल और आशावरी माता जी के पावन आशीर्वाद से जुड़ा हुआ।</p>
-
-            <div class="hero-ctas">
-                <a href="history" class="btn btn-primary">हमारा इतिहास पढ़ें</a>
-                <a href="Familytree" class="btn btn-ghost">वंशावली देखें</a>
+            <div class="loader-title">ठिकाना ढाबला घोसी</div>
+            <div class="loader-sub">
+                बड़गुजर राजपूत · 16वीं शताब्दी से
+                <span class="devnag">॥ राघवाय नमः ॥</span>
             </div>
-        </section>
-
-        <div class="battlement"></div>
-
-        <!-- ============ ORIGIN STORY ============ -->
-        <section>
-            <div class="wrap">
-                <div class="section-head">
-                    <p class="eyebrow">हमारी वंश परंपरा</p>
-                    <h2>अयोध्या से मालवा तक</h2>
-                    <div class="rule"></div>
-                </div>
-
-                <div class="panel">
-                    <p class="dropcap">ठिकाना ढाबला घोसी में आपका स्वागत है। हम एक गौरवशाली सूर्यवंशी क्षत्रिय वंश हैं, जो भगवान श्री राम के बड़े पुत्र लव के वंशज हैं। सदियों तक बड़गुजर राजवंश ने राजस्थान और पश्चिमी भारत के कई राज्यों पर शासन किया। अलवर और राजोरगढ़ हमारी विरासत के प्रमुख केंद्र रहे हैं।</p>
-                    <p>हम मध्य प्रदेश के ऐतिहासिक बड़गुजर ठिकाना ढाबला घोसी का प्रतिनिधित्व करते हैं। बड़गुजर भारत के सबसे सम्मानित क्षत्रिय योद्धा वंशों में से एक हैं। हमारे पूर्वज अपनी अदम्य वीरता, बुद्धिमान नेतृत्व और धर्म के प्रति अटूट समर्पण के लिए प्रसिद्ध थे — यही गुण आज भी हमारे परिवार की पहचान हैं।</p>
-                    <p>सिसोदिया और रजोरा शाखाएं हमारी वंशावली में जुड़ी हुई हैं, जो इस ठिकाने को राजपूताने की महान परंपरा से जोड़ती हैं। सन् 1947 में देश की आज़ादी के बाद जब रियासतें समाप्त हुईं, तब भी बड़गुजर विरासत जीवित रही — हमारे रीति-रिवाज़ों, स्मृतियों और ढाबला घोसी की धरोहर में। <strong>आशावरी माता जी</strong> के आशीर्वाद से हम पाँच सौ वर्षों से भी अधिक समय से अपनी परंपराओं को निभाते आ रहे हैं।</p>
-                </div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-fill" id="loaderProgressFill"></div>
             </div>
-        </section>
+            <div class="loader-progress-text">
+                <span>विरासत का उद्घाटन</span>
+                <span class="pct" id="loaderPct">0%</span>
+            </div>
+            <div class="loader-ornament">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
 
-        <!-- ============ THREE PILLARS ============ -->
-        <div class="section-dark">
-            <div class="wrap">
-                <div class="section-head">
-                    <p class="eyebrow" style="color:var(--gold-bright);">हम किन मूल्यों को आगे बढ़ाते हैं</p>
-                    <h2 style="color:var(--sand);">ठिकाने के तीन स्तंभ</h2>
-                    <div class="rule"></div>
-                </div>
-                <div class="pillars">
-                    <div class="pillar">
-                        <span class="num">०१</span>
-                        <h3>वंश — परंपरा</h3>
-                        <p>अयोध्या के लव से लेकर अलवर और राजोरगढ़ के सूर्यवंशी बड़गुजर शासकों तक, और आज ढाबला घोसी तक — एक अटूट वंश श्रृंखला। सिसोदिया और रजोरा की रक्तरेखाएं इसी घराने में मिलती हैं।</p>
-                    </div>
-                    <div class="pillar">
-                        <span class="num">०२</span>
-                        <h3>शौर्य — वीरता</h3>
-                        <p>राजपूताने में हिंदू संप्रभुता की रक्षा में गढ़ी गई एक योद्धा परंपरा। हर वंशज को केवल युद्धों की कहानियाँ ही नहीं, बल्कि साहस, सम्मान और दुर्बलों की रक्षा की अपेक्षा भी विरासत में मिलती है — यही सच्चा क्षत्रिय धर्म है।</p>
-                    </div>
-                    <div class="pillar">
-                        <span class="num">०३</span>
-                        <h3>परंपरा — रीति</h3>
-                        <p>आशावरी माता जी की भक्ति, त्योहार, रस्में और रिवाज़ आज भी ढाबला घोसी में जीवित हैं। <em>बन्ना-बाईसा</em> लोकगीतों की गूँज से लेकर पवित्र <em>झरोखा दर्शन</em> तक — संस्कृति को केवल याद नहीं किया जाता, जिया जाता है।</p>
-                    </div>
-                </div>
+    <!-- Main content wrapper -->
+    <div class="main-content" id="mainContent">
+
+        <a href="#main" class="skip-link">मुख्य सामग्री पर जाएं</a>
+
+        <!-- ============ LANGUAGE SWITCHER BAR ============ -->
+        <div class="lang-switcher-bar">
+            <span class="lang-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                भाषा / Language
+            </span>
+            <div class="lang-options">
+                <a href="../index.html" class="lang-option">English</a>
+                <a href="index.html" class="lang-option active" aria-current="page">
+                    <span class="devnag-text">हिन्दी</span>
+                </a>
             </div>
         </div>
 
-        <!-- ============ TIMELINE ============ -->
-        <section>
-            <div class="wrap">
-                <div class="section-head">
-                    <p class="eyebrow">संक्षिप्त इतिहास</p>
-                    <h2>ठिकाने की प्रमुख घटनाएं</h2>
-                    <div class="rule"></div>
-                </div>
+        <header>
+            <div class="nav-wrap">
+                <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
+                    <span class="crest-mini">
+                        <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न">
+                    </span>
+                    <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
+                <nav>
+                    <ul id="primaryNav">
+                        <li><a href="index.html" class="current">होम</a></li>
+                        <li><a href="history.html">इतिहास</a></li>
+                        <li><a href="Familytree.html">वंशावली</a></li>
+                        <li><a href="map.html">स्थान और नक्शा</a></li>
+                        <li><a href="dist.html">निर्देशिका</a></li>
+                        <li><a href="about.html">परिचय</a></li>
+                        <li><a href="contactus.html">संपर्क करें</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-                <div class="timeline">
-                    <div class="t-item">
-                        <p class="t-year">पौराणिक काल</p>
-                        <h4>अयोध्या के लव से वंश</h4>
-                        <p>बड़गुजर वंश अपनी सूर्यवंशी उत्पत्ति भगवान श्री राम के बड़े पुत्र लव से मानता है, जो अयोध्या के शासक थे। यह भारत की सबसे प्राचीन क्षत्रिय परंपराओं में से एक है।</p>
+        <main id="main">
+
+            <!-- ============ HERO ============ -->
+            <section class="hero" style="padding-top:48px;">
+                <div class="toran-suggestion">
+                    <span></span> खम्मा घणी सा — पधारो म्हारे ठिकाने <span></span>
+                </div>
+                <div class="jharokha">
+                    <svg class="arch-frame" viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#F0D68A"/>
+                                <stop offset="40%" stop-color="#E8C166"/>
+                                <stop offset="100%" stop-color="#A87D2A"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="2" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <path d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"
+                        fill="none" stroke="url(#goldGrad)" stroke-width="12" filter="url(#glow)"/>
+                        <path d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"
+                        fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.6"/>
+                        <g fill="#E8C166">
+                            <circle cx="190" cy="18" r="5.5"/>
+                            <circle cx="118" cy="30" r="4.5"/>
+                            <circle cx="262" cy="30" r="4.5"/>
+                            <circle cx="62" cy="78" r="4"/>
+                            <circle cx="318" cy="78" r="4"/>
+                            <circle cx="28" cy="148" r="3.5"/>
+                            <circle cx="352" cy="148" r="3.5"/>
+                        </g>
+                        <g stroke="#A87D2A" stroke-width="1.8" opacity="0.5">
+                            <path d="M18,460 V255 M38,460 V265 M58,460 V280"/>
+                            <path d="M362,460 V255 M342,460 V265 M322,460 V280"/>
+                        </g>
+                        <text x="190" y="140" font-size="70" text-anchor="middle" fill="#E8C166" opacity="0.2">☀</text>
+                    </svg>
+                    <div class="crest-seat">
+                        <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न — बड़गुजर राजपूत प्रतीक">
                     </div>
-                    <div class="t-item">
-                        <p class="t-year">मध्यकालीन राजपूताना</p>
-                        <h4>बड़गुजर राजवंश का उदय</h4>
-                        <p>बड़गुजर राजस्थान और पश्चिमी भारत में शक्तिशाली रियासतों के शासक बने। अलवर और राजोरगढ़ बड़गुजर शक्ति के प्रमुख केंद्र बन गए, जहाँ से योद्धा, प्रशासक और कला संरक्षक उभरे।</p>
+                </div>
+
+                <p class="eyebrow">सूर्यवंशी · बड़गुजर · सिसोदिया · रजोरा · 16वीं शताब्दी से</p>
+                <h1>ठिकाना ढाबला घोसी</h1>
+                <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+                <p class="lede">मालवा में बड़गुजर राजपूतों का शाही ठिकाना — भगवान श्री राम के पुत्र लव के वंशज — मध्य प्रदेश के शाजापुर जिले के ढाबला घोसी में स्थित एक जीवंत सूर्यवंशी क्षत्रिय परंपरा। उज्जैन, इंदौर, भोपाल और आशावरी माता जी के पावन आशीर्वाद से जुड़ा हुआ।</p>
+
+                <div class="hero-ctas">
+                    <a href="history" class="btn btn-primary">हमारा इतिहास पढ़ें</a>
+                    <a href="Familytree" class="btn btn-ghost">वंशावली देखें</a>
+                </div>
+            </section>
+
+            <div class="battlement"></div>
+
+            <!-- ============ ORIGIN STORY ============ -->
+            <section>
+                <div class="wrap">
+                    <div class="section-head">
+                        <p class="eyebrow">हमारी वंश परंपरा</p>
+                        <h2>अयोध्या से मालवा तक</h2>
+                        <div class="rule"></div>
                     </div>
-                    <div class="t-item">
-                        <p class="t-year">16वीं शताब्दी</p>
-                        <h4>ढाबला घोसी की स्थापना</h4>
-                        <p>बड़गुजर वंश की एक शाखा ने मालवा क्षेत्र में ढाबला घोसी में अपना ठिकाना स्थापित किया — जो आज मध्य प्रदेश का शाजापुर जिला है। यह मध्य भारत में राजपूत शासन और संस्कृति का एक नया केंद्र बना।</p>
-                    </div>
-                    <div class="t-item">
-                        <p class="t-year">1947 और उसके बाद</p>
-                        <h4>स्वतंत्रता और निरंतरता</h4>
-                        <p>भारत की स्वतंत्रता के साथ रियासतों का अंत हुआ, लेकिन ढाबला घोसी का बड़गुजर परिवार आज भी अपनी पवित्र परंपराओं, सांस्कृतिक पहचान और पैतृक धरोहर को आने वाली पीढ़ियों के लिए संजोए हुए है।</p>
+
+                    <div class="panel">
+                        <p class="dropcap">ठिकाना ढाबला घोसी में आपका स्वागत है। हम एक गौरवशाली सूर्यवंशी क्षत्रिय वंश हैं, जो भगवान श्री राम के बड़े पुत्र लव के वंशज हैं। सदियों तक बड़गुजर राजवंश ने राजस्थान और पश्चिमी भारत के कई राज्यों पर शासन किया। अलवर और राजोरगढ़ हमारी विरासत के प्रमुख केंद्र रहे हैं।</p>
+                        <p>हम मध्य प्रदेश के ऐतिहासिक बड़गुजर ठिकाना ढाबला घोसी का प्रतिनिधित्व करते हैं। बड़गुजर भारत के सबसे सम्मानित क्षत्रिय योद्धा वंशों में से एक हैं। हमारे पूर्वज अपनी अदम्य वीरता, बुद्धिमान नेतृत्व और धर्म के प्रति अटूट समर्पण के लिए प्रसिद्ध थे — यही गुण आज भी हमारे परिवार की पहचान हैं।</p>
+                        <p>सिसोदिया और रजोरा शाखाएं हमारी वंशावली में जुड़ी हुई हैं, जो इस ठिकाने को राजपूताने की महान परंपरा से जोड़ती हैं। सन् 1947 में देश की आज़ादी के बाद जब रियासतें समाप्त हुईं, तब भी बड़गुजर विरासत जीवित रही — हमारे रीति-रिवाज़ों, स्मृतियों और ढाबला घोसी की धरोहर में। <strong>आशावरी माता जी</strong> के आशीर्वाद से हम पाँच सौ वर्षों से भी अधिक समय से अपनी परंपराओं को निभाते आ रहे हैं।</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ============ VOW BANNER ============ -->
-        <div class="vow-banner">
-            <div class="ornament">✦ ❖ ✦</div>
-            <p>"वीरता, नेतृत्व और धर्म के प्रति अटूट समर्पण — यही वे गुण हैं जो पीढ़ी दर पीढ़ी हमारी पहचान बने रहे। हम बड़गुजर अग्नि के रक्षक हैं।"</p>
-            <p class="devnag-quote">॥ जय माँ आसावरी — राघवाय नमः ॥</p>
-        </div>
-
-        <!-- ============ GALLERY ============ -->
-        <section>
-            <div class="wrap">
-                <div class="section-head">
-                    <p class="eyebrow">ठिकाने की झलकियाँ</p>
-                    <h2>परिवार और विरासत की तस्वीरें</h2>
-                    <div class="rule"></div>
-                </div>
-
-                <div class="gallery-frame">
-                    <div class="gallery-viewport" id="galleryViewport">
-                         <div class="gslide active"><img src="1.jpg" alt="Badgujar family gathering at Dhabla Ghosi" loading="lazy"><span class="cap">Family Gathering</span></div>
-                        <div class="gslide"><img src="2.jpeg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
-                        <div class="gslide"><img src="3.jpeg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
-                        <div class="gslide"><img src="4.jpg" alt="Sacred heritage celebration at the thikana" loading="lazy"><span class="cap">Heritage Celebration</span></div>
-                        <div class="gslide"><img src="5.jpeg" alt="Royal family event at Dhabla Ghosi" loading="lazy"><span class="cap">Family Event</span></div>
-                        <div class="gslide"><img src="6.jpg" alt="Cultural gathering of the Badgujar clan" loading="lazy"><span class="cap">Cultural Gathering</span></div>
-                        <div class="gslide"><img src="7.jpeg" alt="The Badgujar family in formal portrait" loading="lazy"><span class="cap">Formal Portrait</span></div>
-                      
-
-                         <div class="gslide"><img src="8.jpg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
-                        <div class="gslide"><img src="9.jpg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
-                        <div class="gslide"><img src="10.jpg" alt="Sacred heritage celebration at the thikana" loading="lazy"><span class="cap">Heritage Celebration</span></div>
-                        <div class="gslide"><img src="12.jpeg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
-                        <div class="gslide"><img src="13.jpeg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
-                        <button class="gnav prev" onclick="gShift(-1)" aria-label="पिछली तस्वीर">&#10094;</button>
-                        <button class="gnav next" onclick="gShift(1)" aria-label="अगली तस्वीर">&#10095;</button>
+            <!-- ============ THREE PILLARS ============ -->
+            <div class="section-dark">
+                <div class="wrap">
+                    <div class="section-head">
+                        <p class="eyebrow" style="color:var(--gold-bright);">हम किन मूल्यों को आगे बढ़ाते हैं</p>
+                        <h2 style="color:var(--sand);">ठिकाने के तीन स्तंभ</h2>
+                        <div class="rule"></div>
                     </div>
-                    <div class="gdots" id="galleryDots"></div>
+                    <div class="pillars">
+                        <div class="pillar">
+                            <span class="num">०१</span>
+                            <h3>वंश — परंपरा</h3>
+                            <p>अयोध्या के लव से लेकर अलवर और राजोरगढ़ के सूर्यवंशी बड़गुजर शासकों तक, और आज ढाबला घोसी तक — एक अटूट वंश श्रृंखला। सिसोदिया और रजोरा की रक्तरेखाएं इसी घराने में मिलती हैं।</p>
+                        </div>
+                        <div class="pillar">
+                            <span class="num">०२</span>
+                            <h3>शौर्य — वीरता</h3>
+                            <p>राजपूताने में हिंदू संप्रभुता की रक्षा में गढ़ी गई एक योद्धा परंपरा। हर वंशज को केवल युद्धों की कहानियाँ ही नहीं, बल्कि साहस, सम्मान और दुर्बलों की रक्षा की अपेक्षा भी विरासत में मिलती है — यही सच्चा क्षत्रिय धर्म है।</p>
+                        </div>
+                        <div class="pillar">
+                            <span class="num">०३</span>
+                            <h3>परंपरा — रीति</h3>
+                            <p>आशावरी माता जी की भक्ति, त्योहार, रस्में और रिवाज़ आज भी ढाबला घोसी में जीवित हैं। <em>बन्ना-बाईसा</em> लोकगीतों की गूँज से लेकर पवित्र <em>झरोखा दर्शन</em> तक — संस्कृति को केवल याद नहीं किया जाता, जिया जाता है।</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ============ QUICK LINKS ============ -->
-        <div class="section-light">
-            <div class="wrap">
-                <div class="section-head">
-                    <p class="eyebrow">और जानें</p>
-                    <h2>ठिकाने के बारे में और गहराई से जानें</h2>
-                    <div class="rule"></div>
+            <!-- ============ TIMELINE ============ -->
+            <section>
+                <div class="wrap">
+                    <div class="section-head">
+                        <p class="eyebrow">संक्षिप्त इतिहास</p>
+                        <h2>ठिकाने की प्रमुख घटनाएं</h2>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="t-item">
+                            <p class="t-year">पौराणिक काल</p>
+                            <h4>अयोध्या के लव से वंश</h4>
+                            <p>बड़गुजर वंश अपनी सूर्यवंशी उत्पत्ति भगवान श्री राम के बड़े पुत्र लव से मानता है, जो अयोध्या के शासक थे। यह भारत की सबसे प्राचीन क्षत्रिय परंपराओं में से एक है।</p>
+                        </div>
+                        <div class="t-item">
+                            <p class="t-year">मध्यकालीन राजपूताना</p>
+                            <h4>बड़गुजर राजवंश का उदय</h4>
+                            <p>बड़गुजर राजस्थान और पश्चिमी भारत में शक्तिशाली रियासतों के शासक बने। अलवर और राजोरगढ़ बड़गुजर शक्ति के प्रमुख केंद्र बन गए, जहाँ से योद्धा, प्रशासक और कला संरक्षक उभरे।</p>
+                        </div>
+                        <div class="t-item">
+                            <p class="t-year">16वीं शताब्दी</p>
+                            <h4>ढाबला घोसी की स्थापना</h4>
+                            <p>बड़गुजर वंश की एक शाखा ने मालवा क्षेत्र में ढाबला घोसी में अपना ठिकाना स्थापित किया — जो आज मध्य प्रदेश का शाजापुर जिला है। यह मध्य भारत में राजपूत शासन और संस्कृति का एक नया केंद्र बना।</p>
+                        </div>
+                        <div class="t-item">
+                            <p class="t-year">1947 और उसके बाद</p>
+                            <h4>स्वतंत्रता और निरंतरता</h4>
+                            <p>भारत की स्वतंत्रता के साथ रियासतों का अंत हुआ, लेकिन ढाबला घोसी का बड़गुजर परिवार आज भी अपनी पवित्र परंपराओं, सांस्कृतिक पहचान और पैतृक धरोहर को आने वाली पीढ़ियों के लिए संजोए हुए है।</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="quicklinks">
-                    <a href="history.html" class="qlink">
-                        <span class="qicon">📜</span>
-                        <h4>पूरा इतिहास</h4>
-                    </a>
-                    <a href="Familytree.html" class="qlink">
-                        <span class="qicon">🌳</span>
-                        <h4>वंशावली</h4>
-                    </a>
-                    <a href="map.html" class="qlink">
-                        <span class="qicon">🗺️</span>
-                        <h4>स्थान और नक्शा</h4>
-                    </a>
-                    <a href="contactus.html" class="qlink">
-                        <span class="qicon">✉️</span>
-                        <h4>संपर्क करें</h4>
-                    </a>
+            </section>
+
+            <!-- ============ VOW BANNER ============ -->
+            <div class="vow-banner">
+                <div class="ornament">✦ ❖ ✦</div>
+                <p>"वीरता, नेतृत्व और धर्म के प्रति अटूट समर्पण — यही वे गुण हैं जो पीढ़ी दर पीढ़ी हमारी पहचान बने रहे। हम बड़गुजर अग्नि के रक्षक हैं।"</p>
+                <p class="devnag-quote">॥ जय माँ आसावरी — राघवाय नमः ॥</p>
+            </div>
+
+            <!-- ============ GALLERY ============ -->
+            <section>
+                <div class="wrap">
+                    <div class="section-head">
+                        <p class="eyebrow">ठिकाने की झलकियाँ</p>
+                        <h2>परिवार और विरासत की तस्वीरें</h2>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="gallery-frame">
+                        <div class="gallery-viewport" id="galleryViewport">
+                             <div class="gslide active"><img src="1.jpg" alt="Badgujar family gathering at Dhabla Ghosi" loading="lazy"><span class="cap">Family Gathering</span></div>
+                            <div class="gslide"><img src="2.jpeg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
+                            <div class="gslide"><img src="3.jpeg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
+                            <div class="gslide"><img src="4.jpg" alt="Sacred heritage celebration at the thikana" loading="lazy"><span class="cap">Heritage Celebration</span></div>
+                            <div class="gslide"><img src="5.jpeg" alt="Royal family event at Dhabla Ghosi" loading="lazy"><span class="cap">Family Event</span></div>
+                            <div class="gslide"><img src="6.jpg" alt="Cultural gathering of the Badgujar clan" loading="lazy"><span class="cap">Cultural Gathering</span></div>
+                            <div class="gslide"><img src="7.jpeg" alt="The Badgujar family in formal portrait" loading="lazy"><span class="cap">Formal Portrait</span></div>
+                          
+
+                             <div class="gslide"><img src="8.jpg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
+                            <div class="gslide"><img src="9.jpg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
+                            <div class="gslide"><img src="10.jpg" alt="Sacred heritage celebration at the thikana" loading="lazy"><span class="cap">Heritage Celebration</span></div>
+                            <div class="gslide"><img src="12.jpeg" alt="Traditional Rajput ceremony with heritage decor" loading="lazy"><span class="cap">Traditional Ceremony</span></div>
+                            <div class="gslide"><img src="13.jpeg" alt="Ancestral Badgujar family portrait" loading="lazy"><span class="cap">Family Portrait</span></div>
+                            <button class="gnav prev" onclick="gShift(-1)" aria-label="पिछली तस्वीर">&#10094;</button>
+                            <button class="gnav next" onclick="gShift(1)" aria-label="अगली तस्वीर">&#10095;</button>
+                        </div>
+                        <div class="gdots" id="galleryDots"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ QUICK LINKS ============ -->
+            <div class="section-light">
+                <div class="wrap">
+                    <div class="section-head">
+                        <p class="eyebrow">और जानें</p>
+                        <h2>ठिकाने के बारे में और गहराई से जानें</h2>
+                        <div class="rule"></div>
+                    </div>
+                    <div class="quicklinks">
+                        <a href="history.html" class="qlink">
+                            <span class="qicon">📜</span>
+                            <h4>पूरा इतिहास</h4>
+                        </a>
+                        <a href="Familytree.html" class="qlink">
+                            <span class="qicon">🌳</span>
+                            <h4>वंशावली</h4>
+                        </a>
+                        <a href="map.html" class="qlink">
+                            <span class="qicon">🗺️</span>
+                            <h4>स्थान और नक्शा</h4>
+                        </a>
+                        <a href="contactus.html" class="qlink">
+                            <span class="qicon">✉️</span>
+                            <h4>संपर्क करें</h4>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </main>
+        </main>
 
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h5>ठिकाना ढाबला घोसी</h5>
-                <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
-                <p class="footer-location">
-                    उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ
-                    <span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span>
-                </p>
-                <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                    </a>
-                    <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल">
-                        <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                    </a>
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h5>ठिकाना ढाबला घोसी</h5>
+                    <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
+                    <p class="footer-location">
+                        उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ
+                        <span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span>
+                    </p>
+                    <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </a>
+                        <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल">
+                            <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                <h5>नेविगेट करें</h5>
+                    <ul>
+                        <li><a href="index.html">होम</a></li>
+                        <li><a href="history.html">इतिहास</a></li>
+                        <li><a href="familytree.html">वंशावली</a></li>
+                        <li><a href="map.html">स्थान और नक्शा</a></li>
+                        <li><a href="dist.html">निर्देशिका</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>जानकारी</h5>
+                    <ul>
+                        <li><a href="about.html">परिचय</a></li>
+                        <li><a href="contactus.html">संपर्क करें</a></li>
+                        <li><a href="privacy.html">गोपनीयता नीति</a></li>
+                        <li><a href="terms.html">नियम एवं शर्तें</a></li>
+                        <li><a href="sitemap.html">साइटमैप</a></li>
+                    </ul>
                 </div>
             </div>
-            <div>
-            <h5>नेविगेट करें</h5>
-                <ul>
-                    <li><a href="index.html">होम</a></li>
-                    <li><a href="history.html">इतिहास</a></li>
-                    <li><a href="familytree.html">वंशावली</a></li>
-                    <li><a href="map.html">स्थान और नक्शा</a></li>
-                    <li><a href="dist.html">निर्देशिका</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">होम</a><span>|</span>
+                    <a href="history.html">इतिहास</a><span>|</span>
+                    <a href="familytree.html">वंशावली</a><span>|</span>
+                    <a href="map.html">स्थान और नक्शा</a><span>|</span>
+                    <a href="dist.html">निर्देशिका</a><span>|</span>
+                    <a href="about.html">परिचय</a><span>|</span>
+                    <a href="contactus.html">संपर्क करें</a><span>|</span>
+                    <a href="privacy.html">गोपनीयता नीति</a><span>|</span>
+                    <a href="terms.html">नियम एवं शर्तें</a><span>|</span>
+                    <a href="sitemap.html">साइटमैप</a>
+                </div>
+                <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
             </div>
-            <div>
-                <h5>जानकारी</h5>
-                <ul>
-                    <li><a href="about.html">परिचय</a></li>
-                    <li><a href="contactus.html">संपर्क करें</a></li>
-                    <li><a href="privacy.html">गोपनीयता नीति</a></li>
-                    <li><a href="terms.html">नियम एवं शर्तें</a></li>
-                    <li><a href="sitemap.html">साइटमैप</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="index.html">होम</a><span>|</span>
-                <a href="history.html">इतिहास</a><span>|</span>
-                <a href="familytree.html">वंशावली</a><span>|</span>
-                <a href="map.html">स्थान और नक्शा</a><span>|</span>
-                <a href="dist.html">निर्देशिका</a><span>|</span>
-                <a href="about.html">परिचय</a><span>|</span>
-                <a href="contactus.html">संपर्क करें</a><span>|</span>
-                <a href="privacy.html">गोपनीयता नीति</a><span>|</span>
-                <a href="terms.html">नियम एवं शर्तें</a><span>|</span>
-                <a href="sitemap.html">साइटमैप</a>
-            </div>
-            <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
-        </div>
-    </footer>
+        </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    </div><!-- /main-content -->
+
     <script>
-        // Mobile nav toggle
+        // ============ HERITAGE LOADER LOGIC ============
+        (function() {
+            const loader = document.getElementById('heritageLoader');
+            const progressFill = document.getElementById('loaderProgressFill');
+            const pctText = document.getElementById('loaderPct');
+            const mainContent = document.getElementById('mainContent');
+
+            let progress = 0;
+            let loaded = false;
+
+            const interval = setInterval(() => {
+                if (loaded) return;
+                const increment = Math.floor(Math.random() * 14) + 5;
+                progress = Math.min(progress + increment, 100);
+                progressFill.style.width = progress + '%';
+                pctText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 400);
+                }
+            }, 180);
+
+            setTimeout(() => {
+                if (!loaded) {
+                    clearInterval(interval);
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    pctText.textContent = '100%';
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 300);
+                }
+            }, 6000);
+
+            window.addEventListener('load', () => {
+                if (!loaded) {
+                    setTimeout(() => {
+                        if (!loaded) {
+                            clearInterval(interval);
+                            progress = 100;
+                            progressFill.style.width = '100%';
+                            pctText.textContent = '100%';
+                            loaded = true;
+                            setTimeout(() => {
+                                loader.classList.add('loaded');
+                                mainContent.classList.add('revealed');
+                                setTimeout(() => {
+                                    loader.style.display = 'none';
+                                }, 900);
+                            }, 300);
+                        }
+                    }, 600);
+                }
+            });
+        })();
+
+        // ============ MOBILE NAV TOGGLE ============
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
         navToggle.addEventListener('click', () => {
@@ -1087,7 +1405,7 @@
             }
         });
 
-        // Gallery
+        // ============ GALLERY ============
         const slides = Array.from(document.querySelectorAll('.gslide'));
         const dotsWrap = document.getElementById('galleryDots');
         let idx = 0;
@@ -1120,8 +1438,8 @@
         });
     </script>
     <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
-<script src="/track.js" defer></script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    <script src="/track.js" defer></script>
 </body>
 </html>
