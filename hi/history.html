@@ -89,6 +89,210 @@
         img { max-width: 100%; display: block; height: auto; }
         :focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; border-radius: 2px; }
 
+        /* ============ HERITAGE LOADER ============ */
+        .heritage-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #2B1810, #1C0F0A 85%);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+            overflow: hidden;
+        }
+        .heritage-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(201, 154, 58, 0.03) 0 2px, transparent 2px 32px);
+            pointer-events: none;
+        }
+        .heritage-loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(28, 15, 10, 0.6) 90%);
+            pointer-events: none;
+        }
+        .loader-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: loaderReveal 1.4s ease-out;
+        }
+        @keyframes loaderReveal {
+            0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .loader-arch {
+            width: 160px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 0 30px rgba(232, 193, 102, 0.25));
+        }
+        .loader-arch svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .loader-arch .arch-path {
+            fill: none;
+            stroke: url(#loaderGoldGrad);
+            stroke-width: 4;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawArch 2.2s ease-in-out infinite alternate;
+        }
+        @keyframes drawArch {
+            0% { stroke-dashoffset: 600; opacity: 0.4; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        .loader-arch .arch-inner {
+            fill: none;
+            stroke: rgba(232, 193, 102, 0.3);
+            stroke-width: 1.2;
+            stroke-dasharray: 8 12;
+            animation: rotateSlow 12s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes rotateSlow {
+            to { transform: rotate(360deg); }
+        }
+        .loader-arch .crest-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -42%);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 2.5px solid var(--gold-bright);
+            box-shadow: 0 0 24px rgba(232, 193, 102, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display-decorative);
+            font-size: 1.6rem;
+            color: var(--lac);
+            animation: pulseSeal 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseSeal {
+            0%, 100% { box-shadow: 0 0 24px rgba(232, 193, 102, 0.35); transform: translate(-50%, -42%) scale(1); }
+            50% { box-shadow: 0 0 42px rgba(232, 193, 102, 0.65); transform: translate(-50%, -42%) scale(1.04); }
+        }
+
+        .loader-title {
+            font-family: var(--devnag);
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: var(--gold-bright);
+            letter-spacing: 0.02em;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.3;
+        }
+        .loader-sub {
+            font-family: var(--devnag);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            color: var(--ash);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .loader-sub .devnag {
+            color: var(--gold-pale);
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .loader-progress-wrap {
+            width: 240px;
+            height: 3px;
+            background: rgba(201, 154, 58, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+        .loader-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold-pale));
+            border-radius: 4px;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(232, 193, 102, 0.6);
+            animation: shimmerBar 1.8s linear infinite;
+        }
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loader-progress-text {
+            margin-top: 12px;
+            font-family: var(--devnag);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--ash);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .loader-progress-text .pct {
+            color: var(--gold-bright);
+            font-weight: 600;
+            min-width: 2.6em;
+            text-align: right;
+            font-size: 0.75rem;
+        }
+
+        .loader-ornament {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .loader-ornament span {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dotPulse 1.4s ease-in-out infinite;
+        }
+        .loader-ornament span:nth-child(2) { animation-delay: 0.2s; }
+        .loader-ornament span:nth-child(3) { animation-delay: 0.4s; }
+        .loader-ornament span:nth-child(4) { animation-delay: 0.6s; }
+        .loader-ornament span:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.3); background: var(--gold-bright); }
+        }
+
+        .heritage-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .main-content {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+        }
+        .main-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ============ LANGUAGE SWITCHER BAR ============ */
         .lang-switcher-bar {
             background: var(--wood-deep);
@@ -487,260 +691,375 @@
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">मुख्य सामग्री पर जाएं</a>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher-bar">
-        <span class="lang-label">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            भाषा / Language
-        </span>
-        <div class="lang-options">
-            <a href="../history.html" class="lang-option">English</a>
-            <a href="history.html" class="lang-option active" aria-current="page">
-                <span class="devnag-text">हिन्दी</span>
-            </a>
+    <!-- ============ HERITAGE LOADER ============ -->
+    <div class="heritage-loader" id="heritageLoader" aria-label="ठिकाना ढाबला घोसी लोड हो रहा है" role="status">
+        <div class="loader-content">
+            <div class="loader-arch">
+                <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="loaderGoldGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#F0D68A"/>
+                            <stop offset="40%" stop-color="#E8C166"/>
+                            <stop offset="100%" stop-color="#A87D2A"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="arch-path" d="M20,460 V200 C20,85 100,18 190,18 C280,18 360,85 360,200 V460"/>
+                    <path class="arch-inner" d="M46,460 V205 C46,105 112,46 190,46 C268,46 334,105 334,205 V460"/>
+                    <g fill="#E8C166" opacity="0.85">
+                        <circle cx="190" cy="18" r="5"/>
+                        <circle cx="118" cy="30" r="4"/>
+                        <circle cx="262" cy="30" r="4"/>
+                        <circle cx="62" cy="78" r="3.5"/>
+                        <circle cx="318" cy="78" r="3.5"/>
+                    </g>
+                </svg>
+                <div class="crest-seal">☀</div>
+            </div>
+            <div class="loader-title">ठिकाना ढाबला घोसी</div>
+            <div class="loader-sub">
+                इतिहास · योद्धा विरासत
+                <span class="devnag">॥ राघवाय नमः ॥</span>
+            </div>
+            <div class="loader-progress-wrap">
+                <div class="loader-progress-fill" id="loaderProgressFill"></div>
+            </div>
+            <div class="loader-progress-text">
+                <span>अतीत का वर्णन</span>
+                <span class="pct" id="loaderPct">0%</span>
+            </div>
+            <div class="loader-ornament">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
     </div>
 
+    <!-- Main content wrapper -->
+    <div class="main-content" id="mainContent">
 
-    <header>
-        <div class="nav-wrap">
-            <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
-                <span class="crest-mini">
-                    <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न">
-                </span>
-                <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
-            <nav>
-                <ul id="primaryNav">
-                    <li><a href="index.html">होम</a></li>
-                    <li><a href="history.html" class="current">इतिहास</a></li>
-                    <li><a href="Familytree.html">वंशावली</a></li>
-                    <li><a href="map.html">स्थान और नक्शा</a></li>
-                    <li><a href="dist.html">निर्देशिका</a></li>
-                    <li><a href="about.html">परिचय</a></li>
-                    <li><a href="contactus.html">संपर्क करें</a></li>
-                </ul>
-            </nav>
+        <a href="#main-content" class="skip-link">मुख्य सामग्री पर जाएं</a>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher-bar">
+            <span class="lang-label">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                भाषा / Language
+            </span>
+            <div class="lang-options">
+                <a href="../history.html" class="lang-option">English</a>
+                <a href="history.html" class="lang-option active" aria-current="page">
+                    <span class="devnag-text">हिन्दी</span>
+                </a>
+            </div>
         </div>
-    </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <p class="eyebrow">सूर्यवंशी · बड़गुजर · योद्धा वंश</p>
-        <h1>गौरवशाली इतिहास</h1>
-        <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
-    </section>
-
-    <div class="battlement"></div>
-
-    <!-- Main Content -->
-    <main id="main-content" class="content-section">
-        <div class="wrap">
-
-            <!-- परिचय -->
-            <div class="panel">
-                <h2>🏰 बड़गुजर राजपूतों की विरासत</h2>
-                <p class="dropcap">बड़गुजर राजपूत एक महान योद्धा वंश हैं, जिन्होंने भारतीय इतिहास में विशेषकर राजस्थान और मध्य प्रदेश के क्षेत्रों में अपनी अमिट छाप छोड़ी है। भगवान श्री राम के बड़े पुत्र <strong>लव</strong> से अपनी वंश परंपरा मानने वाले बड़गुजरों ने सन् 1947 में भारत की स्वतंत्रता से पहले कई राज्यों और रियासतों पर शासन किया। अपनी वीरता, सैन्य कौशल और प्रशासनिक दक्षता के लिए प्रसिद्ध बड़गुजर राजपूतों ने मध्य भारत के इतिहास और संस्कृति को आकार देने में महत्वपूर्ण भूमिका निभाई। उनकी विरासत केवल राजाओं और राज्यों की कहानी नहीं है, बल्कि साहस, सम्मान और सांस्कृतिक संरक्षण की एक जीवंत गाथा है।</p>
+        <header>
+            <div class="nav-wrap">
+                <a href="index.html" class="brandmark" aria-label="ठिकाना ढाबला घोसी — मुख्य पृष्ठ पर वापस जाएं">
+                    <span class="crest-mini">
+                        <img src="../thikanadhabla.jpeg" alt="ठिकाना ढाबला घोसी का शाही चिह्न">
+                    </span>
+                    <span class="word">ठिकाना ढाबला घोसी<strong>बड़गुजर राजपूत वंश</strong></span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">मेनू ☰</button>
+                <nav>
+                    <ul id="primaryNav">
+                        <li><a href="index.html">होम</a></li>
+                        <li><a href="history.html" class="current">इतिहास</a></li>
+                        <li><a href="Familytree.html">वंशावली</a></li>
+                        <li><a href="map.html">स्थान और नक्शा</a></li>
+                        <li><a href="dist.html">निर्देशिका</a></li>
+                        <li><a href="about.html">परिचय</a></li>
+                        <li><a href="contactus.html">संपर्क करें</a></li>
+                    </ul>
+                </nav>
             </div>
+        </header>
 
-            <!-- मध्य प्रदेश में बड़गुजर -->
-            <div class="panel">
-                <h2>⚔️ मध्य प्रदेश में बड़गुजर राजपूत</h2>
-                <p>मध्य प्रदेश कई प्रमुख बड़गुजर राजपूत ठिकानों का घर रहा है, जिनमें शामिल हैं:</p>
-                <ul>
-                    <li><strong>ठि. ढाबला घोसी</strong> — हमारे परिवार का पैतृक ठिकाना</li>
-                    <li>डाबला धीर</li>
-                    <li>दड़िया खेड़ी</li>
-                    <li>कमालपुर</li>
-                    <li>साधन खेड़ी</li>
-                </ul>
-                <p>इस क्षेत्र में बड़गुजर राजपूतों की सबसे महत्वपूर्ण शाखाओं में से एक <strong>रायज़ादा शाखा</strong> थी, जिसके पास विदिशा में बारह गाँवों की जागीर थी। यह जागीर राजा रायसिंह बड़गुजर को मराठों द्वारा प्रदान की गई थी। मध्य प्रदेश में बड़गुजर राजपूतों की मुख्य शाखाएँ थीं:</p>
-                <ul>
-                    <li><strong>भोजावत</strong></li>
-                    <li><strong>धर्मांगद</strong></li>
-                    <li><strong>रायज़ादा</strong></li>
-                </ul>
-                <p>इनमें से प्रत्येक शाखा ने क्षेत्र के शासन और सांस्कृतिक विरासत में योगदान दिया।</p>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <p class="eyebrow">सूर्यवंशी · बड़गुजर · योद्धा वंश</p>
+            <h1>गौरवशाली इतिहास</h1>
+            <p class="devnag-line">॥ राघवाय नमः — जय माँ आसावरी ॥</p>
+        </section>
+
+        <div class="battlement"></div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="content-section">
+            <div class="wrap">
+
+                <!-- परिचय -->
+                <div class="panel">
+                    <h2>🏰 बड़गुजर राजपूतों की विरासत</h2>
+                    <p class="dropcap">बड़गुजर राजपूत एक महान योद्धा वंश हैं, जिन्होंने भारतीय इतिहास में विशेषकर राजस्थान और मध्य प्रदेश के क्षेत्रों में अपनी अमिट छाप छोड़ी है। भगवान श्री राम के बड़े पुत्र <strong>लव</strong> से अपनी वंश परंपरा मानने वाले बड़गुजरों ने सन् 1947 में भारत की स्वतंत्रता से पहले कई राज्यों और रियासतों पर शासन किया। अपनी वीरता, सैन्य कौशल और प्रशासनिक दक्षता के लिए प्रसिद्ध बड़गुजर राजपूतों ने मध्य भारत के इतिहास और संस्कृति को आकार देने में महत्वपूर्ण भूमिका निभाई। उनकी विरासत केवल राजाओं और राज्यों की कहानी नहीं है, बल्कि साहस, सम्मान और सांस्कृतिक संरक्षण की एक जीवंत गाथा है।</p>
+                </div>
+
+                <!-- मध्य प्रदेश में बड़गुजर -->
+                <div class="panel">
+                    <h2>⚔️ मध्य प्रदेश में बड़गुजर राजपूत</h2>
+                    <p>मध्य प्रदेश कई प्रमुख बड़गुजर राजपूत ठिकानों का घर रहा है, जिनमें शामिल हैं:</p>
+                    <ul>
+                        <li><strong>ठि. ढाबला घोसी</strong> — हमारे परिवार का पैतृक ठिकाना</li>
+                        <li>डाबला धीर</li>
+                        <li>दड़िया खेड़ी</li>
+                        <li>कमालपुर</li>
+                        <li>साधन खेड़ी</li>
+                    </ul>
+                    <p>इस क्षेत्र में बड़गुजर राजपूतों की सबसे महत्वपूर्ण शाखाओं में से एक <strong>रायज़ादा शाखा</strong> थी, जिसके पास विदिशा में बारह गाँवों की जागीर थी। यह जागीर राजा रायसिंह बड़गुजर को मराठों द्वारा प्रदान की गई थी। मध्य प्रदेश में बड़गुजर राजपूतों की मुख्य शाखाएँ थीं:</p>
+                    <ul>
+                        <li><strong>भोजावत</strong></li>
+                        <li><strong>धर्मांगद</strong></li>
+                        <li><strong>रायज़ादा</strong></li>
+                    </ul>
+                    <p>इनमें से प्रत्येक शाखा ने क्षेत्र के शासन और सांस्कृतिक विरासत में योगदान दिया।</p>
+                </div>
+
+                <!-- ढाबला घोसी रियासत -->
+                <div class="panel">
+                    <h2>🏯 ढाबला घोसी रियासत: बड़गुजर विरासत का प्रतीक</h2>
+                    <p>सबसे उल्लेखनीय बड़गुजर ठिकानों में से एक <strong>ठि. ढाबला घोसी</strong> था, जिसका इतिहास <strong>राजा गोगा देव</strong> (राजगढ़-मचाड़ी) की विरासत से जुड़ा है। उनके दूसरे पुत्र भोजराज जी मचाड़ी से बनावड़ चले गए, जहाँ उनके वंशज पाँच पीढ़ियों तक रहे। ढाबला घोसी की वंशावली इस प्रकार है:</p>
+                    <ul>
+                        <li>रुद्र जी → देश जी → मदनमाल जी → ज्ञान सहाय जी → खण्डेराय जी</li>
+                    </ul>
+                    <p>खण्डेराय जी बाद में बनावड़ से खीचीवाड़ा के कोटड़ा चले गए, जहाँ उनके उत्तराधिकारियों ने शासन जारी रखा। उनके वंशजों में करण सिंह जी, कुंभा जी, दशरथ जी, मोहकम सिंह जी, गुमान सिंह जी, रघुनाथ सिंह जी और अचल सिंह जी शामिल थे।</p>
+                    <p>अचल सिंह जी के दो पुत्र थे — <strong>गोवर्धन सिंह और जोरावर सिंह</strong>। सन् 1818 में लॉर्ड हेस्टिंग्स द्वारा मराठों की हार के बाद, <strong>ढाबला घोसी को गारंटी रियासत घोषित किया गया</strong>। इस रियासत को विभिन्न शासकों से वार्षिक आर्थिक सहायता मिलती थी:</p>
+
+                    <table class="history-table">
+                        <thead>
+                            <tr><th>शासक</th><th>वार्षिक सहायता (₹)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>सिंधिया</td><td>4,000</td></tr>
+                            <tr><td>देवास</td><td>100</td></tr>
+                            <tr><td>भोपाल दरबार</td><td>900</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>इसके अतिरिक्त, ग्वालियर राज्य के अंतर्गत उनके पास एक गाँव था जिससे ₹1,050 का राजस्व प्राप्त होता था। सन् 1854 में राव गोवर्धन सिंह के निधन के बाद, उनके पुत्र <strong>राव गोपाल सिंह</strong> ने शासन संभाला, और उनके बाद <strong>राव चंद सिंह</strong> ठि. ढाबला घोसी के शासक बने।</p>
+
+                    <h3>👑 ठि. ढाबला घोसी के उत्तराधिकारी</h3>
+                    <p>राव चंद सिंह के पाँच पुत्र थे:</p>
+                    <ul>
+                        <li>राव हनुवत सिंह</li>
+                        <li>जोरावर सिंह</li>
+                        <li><strong>केसरी सिंह</strong></li>
+                        <li>हकीम सिंह</li>
+                        <li>हुकम सिंह</li>
+                    </ul>
+                    <p>जब राव हनुवत सिंह निःसंतान स्वर्गवासी हुए, तब केसरी सिंह के पुत्र उनके भतीजे <strong>भूपेंद्र सिंह</strong> ढाबला घोसी के शासक बने। परिवार का प्रभाव पांडा (तहसील शुजालपुर) और बबरोदा (ठिकाना उमरी, गुना जिले के पास) जैसे गाँवों तक फैला हुआ था, जो उनकी स्थायी विरासत को दर्शाता है।</p>
+                </div>
+
+                <!-- सूर्यवंशी वंश विवरण -->
+                <div class="panel">
+                    <h2>📜 सूर्यवंशी बड़गुजर राजपूत वंश विवरण</h2>
+                    <table class="history-table">
+                        <thead><tr><th>#</th><th>श्रेणी</th><th>विवरण</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>वंश</td><td>सूर्यवंश</td></tr>
+                            <tr><td>2</td><td>गोत्र</td><td>कश्यप</td></tr>
+                            <tr><td>3</td><td>पैतृक भूमि</td><td>अयोध्या</td></tr>
+                            <tr><td>4</td><td>शाखा</td><td>मरदाध्वनी</td></tr>
+                            <tr><td>5</td><td>सूत्र</td><td>कात्यायनी</td></tr>
+                            <tr><td>6</td><td>गुरु</td><td>वशिष्ठ</td></tr>
+                            <tr><td>7</td><td>वेद</td><td>यजुर्वेद</td></tr>
+                            <tr><td>8</td><td>नदी</td><td>सरयू</td></tr>
+                            <tr><td>9</td><td>कुलदेवी</td><td>आशावरी माता</td></tr>
+                            <tr><td>10</td><td>तलवार</td><td>सकल (विजयलक्ष्मी)</td></tr>
+                            <tr><td>11</td><td>ध्वज चिह्न</td><td>पंचायन</td></tr>
+                            <tr><td>12</td><td>पवित्र वृक्ष</td><td>अशोक</td></tr>
+                            <tr><td>13</td><td>आराध्य देव</td><td>श्री सीताराम जी</td></tr>
+                            <tr><td>14</td><td>कुलदेव</td><td>नीलकंठ महादेव जी</td></tr>
+                            <tr><td>15</td><td>अभिवादन</td><td>जय रघुनाथ जी</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- चार धाम और आठ शाखाएं -->
+                <div class="panel">
+                    <h2>🕉️ बड़गुजर वंश के चार पवित्र स्थान (धाम)</h2>
+                    <ul>
+                        <li><strong>मचाड़ी</strong> — पैतृक स्थान</li>
+                        <li><strong>देवती</strong></li>
+                        <li><strong>कोलेश्वर</strong></li>
+                        <li><strong>काकावाड़ी</strong></li>
+                    </ul>
+                </div>
+
+                <div class="panel">
+                    <h2>🌿 बड़गुजर राजपूत सूर्यवंश की आठ शाखाएँ</h2>
+                    <ul>
+                        <li><strong>रजोरा बड़गुजर</strong> (राजोरागढ़)</li>
+                        <li><strong>सिकरवार</strong> (सिकरी)</li>
+                        <li><strong>खंडारा</strong> (अनूपशहर, भोड़सी)</li>
+                        <li><strong>मराड़</strong> (पानीपत, करनाल)</li>
+                        <li><strong>रायज़ादा</strong> (विदिशा, भेंलसा)</li>
+                        <li><strong>मुंजवाल</strong> (समाहड़ा)</li>
+                        <li><strong>पोकरना</strong> (पोकरण)</li>
+                        <li><strong>कन्नौजिया बड़गुजर</strong> (सुरगज, उ.प्र.)</li>
+                    </ul>
+                </div>
+
+                <!-- भारतीय इतिहास में भूमिका -->
+                <div class="panel">
+                    <h2>⚔️ भारतीय इतिहास में बड़गुजरों की भूमिका</h2>
+                    <p>बड़गुजर राजपूत केवल शासक ही नहीं थे, बल्कि अपनी भूमि और संस्कृति के रक्षक भी थे। उन्होंने मराठों, राजपूतों और मुगलों के शासनकाल के दौरान विदेशी आक्रमणों का विरोध करने और क्षेत्रीय स्थिरता बनाए रखने में महत्वपूर्ण भूमिका निभाई। उनकी सैन्य रणनीतियों और प्रशासनिक कौशल ने उनके क्षेत्रों की समृद्धि सुनिश्चित की, जिससे वे मध्य और पश्चिमी भारत की शक्ति गतिशीलता में प्रमुख भूमिका निभाने वाले बन गए।</p>
+                </div>
+
+                <!-- सांस्कृतिक योगदान -->
+                <div class="panel">
+                    <h2>🎨 सांस्कृतिक और सामाजिक योगदान</h2>
+                    <p>अपनी सैन्य उपलब्धियों से परे, बड़गुजर राजपूतों ने मध्य प्रदेश के सांस्कृतिक और सामाजिक ढाँचे में महत्वपूर्ण योगदान दिया। उन्होंने किले, महल और मंदिर बनवाए जो उनकी स्थापत्य कला के प्रमाण के रूप में खड़े हैं। कला, साहित्य और धार्मिक संस्थानों को उनके संरक्षण ने राजपूताना परंपराओं को संरक्षित करने में मदद की, जो आज भी क्षेत्र की संस्कृति को प्रभावित करती हैं।</p>
+                </div>
+
+                <!-- आधुनिक विरासत -->
+                <div class="panel">
+                    <h2>🌟 बड़गुजर राजपूतों की आधुनिक विरासत</h2>
+                    <p>आज बड़गुजर राजपूत आधुनिक समय के अनुसार ढलते हुए अपनी विरासत का सम्मान कर रहे हैं। कई वंशज राजनीति, प्रशासन और समाज सेवा में सक्रिय हैं, जिससे वंश की विरासत प्रासंगिक बनी रहे। <strong>ढाबला घोसी</strong> जैसी ऐतिहासिक रियासतें उनके गौरवशाली अतीत की याद दिलाती हैं, जबकि सांस्कृतिक आयोजन और पारिवारिक अभिलेख उनकी परंपराओं को जीवित रखते हैं।</p>
+
+                    <div class="closing-quote">
+                        <p>"वीर भोग्या वसुंधरा" — वीर ही धरती का उपभोग करते हैं</p>
+                        <p style="font-size: 0.95rem; margin-top: 10px; color: var(--smoke); font-style: normal;">मध्य प्रदेश के बड़गुजर राजपूतों ने एक ऐसी स्थायी विरासत छोड़ी है जो समय की सीमाओं से परे है। उनकी वीरतापूर्ण लड़ाइयों और प्रशासनिक उत्कृष्टता से लेकर उनके सांस्कृतिक योगदान तक, क्षेत्र के इतिहास पर उनका प्रभाव निर्विवाद है। बड़गुजर राजपूतों की कहानी भारतीय इतिहास का केवल एक अध्याय नहीं है, बल्कि सम्मान, साहस और सहनशीलता की अटल भावना का प्रमाण है।</p>
+                    </div>
+                </div>
+
             </div>
+        </main>
 
-            <!-- ढाबला घोसी रियासत -->
-            <div class="panel">
-                <h2>🏯 ढाबला घोसी रियासत: बड़गुजर विरासत का प्रतीक</h2>
-                <p>सबसे उल्लेखनीय बड़गुजर ठिकानों में से एक <strong>ठि. ढाबला घोसी</strong> था, जिसका इतिहास <strong>राजा गोगा देव</strong> (राजगढ़-मचाड़ी) की विरासत से जुड़ा है। उनके दूसरे पुत्र भोजराज जी मचाड़ी से बनावड़ चले गए, जहाँ उनके वंशज पाँच पीढ़ियों तक रहे। ढाबला घोसी की वंशावली इस प्रकार है:</p>
-                <ul>
-                    <li>रुद्र जी → देश जी → मदनमाल जी → ज्ञान सहाय जी → खण्डेराय जी</li>
-                </ul>
-                <p>खण्डेराय जी बाद में बनावड़ से खीचीवाड़ा के कोटड़ा चले गए, जहाँ उनके उत्तराधिकारियों ने शासन जारी रखा। उनके वंशजों में करण सिंह जी, कुंभा जी, दशरथ जी, मोहकम सिंह जी, गुमान सिंह जी, रघुनाथ सिंह जी और अचल सिंह जी शामिल थे।</p>
-                <p>अचल सिंह जी के दो पुत्र थे — <strong>गोवर्धन सिंह और जोरावर सिंह</strong>। सन् 1818 में लॉर्ड हेस्टिंग्स द्वारा मराठों की हार के बाद, <strong>ढाबला घोसी को गारंटी रियासत घोषित किया गया</strong>। इस रियासत को विभिन्न शासकों से वार्षिक आर्थिक सहायता मिलती थी:</p>
-
-                <table class="history-table">
-                    <thead>
-                        <tr><th>शासक</th><th>वार्षिक सहायता (₹)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>सिंधिया</td><td>4,000</td></tr>
-                        <tr><td>देवास</td><td>100</td></tr>
-                        <tr><td>भोपाल दरबार</td><td>900</td></tr>
-                    </tbody>
-                </table>
-
-                <p>इसके अतिरिक्त, ग्वालियर राज्य के अंतर्गत उनके पास एक गाँव था जिससे ₹1,050 का राजस्व प्राप्त होता था। सन् 1854 में राव गोवर्धन सिंह के निधन के बाद, उनके पुत्र <strong>राव गोपाल सिंह</strong> ने शासन संभाला, और उनके बाद <strong>राव चंद सिंह</strong> ठि. ढाबला घोसी के शासक बने।</p>
-
-                <h3>👑 ठि. ढाबला घोसी के उत्तराधिकारी</h3>
-                <p>राव चंद सिंह के पाँच पुत्र थे:</p>
-                <ul>
-                    <li>राव हनुवत सिंह</li>
-                    <li>जोरावर सिंह</li>
-                    <li><strong>केसरी सिंह</strong></li>
-                    <li>हकीम सिंह</li>
-                    <li>हुकम सिंह</li>
-                </ul>
-                <p>जब राव हनुवत सिंह निःसंतान स्वर्गवासी हुए, तब केसरी सिंह के पुत्र उनके भतीजे <strong>भूपेंद्र सिंह</strong> ढाबला घोसी के शासक बने। परिवार का प्रभाव पांडा (तहसील शुजालपुर) और बबरोदा (ठिकाना उमरी, गुना जिले के पास) जैसे गाँवों तक फैला हुआ था, जो उनकी स्थायी विरासत को दर्शाता है।</p>
-            </div>
-
-            <!-- सूर्यवंशी वंश विवरण -->
-            <div class="panel">
-                <h2>📜 सूर्यवंशी बड़गुजर राजपूत वंश विवरण</h2>
-                <table class="history-table">
-                    <thead><tr><th>#</th><th>श्रेणी</th><th>विवरण</th></tr></thead>
-                    <tbody>
-                        <tr><td>1</td><td>वंश</td><td>सूर्यवंश</td></tr>
-                        <tr><td>2</td><td>गोत्र</td><td>कश्यप</td></tr>
-                        <tr><td>3</td><td>पैतृक भूमि</td><td>अयोध्या</td></tr>
-                        <tr><td>4</td><td>शाखा</td><td>मरदाध्वनी</td></tr>
-                        <tr><td>5</td><td>सूत्र</td><td>कात्यायनी</td></tr>
-                        <tr><td>6</td><td>गुरु</td><td>वशिष्ठ</td></tr>
-                        <tr><td>7</td><td>वेद</td><td>यजुर्वेद</td></tr>
-                        <tr><td>8</td><td>नदी</td><td>सरयू</td></tr>
-                        <tr><td>9</td><td>कुलदेवी</td><td>आशावरी माता</td></tr>
-                        <tr><td>10</td><td>तलवार</td><td>सकल (विजयलक्ष्मी)</td></tr>
-                        <tr><td>11</td><td>ध्वज चिह्न</td><td>पंचायन</td></tr>
-                        <tr><td>12</td><td>पवित्र वृक्ष</td><td>अशोक</td></tr>
-                        <tr><td>13</td><td>आराध्य देव</td><td>श्री सीताराम जी</td></tr>
-                        <tr><td>14</td><td>कुलदेव</td><td>नीलकंठ महादेव जी</td></tr>
-                        <tr><td>15</td><td>अभिवादन</td><td>जय रघुनाथ जी</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- चार धाम और आठ शाखाएं -->
-            <div class="panel">
-                <h2>🕉️ बड़गुजर वंश के चार पवित्र स्थान (धाम)</h2>
-                <ul>
-                    <li><strong>मचाड़ी</strong> — पैतृक स्थान</li>
-                    <li><strong>देवती</strong></li>
-                    <li><strong>कोलेश्वर</strong></li>
-                    <li><strong>काकावाड़ी</strong></li>
-                </ul>
-            </div>
-
-            <div class="panel">
-                <h2>🌿 बड़गुजर राजपूत सूर्यवंश की आठ शाखाएँ</h2>
-                <ul>
-                    <li><strong>रजोरा बड़गुजर</strong> (राजोरागढ़)</li>
-                    <li><strong>सिकरवार</strong> (सिकरी)</li>
-                    <li><strong>खंडारा</strong> (अनूपशहर, भोड़सी)</li>
-                    <li><strong>मराड़</strong> (पानीपत, करनाल)</li>
-                    <li><strong>रायज़ादा</strong> (विदिशा, भेंलसा)</li>
-                    <li><strong>मुंजवाल</strong> (समाहड़ा)</li>
-                    <li><strong>पोकरना</strong> (पोकरण)</li>
-                    <li><strong>कन्नौजिया बड़गुजर</strong> (सुरगज, उ.प्र.)</li>
-                </ul>
-            </div>
-
-            <!-- भारतीय इतिहास में भूमिका -->
-            <div class="panel">
-                <h2>⚔️ भारतीय इतिहास में बड़गुजरों की भूमिका</h2>
-                <p>बड़गुजर राजपूत केवल शासक ही नहीं थे, बल्कि अपनी भूमि और संस्कृति के रक्षक भी थे। उन्होंने मराठों, राजपूतों और मुगलों के शासनकाल के दौरान विदेशी आक्रमणों का विरोध करने और क्षेत्रीय स्थिरता बनाए रखने में महत्वपूर्ण भूमिका निभाई। उनकी सैन्य रणनीतियों और प्रशासनिक कौशल ने उनके क्षेत्रों की समृद्धि सुनिश्चित की, जिससे वे मध्य और पश्चिमी भारत की शक्ति गतिशीलता में प्रमुख भूमिका निभाने वाले बन गए।</p>
-            </div>
-
-            <!-- सांस्कृतिक योगदान -->
-            <div class="panel">
-                <h2>🎨 सांस्कृतिक और सामाजिक योगदान</h2>
-                <p>अपनी सैन्य उपलब्धियों से परे, बड़गुजर राजपूतों ने मध्य प्रदेश के सांस्कृतिक और सामाजिक ढाँचे में महत्वपूर्ण योगदान दिया। उन्होंने किले, महल और मंदिर बनवाए जो उनकी स्थापत्य कला के प्रमाण के रूप में खड़े हैं। कला, साहित्य और धार्मिक संस्थानों को उनके संरक्षण ने राजपूताना परंपराओं को संरक्षित करने में मदद की, जो आज भी क्षेत्र की संस्कृति को प्रभावित करती हैं।</p>
-            </div>
-
-            <!-- आधुनिक विरासत -->
-            <div class="panel">
-                <h2>🌟 बड़गुजर राजपूतों की आधुनिक विरासत</h2>
-                <p>आज बड़गुजर राजपूत आधुनिक समय के अनुसार ढलते हुए अपनी विरासत का सम्मान कर रहे हैं। कई वंशज राजनीति, प्रशासन और समाज सेवा में सक्रिय हैं, जिससे वंश की विरासत प्रासंगिक बनी रहे। <strong>ढाबला घोसी</strong> जैसी ऐतिहासिक रियासतें उनके गौरवशाली अतीत की याद दिलाती हैं, जबकि सांस्कृतिक आयोजन और पारिवारिक अभिलेख उनकी परंपराओं को जीवित रखते हैं।</p>
-
-                <div class="closing-quote">
-                    <p>"वीर भोग्या वसुंधरा" — वीर ही धरती का उपभोग करते हैं</p>
-                    <p style="font-size: 0.95rem; margin-top: 10px; color: var(--smoke); font-style: normal;">मध्य प्रदेश के बड़गुजर राजपूतों ने एक ऐसी स्थायी विरासत छोड़ी है जो समय की सीमाओं से परे है। उनकी वीरतापूर्ण लड़ाइयों और प्रशासनिक उत्कृष्टता से लेकर उनके सांस्कृतिक योगदान तक, क्षेत्र के इतिहास पर उनका प्रभाव निर्विवाद है। बड़गुजर राजपूतों की कहानी भारतीय इतिहास का केवल एक अध्याय नहीं है, बल्कि सम्मान, साहस और सहनशीलता की अटल भावना का प्रमाण है।</p>
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h5>ठिकाना ढाबला घोसी</h5>
+                    <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
+                    <p class="footer-location">
+                        उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ
+                        <span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span>
+                    </p>
+                    <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                        </a>
+                        <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल">
+                            <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5>नेविगेट करें</h5>
+                    <ul>
+                        <li><a href="index.html">होम</a></li>
+                        <li><a href="history.html">इतिहास</a></li>
+                        <li><a href="familytree.html">वंशावली</a></li>
+                        <li><a href="map.html">स्थान और नक्शा</a></li>
+                        <li><a href="dist.html">निर्देशिका</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>जानकारी</h5>
+                    <ul>
+                        <li><a href="about.html">परिचय</a></li>
+                        <li><a href="contactus.html">संपर्क करें</a></li>
+                        <li><a href="privacy.html">गोपनीयता नीति</a></li>
+                        <li><a href="terms.html">नियम एवं शर्तें</a></li>
+                        
+                        <li><a href="sitemap.html">साइटमैप</a></li>
+                    </ul>
                 </div>
             </div>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h5>ठिकाना ढाबला घोसी</h5>
-                <p>बड़गुजर राजपूत परिवार का पैतृक ठिकाना — ढाबला घोसी, शाजापुर जिला, मध्य प्रदेश, भारत — 465335</p>
-                <p class="footer-location">
-                    उज्जैन · इंदौर · भोपाल · देवास · जबलपुर · राजस्थान से जुड़ा हुआ
-                    <span class="geo">निर्देशांक: 23.3207° N, 76.7085° E</span>
-                </p>
-                <p style="margin-top:8px; color:var(--gold-pale);">राजपूताना की शान में — सदा अडिग</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/thikanadhabla/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61574110507895" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                    </a>
-                    <a href="mailto:info@thikanadhabla.in" aria-label="ईमेल">
-                        <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                    </a>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">होम</a><span>|</span>
+                    <a href="history.html">इतिहास</a><span>|</span>
+                    <a href="familytree.html">वंशावली</a><span>|</span>
+                    <a href="map.html">स्थान और नक्शा</a><span>|</span>
+                    <a href="dist.html">निर्देशिका</a><span>|</span>
+                    <a href="about.html">परिचय</a><span>|</span>
+                    <a href="contactus.html">संपर्क करें</a><span>|</span>
+                    <a href="privacy.html">गोपनीयता नीति</a><span>|</span>
+                    <a href="terms.html">नियम एवं शर्तें</a><span>|</span>
+                    <a href="sitemap.html">साइटमैप</a>
                 </div>
+                <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
             </div>
-            <div>
-                <h5>नेविगेट करें</h5>
-                <ul>
-                    <li><a href="index.html">होम</a></li>
-                    <li><a href="history.html">इतिहास</a></li>
-                    <li><a href="familytree.html">वंशावली</a></li>
-                    <li><a href="map.html">स्थान और नक्शा</a></li>
-                    <li><a href="dist.html">निर्देशिका</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5>जानकारी</h5>
-                <ul>
-                    <li><a href="about.html">परिचय</a></li>
-                    <li><a href="contactus.html">संपर्क करें</a></li>
-                    <li><a href="privacy.html">गोपनीयता नीति</a></li>
-                    <li><a href="terms.html">नियम एवं शर्तें</a></li>
-                    
-                    <li><a href="sitemap.html">साइटमैप</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="index.html">होम</a><span>|</span>
-                <a href="history.html">इतिहास</a><span>|</span>
-                <a href="familytree.html">वंशावली</a><span>|</span>
-                <a href="map.html">स्थान और नक्शा</a><span>|</span>
-                <a href="dist.html">निर्देशिका</a><span>|</span>
-                <a href="about.html">परिचय</a><span>|</span>
-                <a href="contactus.html">संपर्क करें</a><span>|</span>
-                <a href="privacy.html">गोपनीयता नीति</a><span>|</span>
-                <a href="terms.html">नियम एवं शर्तें</a><span>|</span>
-                <a href="sitemap.html">साइटमैप</a>
-            </div>
-            <span class="copyright-owner">कॉपीराइट © 2026 <a href="https://rajvardhansingh.in">राजवर्धन सिंह बड़गुजर</a> और परिवार। सर्वाधिकार सुरक्षित।</span>
-        </div>
-    </footer>
+        </footer>
+
+    </div><!-- /main-content -->
 
     <script>
-        // Mobile nav toggle
+        // ============ HERITAGE LOADER LOGIC ============
+        (function() {
+            const loader = document.getElementById('heritageLoader');
+            const progressFill = document.getElementById('loaderProgressFill');
+            const pctText = document.getElementById('loaderPct');
+            const mainContent = document.getElementById('mainContent');
+
+            let progress = 0;
+            let loaded = false;
+
+            const interval = setInterval(() => {
+                if (loaded) return;
+                const increment = Math.floor(Math.random() * 14) + 5;
+                progress = Math.min(progress + increment, 100);
+                progressFill.style.width = progress + '%';
+                pctText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 400);
+                }
+            }, 180);
+
+            setTimeout(() => {
+                if (!loaded) {
+                    clearInterval(interval);
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    pctText.textContent = '100%';
+                    loaded = true;
+                    setTimeout(() => {
+                        loader.classList.add('loaded');
+                        mainContent.classList.add('revealed');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 900);
+                    }, 300);
+                }
+            }, 6000);
+
+            window.addEventListener('load', () => {
+                if (!loaded) {
+                    setTimeout(() => {
+                        if (!loaded) {
+                            clearInterval(interval);
+                            progress = 100;
+                            progressFill.style.width = '100%';
+                            pctText.textContent = '100%';
+                            loaded = true;
+                            setTimeout(() => {
+                                loader.classList.add('loaded');
+                                mainContent.classList.add('revealed');
+                                setTimeout(() => {
+                                    loader.style.display = 'none';
+                                }, 900);
+                            }, 300);
+                        }
+                    }, 600);
+                }
+            });
+        })();
+
+        // ============ MOBILE NAV TOGGLE ============
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
         navToggle.addEventListener('click', () => {
@@ -754,10 +1073,10 @@
             }
         });
     </script>
-<script src="/track.js" defer></script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+    <script src="/track.js" defer></script>
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mDckL8KoqRdDY7PwjztTx";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
 </body>
 </html>
